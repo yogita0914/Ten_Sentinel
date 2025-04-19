@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline text-purple-500">
-        Ten Sentinel
-      </h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" />
+      </Routes>
     </div>
   );
 };
