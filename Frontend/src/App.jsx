@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" />
       </Routes>
+      <Footer/>
     </div>
   );
 };
