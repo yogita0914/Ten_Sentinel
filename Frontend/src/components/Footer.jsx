@@ -67,7 +67,7 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* Grid Layout */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:items-start text-center lg:text-left">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:items-start text-left">
             {/* Logo Section */}
             <motion.div variants={fadeInUp} className="flex flex-col items-center lg:items-start">
               <div className="space-y-4">
@@ -87,7 +87,7 @@ const Footer = () => {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="flex flex-col items-center lg:items-start"
+                className="flex flex-col items-center text-center lg:items-start lg:text-left"
               >
                 <h3 className="text-base font-semibold mb-3 text-gray-900">{section.title}</h3>
                 <ul className="space-y-2">
