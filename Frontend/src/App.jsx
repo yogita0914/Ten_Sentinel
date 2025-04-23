@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LandingPage from './pages/LandingPage';
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
 
       <main className='flex-grow'>
         <Routes>
-          <Route path="/" />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </main>
 
