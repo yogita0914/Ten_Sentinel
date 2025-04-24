@@ -23,8 +23,12 @@ const Navbar = () => {
     },
     {
       label: "Careers",
-      submenu: ["Internship", "Job Openings"],
+      submenu: [
+        { label: "Internship", href: "https://internships.entrepreneurshipnetwork.net/" },
+        { label: "Job Openings", href: "https://jobs.entrepreneurshipnetwork.net/" },
+      ],
     },
+
     { label: "Blogs", href: "/blogs" },
     { label: "Contact Us", href: "/contact" },
   ];
@@ -69,10 +73,10 @@ const Navbar = () => {
                       {item.submenu.map((sub, i) => (
                         <a
                           key={i}
-                          href="#"
+                          href={sub.href || "#"}
                           className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
                         >
-                          {sub}
+                          {sub.label || sub}
                         </a>
                       ))}
                     </div>
@@ -136,10 +140,10 @@ const Navbar = () => {
                       {item.submenu.map((sub, i) => (
                         <a
                           key={i}
-                          href="#"
+                          href={sub.href || "#"}
                           className="block text-sm hover:brightness-110 py-1 border-b border-transparent hover:border-blue-600 transition"
                         >
-                          {sub}
+                          {sub.label || sub}
                         </a>
                       ))}
                     </div>

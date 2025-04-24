@@ -51,7 +51,7 @@ export const PrivacyPage = () => {
 
   return (
     <div className='flex flex-col items-center gap-8'>
-      <div className="w-full bg-linear-65 from-blue-400 to-indigo-500 py-4 flex justify-center items-center shadow md:py-6 lg:py-8">
+      <div className="w-full  bg-gradient-to-br from-blue-900 to-indigo-900 py-4 flex justify-center items-center shadow md:py-6 lg:py-8">
         <h1 className='text-3xl text-blue-50 md:text-4xl lg:text-5xl'>Our Privacy Policy</h1>
       </div>
 
