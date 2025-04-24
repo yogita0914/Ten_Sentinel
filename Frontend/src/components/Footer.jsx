@@ -1,22 +1,43 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import logo from '../assets/logo.svg';
-import { FaFacebookF, FaXTwitter, FaLinkedin, FaWhatsapp, FaYoutube, FaInstagram } from "react-icons/fa6";
+import React from "react";
+import { motion } from "framer-motion";
+import logo from "../assets/logo.svg";
+import {
+  FaFacebookF,
+  FaXTwitter,
+  FaLinkedin,
+  FaWhatsapp,
+  FaYoutube,
+  FaInstagram,
+} from "react-icons/fa6";
 import { FiMapPin } from "react-icons/fi";
 
 const footerLinks = [
   {
     title: "SECURITY CONSULTATION",
-    links: ["Security Audits", "Data Privacy"]
+    links: [
+      { label: "Security Audits", href: "#" },
+      { label: "Data Privacy", href: "#" },
+    ],
   },
   {
     title: "TRAININGS",
-    links: ["Cyber Security Intern Trainee", "Cyber Security Courses for Working Professionals"]
+    links: [
+      { label: "Cyber Security Intern Trainee", href: "#" },
+      { label: "Cyber Security Courses for Working Professionals", href: "#" },
+    ],
   },
   {
     title: "IMPORTANT PAGES",
-    links: ["About Us", "Contact Us", "Internships", "Privacy Policy"]
-  }
+    links: [
+      { label: "About Us", href: "#" },
+      { label: "Contact Us", href: "#" },
+      {
+        label: "Internship",
+        href: "https://internships.entrepreneurshipnetwork.net/",
+      },
+      { label: "Privacy Policy", href: "#" },
+    ],
+  },
 ];
 
 const socialLinks = [
@@ -25,25 +46,29 @@ const socialLinks = [
   { icon: <FaLinkedin />, name: "LinkedIn", href: "https://linkedin.com/" },
   { icon: <FaWhatsapp />, name: "WhatsApp", href: "https://whatsapp.com/" },
   { icon: <FaYoutube />, name: "YouTube", href: "https://youtube.com/" },
-  { icon: <FaInstagram />, name: "Instagram", href: "https://instagram.com/" }
+  { icon: <FaInstagram />, name: "Instagram", href: "https://instagram.com/" },
 ];
 
 const Footer = () => {
-  const [formData, setFormData] = React.useState({ fullName: '', email: '' });
+  const [formData, setFormData] = React.useState({ fullName: "", email: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const staggerContainer = {
@@ -51,9 +76,9 @@ const Footer = () => {
     visible: {
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   return (
@@ -69,11 +94,20 @@ const Footer = () => {
           {/* Grid Layout */}
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:items-start text-left">
             {/* Logo Section */}
-            <motion.div variants={fadeInUp} className="flex flex-col items-center lg:items-start">
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col items-center lg:items-start"
+            >
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <img src={logo} alt="TEN Sentinel logo" className="h-12 w-12" />
-                  <span className="text-xl font-bold text-blue-600">TEN Sentinel</span>
+                  <img
+                    src={logo}
+                    alt="TEN Sentinel logo"
+                    className="h-12 w-12"
+                  />
+                  <span className="text-xl font-bold text-blue-600">
+                    TEN Sentinel
+                  </span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600 space-x-2">
                   <FiMapPin className="text-blue-500" />
@@ -89,7 +123,9 @@ const Footer = () => {
                 variants={fadeInUp}
                 className="flex flex-col items-center text-center lg:items-start lg:text-left"
               >
-                <h3 className="text-base font-semibold mb-3 text-gray-900">{section.title}</h3>
+                <h3 className="text-base font-semibold mb-3 text-gray-900">
+                  {section.title}
+                </h3>
                 <ul className="space-y-2">
                   {section.links.map((link, j) => (
                     <motion.li
@@ -97,8 +133,11 @@ const Footer = () => {
                       whileHover={{ scale: 1.05, x: 5 }}
                       className="transition-transform duration-200"
                     >
-                      <a href="#" className="text-gray-600 hover:text-blue-600 text-sm leading-snug">
-                        {link}
+                      <a
+                        href={link.href}
+                        className="text-gray-600 hover:text-blue-600 text-sm leading-snug"
+                      >
+                        {link.label}
                       </a>
                     </motion.li>
                   ))}
@@ -107,14 +146,20 @@ const Footer = () => {
             ))}
 
             {/* Newsletter Signup */}
-            <motion.div variants={fadeInUp} className="flex flex-col items-start w-full">
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col items-start w-full"
+            >
               <div className="space-y-4 w-full">
                 <h3 className="text-base font-semibold text-gray-900">
                   Sign Up for Our Newsletter
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-3 w-full">
                   <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="fullName"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Full Name
                     </label>
                     <input
@@ -129,7 +174,10 @@ const Footer = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Email Address
                     </label>
                     <input
