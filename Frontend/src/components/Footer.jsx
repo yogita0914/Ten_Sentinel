@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.svg";
+import { MdEmail } from "react-icons/md";
 import {
   FaFacebookF,
   FaXTwitter,
@@ -92,14 +93,14 @@ const Footer = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* Grid Layout */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:items-start text-left">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-left">
             {/* Logo Section */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col items-center lg:items-start"
+              className="flex flex-col items-center sm:items-start col-span-1"
             >
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+              <div className="space-y-4 text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start space-x-3">
                   <img
                     src={logo}
                     alt="TEN Sentinel logo"
@@ -109,9 +110,20 @@ const Footer = () => {
                     TEN Sentinel
                   </span>
                 </div>
-                <div className="flex items-center text-sm text-gray-600 space-x-2">
+                <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
                   <FiMapPin className="text-blue-500" />
-                  <span>Noida, Uttar Pradesh</span>
+                  <span>
+                    Corporate Address India Accelerator, Noida 201301,<br/> UP, India
+                  </span>
+                </div>
+                <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
+                  <MdEmail className="text-blue-500" />
+                  <a
+                    href="mailto:info@entrepreneurshipnetwork.net"
+                    className="hover:text-blue-600 break-words"
+                  >
+                    info@entrepreneurshipnetwork.net
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -121,7 +133,7 @@ const Footer = () => {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="flex flex-col items-center text-center lg:items-start lg:text-left"
+                className="flex flex-col items-center sm:items-start text-center sm:text-left"
               >
                 <h3 className="text-base font-semibold mb-3 text-gray-900">
                   {section.title}
@@ -148,7 +160,7 @@ const Footer = () => {
             {/* Newsletter Signup */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col items-start w-full"
+              className="flex flex-col items-start col-span-1 w-full"
             >
               <div className="space-y-4 w-full">
                 <h3 className="text-base font-semibold text-gray-900">
@@ -212,10 +224,16 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-500 text-sm text-center sm:text-left">
-              © {new Date().getFullYear()} TEN Sentinel. All rights reserved.
-            </p>
-            <div className="flex justify-center space-x-4 text-gray-500">
+            <div className="mt-8 text-center">
+              <p className="text-gray-500 text-sm">
+                © {new Date().getFullYear()} TEN Sentinel. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-sm mt-2 font-semibold text-blue-600">
+                Powered by the TEN Sentinel Team.
+              </p>
+            </div>
+
+            <div className="flex justify-center flex-wrap gap-4 text-gray-500">
               {socialLinks.map((social, i) => (
                 <motion.a
                   key={i}
@@ -227,7 +245,7 @@ const Footer = () => {
                   whileTap={{ scale: 0.9 }}
                   aria-label={social.name}
                 >
-                  <div className="h-5 w-5">{social.icon}</div>
+                  <div className="text-xl">{social.icon}</div>
                 </motion.a>
               ))}
             </div>
