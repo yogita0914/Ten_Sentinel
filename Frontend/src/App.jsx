@@ -8,15 +8,12 @@ import LandingPage from './pages/LandingPage';
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       <Navbar />
-
-      <main className='flex-grow my-16'>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
         </Routes>
-      </main>
 
       <Footer />
     </div>
