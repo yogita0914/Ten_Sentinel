@@ -3,20 +3,19 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { PrivacyPage } from './pages/PrivacyPage';
 import LandingPage from './pages/LandingPage';
 import Security_Audits from './pages/Security_Audits';
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       <Navbar />
-
-      <main className='flex-grow'>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/security-audits" element={<Security_Audits />} />
+          <Route path="/privacy-policy" element={<PrivacyPage />} />
         </Routes>
-      </main>
 
       <Footer />
     </div>
