@@ -10,13 +10,14 @@ import {
   FaYoutube,
   FaInstagram,
 } from "react-icons/fa6";
+
 import { FiMapPin } from "react-icons/fi";
 
 const footerLinks = [
   {
     title: "SECURITY CONSULTATION",
     links: [
-      { label: "Security Audits", href: "#" },
+      { label: "Security Audits", href: "/security-audits" },
       { label: "Data Privacy", href: "#" },
     ],
   },

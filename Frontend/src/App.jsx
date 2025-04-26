@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from './pages/LandingPage';
+import Security_Audits from './pages/Security_Audits';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <main className='flex-grow'>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/security-audits" element={<Security_Audits />} />
         </Routes>
       </main>
 
