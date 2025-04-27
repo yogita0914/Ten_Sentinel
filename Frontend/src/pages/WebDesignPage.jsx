@@ -1,4 +1,8 @@
 import React from 'react';
+import DeliverSVG from "../assets/WebDesignPage/deliver.svg";
+import HomeSVG from "../assets/WebDesignPage/home.svg";
+import ServicesSVG from "../assets/WebDesignPage/services.svg";
+
 
 export const WebDesignPage = () => {
     return (
@@ -24,7 +28,7 @@ export const WebDesignPage = () => {
 
                 <p>We deliver customized web design solutions tailored to your brand, ensuring a seamless user experience that stands out from the competition.</p>
 
-                <img src="#" />
+                <img src={HomeSVG} />
 
                 <button>Get FREE Assessment Report!</button>
 
@@ -44,7 +48,7 @@ export const WebDesignPage = () => {
                     At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
                 </p>
 
-                <img src="#" />
+                <img src={ServicesSVG} />
 
             </section>
 
@@ -71,15 +75,22 @@ export const WebDesignPage = () => {
             <section>
                 <h2>How We Deliver Exceptional Web Design</h2>
 
-                <ul>
-                    <li>
-                        <img src="#" />
-                        <div>
-                            <h3>STEP 1: Discovery & Strategy</h3>
-                            <p>Understand your brand, goals, and audience to craft a tailored design roadmap.</p>
-                        </div>
-                    </li>
-                </ul>
+
+                <div>
+
+                    <ul>
+                        <li>
+                            <img src="#" />
+                            <div>
+                                <h3>STEP 1: Discovery & Strategy</h3>
+                                <p>Understand your brand, goals, and audience to craft a tailored design roadmap.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <img src={DeliverSVG} />
+                    
+                </div>
 
                 <button>Download Your FREE Web Design Sample Report</button>
             </section>
