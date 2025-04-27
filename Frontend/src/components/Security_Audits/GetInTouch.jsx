@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import GetInTouch from "../../assets/GetInTouch.jpg"; // Adjust the path as necessary
-
+import GetInTouch from "../../assets/GetInTouch.png"; // Adjust the path as necessary
 
 const GetInTouchForm = () => {
   return (
-    
     <section className="bg-gray-50 mb-10">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Left illustration */}
-        <div className="w-full lg:w-1/2">
-          <img
+        <div className="w-full lg:w-1/2 flex justify-center">
+          {/* <img
             src={GetInTouch}
             alt="Customer Support"
-            className="w-full max-w-md mx-auto"
-          />
+            className="w-full max-w-md mx-auto h-[650px] object-contain" // 👈 Increased height
+          /> */}
+
+<img 
+  src="/src/assets/GetInTouch.png" 
+  alt="FAQ Illustration" 
+  className="hidden md:block w-full h-[450px] object-cover rounded-lg"
+/>
+
         </div>
 
         {/* Right form */}

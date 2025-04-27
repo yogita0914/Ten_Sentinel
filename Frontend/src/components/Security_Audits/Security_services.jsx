@@ -40,10 +40,12 @@ export default function SecurityAuditServices() {
         {services.map(({ label, img }) => (
           <div
             key={label}
-            className="rounded-xl border hover:shadow-xl p-4 w-full max-w-[180px] bg-white flex flex-col items-center text-center transition-all duration-300"
+            className="rounded-xl border border-[#E5E7EB] hover:shadow-lg hover:border-blue-800 p-4 w-full max-w-[220px] min-h-[155px] bg-white flex flex-col items-center text-center transition-all duration-300"
           >
-            <img src={img} alt={label} className="h-16 mb-3 object-contain" />
-            <p className="text-sm font-medium text-gray-800">{label}</p>
+            <img src={img} alt={label} className="h-16 mb-4 object-contain" />
+            <p className="text-sm font-medium text-gray-800 leading-snug">
+              {label}
+            </p>
           </div>
         ))}
       </div>
@@ -54,9 +56,9 @@ export default function SecurityAuditServices() {
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
             Key Benefits of a Cybersecurity Audit
           </h3>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {benefits.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-gray-700">
+              <li key={item} className="flex items-start gap-3 text-gray-700">
                 <CheckCircle className="text-green-500 w-5 h-5 mt-0.5" />
                 <span>{item}</span>
               </li>
@@ -68,9 +70,9 @@ export default function SecurityAuditServices() {
           <h3 className="text-xl font-semibold text-gray-800 mb-4">
             Audit Features at a Glance
           </h3>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {features.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-gray-700">
+              <li key={item} className="flex items-start gap-3 text-gray-700">
                 <CheckCircle className="text-green-500 w-5 h-5 mt-0.5" />
                 <span>{item}</span>
               </li>
