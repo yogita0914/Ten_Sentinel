@@ -4,6 +4,7 @@ import HomeSVG from "../assets/WebDesignPage/home.svg";
 import ServicesSVG from "../assets/WebDesignPage/services.svg";
 import { SectionTitle } from '../components/WebDesign/SectionTitle';
 import { LightParagraph } from '../components/WebDesign/LightParagraph';
+import { Button } from '../components/WebDesign/Button';
 
 export const WebDesignPage = () => {
 
@@ -40,6 +41,39 @@ export const WebDesignPage = () => {
         },
     ]
 
+    const deliverListItems = [
+        {
+            icon: '/deliverListItems/analysis.svg',
+            title: 'STEP 1: Discovery & Strategy',
+            text: 'Understand your brand, goals, and audience to craft a tailored design roadmap.'
+        },
+        {
+            icon: '/deliverListItems/pencil.svg',
+            title: 'STEP 2: Wireframing & UX Planning',
+            text: 'Map intuitive user journeys and structure with low-fidelity wireframes.'
+        },
+        {
+            icon: '/deliverListItems/pallete.svg',
+            title: 'STEP 3: Visual Design & Branding',
+            text: 'Create stunning, on-brand interfaces that captivate users (mobile-first!).'
+        },
+        {
+            icon: '/deliverListItems/code.svg',
+            title: 'STEP 4: Development & Testing',
+            text: 'Transform designs into fast, responsive code—tested across devices/browsers.'
+        },
+        {
+            icon: '/deliverListItems/rocket.svg',
+            title: 'STEP 5: Launch & Optimization',
+            text: 'Deploy with SEO best practices, analytics, and performance tuning.'
+        },
+        {
+            icon: '/deliverListItems/sync.svg',
+            title: 'STEP 6: Post-Launch Support',
+            text: 'Continuous updates, A/B testing, and scalability enhancements.'
+        },
+    ]
+
     return (
         <div className="flex flex-col mt-16">
 
@@ -55,6 +89,7 @@ export const WebDesignPage = () => {
             </div>
 
             <div>
+
                 {/* Home Page */}
                 <section className='flex flex-col gap-6 py-12 px-6'>
 
@@ -73,7 +108,7 @@ export const WebDesignPage = () => {
 
                     <img src={HomeSVG} className='w-52 self-center' />
 
-                    <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white w-fit px-4 py-2 rounded-md cursor-pointer self-center'>Get FREE Assessment Report!</button>
+                    <Button text={"Get FREE Assessment Report!"} />
 
                 </section>
 
@@ -95,7 +130,6 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* Importance */}
-
                 <section className='flex flex-col gap-6 py-12 px-6'>
 
                     <SectionTitle title={"Why is Web Design Important?"} />
@@ -108,7 +142,7 @@ export const WebDesignPage = () => {
                         {
                             importanceListItems.map((item, key) => (
                                 <li key={key} className='flex flex-col items-center justify-center border border-black rounded-md gap-2 px-6 py-2'>
-                                    <img src={item.icon}  className='w-14'/>
+                                    <img src={item.icon} className='w-14' />
                                     <h3 className='text-xl'>{item.title}</h3>
                                     <LightParagraph >{item.text}</LightParagraph>
                                 </li>
@@ -120,33 +154,41 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* Deliver */}
-
-                <section>
+                <section className='flex flex-col gap-8 py-12 px-6'>
 
                     <SectionTitle title={"How We Deliver Exceptional Web Design"} />
 
-                    <div>
+                    <div className='flex flex-col'>
 
-                        <ul>
-                            <li>
-                                <img src="#" />
-                                <div>
-                                    <h3>STEP 1: Discovery & Strategy</h3>
-                                    <p>Understand your brand, goals, and audience to craft a tailored design roadmap.</p>
-                                </div>
-                            </li>
+                        <ul className='flex flex-col gap-6'>
+
+                            {
+                                deliverListItems.map((item, key) => (
+                                    <li key={key} className='flex flex-row gap-4 items-center'>
+
+                                        <img className='w-14 h-14' src={item.icon} />
+
+                                        <div>
+                                            <h3 className='text-lg'>{item.title}</h3>
+                                            <LightParagraph>{item.text}</LightParagraph>
+                                        </div>
+                                    </li>
+                                ))
+                            }
+
                         </ul>
 
-                        <img src={DeliverSVG} />
+                        <img className='hidden' src={DeliverSVG} />
 
                     </div>
 
-                    <button>Download Your FREE Web Design Sample Report</button>
+                    <Button text={"Download Your FREE Web Design Sample Report"} />
+
                 </section>
 
                 {/* FAQ's */}
 
-                <section>
+                <section className='flex flex-col gap-6 py-12 px-6'>
                     <SectionTitle title={"FAQ's"} />
 
                     <ul>
