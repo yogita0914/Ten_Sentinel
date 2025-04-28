@@ -2,9 +2,44 @@ import React from 'react';
 import DeliverSVG from "../assets/WebDesignPage/deliver.svg";
 import HomeSVG from "../assets/WebDesignPage/home.svg";
 import ServicesSVG from "../assets/WebDesignPage/services.svg";
-
+import { SectionTitle } from '../components/WebDesign/SectionTitle';
+import { LightParagraph } from '../components/WebDesign/LightParagraph';
 
 export const WebDesignPage = () => {
+
+    const importanceListItems = [
+        {
+            icon: './importanceIcons/crown.png',
+            title: 'Strong First Impressions',
+            text: 'Your website is often the first interaction customers have with your brand. A polished, modern design builds immediate credibility.'
+        },
+        {
+            icon: './importanceIcons/rocket.png',
+            title: 'Enhanced User Experience',
+            text: 'Intuitive navigation and responsive layouts keep visitors engaged and reduce bounce rates.'
+        },
+        {
+            icon: './importanceIcons/phone.png',
+            title: 'Mobile Optimization',
+            text: 'Ensures your site looks and functions perfectly on all devices, reaching a wider audience.'
+        },
+        {
+            icon: './importanceIcons/bolt.png',
+            title: 'Faster Loading Speeds',
+            text: 'Optimized design improves performance, keeping users happy and boosting SEO rankings.'
+        },
+        {
+            icon: './importanceIcons/trophy.png',
+            title: 'Competitive Edge',
+            text: 'Stand out from competitors with a unique, visually appealing, and functional website.'
+        },
+        {
+            icon: './importanceIcons/search.png',
+            title: 'SEO-Friendly Structure',
+            text: 'Clean code + SEO-optimized architecture to rank higher and attract organic traffic.'
+        },
+    ]
+
     return (
         <div className="flex flex-col mt-16">
 
@@ -19,53 +54,67 @@ export const WebDesignPage = () => {
                 </div>
             </div>
 
-            <div className='mx-6'>
+            <div>
                 {/* Home Page */}
-                <section className='flex flex-col gap-6 py-12'>
+                <section className='flex flex-col gap-6 py-12 px-6'>
 
-                    <h2 className='text-2xl font-semibold'>Looking for Top-Tier Web Design Services?</h2>
 
-                    <p className='font-light'>Our Web Design Services are crafted to elevate your online presence with stunning, high-performance websites that captivate your audience.</p>
+                    <SectionTitle title={"Looking for Top-Tier Web Design Services?"} />
 
-                    <p>We deliver customized web design solutions tailored to your brand, ensuring a seamless user experience that stands out from the competition.</p>
-
-                    <img src={HomeSVG} className='w-52 self-center' />
-                    <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white w-fit px-4 py-2 rounded-md cursor-pointer self-center'>Get FREE Assessment Report!</button>
-
-                </section>
-
-                {/* Services */}
-
-                <section>
-
-                    <h2>What Are Web Design Services?</h2>
-
-                    <p>
+                    <LightParagraph>
                         Web Design Services are essential for creating a powerful, visually appealing, and functional online presence for your business.
 
                         In simple terms, it's like having a skilled team that crafts an engaging, user-friendly website tailored to your brand—helping you attract customers and stand out in the digital world.
 
                         At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
-                    </p>
+                    </LightParagraph>
 
-                    <img src={ServicesSVG} />
+                    <p>We deliver customized web design solutions tailored to your brand, ensuring a seamless user experience that stands out from the competition.</p>
+
+                    <img src={HomeSVG} className='w-52 self-center' />
+
+                    <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white w-fit px-4 py-2 rounded-md cursor-pointer self-center'>Get FREE Assessment Report!</button>
+
+                </section>
+
+                {/* Services */}
+                <section className='flex flex-col bg-blue-50 gap-6 py-12 px-6'>
+
+                    <SectionTitle title={"What Are Web Design Services?"} />
+
+                    <LightParagraph>
+                        Web Design Services are essential for creating a powerful, visually appealing, and functional online presence for your business.
+
+                        In simple terms, it's like having a skilled team that crafts an engaging, user-friendly website tailored to your brand—helping you attract customers and stand out in the digital world.
+
+                        At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
+                    </LightParagraph>
+
+                    <img src={ServicesSVG} className='w-full' />
 
                 </section>
 
                 {/* Importance */}
 
-                <section>
+                <section className='flex flex-col gap-6 py-12 px-6'>
 
-                    <h2>Why is <strong>Web Design</strong> Important?</h2>
+                    <SectionTitle title={"Why is Web Design Important?"} />
 
-                    <p>A high-quality website is crucial for your business's success in the digital world. Here are some key benefits of investing in professional web design services.</p>
+                    <LightParagraph>
+                        A high-quality website is crucial for your business's success in the digital world. Here are some key benefits of investing in professional web design services.
+                    </LightParagraph>
 
-                    <ul>
-                        <li>
-                            <img src='#' />
-                            <h3>Strong First Impressions</h3>
-                            <p>Your website is often the first interaction customers have with your brand. A polished, modern design builds immediate credibility.</p>
-                        </li>
+                    <ul className='flex flex-col gap-6'>
+                        {
+                            importanceListItems.map((item, key) => (
+                                <li key={key} className='flex flex-col items-center justify-center border border-black rounded-md gap-2 px-6 py-2'>
+                                    <img src={item.icon}  className='w-14'/>
+                                    <h3 className='text-xl'>{item.title}</h3>
+                                    <LightParagraph >{item.text}</LightParagraph>
+                                </li>
+                            ))
+                        }
+
                     </ul>
 
                 </section>
@@ -73,8 +122,8 @@ export const WebDesignPage = () => {
                 {/* Deliver */}
 
                 <section>
-                    <h2>How We Deliver Exceptional Web Design</h2>
 
+                    <SectionTitle title={"How We Deliver Exceptional Web Design"} />
 
                     <div>
 
@@ -98,7 +147,7 @@ export const WebDesignPage = () => {
                 {/* FAQ's */}
 
                 <section>
-                    <h2>FAQ's</h2>
+                    <SectionTitle title={"FAQ's"} />
 
                     <ul>
                         <li>
