@@ -77,7 +77,7 @@ const Services = () => {
           {/* Optional: Add a responsive title here if needed */}
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
           ))}

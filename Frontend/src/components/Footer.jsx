@@ -10,33 +10,34 @@ import {
   FaYoutube,
   FaInstagram,
 } from "react-icons/fa6";
-import { FiMapPin } from "react-icons/fi";
 
+import { FiMapPin } from "react-icons/fi";
+import { Link } from "react-router-dom";
 const footerLinks = [
   {
     title: "SECURITY CONSULTATION",
     links: [
-      { label: "Security Audits", href: "#" },
+      { label: "Security Audits", url: "/security-audits" },
       { label: "Data Privacy", href: "#" },
     ],
   },
   {
     title: "TRAININGS",
     links: [
-      { label: "Cyber Security Intern Trainee", href: "#" },
-      { label: "Cyber Security Courses for Working Professionals", href: "#" },
+      { label: "Cyber Security Intern Trainee", url: "/" },
+      { label: "Cyber Security Courses for Working Professionals", url: "/" },
     ],
   },
   {
     title: "IMPORTANT PAGES",
     links: [
-      { label: "About Us", href: "#" },
-      { label: "Contact Us", href: "#" },
+      { label: "About Us", url: "/" },
+      { label: "Contact Us", url: "/" },
       {
         label: "Internship",
         href: "https://internships.entrepreneurshipnetwork.net/",
       },
-      { label: "Privacy Policy", href: "#" },
+      { label: "Privacy Policy", url: "/privacy-policy" },
     ],
   },
 ];
@@ -113,7 +114,7 @@ const Footer = () => {
                 <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
                   <FiMapPin className="text-blue-500" />
                   <span>
-                    Corporate Address India Accelerator, Noida 201301,<br/> UP, India
+                    Corporate Address India Accelerator, Noida 201301,<br /> UP, India
                   </span>
                 </div>
                 <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
@@ -145,12 +146,13 @@ const Footer = () => {
                       whileHover={{ scale: 1.05, x: 5 }}
                       className="transition-transform duration-200"
                     >
-                      <a
-                        href={link.href}
+                      <Link
+                        to={link.url}
+                        onClick={() => window.scrollTo(0, 0)}
                         className="text-gray-600 hover:text-blue-600 text-sm leading-snug"
                       >
                         {link.label}
-                      </a>
+                      </Link>
                     </motion.li>
                   ))}
                 </ul>
@@ -228,7 +230,7 @@ const Footer = () => {
               <p className="text-gray-500 text-sm">
                 © {new Date().getFullYear()} TEN Sentinel. All rights reserved.
               </p>
-              <p className="text-gray-500 text-sm mt-2 font-semibold text-blue-600">
+              <p className="text-gray-500 text-sm mt-2 font-semibold">
                 Powered by the TEN Sentinel Team.
               </p>
             </div>
