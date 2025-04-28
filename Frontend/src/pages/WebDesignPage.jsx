@@ -129,6 +129,7 @@ export const WebDesignPage = () => {
 
             <div>
 
+
                 {/* Home Page */}
                 <section className='flex flex-col gap-6 py-12 px-6'>
 
@@ -152,19 +153,22 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* Services */}
-                <section className='flex flex-col bg-blue-50 gap-6 py-12 px-6'>
+                <section className='flex flex-col bg-blue-50 gap-4 py-12 px-6 md:gap-8'>
 
                     <SectionTitle title={"What Are Web Design Services?"} />
 
-                    <LightParagraph>
-                        Web Design Services are essential for creating a powerful, visually appealing, and functional online presence for your business.
+                    <div className='flex flex-col gap-8 md:flex-row md:gap-10'>
 
-                        In simple terms, it's like having a skilled team that crafts an engaging, user-friendly website tailored to your brand—helping you attract customers and stand out in the digital world.
+                        <LightParagraph>
+                            Web Design Services are essential for creating a powerful, visually appealing, and functional online presence for your business.
 
-                        At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
-                    </LightParagraph>
+                            In simple terms, it's like having a skilled team that crafts an engaging, user-friendly website tailored to your brand—helping you attract customers and stand out in the digital world.
 
-                    <img src={ServicesSVG} className='w-full' />
+                            At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
+                        </LightParagraph>
+
+                        <img src={ServicesSVG} className='w-full max-w-96 self-center md:w-2/5' />
+                    </div>
 
                 </section>
 
@@ -177,7 +181,7 @@ export const WebDesignPage = () => {
                         A high-quality website is crucial for your business's success in the digital world. Here are some key benefits of investing in professional web design services.
                     </LightParagraph>
 
-                    <ul className='flex flex-col gap-6'>
+                    <ul className='flex flex-col gap-6 md:grid grid-cols-2'>
                         {
                             importanceListItems.map((item, key) => (
                                 <li key={key} className='flex flex-col items-center justify-center border border-black rounded-md gap-2 px-6 py-2'>
@@ -192,12 +196,13 @@ export const WebDesignPage = () => {
 
                 </section>
 
+
                 {/* Deliver */}
-                <section className='flex flex-col bg-blue-50 gap-8 py-12 px-6'>
+                <section className='flex flex-col bg-blue-50 gap-8 py-12 px-6 md:gap-12'>
 
                     <SectionTitle title={"How We Deliver Exceptional Web Design"} />
 
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col md:flex-row md:gap-6'>
 
                         <ul className='flex flex-col gap-6'>
 
@@ -207,8 +212,8 @@ export const WebDesignPage = () => {
 
                                         <img className='w-14 h-14' src={item.icon} />
 
-                                        <div>
-                                            <h3 className='text-lg'>{item.title}</h3>
+                                        <div className='flex flex-col md:gap-1'>
+                                            <h3 className='text-lg font-semibold md:text-xl'>{item.title}</h3>
                                             <LightParagraph>{item.text}</LightParagraph>
                                         </div>
                                     </li>
@@ -217,7 +222,7 @@ export const WebDesignPage = () => {
 
                         </ul>
 
-                        <img className='hidden' src={DeliverSVG} />
+                        <img className='hidden md:block w-2/6' src={DeliverSVG} />
 
                     </div>
 
@@ -232,9 +237,9 @@ export const WebDesignPage = () => {
                     <ul className='flex flex-col gap-8'>
                         {
                             faqs.map((faq, key) => (
-                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl px-4 py-2'>
-                                    <div className='flex flex-row items-center justify-between gap-4 '>
-                                        <h3 className='text-base'>{faq.question}</h3>
+                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl px-4 py-2 md:px-8 md:py-6'>
+                                    <div className='flex flex-row items-center justify-between gap-4 text-base md:text-xl'>
+                                        <h3>{faq.question}</h3>
 
                                         <button className='w-6 cursor-pointer'
                                             onClick={(e) => handleSetFaqs(e, key)}>
@@ -249,7 +254,7 @@ export const WebDesignPage = () => {
                                     </div>
 
                                     {faq.isOpen && (
-                                        <p className='text-sm text-gray-800'>{faq.response}</p>
+                                        <p className='text-sm text-gray-800 md:text-lg'>{faq.response}</p>
                                     )}
 
                                 </li>
