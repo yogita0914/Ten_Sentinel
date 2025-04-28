@@ -24,8 +24,14 @@ const Navbar = () => {
     {
       label: "Careers",
       submenu: [
-        { label: "Internship", href: "https://internships.entrepreneurshipnetwork.net/" },
-        { label: "Job Openings", href: "https://jobs.entrepreneurshipnetwork.net/" },
+        {
+          label: "Internship",
+          href: "https://internships.entrepreneurshipnetwork.net/",
+        },
+        {
+          label: "Job Openings",
+          href: "https://jobs.entrepreneurshipnetwork.net/",
+        },
       ],
     },
 
@@ -42,7 +48,6 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo and Title Left Side */}
           <div className="flex items-center">
             <img src={logo} alt="logo" className="h-10 w-10 mr-2" />
             <span className="text-xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text">
@@ -50,7 +55,6 @@ const Navbar = () => {
             </span>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden lg:flex space-x-6 items-center">
             {menuItems.map((item, idx) =>
               item.submenu ? (
@@ -94,14 +98,12 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* CTA Button */}
           <div className="hidden lg:block">
             <button className="bg-blue-600 text-white hover:bg-white hover:text-blue-700 font-semibold px-4 py-2 rounded">
               Get Help NOW!
             </button>
           </div>
 
-          {/* Hamburger Menu Button */}
           <div className="lg:hidden">
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -109,7 +111,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
