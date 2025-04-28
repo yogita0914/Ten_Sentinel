@@ -98,7 +98,7 @@ const Hero = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={openModal}
-                className="bg-white hover:bg-white/80 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg flex items-center transition-all duration-300 shadow-lg cursor-pointer"
+                className="bg-white hover:bg-white/80 text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg flex items-center transition-all duration-300 shadow-lg cursor-pointer"
               >
                 Get FREE Consultation
                 <ArrowRightIcon className="h-5 w-5 ml-2" />
