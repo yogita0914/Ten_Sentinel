@@ -131,7 +131,7 @@ export const WebDesignPage = () => {
 
 
                 {/* Home Page */}
-                <section className='flex flex-col gap-6 py-12 px-6'>
+                <section className='flex flex-col gap-6 py-12 px-6 lg:gap-12 lg:px-40'>
 
 
                     <SectionTitle title={"Looking for Top-Tier Web Design Services?"} />
@@ -153,7 +153,7 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* Services */}
-                <section className='flex flex-col bg-blue-50 gap-4 py-12 px-6 md:gap-8'>
+                <section className='flex flex-col bg-blue-50 gap-4 py-12 px-6 md:gap-8 lg:px-40'>
 
                     <SectionTitle title={"What Are Web Design Services?"} />
 
@@ -167,13 +167,13 @@ export const WebDesignPage = () => {
                             At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
                         </LightParagraph>
 
-                        <img src={ServicesSVG} className='w-full max-w-96 self-center md:w-2/5' />
+                        <img src={ServicesSVG} className='w-full max-w-96 self-center md:w-2/5 lg:max-w-full' />
                     </div>
 
                 </section>
 
                 {/* Importance */}
-                <section className='flex flex-col gap-6 py-12 px-6'>
+                <section className='flex flex-col gap-6 py-12 px-6 lg:gap-12 lg:px-40'>
 
                     <SectionTitle title={"Why is Web Design Important?"} />
 
@@ -181,7 +181,7 @@ export const WebDesignPage = () => {
                         A high-quality website is crucial for your business's success in the digital world. Here are some key benefits of investing in professional web design services.
                     </LightParagraph>
 
-                    <ul className='flex flex-col gap-6 md:grid grid-cols-2'>
+                    <ul className='flex flex-col gap-6 md:grid grid-cols-2 lg:gap-12 xl:grid-cols-3'>
                         {
                             importanceListItems.map((item, key) => (
                                 <li key={key} className='flex flex-col items-center justify-center border border-black rounded-md gap-2 px-6 py-2'>
@@ -198,11 +198,11 @@ export const WebDesignPage = () => {
 
 
                 {/* Deliver */}
-                <section className='flex flex-col bg-blue-50 gap-8 py-12 px-6 md:gap-12'>
+                <section className='flex flex-col bg-blue-50 gap-8 py-12 px-6 md:gap-12 lg:px-40 lg:items-center'>
 
                     <SectionTitle title={"How We Deliver Exceptional Web Design"} />
 
-                    <div className='flex flex-col md:flex-row md:gap-6'>
+                    <div className='flex flex-col md:flex-row md:gap-6 lg:justify-center'>
 
                         <ul className='flex flex-col gap-6'>
 
@@ -231,13 +231,13 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* FAQ's */}
-                <section className='flex flex-col gap-6 py-12 px-6'>
+                <section className='flex flex-col gap-6 py-12 px-6 lg:justify-self-center'>
                     <SectionTitle title={"FAQ's"} />
 
                     <ul className='flex flex-col gap-8'>
                         {
                             faqs.map((faq, key) => (
-                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl px-4 py-2 md:px-8 md:py-6'>
+                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl px-4 py-2 md:px-8 md:py-6 lg:w-[800px]'>
                                     <div className='flex flex-row items-center justify-between gap-4 text-base md:text-xl'>
                                         <h3>{faq.question}</h3>
 
