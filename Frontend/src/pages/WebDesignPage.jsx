@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DeliverSVG from "../assets/WebDesignPage/deliver.svg";
 import HomeSVG from "../assets/WebDesignPage/home.svg";
 import ServicesSVG from "../assets/WebDesignPage/services.svg";
 import { SectionTitle } from '../components/WebDesign/SectionTitle';
 import { LightParagraph } from '../components/WebDesign/LightParagraph';
 import { Button } from '../components/WebDesign/Button';
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 export const WebDesignPage = () => {
 
@@ -74,6 +75,44 @@ export const WebDesignPage = () => {
         },
     ]
 
+    const [faqs, setFaqs] = useState([
+        {
+            question: "Why is professional web design critical for my business?",
+            response: "Your website is your digital storefront. A well-designed site builds trust, improves user experience, and directly impacts conversions. Poor design can drive potential customers away.",
+            isOpen: false
+        },
+        {
+            question: "How long does the web design process take?",
+            response: "Typically 2-6 weeks, depending on complexity. We prioritize quality while meeting your deadlines.",
+            isOpen: false
+        },
+        {
+            question: "Do you design mobile-friendly websites?",
+            response: "Absolutely. Every site we build is fully responsive, ensuring seamless performance on all devices (60%+ traffic comes from mobile!).",
+            isOpen: false
+        },
+        {
+            question: "Will my website be optimized for search engines (SEO)?",
+            response: "Yes. Our designs include SEO best practices (clean code, speed optimization, and metadata structuring) to help you rank higher.",
+            isOpen: false
+        },
+        {
+            question: "What ongoing support do you offer after launch?",
+            response: "We provide post-launch updates, security patches, and performance tweaks to keep your site ahead of competitors.",
+            isOpen: false
+        },
+    ])
+
+    const handleSetFaqs = (e, key) => {
+        e.preventDefault();
+        setFaqs(prevFaqs =>
+            prevFaqs.map((faq, index) =>
+                index === key
+                    ? { ...faq, isOpen: !faq.isOpen }
+                    : faq
+            )
+        );
+    }
     return (
         <div className="flex flex-col mt-16">
 
@@ -187,20 +226,39 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* FAQ's */}
-
                 <section className='flex flex-col gap-6 py-12 px-6'>
                     <SectionTitle title={"FAQ's"} />
 
-                    <ul>
-                        <li>
-                            <div>
-                                <h3>How long does the web design process take?</h3>
-                                <img src="#" />
-                            </div>
-                            <p>Typically 2-6 weeks, depending on complexity. We prioritize quality while meeting your deadlines.</p>
-                        </li>
+                    <ul className='flex flex-col gap-8'>
+                        {
+                            faqs.map((faq, key) => (
+                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl px-4 py-2'>
+                                    <div className='flex flex-row items-center justify-between gap-4 '>
+                                        <h3 className='text-base'>{faq.question}</h3>
+
+                                        <button className='w-6 cursor-pointer'
+                                            onClick={(e) => handleSetFaqs(e, key)}>
+                                            {
+                                                faq.isOpen ?
+                                                    <FaArrowUp />
+                                                    :
+                                                    <FaArrowDown />
+
+                                            }
+                                        </button>
+                                    </div>
+
+                                    {faq.isOpen && (
+                                        <p className='text-sm text-gray-800'>{faq.response}</p>
+                                    )}
+
+                                </li>
+                            ))
+                        }
+
                     </ul>
                 </section>
+
             </div>
 
         </div>
