@@ -143,9 +143,9 @@ export const WebDesignPage = () => {
                         At its core, professional web design is your gateway to a strong online identity, ensuring your business not only looks great but also delivers a seamless experience that builds trust and drives growth.
                     </LightParagraph>
 
-                    <p>We deliver customized web design solutions tailored to your brand, ensuring a seamless user experience that stands out from the competition.</p>
+                    <p className='text-lg md:text-xl'>We deliver customized web design solutions tailored to your brand, ensuring a seamless user experience that stands out from the competition.</p>
 
-                    <img src={HomeSVG} className='w-52 self-center' />
+                    <img src={HomeSVG} className='w-52 self-center md:w-80' />
 
                     <Button text={"Get FREE Assessment Report!"} />
 
@@ -193,7 +193,7 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* Deliver */}
-                <section className='flex flex-col gap-8 py-12 px-6'>
+                <section className='flex flex-col bg-blue-50 gap-8 py-12 px-6'>
 
                     <SectionTitle title={"How We Deliver Exceptional Web Design"} />
 
