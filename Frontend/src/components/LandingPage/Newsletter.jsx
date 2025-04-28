@@ -8,7 +8,7 @@ export default function Newsletter() {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+    <section className="py-20 bg-gradient-to-br from-blue-100 to-cyan-200">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -28,7 +28,7 @@ export default function Newsletter() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="absolute -left-20 -top-20 w-40 h-40 bg-cyan-100 rounded-full opacity-30"
+            className="absolute -left-20 -top-20 w-40 h-40 bg-cyan-400 rounded-full opacity-30"
           />
 
           <motion.div
@@ -43,7 +43,7 @@ export default function Newsletter() {
               ease: "easeInOut",
               delay: 3
             }}
-            className="absolute -right-20 -bottom-20 w-48 h-48 bg-blue-100 rounded-full opacity-30"
+            className="absolute -right-20 -bottom-20 w-48 h-48 bg-blue-400 rounded-full opacity-30"
           />
 
           <div className="relative z-10">
@@ -72,7 +72,7 @@ export default function Newsletter() {
               <motion.div
                 animate={isFocused ? { scale: 1.02 } : { scale: 1 }}
                 transition={{ type: 'spring', stiffness: 400 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
                 <div className="flex-1 relative">
                   <input
@@ -82,7 +82,7 @@ export default function Newsletter() {
                     onChange={(e) => setName(e.target.value)}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
-                    className="w-full px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all text-sm sm:text-base"
                   />
                   {name && (
                     <motion.div
@@ -103,7 +103,7 @@ export default function Newsletter() {
                     onChange={(e) => setEmail(e.target.value)}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
-                    className="w-full px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all text-sm sm:text-base"
                   />
                   {email && (
                     <motion.div
@@ -124,10 +124,13 @@ export default function Newsletter() {
                   boxShadow: email && name ? "0 10px 25px -5px rgba(34, 211, 238, 0.3)" : "none"
                 }}
                 whileTap={{ scale: email && name ? 0.95 : 1 }}
-                className={`w-full sm:w-auto px-8 py-3 rounded-full font-bold text-lg flex items-center justify-center gap-2 transition-all ${email && name ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+                className={`w-full sm:w-auto px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3 rounded-full font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center gap-1.5 sm:gap-2 transition-all ${email && name
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-sm sm:shadow-md'
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  } mx-auto`}
               >
                 SUBSCRIBE NOW
-                <PaperAirplaneIcon className="h-5 w-5" />
+                <PaperAirplaneIcon className="h-4 w-4 sm:h-5 sm:w-5" />
               </motion.button>
             </motion.form>
 

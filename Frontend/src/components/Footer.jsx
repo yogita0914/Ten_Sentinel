@@ -114,7 +114,7 @@ const Footer = () => {
                 <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
                   <FiMapPin className="text-blue-500" />
                   <span>
-                    Corporate Address India Accelerator, Noida 201301,<br/> UP, India
+                    Corporate Address India Accelerator, Noida 201301,<br /> UP, India
                   </span>
                 </div>
                 <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
@@ -230,7 +230,7 @@ const Footer = () => {
               <p className="text-gray-500 text-sm">
                 © {new Date().getFullYear()} TEN Sentinel. All rights reserved.
               </p>
-              <p className="text-gray-500 text-sm mt-2 font-semibold text-blue-600">
+              <p className="text-gray-500 text-sm mt-2 font-semibold">
                 Powered by the TEN Sentinel Team.
               </p>
             </div>
