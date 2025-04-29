@@ -9,6 +9,7 @@ import BlogDetail from "./components/BlogComponents/BlogDetail";
 import ScrollToTop from "./components/BlogComponents/ScrollToTop";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import Security_Audits from "./pages/Security_Audits";
+import DataPrivacy from "./components/DataPrivacy";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/security-audits" element={<Security_Audits />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
+          <Route path="/data-privacy" element={<DataPrivacy />} />
         </Routes>
       </main>
       <Footer />

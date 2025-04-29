@@ -18,7 +18,7 @@ const footerLinks = [
     title: "SECURITY CONSULTATION",
     links: [
       { label: "Security Audits", url: "/security-audits" },
-      { label: "Data Privacy", href: "#" },
+      { label: "Data Privacy", url: "/data-privacy" },
     ],
   },
   {
