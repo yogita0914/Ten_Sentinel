@@ -14,12 +14,12 @@ const solutions = [
   {
     num: "3",
     about:
-      "Ensure an ongoing, efficient data protection and compliance approach, effectively reducing related expenses.",
+      "Streamline your data security strategy to minimize risks and reduce associated costs.",
   },
   {
     num: "4",
     about:
-      "Shield your brand reputation by ensuring the protection of sensitive and regulated business and customer data.",
+      "Protect critical business and customer information to uphold your brand’s trust and credibility.",
   },
 ];
 
@@ -73,19 +73,16 @@ const DataPrivacy = () => {
   return (
     <>
       <div
-        className="h-80 bg-cover bg-center flex items-center justify-center text-white"
+        className="h-65 bg-cover bg-center flex items-center justify-center text-white"
         style={{
           backgroundImage:
             "url('https://media.istockphoto.com/id/2171306296/vector/futuristic-blue-gradient-mesh-background-for-presentations-posters-ads-banners-brochures.jpg?s=612x612&w=0&k=20&c=BBS2MfIpin_kwvMoNyMfZorBTfp9dHM1hSmwBKqEvNs=')",
         }}
       >
         <div className="bg-opacity-50 p-6 sm:p-8 rounded-xl text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold pt-13">
             Data Privacy
           </h1>
-          <p className="text-base sm:text-sm md:text-xl max-w-md sm:max-w-lg md:max-w-xl mx-auto">
-            _______________________________________________
-          </p>
         </div>
       </div>
 
@@ -94,17 +91,17 @@ const DataPrivacy = () => {
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
           <img
             src="https://educationpost.in/_next/image?url=https%3A%2F%2Fapi.educationpost.in%2Fs3-images%2F1719037378470-415.png&w=3840&q=75"
-            alt="Healthcare"
+            alt="Data Privacy"
             className="w-full h-auto rounded-xl shadow-lg"
           />
         </div>
 
         {/* Right side - Text */}
         <div className="w-full md:w-1/2 md:pl-12 text-center md:text-left">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          <h2 className="text-2xl md:text-xl lg:text-4xl font-bold text-gray-800 mb-4">
             Data Protection and Privacy
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base md:text-md lg:text-lg text-gray-700 leading-relaxed">
             Ten Sentinel’s data protection and privacy solutions empower
             organizations to stay ahead of emerging threats and evolving
             regulations. By delivering cutting-edge services in data security
@@ -116,7 +113,7 @@ const DataPrivacy = () => {
       </div>
 
       <div className="p-8 bg-white text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-800 mb-4">
           The Value Our Consulting Brings to You
         </h1>
         <p className="text-lg text-gray-600  mx-auto">
@@ -149,16 +146,19 @@ const DataPrivacy = () => {
               <motion.span
                 className="bg-blue-500 text-white px-3 py-1 rounded-full cursor-pointer"
                 whileHover={{
-                  scale: 1.2, 
-                  backgroundColor: "#1D4ED0", 
+                  scale: 1.2,
+                  backgroundColor: "#1D4ED0",
                   color: "#fff",
-                  transition: { duration: 0.5 }, 
+                  transition: { duration: 0.5 },
                 }}
               >
                 {item.num}
               </motion.span>
             </h3>
-            <p className="text-black text-center relative z-10">{item.about}</p>
+            <p className="text-base md:text-sm lg:text-lg text-black text-center relative z-10">
+  {item.about}
+</p>
+
 
             {/* Shine Effect */}
             <motion.div
@@ -181,7 +181,7 @@ const DataPrivacy = () => {
       </div>
 
       <div className="flex justify-center items-center p-4 sm:p-6">
-        <h2 className="text-lg sm:text-md md:text-2xl font-semibold text-center text-gray-800 max-w-4xl">
+        <h2 className="text-lg sm:text-md md:text-xl font-semibold text-center text-gray-800 max-w-4xl">
           Ten Sentinel’s solutions empower organizations to mitigate data breach
           risks and ensure compliance, protecting them from costly fines and
           reputational harm.
@@ -189,10 +189,10 @@ const DataPrivacy = () => {
       </div>
 
       <div className="p-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-black-400">
+        <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-center mb-4 text-black-400">
           Our Services
         </h1>
-        <p className="text-center text-gray-700 mb-6 text-base sm:text-lg md:text-2xl max-w-3xl mx-auto px-4">
+        <p className="text-center text-gray-700 mb-6 text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto px-4">
           Explore our wide range of solutions and services designed to meet your
           needs.
         </p>
