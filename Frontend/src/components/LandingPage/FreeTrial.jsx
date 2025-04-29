@@ -1,14 +1,43 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LockOpenIcon, LockClosedIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import ConsultationForm from './ConsultationForm'; // 🔥 Import ConsultationForm
 
 export default function FreeTrial() {
+
   const [isHovering, setIsHovering] = useState(false);
   const [isBreaking, setIsBreaking] = useState(false);
   const [isSecure, setIsSecure] = useState(false);
 
+  // 🛠️ Modal and Form States (copied from Hero)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [helpMessage, setHelpMessage] = useState('');
+
+  const isFormValid = name && email && companyName && helpMessage;
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!isFormValid) return;
+
+    // Reset form after submit
+    setName('');
+    setEmail('');
+    setCompanyName('');
+    setHelpMessage('');
+
+    // Close modal
+    closeModal();
+  };
+
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative z-50">
       <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -101,15 +130,36 @@ export default function FreeTrial() {
                 scale: 1.05,
                 boxShadow: "0 10px 25px -5px rgba(34, 211, 238, 0.5)"
               }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg shadow-lg inline-flex items-center"
+              whileTap={{
+                scale: 0.95,
+                boxShadow: "0 5px 15px -5px rgba(34, 211, 238, 0.3)"
+              }}
+              onClick={openModal}
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full font-medium sm:font-semibold text-xs sm:text-sm md:text-base shadow-sm sm:shadow-md inline-flex items-center cursor-pointer active:scale-[0.98] transition-all duration-100"
             >
-              <ShieldCheckIcon className="h-5 w-5 mr-2" />
-              START FREE TRIAL
+              <ShieldCheckIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" />
+              <span className="whitespace-nowrap">START FREE TRIAL</span>
             </motion.button>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <ConsultationForm
+          name={name}
+          email={email}
+          companyName={companyName}
+          helpMessage={helpMessage}
+          isFormValid={isFormValid}
+          closeModal={closeModal}
+          handleSubmit={handleSubmit}
+          setName={setName}
+          setEmail={setEmail}
+          setCompanyName={setCompanyName}
+          setHelpMessage={setHelpMessage}
+        />
+      )}
     </section>
   );
 }
