@@ -6,6 +6,7 @@ import { SectionTitle } from '../components/WebDesign/SectionTitle';
 import { LightParagraph } from '../components/WebDesign/LightParagraph';
 import { Button } from '../components/WebDesign/Button';
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 export const WebDesignPage = () => {
 
@@ -113,12 +114,46 @@ export const WebDesignPage = () => {
             )
         );
     }
+
+    const [isPopUpOpen, setIsPopUpOpen] = useState(false)
+
     return (
         <div className="flex flex-col mt-16">
 
+            {
+                isPopUpOpen &&
+                <div className='min-h-screen bg-black/50 fixed w-full flex justify-center items-center'>
+
+                    <div className='flex flex-col justify-center items-center bg-blue-100 p-6 mx-4 gap-10 rounded-sm shadow-md shadow-indigo-100'>
+
+                        <div className='flex flex-row justify-between text-lg font-semibold gap-2'>
+                            <h2>
+                                Get your Free Web Design Sample Report
+                            </h2>
+
+                            <IoClose onClick={() => setIsPopUpOpen(false)} className="text-2xl" />
+                        </div>
+
+                        <form className='flex flex-col gap-10 w-full'>
+
+                            <div className='flex flex-col gap-6'>
+                                <input type="text" placeholder='Name' className='border-b border-gray-600 px-2 outline-0' />
+                                <input type="email" placeholder='Email' className='border-b border-gray-600 px-2 outline-0' />
+                            </div>
+
+                            <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-lg text-white rounded-md py-2'>Download it Now!</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            }
+
+
             <div
                 className="w-full bg-cover bg-center bg-no-repeat py-8 flex justify-center items-center shadow md:py-12 lg:py-16"
-                style={{ backgroundImage: "url('https://img.freepik.com/free-vector/cyber-security-concept_23-2148534852.jpg?semt=ais_hybrid&w=740')" }}
+                style={{ backgroundImage: "url('https://img.freepik.com/free-photo/technology-venture-workspace-using-machine-learning-streamline-coding-process_482257-119816.jpg?t=st=1745940081~exp=1745943681~hmac=e79724a12d70f6a40ebfd31a41002c49f88e770aeceaba4580190e270fcaba67&w=1380')" }}
             >
                 <div className="bg-opacity-50 px-4 py-2 rounded">
                     <h1 className="text-3xl text-white md:text-4xl lg:text-5xl text-center font-semibold">
@@ -148,7 +183,7 @@ export const WebDesignPage = () => {
 
                     <img src={HomeSVG} className='w-52 self-center md:w-80' />
 
-                    <Button text={"Get FREE Assessment Report!"} />
+                    <Button onClick={() => setIsPopUpOpen(true)} text={"Get FREE Assessment Report!"} />
 
                 </section>
 
@@ -226,7 +261,7 @@ export const WebDesignPage = () => {
 
                     </div>
 
-                    <Button text={"Download Your FREE Web Design Sample Report"} />
+                    <Button onClick={() => setIsPopUpOpen(true)} text={"Download Your FREE Web Design Sample Report"} />
 
                 </section>
 
