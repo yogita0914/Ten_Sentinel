@@ -141,7 +141,9 @@ export const WebDesignPage = () => {
                                 <input type="email" placeholder='Email' className='border-b border-gray-600 px-2 outline-0' />
                             </div>
 
-                            <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-lg text-white rounded-md py-2'>Download it Now!</button>
+                            {/* <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-lg text-white rounded-md py-2 cursor-pointer'>Download it Now!</button> */}
+
+                            <Button text={"Download it Now!"}/>
 
                         </form>
 
