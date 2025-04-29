@@ -9,7 +9,7 @@ import BlogDetail from "./components/BlogComponents/BlogDetail";
 import ScrollToTop from "./components/BlogComponents/ScrollToTop";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import Security_Audits from "./pages/Security_Audits";
-import DataPrivacy from "./components/DataPrivacy";
+import DataPrivacy from "./pages/DataPrivacy";
 
 const App = () => {
   return (
