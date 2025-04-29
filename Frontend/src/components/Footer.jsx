@@ -35,7 +35,7 @@ const footerLinks = [
       { label: "Contact Us", url: "/" },
       {
         label: "Internship",
-        href: "https://internships.entrepreneurshipnetwork.net/",
+        url: "https://internships.entrepreneurshipnetwork.net/",
       },
       { label: "Privacy Policy", url: "/privacy-policy" },
     ],

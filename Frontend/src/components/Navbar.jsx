@@ -17,7 +17,7 @@ const Navbar = () => {
       submenu: [
         "Web Design",
         "Development",
-        "Marketing",
+        { label: "Marketing", href: "/marketing" },
         "Training & Certificate",
         "Cloud Security",
       ],
