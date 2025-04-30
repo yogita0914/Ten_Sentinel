@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import logo from "../assets/logo.svg";
-import { href, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [timeoutId, setTimeoutId] = useState(null);
 
   const menuItems = [
     { label: "Home", href: "/" },
@@ -15,11 +15,11 @@ const Navbar = () => {
     {
       label: "Services",
       submenu: [
-        {label: "Web Design", href: "/web-design"},
-        {label: "Development", href: ""},
+        { label: "Web Design", href: "/web-design" },
+        { label: "Development", href: "" },
         { label: "Marketing", href: "/marketing" },
-        {label: "Training & Certificate", href: ""},
-        {label: "Cloud Security", href: ""},
+        { label: "Training & Certificate", href: "" },
+        { label: "Cloud Security", href: "" },
       ],
     },
     {
@@ -35,10 +35,24 @@ const Navbar = () => {
         },
       ],
     },
-
     { label: "Blogs", href: "/blogs" },
     { label: "Contact Us", href: "/contact" },
   ];
+
+  const handleMouseEnter = (label) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      setTimeoutId(null);
+    }
+    setOpenDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    const id = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 200);
+    setTimeoutId(id);
+  };
 
   return (
     <motion.nav
@@ -62,8 +76,8 @@ const Navbar = () => {
                 <div
                   key={idx}
                   className="relative group"
-                  onMouseEnter={() => setOpenDropdown(item.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter(item.label)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button className="flex items-center font-medium gap-1 text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text">
                     {item.label}
@@ -74,7 +88,11 @@ const Navbar = () => {
                     )}
                   </button>
                   {openDropdown === item.label && (
-                    <div className="absolute bg-white rounded shadow-md mt-2 min-w-[160px] z-50">
+                    <div
+                      className="absolute bg-white rounded shadow-md mt-2 min-w-[160px] z-50"
+                      onMouseEnter={() => handleMouseEnter(item.label)}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       {item.submenu.map((sub, i) => (
                         <a
                           key={i}
