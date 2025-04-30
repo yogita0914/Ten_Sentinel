@@ -16,13 +16,20 @@ body {
   overflow-y: auto;
 }
 
-/* .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-} */
-
 * {
   box-sizing: border-box;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 200px;
+  background: linear-gradient(to bottom, #4f46e5, #06b6d4);
 }
