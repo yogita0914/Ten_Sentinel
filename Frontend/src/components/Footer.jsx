@@ -10,9 +10,9 @@ import {
   FaYoutube,
   FaInstagram,
 } from "react-icons/fa6";
-
 import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
+
 const footerLinks = [
   {
     title: "SECURITY CONSULTATION",
@@ -81,15 +81,15 @@ const Footer = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* Grid Layout */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-15 text-left ml-0 md:ml-20">
-            {/* Logo Section */}
+          {/* Grid Layout - Centered on all screens */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
+            {/* Logo Section - Always centered */}
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col items-center sm:items-start col-span-1"
+              className="flex flex-col items-center text-center max-w-xs"
             >
-              <div className="space-y-4 text-center sm:text-left">
-                <div className="flex items-center justify-center sm:justify-start space-x-3">
+              <div className="space-y-4">
+                <div className="flex items-center justify-center space-x-3">
                   <img
                     src={logo}
                     alt="TEN Sentinel logo"
@@ -99,13 +99,11 @@ const Footer = () => {
                     TEN Sentinel
                   </span>
                 </div>
-                <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
+                <div className="flex items-center justify-center space-x-2 text-sm">
                   <FiMapPin className="text-blue-500" />
-                  <span>
-                    Noida 201301,  UP, India
-                  </span>
+                  <span>Noida 201301, UP, India</span>
                 </div>
-                <div className="flex items-center justify-center sm:justify-start space-x-2 text-sm">
+                <div className="flex items-center justify-center space-x-2 text-sm">
                   <MdEmail className="text-blue-500" />
                   <a
                     href="mailto:info@entrepreneurshipnetwork.net"
@@ -117,17 +115,17 @@ const Footer = () => {
               </div>
             </motion.div>
 
-            {/* Footer Links */}
+            {/* Footer Links - Centered in their columns */}
             {footerLinks.map((section, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="flex flex-col items-center sm:items-start text-center sm:text-left"
+                className="flex flex-col items-center text-center max-w-xs"
               >
-                <h3 className="text-base font-semibold mb-3 text-gray-900">
+                <h3 className="text-base font-semibold mb-4 text-gray-900">
                   {section.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {section.links.map((link, j) => (
                     <motion.li
                       key={j}
@@ -137,7 +135,7 @@ const Footer = () => {
                       <Link
                         to={link.url}
                         onClick={() => window.scrollTo(0, 0)}
-                        className="text-gray-600 hover:text-blue-600 text-sm leading-snug"
+                        className="text-gray-600 hover:text-blue-600 text-sm"
                       >
                         {link.label}
                       </Link>
@@ -148,15 +146,15 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Bottom Bar */}
+          {/* Bottom Bar - Centered with proper spacing */}
           <motion.div
-            className="mt-16 pt-8 border-t border-gray-300 w-full flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4"
+            className="mt-16 pt-8 border-t border-gray-300 w-full flex flex-col sm:flex-row justify-between items-center gap-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="mt-8 text-center">
+            <div className="order-2 sm:order-1 text-center sm:text-left">
               <p className="text-gray-500 text-sm">
                 © {new Date().getFullYear()} TEN Sentinel. All rights reserved.
               </p>
@@ -165,7 +163,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex justify-center flex-wrap gap-4 text-gray-500">
+            <div className="order-1 sm:order-2 flex justify-center flex-wrap gap-4 text-gray-500">
               {socialLinks.map((social, i) => (
                 <motion.a
                   key={i}
