@@ -136,14 +136,14 @@ export const WebDesignPage = () => {
 
                         <form className='flex flex-col gap-10 w-full'>
 
-                            <div className='flex flex-col gap-6'>
+                            <div className='flex flex-col gap-10'>
                                 <input type="text" placeholder='Name' className='border-b border-gray-600 px-2 outline-0' />
                                 <input type="email" placeholder='Email' className='border-b border-gray-600 px-2 outline-0' />
                             </div>
 
                             {/* <button className='bg-gradient-to-r from-blue-600 to-indigo-600 text-lg text-white rounded-md py-2 cursor-pointer'>Download it Now!</button> */}
 
-                            <Button text={"Download it Now!"}/>
+                            <Button text={"Download it Now!"} />
 
                         </form>
 
@@ -165,7 +165,6 @@ export const WebDesignPage = () => {
             </div>
 
             <div>
-
 
                 {/* Home Page */}
                 <section className='flex flex-col gap-6 py-12 px-6 lg:gap-12 lg:px-40'>
@@ -274,8 +273,8 @@ export const WebDesignPage = () => {
                     <ul className='flex flex-col gap-8'>
                         {
                             faqs.map((faq, key) => (
-                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl px-4 py-2 md:px-8 md:py-6 lg:w-[800px]'>
-                                    <div className='flex flex-row items-center justify-between gap-4 text-base md:text-xl'>
+                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px]'>
+                                    <div className='flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6 '>
                                         <h3>{faq.question}</h3>
 
                                         <button className='w-6 cursor-pointer'
@@ -291,7 +290,7 @@ export const WebDesignPage = () => {
                                     </div>
 
                                     {faq.isOpen && (
-                                        <p className='text-sm text-gray-800 md:text-lg'>{faq.response}</p>
+                                        <p className='text-sm text-gray-800 bg-gray-50 rounded-b-lg md:text-lg w-full px-4 py-2 md:px-8 md:py-6 '>{faq.response}</p>
                                     )}
 
                                 </li>
