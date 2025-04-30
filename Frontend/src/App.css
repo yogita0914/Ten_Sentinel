@@ -1,4 +1,28 @@
 html,
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
+}
+
+body {
+  transform: scale(1);
+  transform-origin: top left;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+} */
+
+* {
+  box-sizing: border-box;
 }
