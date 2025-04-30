@@ -155,7 +155,7 @@ export const WebDesignPage = () => {
 
             <div
                 className="w-full bg-cover bg-center bg-no-repeat py-8 flex justify-center items-center shadow md:py-12 lg:py-16"
-                style={{ backgroundImage: "url('https://img.freepik.com/free-photo/technology-venture-workspace-using-machine-learning-streamline-coding-process_482257-119816.jpg?t=st=1745940081~exp=1745943681~hmac=e79724a12d70f6a40ebfd31a41002c49f88e770aeceaba4580190e270fcaba67&w=1380')" }}
+                style={{ backgroundImage: "url('https://promwad.com/sites/default/files/web-development_0.jpg')" }}
             >
                 <div className="bg-opacity-50 px-4 py-2 rounded">
                     <h1 className="text-3xl text-white md:text-4xl lg:text-5xl text-center font-semibold">

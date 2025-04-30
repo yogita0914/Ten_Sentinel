@@ -45,8 +45,8 @@ export default function FaqAccordion_marketing() {
   };
 
   return (
-    <section className="bg-white py-10 px-6 m-10 sm:px-12 lg:px-24">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+    <section className="bg-white py-8 px-0 lg:px-6 m-5 lg:m-10 sm:px-12 lg:px-24">
+      <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
         Frequently Asked Questions (FAQs)
       </h2>
 

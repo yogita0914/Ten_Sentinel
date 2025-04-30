@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import logo from "../assets/logo.svg";
-import { Link } from "react-router-dom";
+import { href, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,11 +15,11 @@ const Navbar = () => {
     {
       label: "Services",
       submenu: [
-        "Web Design",
-        "Development",
+        {label: "Web Design", href: "/web-design"},
+        {label: "Development", href: ""},
         { label: "Marketing", href: "/marketing" },
-        "Training & Certificate",
-        "Cloud Security",
+        {label: "Training & Certificate", href: ""},
+        {label: "Cloud Security", href: ""},
       ],
     },
     {

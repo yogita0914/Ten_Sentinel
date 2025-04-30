@@ -65,14 +65,13 @@ const Hero = () => {
             </motion.div>
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-6 md:mb-8 leading-snug md:leading-tight text-white font-bold"
+              className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8 leading-snug md:leading-16 text-white font-bold"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="block">We are the</span>
-              <span className="block">Cyber Security Experts</span>
-              <span className="block">Helping you stay</span>
+              <span className="block">We are the cyber security</span>
+              <span className="block">Experts helping you stay</span>
               <span className="block">ahead of the Curve!</span>
             </motion.h1>
 
