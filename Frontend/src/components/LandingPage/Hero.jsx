@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRightIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
-import HeroSectionBackground from "../../assets/HeroSectionBackground.webm";
-import ConsultationForm from './ConsultationForm';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
+import BackgroundImage from "../../assets/backgroundImage.avif";
+import ConsultationForm from "./ConsultationForm";
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [helpMessage, setHelpMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [helpMessage, setHelpMessage] = useState("");
 
   const isFormValid = name && email && companyName && helpMessage;
 
@@ -22,24 +22,21 @@ const Hero = () => {
 
     if (!isFormValid) return;
 
-    setName('');
-    setEmail('');
-    setCompanyName('');
-    setHelpMessage('');
+    setName("");
+    setEmail("");
+    setCompanyName("");
+    setHelpMessage("");
     closeModal();
   };
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden pt-24 sm:pt-28 z-30">
+    <section
+      className="relative w-full min-h-screen pt-24 sm:pt-28 z-30 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${BackgroundImage})`,
+      }}
+    >
       {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src={HeroSectionBackground}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
 
       {/* Content */}
       <div className="relative z-30 w-full h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
