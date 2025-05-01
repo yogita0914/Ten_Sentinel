@@ -39,8 +39,8 @@ export default function FaqAccordion() {
   };
 
   return (
-    <section className="bg-white py-10 px-6 m-10 sm:px-12 lg:px-24">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
+    <section className="bg-white py-5 px-6 m-0 lg:m-10 sm:px-12 lg:px-24">
+      <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
         Frequently Asked Questions (FAQs)
       </h2>
 
@@ -55,7 +55,7 @@ export default function FaqAccordion() {
             >
               <button
                 onClick={() => toggle(index)}
-                className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                className="flex  justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
               >
                 {faq.question}
                 <ChevronDown

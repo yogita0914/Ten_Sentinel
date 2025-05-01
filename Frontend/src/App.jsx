@@ -12,6 +12,10 @@ import BlogDetail from "./components/BlogComponents/BlogDetail";
 import ScrollToTop from "./components/BlogComponents/ScrollToTop";
 import DataPrivacy from "./pages/DataPrivacy";
 import Marketing from "./pages/Marketing";
+import AboutPage from './pages/AboutPage';
+
+
+       
 
 const App = () => {
   return (
@@ -22,9 +26,9 @@ const App = () => {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/blog-detail/:id" element={<BlogDetail />} />
-          <Route path="/" element={<LandingPage />} />
           <Route path="/security-audits" element={<Security_Audits />} />
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />

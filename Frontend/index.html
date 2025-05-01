@@ -4,13 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./src/assets/logo.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Ten Sentinel</title>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- JavaScript to disable zooming -->
+  <script>
+    // Prevent zooming with Ctrl + Mouse Wheel (or Cmd on macOS)
+    document.addEventListener("wheel", function (event) {
+      if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();  // Prevent zooming with Ctrl/Cmd + Mouse Wheel
+      }
+    }, { passive: false }); // Use { passive: false } to ensure preventDefault works
+
+    // Prevent zooming via touch gestures (pinch-to-zoom)
+    document.addEventListener("gesturestart", function (event) {
+      event.preventDefault();  // Prevent pinch-to-zoom
+    });
+
+    // Prevent zoom using keyboard (Ctrl + "+" or Ctrl + "-")
+    window.addEventListener("keydown", function (event) {
+      if ((event.ctrlKey || event.metaKey) && (event.key === "+" || event.key === "-")) {
+        event.preventDefault();  // Prevent Ctrl + "+" or Ctrl + "-"
+      }
+    });
+  </script>
 </body>
 
 </html>

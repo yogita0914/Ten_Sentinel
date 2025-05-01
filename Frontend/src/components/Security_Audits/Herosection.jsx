@@ -8,7 +8,7 @@ export default function Herosection() {
       {/* Hero Section with Background Image */}
       <div
         className="relative w-full h-72 bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${security_bg})` }}
+        style={{ backgroundImage: `url(https://i.pinimg.com/736x/f9/70/1a/f9701a2ec2cb04282a71f86fe4454d52.jpg)` }}
       >
         <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg z-10">Security Audit</h1>
         <div className="absolute inset-0 bg-black opacity-75"></div>

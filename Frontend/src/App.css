@@ -1,4 +1,35 @@
 html,
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
+}
+
+body {
+  transform: scale(1);
+  transform-origin: top left;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 200px;
+  background: linear-gradient(to bottom, #4f46e5, #06b6d4);
 }
