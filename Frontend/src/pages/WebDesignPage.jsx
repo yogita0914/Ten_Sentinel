@@ -7,6 +7,7 @@ import { LightParagraph } from '../components/WebDesign/LightParagraph';
 import { Button } from '../components/WebDesign/Button';
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 
 export const WebDesignPage = () => {
 
@@ -267,10 +268,10 @@ export const WebDesignPage = () => {
                 </section>
 
                 {/* FAQ's */}
-                <section className='flex flex-col gap-6 py-12 px-6 lg:justify-self-center'>
+                <section className='flex flex-col gap-6 py-12 px-6 lg:justify-self-center items-center'>
                     <SectionTitle title={"FAQ's"} />
 
-                    <ul className='flex flex-col gap-8'>
+                    <ul className='flex flex-col gap-8 w-full'>
                         {
                             faqs.map((faq, key) => (
                                 <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px]'>
@@ -281,9 +282,10 @@ export const WebDesignPage = () => {
                                             onClick={(e) => handleSetFaqs(e, key)}>
                                             {
                                                 faq.isOpen ?
-                                                    <FaArrowUp />
-                                                    :
-                                                    <FaArrowDown />
+                                                
+                                                <ChevronUp size={28}  />
+                                                :
+                                                <ChevronDown size={28}  />
 
                                             }
                                         </button>
