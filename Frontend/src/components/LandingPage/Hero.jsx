@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRightIcon, ShieldCheckIcon } from "@heroicons/react/24/outline";
-import BackgroundImage from "../../assets/backgroundImage.avif";
+import BackgroundImage from "../../assets/bgimg.jpg";
 import ConsultationForm from "./ConsultationForm";
 
 const Hero = () => {
@@ -31,12 +31,14 @@ const Hero = () => {
 
   return (
     <section
-      className="relative w-full min-h-screen pt-24 sm:pt-28 z-30 bg-cover bg-center bg-no-repeat"
+      className="relative w-full min-h-screen pt-24 sm:pt-28 z-30 bg-cover bg-center bg-no-repeat bg-fixed"
       style={{
         backgroundImage: `url(${BackgroundImage})`,
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
       }}
     >
-      {/* Background Video */}
 
       {/* Content */}
       <div className="relative z-30 w-full h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
