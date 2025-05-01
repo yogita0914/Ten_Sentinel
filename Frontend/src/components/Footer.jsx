@@ -2,16 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.svg";
 import { MdEmail } from "react-icons/md";
-import {
-  FaFacebookF,
-  FaXTwitter,
-  FaLinkedin,
-  FaWhatsapp,
-  FaYoutube,
-  FaInstagram,
-} from "react-icons/fa6";
 import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { Linkedin, Mail } from "lucide-react";
+
 
 const footerLinks = [
   {
@@ -43,12 +37,8 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: <FaFacebookF />, name: "Facebook", href: "https://facebook.com/" },
-  { icon: <FaXTwitter />, name: "Twitter", href: "https://twitter.com/" },
-  { icon: <FaLinkedin />, name: "LinkedIn", href: "https://linkedin.com/" },
-  { icon: <FaWhatsapp />, name: "WhatsApp", href: "https://whatsapp.com/" },
-  { icon: <FaYoutube />, name: "YouTube", href: "https://youtube.com/" },
-  { icon: <FaInstagram />, name: "Instagram", href: "https://instagram.com/" },
+  { icon: <Mail />, name: "LinkedIn", href: "https://linkedin.com/" },
+  { icon: <Linkedin />, name: "LinkedIn", href: "https://linkedin.com/" },
 ];
 
 const Footer = () => {
