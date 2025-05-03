@@ -17,7 +17,7 @@
     "id": 3,
     "title": "The Role of Active Directory in Network Security",
     "description": "Why securing AD is essential for modern enterprise infrastructure.",
-    "image": "/images/three.jpg",
+    "image": "/images/three.png",
     "content": "Active Directory (AD) is the backbone of identity and access control in most organizations. If compromised, an attacker can move laterally, escalate privileges, and gain full domain control. This blog explores common AD attack vectors such as Kerberoasting, Pass-the-Hash, and DC Sync attacks. It outlines best practices like tiered administration, limiting privileged accounts, and auditing Group Policy Objects. AD hardening tools and regular penetration testing are also highlighted. Whether cloud-hybrid or on-premises, securing AD is non-negotiable for enterprise security. The post also includes real-world breach case studies involving AD to reinforce the importance of proactive defense. Readers will understand how to set up honeytokens to detect unauthorized access. New features like Azure AD Conditional Access are discussed. Tips for handling dormant accounts and stale permissions are shared. We also explain the impact of AD security on compliance and governance."
   },
   {
@@ -52,7 +52,7 @@
     "id": 8,
     "title": "Zero Trust Architecture: A Guide",
     "description": "Adopt Zero Trust to minimize risk across your enterprise.",
-    "image": "/images/eight.jpg",
+    "image": "/images/eight.avif",
     "content": "Zero Trust assumes no implicit trust—every access must be verified. This blog walks through the core principles of Zero Trust like verify explicitly, least privilege access, and assume breach. It explains how identity, devices, apps, and data are continuously evaluated for risk. Readers will learn how Microsoft, Google, and others implement Zero Trust. A breakdown of enabling technologies like microsegmentation and continuous authentication is included. The post also dispels common myths about Zero Trust being too expensive or complex. Case studies and rollout tips are shared. Steps for building a Zero Trust maturity roadmap are outlined. Metrics for measuring Zero Trust effectiveness are discussed. Differences between Zero Trust Network Access (ZTNA) and VPNs are explained. Sample architectures for small and large enterprises are provided."
   },
   {

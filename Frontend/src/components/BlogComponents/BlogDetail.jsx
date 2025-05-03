@@ -15,11 +15,12 @@ const BlogDetail = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-2 py-8">
-      <div className="w-full flex justify-center mb-8 pt-14">
+      <div className="w-full flex justify-center mb-8 pt-14 px-4 sm:px-0 rounded-2xl">
         <img
           src={blog.image}
           alt={blog.title}
-          className="rounded-lg shadow-md w-full max-w-3xl object-cover"
+          className="max-[200px] sm:max-sm md:max-md lg:max-3xl h-60 sm:h-72 md:h-80 lg:h-96 object-contain rounded-2xl"
+          style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)" }}
         />
       </div>
 
