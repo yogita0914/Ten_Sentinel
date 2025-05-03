@@ -33,3 +33,11 @@ body {
   min-height: 200px;
   background: linear-gradient(to bottom, #4f46e5, #06b6d4);
 }
+
+@media (max-width: 349px) {
+  .text-xs-responsive {
+    font-size: 1.75rem;
+    /* e.g., text-xl or smaller */
+    line-height: 1.4;
+  }
+}

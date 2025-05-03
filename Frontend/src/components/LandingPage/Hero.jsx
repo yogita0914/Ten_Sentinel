@@ -51,16 +51,17 @@ const Hero = () => {
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20"
+              className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full 
+            px-2 sm:px-6 py-2 sm:py-2 mb-6 border border-white/20"
             >
-              <ShieldCheckIcon className="h-8 w-8 mr-2 text-cyan-300" />
-              <span className="text-xs sm:text-sm font-medium tracking-wide text-white">
+              <ShieldCheckIcon className="h-5 w-5 sm:h-8 sm:w-8 mr-1 sm:mr-2 text-cyan-300" />
+              <span className="text-sm sm:text-[14px] font-medium tracking-wide text-white whitespace-nowrap">
                 Your Cyber Security is Our Priority
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl mb-6 md:mb-8 leading-snug md:leading-tight text-white font-bold"
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl mb-6 md:mb-8 leading-snug md:leading-tight text-white font-bold text-xs-responsive"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -70,6 +71,7 @@ const Hero = () => {
               <span className="block">Helping you stay</span>
               <span className="block">ahead of the Curve!</span>
             </motion.h1>
+
 
             <motion.p
               className="text-sm sm:text-base md:text-lg text-blue-100 mb-8 md:mb-10 max-w-xl mx-auto md:mx-0"
