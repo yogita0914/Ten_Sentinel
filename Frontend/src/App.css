@@ -34,6 +34,28 @@ body {
   background: linear-gradient(to bottom, #4f46e5, #06b6d4);
 }
 
+/* Removing Scroll when screen width is less than 768 */
+@media (max-width: 768px) {
+
+  /* Hide scrollbar but allow scrolling */
+  body {
+    overflow: auto;
+    /* or overflow-y: scroll; if only vertical */
+  }
+
+  /* Hide scrollbars for WebKit browsers (Chrome, Safari) */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbars for Firefox */
+  body {
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+/* This media query only for landing page hero section  */
 @media (max-width: 349px) {
   .text-xs-responsive {
     font-size: 1.75rem;
