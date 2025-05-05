@@ -1,25 +1,29 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 
 const solutions = [
   {
     num: "1",
     about: "Stay current with top-tier data privacy solutions and services.",
+    color: "bg-blue-100",
   },
   {
     num: "2",
     about:
       "Adapt and comply with regulations in an ever-changing legal environment.",
+    color: "bg-purple-100",
   },
   {
     num: "3",
     about:
       "Streamline your data security strategy to minimize risks and reduce associated costs.",
+    color: "bg-green-100",
   },
   {
     num: "4",
     about:
       "Protect critical business and customer information to uphold your brand’s trust and credibility.",
+    color: "bg-cyan-100",
   },
 ];
 
@@ -45,14 +49,14 @@ const services = [
       "A clear, step-by-step approach to help manage data privacy effectively and meet compliance goals.",
     image:
       "https://cdn-icons-png.freepik.com/256/2643/2643513.png?semt=ais_hybrid",
-    color: "bg-purple-100",
+    color: "bg-fuchsia-100",
   },
   {
     title: "Surveillance",
     description:
       "Surveillance in data privacy involves monitoring systems to detect breaches and maintain compliance.",
     image: "https://cdn-icons-png.flaticon.com/512/4046/4046313.png",
-    color: "bg-cyan-100",
+    color: "bg-rose-100",
   },
   {
     title: "Tasks",
@@ -66,10 +70,14 @@ const services = [
     description:
       "Execution refers to the process of carrying out plans, strategies, or tasks to achieve specific goals or objectives.",
     image: "https://cdn-icons-png.flaticon.com/512/9503/9503512.png",
-    color: "bg-green-100",
+    color: "bg-cyan-100",
   },
 ];
+
+
 const DataPrivacy = () => {
+
+  
   return (
     <>
       <div
@@ -92,7 +100,7 @@ const DataPrivacy = () => {
           <img
             src="https://educationpost.in/_next/image?url=https%3A%2F%2Fapi.educationpost.in%2Fs3-images%2F1719037378470-415.png&w=3840&q=75"
             alt="Data Privacy"
-            className="w-full h-auto rounded-xl shadow-lg"
+            className="w-full h-auto rounded-xl shadow-lg md:h-78"
           />
         </div>
 
@@ -101,27 +109,30 @@ const DataPrivacy = () => {
           <h2 className="text-2xl md:text-xl lg:text-4xl font-bold text-gray-800 mb-4">
             Data Protection and Privacy
           </h2>
-          <p className="text-base md:text-md lg:text-lg text-gray-700 leading-relaxed">
+          <p className="text-md md:text-sm lg:text-lg text-gray-700 leading-relaxed">
             Ten Sentinel’s data protection and privacy solutions empower
             organizations to stay ahead of emerging threats and evolving
             regulations. By delivering cutting-edge services in data security
             and privacy compliance, we help businesses build trust, ensure
             regulatory alignment, and safeguard sensitive information in an
-            ever-changing digital landscape.
+            ever-changing digital landscape. Our holistic approach combines
+            advanced technologies, real-time monitoring, and proactive risk
+            management strategies to minimize vulnerabilities and enhance
+            resilience.
           </p>
         </div>
       </div>
 
-      <div className="p-8 bg-white text-center">
+      <div className="p-8 bg-white text-center pt-15">
         <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-800 mb-4">
           The Value Our Consulting Brings to You
         </h1>
-        <p className="text-lg text-gray-600  mx-auto">
-          We offer end-to-end support — from strategic consulting to hands-on
-          implementation — to help you overcome challenges and embrace growth.
-          Our expertise ensures you stay compliant, secure, and future-ready.
+        <p className="text-md lg:text-lg m-auto text-gray-800 max-w-4xl">
+          Our expert team partners with you at every stage, offering tailored
+          insights and practical solutions to keep you compliant, secure, and
+          fully future-ready.
         </p>
-        <h1 className="text-2xl font-semibold text-gray-800 mb-4 mt-10">
+        <h1 className="text-xl md:text-lg lg:text-2xl font-semibold text-gray-800 mb-4 mt-10">
           Our Privacy team delivers tailored solutions that enable clients to:
         </h1>
       </div>
@@ -130,65 +141,50 @@ const DataPrivacy = () => {
         {solutions.map((item, id) => (
           <motion.div
             key={id}
-            className="relative bg-white rounded-lg shadow-md p-6 overflow-hidden group"
+            className={`relative ${item.color} rounded-lg shadow-md p-6 overflow-hidden group h-48 md:h-56 lg:h-[13rem]`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: id * 0.1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: id * 0.1 }}
             whileHover={{
-              y: -10,
+              y: -12,
               scale: 1.02,
-              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
             }}
+            whileTap={{ y: -20 }}
+           
           >
-            {/* Card Content */}
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center relative z-10">
               <motion.span
-                className="bg-blue-500 text-white px-3 py-1 rounded-full cursor-pointer"
+                className="bg-blue-500 text-white px-3 py-1 rounded-full cursor-pointer inline-block"
                 whileHover={{
-                  scale: 1.2,
+                  scale: 1.1,
                   backgroundColor: "#1D4ED0",
-                  color: "#fff",
-                  transition: { duration: 0.5 },
                 }}
+                whileTap={{ scale: 0.9 }}
               >
                 {item.num}
               </motion.span>
             </h3>
+
             <p className="text-base md:text-sm lg:text-lg text-black text-center relative z-10">
-  {item.about}
-</p>
+              {item.about}
+            </p>
 
-
-            {/* Shine Effect */}
-            <motion.div
-              className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-200 to-blue-700 text-white opacity-0 group-hover:opacity-60 transition-all duration-300"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{
-                opacity: 0.5,
-                backgroundPosition: "100% 0",
-              }}
-              style={{
-                backgroundSize: "200% 100%",
-                backgroundPosition: "0 0",
-              }}
-            />
-            {/* Bottom Line */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-blue-500"></div>
+            {/* Touch/hover shine effect */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-20 bg-white transition-opacity duration-300 z-0 pointer-events-none" />
           </motion.div>
         ))}
       </div>
 
       <div className="flex justify-center items-center p-4 sm:p-6">
-        <h2 className="text-lg sm:text-md md:text-xl font-semibold text-center text-gray-800 max-w-4xl">
+        <h2 className="text-md lg:text-lg text-center text-gray-800 max-w-4xl">
           Ten Sentinel’s solutions empower organizations to mitigate data breach
           risks and ensure compliance, protecting them from costly fines and
           reputational harm.
         </h2>
       </div>
 
-      <div className="p-6">
+      <div className="p-6 pt-15">
         <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-center mb-4 text-black-400">
           Our Services
         </h1>
@@ -201,35 +197,38 @@ const DataPrivacy = () => {
           {services.map((item, id) => (
             <motion.div
               key={id}
-              className={`relative ${item.color} rounded-lg shadow-md p-4 flex overflow-hidden group`}
+              // className={`relative ${item.color} rounded-lg shadow-md p-6 flex flex-col items-center text-center overflow-hidden group min-h-[90px]`} // Removed justify-between & fixed min height
+              className={`relative ${item.color} rounded-lg shadow-md p-6 overflow-hidden text-center group h-48 md:h-60 lg:h-[11rem] `}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, delay: id * 0.1 }}
               whileHover={{
                 y: -10,
                 scale: 1.02,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
               }}
+              whileTap={{ y: -12 }}
             >
+              {/* Shine effect */}
               <div className="absolute inset-0 w-full h-full before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:translate-x-[-100%] before:skew-x-[-20deg] group-hover:before:translate-x-[100%] before:transition-transform before:duration-700 z-10 pointer-events-none" />
 
-              {/* Image */}
-              <div className="w-1/5 mr-4 z-20">
+              {/* Image + Title */}
+              <div className="z-10 flex items-center justify-center mb-2">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-auto rounded-lg"
+                  className="w-12 h-12 rounded-lg object-cover"
                 />
-              </div>
-
-              {/* Content */}
-              <div className="w-4/5 z-20">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="pl-3 text-xl font-semibold text-gray-800">
                   {item.title}
                 </h3>
-                <p className="text-gray-600">{item.description}</p>
               </div>
+
+              {/* Description */}
+              <p className="text-gray-600 relative z-10 text-md">
+                {item.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
