@@ -19,7 +19,7 @@ const Navbar = () => {
         { label: "Development", href: "" },
         { label: "Marketing", href: "/marketing" },
         { label: "Training & Certificate", href: "" },
-        { label: "Cloud Security", href: "" },
+        { label: "Cloud Security", href: "/cloud-security" },
       ],
     },
     {

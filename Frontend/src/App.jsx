@@ -13,9 +13,9 @@ import ScrollToTop from "./components/BlogComponents/ScrollToTop";
 import DataPrivacy from "./pages/DataPrivacy";
 import Marketing from "./pages/Marketing";
 import AboutPage from './pages/AboutPage';
+import CloudSecurity from "./pages/CloudSecurity";
+import IsoPage from "./components/IsoPage/IsoPage";
 
-
-       
 
 const App = () => {
   return (
@@ -32,9 +32,10 @@ const App = () => {
           <Route path="/security-audits" element={<Security_Audits />} />
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
-
+          <Route path="/cloud-security" element={<CloudSecurity/>}/>
           <Route path="/web-design" element={<WebDesignPage />} />
           <Route path="/data-privacy" element={<DataPrivacy />} />
+          <Route path="/iso-page" element={<IsoPage/>}/>
         </Routes>
       </main>
       <Footer />

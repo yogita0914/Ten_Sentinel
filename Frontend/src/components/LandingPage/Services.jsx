@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import {Link} from "react-router-dom";
 import { FingerPrintIcon, AcademicCapIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
 
 const services = [
@@ -49,7 +50,7 @@ const ServiceCard = ({ service, index }) => {
         transition={{ type: 'spring', stiffness: 300 }}
       >
         <span className={`bg-gradient-to-r ${service.color} bg-clip-text text-transparent text-sm sm:text-base`}>
-          Learn more
+          <Link to="/iso-page">Learn more</Link>
         </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
