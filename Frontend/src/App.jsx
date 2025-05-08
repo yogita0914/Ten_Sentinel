@@ -15,6 +15,7 @@ import Marketing from "./pages/Marketing";
 import AboutPage from './pages/AboutPage';
 import CloudSecurity from "./pages/CloudSecurity";
 import IsoPage from "./components/IsoPage/IsoPage";
+import { VAPT } from "./pages/VAPT";
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/web-design" element={<WebDesignPage />} />
           <Route path="/data-privacy" element={<DataPrivacy />} />
           <Route path="/iso-page" element={<IsoPage/>}/>
+          <Route path="/vapt" element={<VAPT/>}/>
         </Routes>
       </main>
       <Footer />
