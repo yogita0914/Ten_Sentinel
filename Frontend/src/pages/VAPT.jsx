@@ -8,21 +8,21 @@ export const VAPT = () => {
     const reviews = [
         {
             img: "https://img.freepik.com/free-photo/confident-handsome-guy-posing-against-white-wall_176420-32936.jpg?t=st=1746739713~exp=1746743313~hmac=8ffc43466e3196893fbd57d995876f813a7bcf7e37c661469b5e3ba37e398fe0&w=996",
-            name: "Girish Bhatia",
-            title: "Director/Lead Consultant - Compass Consult",
-            text: "Ever since 2021, CyberSapiens has been our top choice for all things Cyber Security. They've truly become our trusted partners, offering expert guidance and services to protect our digital assets."
+            name: "Rohit Sharma",
+            title: "Head of IT",
+            text: "Since partnering with The Entrepreneurship Network, we've elevated our entire security framework. Their team's expertise, especially during VAPT engagements, has given us complete confidence in our defenses. They're more than just a service provider—they're a security partner we can rely on."
         },
         {
             img: "https://img.freepik.com/free-photo/vertical-shot-happy-dark-skinned-female-with-curly-hair_273609-15519.jpg?t=st=1746739106~exp=1746742706~hmac=187d330466139f0661549b6d756f0a69ca33e910721e328c3f35e75f6755f2d9&w=740",
-            name: "Girish Bhatia",
-            title: "Director/Lead Consultant - Compass Consult",
-            text: "Ever since 2021, CyberSapiens has been our top choice for all things Cyber Security. They've truly become our trusted partners, offering expert guidance and services to protect our digital assets."
+            name: "Pranathi Desai",
+            title: "Security Analyst",
+            text: "The Entrepreneurship Network exceeded our expectations. Their manual testing approach uncovered vulnerabilities we hadn't even considered. The dedication and clarity they provided throughout the process made a big difference for our team."
         },
         {
             img: "https://img.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation_1258-59335.jpg?t=st=1746738748~exp=1746742348~hmac=d33c7f6a90b2266a86bd6e4b3e8e6d42745a6674c31e3ee1a95006e295ff9e1c&w=996",
-            name: "Girish Bhatia",
-            title: "Director/Lead Consultant - Compass Consult",
-            text: "Ever since 2021, CyberSapiens has been our top choice for all things Cyber Security. They've truly become our trusted partners, offering expert guidance and services to protect our digital assets."
+            name: "Larissa Almeida",
+            title: "IT Manager",
+            text: "I can't recommend The Entrepreneurship Network enough! Their professionalism, attention to detail, and thorough reports made it easy for us to enhance our security posture. Their Safe-to-Host certification has greatly boosted our credibility with clients."
         }
     ]
 
@@ -65,99 +65,104 @@ export const VAPT = () => {
         },
     ]
 
-    const benefits = [
-        {
-            icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-281q14 0 24.5-10.5T515-316q0-14-10.5-24.5T480-351q-14 0-24.5 10.5T445-316q0 14 10.5 24.5T480-281Zm-30-144h60v-263h-60v263ZM330-120 120-330v-300l210-210h300l210 210v300L630-120H330Zm25-60h250l175-175v-250L605-780H355L180-605v250l175 175Zm125-300Z" /></svg>
-            ),
-            title: "Assessment Report",
-            text: "The VAPT audit is accompanied by an evaluation report. We provide a brief summary of the detected vulnerabilities, their nature, their impact, and how they can be used by the attacker to exploit data. The report indicates proactive measures to resolve those security issues as well."
-        },
-        {
-            icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M140-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h240q24 0 42 18t18 42v600q0 24-18 42t-42 18H140Zm440 0q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h240q24 0 42 18t18 42v600q0 24-18 42t-42 18H580Zm-440-60h240v-600H140v600Zm440 0h240v-600H580v600ZM200-367h120v-60H200v60Zm440 0h120v-60H640v60ZM200-491h120v-60H200v60Zm440 0h120v-60H640v60ZM200-615h120v-60H200v60Zm440 0h120v-60H640v60ZM140-180h240-240Zm440 0h240-240Z" /></svg>
-            ),
-            title: "Safe-to-Host Certificate",
-            text: "We offer a safe to host certificate to validate that your network infrastructure is secured. We comply with ISO 27001: 2013, HIPAA, and GDPR to mandate continuous monitoring. With a security certificate, you can ensure your customers that their information is under surveillance and well protected."
-        },
-        {
-            icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M680-330q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Zm0-60q25.5 0 42.75-17.25T740-450q0-25.5-17.25-42.75T680-510q-25.5 0-42.75 17.25T620-450q0 25.5 17.25 42.75T680-390ZM440-50v-116q0-21 10-39.5t28-29.5q28-17 58-29.5t62-20.5l82 106 82-106q32 8 61.5 20.5T881-235q18 11 28.5 29.5T920-166v116H440Zm60-60h157l-82-106q-20 8-39 17.5T500-178v68Zm203 0h157v-68q-17-11-35.5-20.5T786-216l-83 106Zm-46 0Zm46 0Zm-523-10q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h600q24.75 0 42.38 17.62Q840-804.75 840-780v247q-11-20-26-37t-34-30v-180H180v600h200v60H180Zm100-500h341q14-5 28.84-7.5T680-630v-50H280v60Zm0 170h220q0-15 2.5-30.5T510-510H280v60Zm0 170h158q17-13 36-21.5t39-16.5v-22H280v60ZM180-180v-600 180-30 450Zm500-270Z" /></svg>
-            ),
-            title: "Consult from the Best",
-            text: "The VAPT audits are undertaken by our team of proficient cybersecurity experts. They utilize the latest tools as well as perform manual testing for finding configuration accuracies and potential vulnerabilities. Manual testing makes us capable of finding security errors that are mostly missed by automated tools."
-        },
-    ]
-
     const methodoloy = [
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z" /></svg>
             ),
             title: "Information Gathering",
-            text: "We develop a detailed understanding of the design, architecture, functionality, and security systems of the target which will help in the further process."
+            text: "The process begins with detailed reconnaissance. We thoroughly analyze the target's design, architecture, operational functionalities, and existing security mechanisms. This foundational knowledge is essential for tailoring the assessment and enhancing the accuracy of subsequent testing phases."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-80q-140-35-230-162.5T160-522v-238l320-120 320 120v238q0 152-90 279.5T480-80Zm0-62q106-35 175.5-128.5T737-480H480v-335l-260 97v196q0 12 .5 20.5T223-480h257v338Z" /></svg>
             ),
             title: "Identify Vulnerabilities",
-            text: "The next step is to Identify Vulnerabilities, where we use a complete manual approach. Once the vulnerabilities are identified, they are then sent to the next stage."
+            text: "We manually examine the environment to identify known and potential vulnerabilities. Our hands-on, manual approach ensures deeper insight into complex security flaws that automated tools may miss. The results from this phase serve as input for further evaluation and testing."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M284-277h60v-205h-60v205Zm332 0h60v-420h-60v420Zm-166 0h60v-118h-60v118Zm0-205h60v-60h-60v60ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z" /></svg>
             ),
             title: "Vulnerability Assessment",
-            text: "The identified vulnerabilities from the previous steps are assessed here to validate them and further try out with multiple methods to understand the attack vectors."
+            text: "In this stage, we validate and assess the identified vulnerabilities to understand their nature, origin, and potential for exploitation. We simulate various attack scenarios to determine possible entry points and escalation paths, gaining a better perspective on the threat landscape."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-180q72 0 123-50.5T654-353v-167q0-72-51-122.5T480-693q-72 0-123 50.5T306-520v167q0 72 51 122.5T480-180Zm-80-140h160v-60H400v60Zm0-173h160v-60H400v60Zm80 57h.5-.5.5-.5.5-.5.5-.5Zm0 316q-65 0-121-31t-83-89H160v-60h92q-7-26-7-52.5V-406h-85v-60h85q0-29 .5-57.5T254-580h-94v-60h120q14-28 37-49t51-35l-77-76 40-40 94 94q28-10 56.5-10t56.5 10l94-94 40 40-76 76q28 14 49.5 35.5T683-640h117v60h-94q9 28 8.5 56.5T714-466h86v60h-86q0 27 .5 53.5T708-300h92v60H685q-26 59-82.5 89.5T480-120Z" /></svg>
             ),
             title: "Penetration Testing",
-            text: "At this stage, we run exploits and dummy attacks to evaluate the Impact and Risk of the vulnerability. To achieve a high degree of penetration, we use advanced tools and open-source scripts."
+            text: "Using a combination of industry-leading tools and custom-developed open-source scripts, we simulate real-world cyberattacks. These controlled exploits allow us to test the actual risk and impact associated with the discovered vulnerabilities, ensuring a realistic evaluation of the system’s resilience."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-280q14 0 24.5-10.5T515-315q0-14-10.5-24.5T480-350q-14 0-24.5 10.5T445-315q0 14 10.5 24.5T480-280Zm-31-132h60v-268h-60v268ZM180-120q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q24.75 0 42.38 17.62Q840-804.75 840-780v600q0 24.75-17.62 42.37Q804.75-120 780-120H180Zm0-60h600v-600H180v600Zm300-617q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797ZM180-180v-600 600Z" /></svg>
             ),
             title: "Reporting",
-            text: "As a conclusion to our VAPT audit, we submit an evaluation report. We accumulate the gathered information and brief out the findings. The report contains an elaborate analysis of the vulnerabilities. The vulnerabilities are divided into categories of Critical, High, Medium, and Low."
+            text: "Upon completion of the assessment, we deliver a comprehensive report that details our findings. The report includes a technical breakdown of each vulnerability, categorized by severity—Critical, High, Medium, or Low—alongside evidence, risk analysis, and recommended remediation steps."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="m436-347 228-228-42-41-183 183-101-101-44 44 142 143Zm44 266q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z" /></svg>
             ),
             title: "Revalidation",
-            text: "After successfully completing the process of audit, our experts suggests solutions to fix and eliminate the identified vulnerabilities. We also ensure that the changes are implemented and the vulnerabilities are patched. In our final assessment, we reflect on the security status of the network."
+            text: "Once remediation efforts are implemented, we conduct a revalidation process to confirm that all vulnerabilities have been properly addressed. Our final assessment offers a clear view of your updated security posture, ensuring that the fixes are effective and that your environment is more resilient to future threats."
+        },
+    ]
+
+    const benefits = [
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-281q14 0 24.5-10.5T515-316q0-14-10.5-24.5T480-351q-14 0-24.5 10.5T445-316q0 14 10.5 24.5T480-281Zm-30-144h60v-263h-60v263ZM330-120 120-330v-300l210-210h300l210 210v300L630-120H330Zm25-60h250l175-175v-250L605-780H355L180-605v250l175 175Zm125-300Z" /></svg>
+            ),
+            title: "Assessment Report",
+            text: "Each VAPT audit includes a clear report outlining discovered vulnerabilities, their risks, and how attackers might exploit them. We also provide actionable steps to address and resolve these issues effectively."
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M140-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h240q24 0 42 18t18 42v600q0 24-18 42t-42 18H140Zm440 0q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h240q24 0 42 18t18 42v600q0 24-18 42t-42 18H580Zm-440-60h240v-600H140v600Zm440 0h240v-600H580v600ZM200-367h120v-60H200v60Zm440 0h120v-60H640v60ZM200-491h120v-60H200v60Zm440 0h120v-60H640v60ZM200-615h120v-60H200v60Zm440 0h120v-60H640v60ZM140-180h240-240Zm440 0h240-240Z" /></svg>
+            ),
+            title: "Safe-to-Host Certificate",
+            text: `After successful remediation, we provide a "Safe-to-Host" certificate, verifying your infrastructure's compliance with standards like ISO 27001:2013, HIPAA, and GDPR. This helps build customer trust and demonstrates your commitment to data security.`
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M680-330q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Zm0-60q25.5 0 42.75-17.25T740-450q0-25.5-17.25-42.75T680-510q-25.5 0-42.75 17.25T620-450q0 25.5 17.25 42.75T680-390ZM440-50v-116q0-21 10-39.5t28-29.5q28-17 58-29.5t62-20.5l82 106 82-106q32 8 61.5 20.5T881-235q18 11 28.5 29.5T920-166v116H440Zm60-60h157l-82-106q-20 8-39 17.5T500-178v68Zm203 0h157v-68q-17-11-35.5-20.5T786-216l-83 106Zm-46 0Zm46 0Zm-523-10q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h600q24.75 0 42.38 17.62Q840-804.75 840-780v247q-11-20-26-37t-34-30v-180H180v600h200v60H180Zm100-500h341q14-5 28.84-7.5T680-630v-50H280v60Zm0 170h220q0-15 2.5-30.5T510-510H280v60Zm0 170h158q17-13 36-21.5t39-16.5v-22H280v60ZM180-180v-600 180-30 450Zm500-270Z" /></svg>
+            ),
+            title: "Consult from the Best",
+            text: "Our cybersecurity experts combine advanced tools with manual testing to uncover vulnerabilities often missed by automation. This ensures a deeper, more accurate assessment of your security posture."
         },
     ]
 
     const [faqs, setFaqs] = useState([
         {
-            question: "Why is professional web design critical for my business?",
-            response: "Your website is your digital storefront. A well-designed site builds trust, improves user experience, and directly impacts conversions. Poor design can drive potential customers away.",
+            question: "What is VAPT and why does my organization need it?",
+            response: "VAPT stands for Vulnerability Assessment and Penetration Testing. It’s a systematic process used to identify, evaluate, and mitigate security vulnerabilities in your IT infrastructure, applications, and networks. Organizations need VAPT to proactively defend against cyberattacks, comply with industry regulations, and ensure the safety of sensitive data.",
             isOpen: false
         },
         {
-            question: "How long does the web design process take?",
-            response: "Typically 2-6 weeks, depending on complexity. We prioritize quality while meeting your deadlines.",
+            question: "How often should VAPT be performed?",
+            response: "The frequency of VAPT depends on the nature of your business, compliance requirements, and the rate of infrastructure changes. As a best practice, organizations should conduct VAPT annually or after any significant system updates, infrastructure changes, or application deployments to ensure consistent security.",
             isOpen: false
         },
         {
-            question: "Do you design mobile-friendly websites?",
-            response: "Absolutely. Every site we build is fully responsive, ensuring seamless performance on all devices (60%+ traffic comes from mobile!).",
+            question: "Will VAPT disrupt my business operations?",
+            response: "No, our VAPT process is designed to be non-intrusive. While Penetration Testing involves simulating real-world attacks, we coordinate closely with your team to avoid downtime and minimize impact. Testing can also be scheduled during off-peak hours to ensure business continuity.",
             isOpen: false
         },
         {
-            question: "Will my website be optimized for search engines (SEO)?",
-            response: "Yes. Our designs include SEO best practices (clean code, speed optimization, and metadata structuring) to help you rank higher.",
+            question: "What is the difference between Vulnerability Assessment and Penetration Testing?",
+            response: "A Vulnerability Assessment identifies and reports known security flaws, while Penetration Testing goes a step further by actively exploiting those flaws to understand the depth of potential damage. Both are essential—one highlights what’s weak, and the other tests how those weaknesses can be used against you.",
             isOpen: false
         },
         {
-            question: "What ongoing support do you offer after launch?",
-            response: "We provide post-launch updates, security patches, and performance tweaks to keep your site ahead of competitors.",
+            question: "What do I receive after the VAPT is complete?",
+            response: "Upon completion, you'll receive a comprehensive report detailing identified vulnerabilities, categorized by severity (Critical, High, Medium, Low). The report includes technical findings, risk assessments, and tailored remediation guidance. If all issues are resolved, we also provide a Safe-to-Host certificate.",
+            isOpen: false
+        },
+        {
+            question: "Who performs the VAPT audits?",
+            response: "Our VAPT audits are carried out by certified cybersecurity experts with extensive experience in manual and automated testing. Our team uses advanced tools along with deep manual analysis to ensure even the most complex vulnerabilities are discovered and properly addressed.",
             isOpen: false
         },
     ])
@@ -199,9 +204,9 @@ export const VAPT = () => {
 
                         <SectionTitle title={"About Our VAPT Services"} />
 
-                        <p className='text-base font-light'>VAPT(Vulnerability Assessment and Penetration Testing) helps identify vulnerabilities in your systems, applications, networks, etc., and analyze the risk of potential loss that would occur due to the exploitation of these vulnerabilities and penetration by the attackers.</p>
+                        <p className='text-base font-light'>Vulnerability Assessment and Penetration Testing (VAPT) is a critical security process that uncovers weaknesses across your systems, applications, networks, and other digital assets. Our VAPT services not only identify existing vulnerabilities but also evaluate the potential impact of exploitation by malicious actors, helping you understand and manage your security risks more effectively.</p>
 
-                        <p className='text-base'>We don't just identify and report, but we also assist in the remediation and re-validation of the vulnerability.</p>
+                        <p className='text-base'>Unlike many providers, we go beyond simple detection and reporting. Our team works closely with you to support the full remediation process and conduct thorough re-validation, ensuring that identified vulnerabilities are properly resolved and your environment is secure.</p>
                     </div>
 
                 </section>
@@ -267,7 +272,7 @@ export const VAPT = () => {
                 {/* Methodology */}
                 <section className='flex flex-col gap-8'>
                     <SectionTitle title={"VAPT Methodology"} />
-                    <p className='text-sm'>We pursue a holistic approach to execute VAPT audits. A complete analysis of the existing security posture and suggestions for reducing the exposure to currently recognized vulnerabilities adds to the client's benefits. We facilitate the clients to make informed decisions and manage the exposure of dangers in a better manner.</p>
+                    <p className='text-sm'>We follow a comprehensive and structured approach to Vulnerability Assessment and Penetration Testing (VAPT), designed to provide a 360-degree view of your organization's security posture. Our methodology not only uncovers potential vulnerabilities but also offers actionable insights and recommendations to strengthen your overall defense. By enabling informed decision-making, we help clients minimize their exposure to cyber threats and improve risk management.</p>
 
                     <ul className='flex flex-col gap-4'>
                         {
