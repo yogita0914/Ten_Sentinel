@@ -2,6 +2,6 @@ import React from 'react'
 
 export const SectionTitle = ({title}) => {
   return (
-    <h2 className='font-semibold text-xl'>{title}</h2>
+    <h2 className='font-semibold text-xl self-center'>{title}</h2>
 )
 }

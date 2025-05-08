@@ -88,6 +88,51 @@ export const VAPT = () => {
         },
     ]
 
+    const methodoloy = [
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z" /></svg>
+            ),
+            title: "Information Gathering",
+            text: "We develop a detailed understanding of the design, architecture, functionality, and security systems of the target which will help in the further process."
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-80q-140-35-230-162.5T160-522v-238l320-120 320 120v238q0 152-90 279.5T480-80Zm0-62q106-35 175.5-128.5T737-480H480v-335l-260 97v196q0 12 .5 20.5T223-480h257v338Z" /></svg>
+            ),
+            title: "Identify Vulnerabilities",
+            text: "The next step is to Identify Vulnerabilities, where we use a complete manual approach. Once the vulnerabilities are identified, they are then sent to the next stage."
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M284-277h60v-205h-60v205Zm332 0h60v-420h-60v420Zm-166 0h60v-118h-60v118Zm0-205h60v-60h-60v60ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z" /></svg>
+            ),
+            title: "Vulnerability Assessment",
+            text: "The identified vulnerabilities from the previous steps are assessed here to validate them and further try out with multiple methods to understand the attack vectors."
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-180q72 0 123-50.5T654-353v-167q0-72-51-122.5T480-693q-72 0-123 50.5T306-520v167q0 72 51 122.5T480-180Zm-80-140h160v-60H400v60Zm0-173h160v-60H400v60Zm80 57h.5-.5.5-.5.5-.5.5-.5Zm0 316q-65 0-121-31t-83-89H160v-60h92q-7-26-7-52.5V-406h-85v-60h85q0-29 .5-57.5T254-580h-94v-60h120q14-28 37-49t51-35l-77-76 40-40 94 94q28-10 56.5-10t56.5 10l94-94 40 40-76 76q28 14 49.5 35.5T683-640h117v60h-94q9 28 8.5 56.5T714-466h86v60h-86q0 27 .5 53.5T708-300h92v60H685q-26 59-82.5 89.5T480-120Z" /></svg>
+            ),
+            title: "Penetration Testing",
+            text: "At this stage, we run exploits and dummy attacks to evaluate the Impact and Risk of the vulnerability. To achieve a high degree of penetration, we use advanced tools and open-source scripts."
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-280q14 0 24.5-10.5T515-315q0-14-10.5-24.5T480-350q-14 0-24.5 10.5T445-315q0 14 10.5 24.5T480-280Zm-31-132h60v-268h-60v268ZM180-120q-24.75 0-42.37-17.63Q120-155.25 120-180v-600q0-24.75 17.63-42.38Q155.25-840 180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q24.75 0 42.38 17.62Q840-804.75 840-780v600q0 24.75-17.62 42.37Q804.75-120 780-120H180Zm0-60h600v-600H180v600Zm300-617q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797ZM180-180v-600 600Z" /></svg>
+            ),
+            title: "Reporting",
+            text: "As a conclusion to our VAPT audit, we submit an evaluation report. We accumulate the gathered information and brief out the findings. The report contains an elaborate analysis of the vulnerabilities. The vulnerabilities are divided into categories of Critical, High, Medium, and Low."
+        },
+        {
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="m436-347 228-228-42-41-183 183-101-101-44 44 142 143Zm44 266q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z" /></svg>
+            ),
+            title: "Revalidation",
+            text: "After successfully completing the process of audit, our experts suggests solutions to fix and eliminate the identified vulnerabilities. We also ensure that the changes are implemented and the vulnerabilities are patched. In our final assessment, we reflect on the security status of the network."
+        },
+    ]
+
     return (
         <div className="flex flex-col gap-8 mt-16">
 
@@ -104,7 +149,6 @@ export const VAPT = () => {
             </div>
 
             <div className='px-6 flex flex-col gap-12'>
-
 
                 {/* Home */}
                 <section className='flex flex-col gap-6' >
@@ -181,19 +225,27 @@ export const VAPT = () => {
                 </section>
 
                 {/* Methodology */}
-                <section>
-                    <h2>VAPT Methodoloy</h2>
-                    <p>TEXT...</p>
+                <section className='flex flex-col gap-8'>
+                    <SectionTitle title={"VAPT Methodology"} />
+                    <p className='text-sm'>We pursue a holistic approach to execute VAPT audits. A complete analysis of the existing security posture and suggestions for reducing the exposure to currently recognized vulnerabilities adds to the client's benefits. We facilitate the clients to make informed decisions and manage the exposure of dangers in a better manner.</p>
 
-                    <ul>
-                        <li>
-                            <img src="#" />
+                    <ul className='flex flex-col gap-4'>
+                        {
+                            methodoloy.map((method, key) => (
+                                <li key={key} className="flex flex-row items-center gap-4 justify-start border border-gray-400 py-4 px-2 rounded-md shadow-sm">
+                                    <div className="flex-shrink-0">
+                                        {React.cloneElement(method.icon, { className: 'w-16 h-16 text-blue-500' })}
+                                    </div>
 
-                            <div>
-                                <h3>Card title</h3>
-                                <p>Card text...</p>
-                            </div>
-                        </li>
+                                    <div className="max-w-prose flex flex-col gap-2">
+                                        <h3 className="font-semibold text-base">{method.title}</h3>
+                                        <p className="text-sm">{method.text}</p>
+                                    </div>
+                                </li>
+
+                            ))
+                        }
+
                     </ul>
                 </section>
 
