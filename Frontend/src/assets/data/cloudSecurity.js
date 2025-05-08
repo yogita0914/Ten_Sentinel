@@ -5,7 +5,7 @@ export const hero = {
   subtitle:
     "Stay ahead of threats with smart, scalable, and secure cloud solutions — customized for AWS, Azure, and GCP.",
   backgroundImage:
-    "https://img.freepik.com/premium-vector/technology-security_34629-196.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740",
+    "https://img.freepik.com/premium-vector/security-cyber-digital-concept-abstract-technology-background-protect-system-innovation_42421-306.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740",
 };
 
 export const intro = {
@@ -54,21 +54,23 @@ export const cloudServices = [
   {
     name: "AWS Sentinel Shield",
     description:
-      "TEN Sentinel for AWS provides advanced identity protection, VPC monitoring...",
+      "TEN Sentinel for AWS provides advanced identity protection, VPC traffic monitoring, S3 encryption, and real-time compliance alerts. It integrates seamlessly with native AWS tools like CloudTrail and GuardDuty, giving you full control and visibility over your infrastructure while minimizing risks from misconfigurations and external threats.",
     icon: "🟧",
   },
   {
     name: "Azure Guardian",
     description:
-      "TEN Sentinel for Azure includes real-time threat detection...",
+      "TEN Sentinel for Azure offers complete protection across hybrid cloud deployments, including continuous security assessments, automated remediation, and identity threat detection using Azure AD and Defender. It’s designed to enforce secure DevOps pipelines, govern role-based access, and maintain industry compliance effortlessly.",
     icon: "🔷",
   },
   {
     name: "GCP Fortify",
-    description: "With TEN Sentinel for GCP, get end-to-end protection...",
+    description:
+      "With TEN Sentinel for GCP, safeguard your compute engine, storage buckets, and Kubernetes clusters using AI-powered threat detection, firewall policies, and IAM audit logging. This solution emphasizes API security, secure CI/CD workflows, and visibility across services through integration with Google’s Security Command Center.",
     icon: "🟨",
   },
 ];
+
 
 export const benefits = [
   {

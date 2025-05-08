@@ -44,13 +44,13 @@ export default function FaqAccordion() {
 
   return (
     <section className="bg-white py-5 px-6 m-0 lg:m-10 sm:px-12 lg:px-24">
-      <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
+      <h2 className="text-xl lg:text-4xl font-bold text-center text-gray-800 mb-10">
         Cloud Security FAQs – TEN Sentinel
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-15 items-start m-10">
         {/* Right Side - FAQ Accordion */}
-        <div className="space-y-4">
+        <div className="space-y-4 mt-10">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -58,7 +58,7 @@ export default function FaqAccordion() {
             >
               <button
                 onClick={() => toggle(index)}
-                className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                className="text-sm md:text-lg flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
               >
                 {faq.question}
                 <ChevronDown
@@ -80,11 +80,11 @@ export default function FaqAccordion() {
         </div>
 
         {/* Left Side - Image */}
-        <div className="hidden md:flex justify-center items-center">
+        <div className="hidden md:flex">
           <img
-            src="https://img.freepik.com/premium-vector/cyber-security-logo-with-keyhole-symbol-keyhole_602671-1674.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"
+            src="https://img.freepik.com/free-vector/cloud-with-cyber-wires_78370-6678.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"
             alt="FAQ Illustration"
-            className="w-full h-[350px] object-cover rounded-lg"
+            className="w-full h-auto object-cover object-center rounded-lg"
           />
         </div>
       </div>
