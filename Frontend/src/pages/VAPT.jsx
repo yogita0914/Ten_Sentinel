@@ -5,6 +5,9 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 export const VAPT = () => {
 
+
+    // Variables
+
     const reviews = [
         {
             img: "https://img.freepik.com/free-photo/confident-handsome-guy-posing-against-white-wall_176420-32936.jpg?t=st=1746739713~exp=1746743313~hmac=8ffc43466e3196893fbd57d995876f813a7bcf7e37c661469b5e3ba37e398fe0&w=996",
