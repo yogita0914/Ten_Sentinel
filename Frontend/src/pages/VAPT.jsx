@@ -193,44 +193,42 @@ export const VAPT = () => {
                 </div>
             </div>
 
-            <div className='px-6 flex flex-col gap-12'>
+            <div className='px-6 flex flex-col gap-12 md:px-12'>
 
                 {/* Home */}
-                <section className='flex flex-col gap-6' >
+                <section className='flex flex-col gap-6 md:gap-8' >
 
-                    <img src="https://img.freepik.com/free-photo/metaverse-avatar-collage-concept_52683-96426.jpg?t=st=1746717179~exp=1746720779~hmac=ec69305cae6b1d83cc8fbe5954009b397b8637ea89d3cf529e4e4d5496904ad9&w=996" />
+                    <img src="https://img.freepik.com/free-photo/metaverse-avatar-collage-concept_52683-96426.jpg?t=st=1746717179~exp=1746720779~hmac=ec69305cae6b1d83cc8fbe5954009b397b8637ea89d3cf529e4e4d5496904ad9&w=996" className='h-[400px] self-center' />
 
-                    <div className='flex flex-col gap-4'>
+                    <div className='flex flex-col gap-4 text-base md:text-lg'>
 
                         <SectionTitle title={"About Our VAPT Services"} />
 
-                        <p className='text-base font-light'>Vulnerability Assessment and Penetration Testing (VAPT) is a critical security process that uncovers weaknesses across your systems, applications, networks, and other digital assets. Our VAPT services not only identify existing vulnerabilities but also evaluate the potential impact of exploitation by malicious actors, helping you understand and manage your security risks more effectively.</p>
+                        <p className='font-light'>Vulnerability Assessment and Penetration Testing (VAPT) is a critical security process that uncovers weaknesses across your systems, applications, networks, and other digital assets. Our VAPT services not only identify existing vulnerabilities but also evaluate the potential impact of exploitation by malicious actors, helping you understand and manage your security risks more effectively.</p>
 
-                        <p className='text-base'>Unlike many providers, we go beyond simple detection and reporting. Our team works closely with you to support the full remediation process and conduct thorough re-validation, ensuring that identified vulnerabilities are properly resolved and your environment is secure.</p>
+                        <p>Unlike many providers, we go beyond simple detection and reporting. Our team works closely with you to support the full remediation process and conduct thorough re-validation, ensuring that identified vulnerabilities are properly resolved and your environment is secure.</p>
                     </div>
 
                 </section>
 
                 {/* Reviews */}
-                <section className='flex flex-col gap-4'>
+                <section className='flex flex-col gap-4 md:gap-8'>
                     <SectionTitle title={"Our Reviews"} />
 
-                    <ul className='flex flex-col gap-4'>
+                    <ul className='flex flex-col gap-4 md:gap-8'>
                         {
                             reviews.map((review, key) => (
-                                <li key={key} className='flex flex-row px-2 py-4 gap-2 rounded-md border border-gray-400'>
+                                <li key={key} className='flex flex-row px-2 py-4 gap-2 rounded-md border border-gray-400 md:gap-6'>
                                     <div
-                                        className='min-w-32 bg-cover bg-center rounded-md'
+                                        className='min-w-32 bg-cover bg-center rounded-md md:min-w-44'
                                         style={{ backgroundImage: `url(${review.img})` }}
                                     >
 
                                     </div>
-                                    {/* <img src={review.img} className='rounded-sm w-20' /> */}
 
                                     <div className='flex flex-col gap-2'>
-                                        {/* STARS */}
                                         <ul>
-                                            <li className='text-yellow-300 flex flex-row gap-2 text-xl'>
+                                            <li className='text-yellow-300 flex flex-row gap-2 text-xl md:text-2xl'>
                                                 <FaStar />
                                                 <FaStar />
                                                 <FaStar />
@@ -239,10 +237,10 @@ export const VAPT = () => {
                                             </li>
                                         </ul>
 
-                                        <h3 className='text-base font-semibold'>{review.name}</h3>
-                                        <h4 className='text-xs font-light'>{review.title}</h4>
+                                        <h3 className='text-base font-semibold md:text-lg'>{review.name}</h3>
+                                        <h4 className='text-xs font-light md:text-base'>{review.title}</h4>
 
-                                        <p className='text-xs'>{review.text}</p>
+                                        <p className='text-xs md:text-base'>{review.text}</p>
                                     </div>
                                 </li>
                             ))
@@ -255,12 +253,13 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-6'>
                     <SectionTitle title={"We peform VAPT on the below platforms"} />
 
-                    <ul className='grid grid-cols-2 gap-4'>
+                    <ul className='grid grid-cols-2 gap-4 md:gap-8'>
                         {
                             platforms.map((platform, key) => (
                                 <li key={key} className='flex flex-col gap-2 justify-center items-center bg-blue-50 p-4 rounded-md shadow-sm'>
-                                    {platform.icon}
-                                    <h3 className='text-base font-semibold text-center'>{platform.title}</h3>
+                                    {React.cloneElement(platform.icon, { className: 'w-12 h-12 text-blue-500 md:w-20 md:h-20' })}
+
+                                    <h3 className='text-base font-semibold text-center md:text-lg'>{platform.title}</h3>
                                 </li>
                             ))
                         }
@@ -272,26 +271,34 @@ export const VAPT = () => {
                 {/* Methodology */}
                 <section className='flex flex-col gap-8'>
                     <SectionTitle title={"VAPT Methodology"} />
-                    <p className='text-sm'>We follow a comprehensive and structured approach to Vulnerability Assessment and Penetration Testing (VAPT), designed to provide a 360-degree view of your organization's security posture. Our methodology not only uncovers potential vulnerabilities but also offers actionable insights and recommendations to strengthen your overall defense. By enabling informed decision-making, we help clients minimize their exposure to cyber threats and improve risk management.</p>
+                    <p className='text-sm md:text-base'>We follow a comprehensive and structured approach to Vulnerability Assessment and Penetration Testing (VAPT), designed to provide a 360-degree view of your organization's security posture. Our methodology not only uncovers potential vulnerabilities but also offers actionable insights and recommendations to strengthen your overall defense. By enabling informed decision-making, we help clients minimize their exposure to cyber threats and improve risk management.</p>
 
-                    <ul className='flex flex-col gap-4'>
-                        {
-                            methodoloy.map((method, key) => (
-                                <li key={key} className="flex flex-row items-center gap-4 justify-start border border-gray-400 py-4 px-2 rounded-md shadow-sm">
-                                    <div className="flex-shrink-0">
-                                        {React.cloneElement(method.icon, { className: 'w-16 h-16 text-blue-500' })}
-                                    </div>
 
-                                    <div className="max-w-prose flex flex-col gap-2">
-                                        <h3 className="font-semibold text-base">{method.title}</h3>
-                                        <p className="text-sm">{method.text}</p>
-                                    </div>
-                                </li>
+                    <ul className="relative flex flex-col gap-4">
+                        {/* Linha central ocupando toda altura da ul */}
+                        <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-gray-300 -translate-x-1/2 z-0" />
 
-                            ))
-                        }
-
+                        {methodoloy.map((method, key) => (
+                            <li
+                                key={key}
+                                className={`relative z-10 flex flex-row items-center gap-4 border border-gray-400 py-4 px-2 
+        rounded-md shadow-sm w-full max-w-[50%]
+        ${key % 2 === 0 ? 'self-start' : 'self-end'}
+      `}
+                            >
+                                <div className="flex-shrink-0">
+                                    {React.cloneElement(method.icon, {
+                                        className: 'w-16 h-16 text-blue-500',
+                                    })}
+                                </div>
+                                <div className="max-w-prose flex flex-col gap-2">
+                                    <h3 className="font-semibold text-base">{method.title}</h3>
+                                    <p className="text-sm">{method.text}</p>
+                                </div>
+                            </li>
+                        ))}
                     </ul>
+
                 </section>
 
                 {/* Benefits */}
@@ -302,13 +309,14 @@ export const VAPT = () => {
                     <ul className='flex flex-col gap-8 p-6'>
                         {
                             benefits.map((benefit, key) => (
-                                <li key={key} className='flex flex-col justify-center items-center bg-white p-4 gap-4 border border-gray-400 rounded-sm shadow-sm'>
+                                <li key={key} className='flex flex-col justify-center items-center bg-white p-4 gap-4 border border-gray-400 rounded-sm shadow-sm md:p-12 max-w-[600px]'>
                                     <div className='flex flex-col justify-center items-center'>
-                                        {benefit.icon}
-                                        <h3 className='text-lg font-semibold'>{benefit.title}</h3>
+                                        {React.cloneElement(benefit.icon, { className: 'w-12 h-12 text-blue-500 md:w-20 md:h-20' })}
+
+                                        <h3 className='text-lg font-semibold md:text-xl'>{benefit.title}</h3>
                                     </div>
 
-                                    <p className='font-light text-sm'>{benefit.text}</p>
+                                    <p className='font-light text-sm md:text-base'>{benefit.text}</p>
                                 </li>
                             ))
                         }
