@@ -193,10 +193,10 @@ export const VAPT = () => {
                 </div>
             </div>
 
-            <div className='px-6 flex flex-col gap-12 md:px-12'>
+            <div className='px-6 flex flex-col gap-12 md:px-12 lg:px-20'>
 
                 {/* Home */}
-                <section className='flex flex-col gap-6 md:gap-8' >
+                <section className='flex flex-col gap-6 md:gap-8 lg:flex-row' >
 
                     <img src="https://img.freepik.com/free-photo/metaverse-avatar-collage-concept_52683-96426.jpg?t=st=1746717179~exp=1746720779~hmac=ec69305cae6b1d83cc8fbe5954009b397b8637ea89d3cf529e4e4d5496904ad9&w=996" className='h-[400px] self-center' />
 
@@ -215,10 +215,10 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-4 md:gap-8'>
                     <SectionTitle title={"Our Reviews"} />
 
-                    <ul className='flex flex-col gap-4 md:gap-8'>
+                    <ul className='flex flex-col gap-4 md:gap-8 lg:items-center'>
                         {
                             reviews.map((review, key) => (
-                                <li key={key} className='flex flex-row px-2 py-4 gap-2 rounded-md border border-gray-400 md:gap-6'>
+                                <li key={key} className='flex flex-row px-2 py-4 gap-2 rounded-md border border-gray-400 md:gap-6 lg:max-w-[800px] xl:max-w-[1200px]'>
                                     <div
                                         className='min-w-32 bg-cover bg-center rounded-md md:min-w-44'
                                         style={{ backgroundImage: `url(${review.img})` }}
@@ -226,7 +226,7 @@ export const VAPT = () => {
 
                                     </div>
 
-                                    <div className='flex flex-col gap-2'>
+                                    <div className='flex flex-col gap-2 xl:pr-4'>
                                         <ul>
                                             <li className='text-yellow-300 flex flex-row gap-2 text-xl md:text-2xl'>
                                                 <FaStar />
@@ -253,7 +253,7 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-6'>
                     <SectionTitle title={"We peform VAPT on the below platforms"} />
 
-                    <ul className='grid grid-cols-2 gap-4 md:gap-8'>
+                    <ul className='grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3'>
                         {
                             platforms.map((platform, key) => (
                                 <li key={key} className='flex flex-col gap-2 justify-center items-center bg-blue-50 p-4 rounded-md shadow-sm'>
@@ -306,7 +306,7 @@ export const VAPT = () => {
 
                     <SectionTitle title={"Our Key Benefits!"} />
 
-                    <ul className='flex flex-col gap-8 p-6'>
+                    <ul className='flex flex-col gap-8 p-6 lg:flex-row lg:px-12 xl:px-20'>
                         {
                             benefits.map((benefit, key) => (
                                 <li key={key} className='flex flex-col justify-center items-center bg-white p-4 gap-4 border border-gray-400 rounded-sm shadow-sm md:p-12 max-w-[600px]'>
@@ -328,7 +328,7 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-6 items-center'>
                     <SectionTitle title={"FAQ's"} />
 
-                    <ul className='flex flex-col gap-8 w-full'>
+                    <ul className='flex flex-col gap-8 w-full items-center'>
                         {
                             faqs.map((faq, key) => (
                                 <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px]'>
