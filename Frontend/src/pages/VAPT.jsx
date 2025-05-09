@@ -196,9 +196,9 @@ export const VAPT = () => {
             <div className='px-6 flex flex-col gap-12 md:px-12 lg:px-20'>
 
                 {/* Home */}
-                <section className='flex flex-col gap-6 md:gap-8 lg:flex-row' >
+                <section className='flex flex-col gap-6 md:gap-8 xl:flex-row' >
 
-                    <img src="https://img.freepik.com/free-photo/metaverse-avatar-collage-concept_52683-96426.jpg?t=st=1746717179~exp=1746720779~hmac=ec69305cae6b1d83cc8fbe5954009b397b8637ea89d3cf529e4e4d5496904ad9&w=996" className='h-[400px] self-center' />
+                    <img src="https://img.freepik.com/free-photo/metaverse-avatar-collage-concept_52683-96426.jpg?t=st=1746717179~exp=1746720779~hmac=ec69305cae6b1d83cc8fbe5954009b397b8637ea89d3cf529e4e4d5496904ad9&w=996" className='sm:h-[400px] self-center' />
 
                     <div className='flex flex-col gap-4 text-base md:text-lg'>
 
@@ -276,14 +276,12 @@ export const VAPT = () => {
 
                     <ul className="relative flex flex-col gap-4">
                         {/* Linha central ocupando toda altura da ul */}
-                        <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-gray-300 -translate-x-1/2 z-0" />
+                        <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-gray-300 -translate-x-1/2 z-0" />
 
                         {methodoloy.map((method, key) => (
                             <li
                                 key={key}
-                                className={`relative z-10 flex flex-row items-center gap-4 border border-gray-400 py-4 px-2 
-        rounded-md shadow-sm w-full max-w-[50%]
-        ${key % 2 === 0 ? 'self-start' : 'self-end'}
+                                className={`relative z-10 flex flex-row items-center gap-4 border border-gray-400 py-4 px-2 rounded-md shadow-sm w-full lg:max-w-[50%] ${key % 2 === 0 ? 'lg:self-start' : 'lg:self-end'}
       `}
                             >
                                 <div className="flex-shrink-0">
@@ -328,10 +326,10 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-6 items-center'>
                     <SectionTitle title={"FAQ's"} />
 
-                    <ul className='flex flex-col gap-8 w-full items-center'>
+                    <ul className='flex flex-col gap-8 w-full'>
                         {
                             faqs.map((faq, key) => (
-                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px]'>
+                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px] self-center'>
                                     <div className='flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6 '>
                                         <h3>{faq.question}</h3>
 
