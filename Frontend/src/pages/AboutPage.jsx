@@ -1,58 +1,175 @@
-import React from 'react';
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer'; // Ensure this is imported
+import React, { useState, useEffect } from "react"; // Added useEffect
+import ReactDOM from "react-dom"; // Added ReactDOM for createPortal
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
-// --- Import Images ---
-// Hero
+// Assets
+import heroBackgroundImage from "../assets/aboutus.page.assets/aboutUSbackground.jpg";
+import highFiveImage from "../assets/aboutus.page.assets/information.jpg";
+import peopleIconSrc from "../assets/aboutus.page.assets/gear-solid.svg";
+import processIconSrc from "../assets/aboutus.page.assets/globe-solid.svg";
+import technologyIconSrc from "../assets/aboutus.page.assets/microchip-solid.svg";
 
-// Introduction
-// import highFiveImage from "../assets/information.jpg";
-// Defence Team Icons
-import peopleIconSrc from "../assets/gear-solid.svg";
-import processIconSrc from "../assets/globe-solid.svg";
-import technologyIconSrc from "../assets/microchip-solid.svg";
-// Vision/Mission Icons & Image
-import targetIconSrc from "../assets/target-icon.jpg";
-import checkmarkIconSrc from "../assets/checkmark-icon.jpg";
-import businessmanImageSrc from "../assets/businessman-vision.png";
-// Stats Icons
-import usersTrainedIconSrc from "../assets/globe-solid.svg";
-import clientsServedIconSrc from "../assets/fingerprint-solid.svg";
-import uptimeIconSrc from "../assets/arrow-up.svg";
-import teamExpertsIconSrc from "../assets/users-gear-solid.svg";
+import targetIconSrc from "../assets/aboutus.page.assets/target-icon.jpg";
+import checkmarkIconSrc from "../assets/aboutus.page.assets/checkmark-icon.jpg";
+import businessmanImageSrc from "../assets/aboutus.page.assets/businessman-vision.png";
+import usersTrainedIconSrc from "../assets/aboutus.page.assets/globe-solid.svg";
+import clientsServedIconSrc from "../assets/aboutus.page.assets/fingerprint-solid.svg";
+import uptimeIconSrc from "../assets/aboutus.page.assets/arrow-up.svg";
+import teamExpertsIconSrc from "../assets/aboutus.page.assets/users-gear-solid.svg";
 
+// Contact Modal Component using React Portal
+const ContactFlyoutPanel = ({ isOpen, onClose }) => {
+  const handleEmailClick = () => {
+    // --- IMPORTANT: Configure your actual email address here ---
+    window.location.href = "mailto:contact@example.com"; // Replace with your email
+  };
 
-// --- Helper Components ---
+  // Effect to handle body scroll lock when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    // Cleanup function to reset body overflow when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]); // Dependency array ensures this runs only when isOpen changes
 
-// --- UPDATED InfoCard with Animation ---
-const InfoCard = ({ iconSrc, title, children, highlight = false, animationDelay = 'delay-0' }) => {
+  if (!isOpen) {
+    return null; // Don't render anything if not open
+  }
+
+  // This is the JSX for your modal's content
+  const modalContent = (
+    <>
+      {/* Overlay with increased z-index */}
+      <div
+        className={`fixed inset-0 bg-opacity-75 backdrop-blur-sm z-[9998]
+                    transition-opacity duration-300 ease-in-out
+                    ${
+                      isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+                    }`}
+        onClick={onClose}
+      />
+
+      {/* Panel with higher z-index */}
+      <div
+        className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                    w-11/12 max-w-md z-[9999] p-6 sm:p-8 rounded-xl shadow-xl
+                    bg-gradient-to-br from-gray-100 to-blue-300
+                    flex flex-col transition-all duration-300 ease-in-out
+                    ${
+                      isOpen
+                        ? "scale-100 opacity-100"
+                        : "scale-95 opacity-0 pointer-events-none"
+                    }`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
+          aria-label="Close contact panel"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        {/* Modal Content */}
+        <div className="text-center mt-4 mb-6 sm:mt-5 sm:mb-8">
+          <h2
+            id="contact-panel-title"
+            className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2"
+          >
+            Have any Questions?
+          </h2>
+          <p className="text-md sm:text-lg text-gray-600">
+            Get in touch with us right now!
+          </p>
+        </div>
+
+        {/* Email Option Card */}
+        <div className="bg-white p-5 sm:p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+          <div className="flex justify-center mb-4 sm:mb-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-[3.25rem] h-[3.25rem] sm:w-12 sm:h-12 text-[#4a5d93]"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+              />
+            </svg>
+          </div>
+          <button
+            onClick={handleEmailClick}
+            className="bg-blue-600 text-white hover:bg-white hover:text-blue-700 w-full py-3 px-4 border border-gray-300 rounded-lg  font-medium "
+          >
+            Email Us
+          </button>
+        </div>
+      </div>
+    </>
+  );
+  // Use ReactDOM.createPortal to render the modalContent into document.body
+  return ReactDOM.createPortal(modalContent, document.body);
+};
+
+// Reusable InfoCard Component
+const InfoCard = ({ iconSrc, title, children, animationDelay = "delay-0" }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <div
       ref={ref}
       className={`
         bg-white p-8 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col
         transition-all duration-700 ease-out ${animationDelay}
-        ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+        ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         hover:shadow-2xl hover:shadow-blue-lg hover:-translate-y-1
-         'border-sky-100 border-2 shadow-2xl shadow-blue-lg' : ''}
-    `}>
+      `}
+    >
       <div className="flex justify-center mb-4">
         <div className="bg-sky-200 rounded-full p-3 inline-flex items-center justify-center w-20 h-20">
-           <img src={iconSrc} alt={`${title} icon`} className="w-12 h-12 object-contain"/> {/* Corrected size */}
+          <img
+            src={iconSrc}
+            alt={`${title} icon`}
+            className="w-12 h-12 object-contain"
+          />
         </div>
       </div>
       <h3 className="text-2xl font-semibold text-gray-800 mb-3">{title}</h3>
-      <p className="text-gray-600 text-sm leading-relaxed flex-grow">{children}</p>
+      <p className="text-gray-600 text-sm leading-relaxed flex-grow">
+        {children}
+      </p>
     </div>
   );
 };
 
-// --- UPDATED VisionMissionItem ---
+// Reusable Vision/Mission Item
 const VisionMissionItem = ({ iconSrc, title, children }) => (
   <div className="flex items-start gap-5 mb-12">
     <div className="flex-shrink-0 w-10 flex justify-center mt-1">
-      <img src={iconSrc} alt={`${title} icon`} className="w-10 h-10"/>
+      <img src={iconSrc} alt={`${title} icon`} className="w-10 h-10" />
     </div>
     <div>
       <h3 className="text-3xl font-semibold text-gray-800 mb-3">{title}</h3>
@@ -61,9 +178,22 @@ const VisionMissionItem = ({ iconSrc, title, children }) => (
   </div>
 );
 
-// --- UPDATED StatItem with Animation ---
-const StatItem = ({ iconSrc, endValue, label, decimals = 0, suffix = '', separator = ',', duration = 2.5, trigger, animationDelay = 'delay-0' }) => {
-  const { ref, inView: statInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+// Reusable Stat Counter Item
+const StatItem = ({
+  iconSrc,
+  endValue,
+  label,
+  decimals = 0,
+  suffix = "",
+  separator = ",",
+  duration = 2.5,
+  trigger,
+  animationDelay = "delay-0",
+}) => {
+  const { ref, inView: statInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const shouldCountUp = statInView && trigger;
 
   return (
@@ -72,179 +202,272 @@ const StatItem = ({ iconSrc, endValue, label, decimals = 0, suffix = '', separat
       className={`
         bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center h-full text-center
         transition-all duration-700 ease-out ${animationDelay}
-        ${statInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+        ${statInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         hover:-translate-y-1
-    `}>
-       <div className="flex justify-center mb-4">
-         <img src={iconSrc} alt={`${label} icon`} className="h-10 object-contain"/>
-       </div>
-       <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 flex-grow flex items-center justify-center">
-          {shouldCountUp ?
-              <CountUp start={0} end={endValue} duration={duration} separator={separator} decimals={decimals} suffix={suffix} enableScrollSpy={false} scrollSpyDelay={0} />
-              : <span>0{suffix}</span>
-          }
-       </div>
-       <div className="text-sm text-gray-600 mt-auto pt-2">
-         {label}
-       </div>
+      `}
+    >
+      <div className="flex justify-center mb-4">
+        <img
+          src={iconSrc}
+          alt={`${label} icon`}
+          className="h-10 object-contain"
+        />
+      </div>
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 flex-grow flex items-center justify-center">
+        {shouldCountUp ? (
+          <CountUp
+            start={0}
+            end={endValue}
+            duration={duration}
+            separator={separator}
+            decimals={decimals}
+            suffix={suffix}
+          />
+        ) : (
+          <span>0{suffix}</span>
+        )}
+      </div>
+      <div className="text-sm text-gray-600 mt-auto pt-2">{label}</div>
     </div>
   );
 };
 
-
-// --- Main AboutPage Component ---
+// Main About Page Component
 const AboutPage = () => {
+  const [isContactPanelOpen, setIsContactPanelOpen] = useState(false);
 
-  // Hook for Stats section CountUp trigger
+  const openContactPanel = () => setIsContactPanelOpen(true);
+  const closeContactPanel = () => setIsContactPanelOpen(false);
+
+  // Hooks for visibility
   const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
+  const { ref: introImageRef, inView: introImageInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const { ref: introTextRef, inView: introTextInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const { ref: visionTextRef, inView: visionTextInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-  // Hooks for Introduction Section Animation
-  const { ref: introImageRef, inView: introImageInView } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const { ref: introTextRef, inView: introTextInView } = useInView({ triggerOnce: true, threshold: 0.2 });
-
-  // Hooks for Vision/Mission Section Animation
-  const { ref: visionTextRef, inView: visionTextInView } = useInView({ triggerOnce: true, threshold: 0.2 });
-
-
-  const heroBackgroundImage = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80';
-  const  highFiveImage = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
-    return (
-      <>
-      
-      
+  return (
+    <>
+      {/* Hero Section */}
       <section
-     
-      className="relative h-50 flex items-center justify-center text-white overflow-hidden bg-cover bg-center bg-fixed mt-20" 
-      style={{ backgroundImage: `url(${heroBackgroundImage})` }}
-    >
-     
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/70 to-blue-600/70 z-10"></div>
-     
+        className="relative h-48 sm:h-52 md:h-56 lg:h-60 flex items-center justify-center text-white overflow-hidden bg-cover bg-center bg-fixed" // MODIFIED HEIGHTS for smaller screens
+        style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/70 to-blue-600/70 z-10 text-center"></div>
+        <div className="relative z-20 w-full max-w-4xl px-4 text-center">
+          {" "}
+          {/* This div is centered by its parent */}
+          <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white mb-1 mt-13">
+            About Us
+          </h1>
+          <p className="text-sm sm:text-lg md:text-lg lg:text-lg text-sky-200 opacity-90">
+            Your trusted partner in securing data
+          </p>
+        </div>
+      </section>
 
-      
-      <div className="relative z-20 w-full max-w-4xl px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white">
-          About Us
-        </h1>
-        {/* Underline */}
-        <div className="w-24 h-0.5 bg-white opacity-80 mx-auto"></div>
-      </div>
-    </section>
-        {/* === 2. Introduction Section (With Animation) === */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      {/* Introduction Section */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 lg:pt-12 lg:pb-12">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16 overflow-hidden">
-          {/* Image Side with Animation */}
           <div
             ref={introImageRef}
-            className={`w-full md:w-1/2  delay-100 rounded-3xl overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 ${introImageInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} >
-            <div className="h-64 md:h-80 lg:h-96 ">
-               <img src={highFiveImage} alt="Team collaborating and giving high fives" className="w-full h-full object-cover"/>
+            className={`w-full md:w-1/2 rounded-3xl overflow-hidden shadow-md 
+                        transition-all duration-300 ease-in-out 
+                        hover:shadow-xl hover:-translate-y-1 
+                        ${
+                          introImageInView
+                            ? "opacity-100 translate-x-0"
+                            : "opacity-0 -translate-x-10"
+                        }`}
+          >
+            <div className="aspect-[16/9] h-auto md:aspect-auto md:h-[12.5rem] lg:h-[21.5rem]">
+              <img
+                src={highFiveImage}
+                alt="Team collaborating and giving high fives"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
-          {/* Text Side with Animation */}
           <div
             ref={introTextRef}
-            className={`w-full md:w-1/2 transition-all duration-700 ease-out delay-200 ${introTextInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} >
-            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-6">We make Security Possible!</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">We are your one-stop Cyber Security Solution and Your trusted partner for business-focused cybersecurity solutions.</p>
-             <p className="text-gray-600 leading-relaxed mb-4">Our goal is to equip your business with the knowledge and tools needed to navigate cyberspace safely. Explore our comprehensive range of services tailored to meet the unique needs of every business, institution, and individual.</p>
-             <p className="text-gray-600 leading-relaxed">At Ten Sentinel, we're committed to not just offering services, but to actively building a secure cyber environment.</p>
+            className={`w-full md:w-1/2 transition-all duration-700 ease-out delay-200 
+                        ${
+                          introTextInView
+                            ? "opacity-100 translate-x-0"
+                            : "opacity-0 translate-x-10"
+                        }`}
+          >
+            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-6 text-center">
+              We make Security Possible!
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4 text-center">
+              We are your one-stop Cyber Security Solution and Your trusted
+              partner for business-focused cybersecurity solutions.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4 text-center">
+              Our goal is to equip your business with the knowledge and tools
+              needed to navigate cyberspace safely. Explore our comprehensive
+              range of services tailored to meet the unique needs of every
+              business, institution, and individual.
+            </p>
+            <p className="text-gray-600 leading-relaxed text-center">
+              At Ten Sentinel, we're committed to not just offering services,
+              but to actively building a secure cyber environment.
+            </p>
           </div>
         </div>
       </section>
 
-
-      {/* === 3. Cyber Defence Team Section (With Animation) === */}
-      <section className="bg-gray-50 py-16 lg:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl lg:text-4xl font-semibold text-center text-gray-800 mb-4">We are your <span className="text-cs-teal">Cyber Defence Team</span>,</h2>
-              <p className="text-lg text-gray-600 text-center mb-12 lg:mb-16 max-w-3xl mx-auto">focused on safeguarding essential aspects of your Business!</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-stretch">
-              <InfoCard iconSrc={peopleIconSrc} title="People" animationDelay="delay-100">People are the most critical and vulnerable resources in any company. It all depends on their behaviour as to how they act & react. We Educate, Train and Assess people to make them a proactive user.</InfoCard>
-                  <InfoCard iconSrc={processIconSrc} title="Process" highlight={true} animationDelay="delay-200">A well-defined process controls everything and helps maintain structure and transparency, and is achieved through definition, implementation, and validation to ensure compliance.</InfoCard>
-                  <InfoCard iconSrc={technologyIconSrc} title="Technology" animationDelay="delay-300">Technology is essential for organizations and stores all data, increasing operational efficiency and be more swift and agile. We configure, test, and secure technology to ensure data safety.</InfoCard>
+      {/* People, Process, Technology Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-blue-100 pt-8 pb-16 lg:pt-16 lg:pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-center text-gray-800 mb-4">
+            We are your <span className="text-cs-teal">Cyber Defence Team</span>
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
+            focused on safeguarding essential aspects of your Business!
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-stretch">
+            <InfoCard
+              iconSrc={peopleIconSrc}
+              title="People"
+              animationDelay="delay-100"
+            >
+              People are the most critical and vulnerable resources in any
+              company. We Educate, Train and Assess people to make them
+              proactive users.
+            </InfoCard>
+            <InfoCard
+              iconSrc={processIconSrc}
+              title="Process"
+              animationDelay="delay-200"
+            >
+              A well-defined process maintains structure and transparency
+              through definition, implementation, and validation for compliance.
+            </InfoCard>
+            <InfoCard
+              iconSrc={technologyIconSrc}
+              title="Technology"
+              animationDelay="delay-300"
+            >
+              Technology increases efficiency and agility. We configure, test,
+              and secure technology to ensure data safety.
+            </InfoCard>
           </div>
-          </div>
+        </div>
       </section>
 
-      {/* === 4. Vision and Mission Section (With Animation) === */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative mb-12">
-        {/* Applied overflow-hidden here if needed to contain animations fully */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20 overflow-hidden"> {/* Add overflow-hidden? */}
-
-          {/* Left Column (Text & Button) with Animation */}
+      {/* Vision and Mission Section */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative mb-6">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20 overflow-hidden">
           <div
             ref={visionTextRef}
-            className={`w-full lg:w-1/2 order-2 lg:order-1 transition-all duration-700 ease-out delay-100 ${visionTextInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+            className={`w-full lg:w-1/2 order-2 lg:order-1 
+                        transition-all duration-700 ease-out delay-100 
+                        ${
+                          visionTextInView
+                            ? "opacity-100 translate-x-0"
+                            : "opacity-0 -translate-x-10"
+                        }`}
           >
-             <VisionMissionItem iconSrc={targetIconSrc} title="Our Vision">
-               Our vision is to be the beacon of cybersecurity for businesses, ensuring their businesses stand strong against evolving threats.
-             </VisionMissionItem>
-             <VisionMissionItem iconSrc={checkmarkIconSrc} title="Our Mission">
-               Our Mission is to deliver tailored cybersecurity solutions to businesses of all sizes and empowering them to navigate the cyber world with confidence and peace of mind.
-             </VisionMissionItem>
-             <div className="lg:block">
-               <button className="bg-blue-600 text-white hover:bg-white hover:text-blue-700 font-semibold px-6 py-4 rounded ml-16"> {/* Example margin */}
-                 Consult Now!
-               </button>
-             </div>
+            <VisionMissionItem iconSrc={targetIconSrc} title="Our Vision">
+              Our vision is to be the beacon of cybersecurity for businesses,
+              ensuring their businesses stand strong against evolving threats.
+            </VisionMissionItem>
+            <VisionMissionItem iconSrc={checkmarkIconSrc} title="Our Mission">
+              Our mission is to deliver tailored cybersecurity solutions and
+              empower businesses to navigate the cyber world with confidence.
+            </VisionMissionItem>
+            <div className="mt-8 text-center md:block lg:mt-0 lg:text-left">
+              <button
+                onClick={openContactPanel}
+                className="bg-blue-600 text-white font-semibold px-8 py-5 rounded-lg inline-block lg:ml-16 transform transition-all duration-200 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
+              >
+                Consult Now!
+              </button>
+            </div>
           </div>
 
-          {/* Right Column (Image) with Animation */}
-          
-           
-
-              {/* === Right Column (Image) === */}
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
-             {/* --- Inner Div for Absolute Positioning --- */}
-             <div className="
-               relative
-               h-80                   {/* Base height small screens */}
-               lg:absolute
-               lg:right-0
-               lg:bottom-[-3.1rem]    {/* <<< FINE-TUNED Overlap */}
-               lg:w-1/2
-               lg:h-[33rem]           {/* <<< FINE-TUNED Height */}
-               z-10
-               flex items-end justify-center
-             ">
-        
-               <img
-                 src={businessmanImageSrc}
-                 alt="Businessman representing vision and mission"
-                 className="
-                   max-w-full max-h-full
-                   object-contain
-                   object-bottom
-                 "
-               />
-              </div>
+            <div className="relative h-80 lg:absolute lg:right-0 lg:bottom-[-1.5rem] lg:w-1/2 lg:h-[30rem] z-10 flex items-end justify-center">
+              <img
+                src={businessmanImageSrc}
+                alt="Businessman"
+                className="max-w-full max-h-full object-contain object-bottom"
+              />
+            </div>
           </div>
-
-          {/* === End Right Column === */}
         </div>
       </section>
-      {/* === 5. Stats Section (With Animation) === */}
-       <section
-        ref={statsRef} // Ref remains for CountUp trigger
-        className="relative py-10 lg:py-16 overflow-hidden"
+
+      {/* Statistics Section */}
+      <section
+        ref={statsRef}
+        className="relative py-10 lg:py-16 overflow-hidden bg-gradient-to-br from-gray-50 to-blue-100"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-center mb-12 lg:mb-16 text-gray-400 pt-12 lg:pt-0">
-            Solved about{' '} <span className="text-yellow-500 border-b-2 border-yellow-500 pb-1">5000+</span>
-            {' '}Cyber Threats!
+          <h2 className="text-3xl lg:text-4xl font-semibold text-center mb-12 lg:mb-16 text-gray-700">
+            Solved about{" "}
+            <span className="text-yellow-500 border-b-2 border-yellow-500 pb-1">
+              5000+
+            </span>{" "}
+            Cyber Threats!
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-stretch text-gray-600">
-             <StatItem iconSrc={usersTrainedIconSrc} endValue={1000000} label="Users Trained" separator="," suffix=" +" trigger={statsInView} animationDelay="delay-100"/>
-             <StatItem iconSrc={clientsServedIconSrc} endValue={300} label="Clients Served" separator="," suffix=" +" trigger={statsInView} animationDelay="delay-200"/>
-             <StatItem iconSrc={uptimeIconSrc} endValue={99.75} label="Up-time" decimals={2} suffix=" %" trigger={statsInView} animationDelay="delay-300"/>
-             <StatItem iconSrc={teamExpertsIconSrc} endValue={40} label="Team Experts" suffix=" +" trigger={statsInView} animationDelay="delay-500"/>
+            <StatItem
+              iconSrc={usersTrainedIconSrc}
+              endValue={1000000}
+              label="Users Trained"
+              separator=","
+              suffix=" +"
+              trigger={statsInView}
+              animationDelay="delay-100"
+            />
+            <StatItem
+              iconSrc={clientsServedIconSrc}
+              endValue={300}
+              label="Clients Served"
+              separator=","
+              suffix=" +"
+              trigger={statsInView}
+              animationDelay="delay-200"
+            />
+            <StatItem
+              iconSrc={uptimeIconSrc}
+              endValue={99.75}
+              label="Up-time"
+              decimals={2}
+              suffix=" %"
+              trigger={statsInView}
+              animationDelay="delay-300"
+            />
+            <StatItem
+              iconSrc={teamExpertsIconSrc}
+              endValue={40}
+              label="Team Experts"
+              suffix=" +"
+              trigger={statsInView}
+              animationDelay="delay-500"
+            />
           </div>
         </div>
       </section>
+      {/* The ContactFlyoutPanel will be rendered here via the Portal */}
+      <ContactFlyoutPanel
+        isOpen={isContactPanelOpen}
+        onClose={closeContactPanel}
+      />
     </>
   );
 };
