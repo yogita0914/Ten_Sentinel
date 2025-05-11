@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon, ShieldCheckIcon, DocumentMagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -8,21 +9,24 @@ const services = [
     title: "Phishing Simulation",
     description: "Phish your Employee to test if they are Phish Proof. Get a Free Phishing Simulation Done",
     color: "bg-cyan-100",
-    link: "Read More →"
+    link: "Read More →",
+    path: "/phishing-simulation"
   },
   {
     icon: <ShieldCheckIcon className="h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 text-blue-500" />,
     title: "Cyber Attack Analysis",
     description: "Faced cyber or malware attack? Our team of Cyber Experts can assist you to recover from such attacks.",
     color: "bg-blue-100",
-    link: "Read More →"
+    link: "Read More →",
+    path: "cyber-attack-analysis"
   },
   {
     icon: <DocumentMagnifyingGlassIcon className="h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 text-purple-500" />,
     title: "VAPT",
     description: "It helps to identify loopholes in your Systems/Applications/Networks, etc., & analyze the potential loss",
     color: "bg-purple-100",
-    link: "Read More →"
+    link: "Read More →",
+    path: "/vapt"
   }
 ];
 
@@ -53,8 +57,8 @@ const ServiceCard = ({ service, index }) => {
         </div>
         <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-gray-800">{service.title}</h3>
         <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-5">{service.description}</p>
-        <motion.a
-          href="#"
+        <Link
+          to={service.path}
           className="inline-flex items-center font-medium group"
           whileHover={{ x: 5 }}
           transition={{ type: 'spring', stiffness: 300 }}
@@ -62,10 +66,7 @@ const ServiceCard = ({ service, index }) => {
           <span className="text-cyan-600 group-hover:text-cyan-700 transition-colors text-sm sm:text-base">
             {service.link}
           </span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-1 text-cyan-500 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </motion.a>
+        </Link>
       </div>
     </motion.div>
   );

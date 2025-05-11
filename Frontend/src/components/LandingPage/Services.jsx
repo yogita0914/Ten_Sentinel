@@ -8,19 +8,22 @@ const services = [
     icon: <DocumentCheckIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />,
     title: "ISO 27001 Certification",
     description: "Get ISO 27001 Certified in the easiest way and stand out from your competitors.",
-    color: "from-cyan-400 to-blue-500"
+    color: "from-cyan-400 to-blue-500",
+    path: "/iso-page"
   },
   {
     icon: <FingerPrintIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />,
     title: "VAPT",
     description: "Identify and remediate the security vulnerabilities on your systems and protect your business from cyber attacks.",
-    color: "from-blue-400 to-indigo-500"
+    color: "from-blue-400 to-indigo-500",
+    path: "/vapt",
   },
   {
     icon: <AcademicCapIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />,
     title: "Training",
     description: "Employees are the weakest link of any Organisation's Cyber Security. Train Your Employee to be more Cyber Secure.",
-    color: "from-purple-400 to-violet-500"
+    color: "from-purple-400 to-violet-500",
+    path: "/training",
   }
 ];
 
@@ -50,7 +53,7 @@ const ServiceCard = ({ service, index }) => {
         transition={{ type: 'spring', stiffness: 300 }}
       >
         <span className={`bg-gradient-to-r ${service.color} bg-clip-text text-transparent text-sm sm:text-base`}>
-          <Link to="/iso-page">Learn more</Link>
+          <Link to={service.path}>Learn more</Link>
         </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
