@@ -9,7 +9,6 @@ import highFiveImage from "../assets/aboutus.page.assets/information.jpg";
 import peopleIconSrc from "../assets/aboutus.page.assets/gear-solid.svg";
 import processIconSrc from "../assets/aboutus.page.assets/globe-solid.svg";
 import technologyIconSrc from "../assets/aboutus.page.assets/microchip-solid.svg";
-
 import targetIconSrc from "../assets/aboutus.page.assets/target-icon.jpg";
 import checkmarkIconSrc from "../assets/aboutus.page.assets/checkmark-icon.jpg";
 import businessmanImageSrc from "../assets/aboutus.page.assets/businessman-vision.png";
@@ -18,34 +17,29 @@ import clientsServedIconSrc from "../assets/aboutus.page.assets/fingerprint-soli
 import uptimeIconSrc from "../assets/aboutus.page.assets/arrow-up.svg";
 import teamExpertsIconSrc from "../assets/aboutus.page.assets/users-gear-solid.svg";
 
-// Contact Modal Component using React Portal
+// Contact Modal Component
 const ContactFlyoutPanel = ({ isOpen, onClose }) => {
   const handleEmailClick = () => {
-    // --- IMPORTANT: Configure your actual email address here ---
     window.location.href = "mailto:contact@example.com"; // Replace with your email
   };
 
-  // Effect to handle body scroll lock when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
-    // Cleanup function to reset body overflow when component unmounts
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]); // Dependency array ensures this runs only when isOpen changes
+  }, [isOpen]);
 
   if (!isOpen) {
-    return null; // Don't render anything if not open
+    return null;
   }
 
-  // This is the JSX for your modal's content
   const modalContent = (
     <>
-      {/* Overlay with increased z-index */}
       <div
         className={`fixed inset-0 bg-opacity-75 backdrop-blur-sm z-[9998]
                     transition-opacity duration-300 ease-in-out
@@ -54,8 +48,6 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
                     }`}
         onClick={onClose}
       />
-
-      {/* Panel with higher z-index */}
       <div
         className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
                     w-11/12 max-w-md z-[9999] p-6 sm:p-8 rounded-xl shadow-xl
@@ -67,7 +59,6 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
                         : "scale-95 opacity-0 pointer-events-none"
                     }`}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
@@ -88,8 +79,6 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
             />
           </svg>
         </button>
-
-        {/* Modal Content */}
         <div className="text-center mt-4 mb-6 sm:mt-5 sm:mb-8">
           <h2
             id="contact-panel-title"
@@ -101,8 +90,6 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
             Get in touch with us right now!
           </p>
         </div>
-
-        {/* Email Option Card */}
         <div className="bg-white p-5 sm:p-6 rounded-xl border border-gray-200 shadow-sm text-center">
           <div className="flex justify-center mb-4 sm:mb-5">
             <svg
@@ -130,11 +117,10 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
       </div>
     </>
   );
-  // Use ReactDOM.createPortal to render the modalContent into document.body
   return ReactDOM.createPortal(modalContent, document.body);
 };
 
-// Reusable InfoCard Component
+// InfoCard Component (remains the same as your version before the last misunderstood change)
 const InfoCard = ({ iconSrc, title, children, animationDelay = "delay-0" }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -142,7 +128,7 @@ const InfoCard = ({ iconSrc, title, children, animationDelay = "delay-0" }) => {
     <div
       ref={ref}
       className={`
-        bg-white p-8 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col
+        bg-white p-8 md:p-6 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col
         transition-all duration-700 ease-out ${animationDelay}
         ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         hover:shadow-2xl hover:shadow-blue-lg hover:-translate-y-1
@@ -165,7 +151,7 @@ const InfoCard = ({ iconSrc, title, children, animationDelay = "delay-0" }) => {
   );
 };
 
-// Reusable Vision/Mission Item
+//  Vision/Mission Item
 const VisionMissionItem = ({ iconSrc, title, children }) => (
   <div className="flex items-start gap-5 mb-12">
     <div className="flex-shrink-0 w-10 flex justify-center mt-1">
@@ -178,7 +164,7 @@ const VisionMissionItem = ({ iconSrc, title, children }) => (
   </div>
 );
 
-// Reusable Stat Counter Item
+// Stat Counter Item
 const StatItem = ({
   iconSrc,
   endValue,
@@ -203,17 +189,28 @@ const StatItem = ({
         bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center h-full text-center
         transition-all duration-700 ease-out ${animationDelay}
         ${statInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-        hover:-translate-y-1
+        hover:-translate-y-1 overflow-hidden 
       `}
     >
-      <div className="flex justify-center mb-4">
+      {/* Icon Area */}
+      <div className="flex justify-center items-center mb-4 h-16">
         <img
           src={iconSrc}
           alt={`${label} icon`}
           className="h-10 object-contain"
         />
       </div>
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 flex-grow flex items-center justify-center">
+
+      {/* Number Area - FINAL REVISED RESPONSIVE FONT SIZES */}
+      <div className="text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 flex-grow flex items-center justify-center w-full whitespace-nowrap">
+        {/* 
+          Breakdown:
+          - Base (< sm): text-3xl (Good mobile size)
+          - sm (640px+): text-4xl (Larger for wide mobile/tablet)
+          - md (768px+): text-2xl (Smallest to fit 1,000,000+ in 4-col)
+          - lg (1024px+): text-3xl (Reduced size for "normal desktop")
+          - xl (1280px+): text-5xl (Largest for wide screens)
+        */}
         {shouldCountUp ? (
           <CountUp
             start={0}
@@ -227,7 +224,11 @@ const StatItem = ({
           <span>0{suffix}</span>
         )}
       </div>
-      <div className="text-sm text-gray-600 mt-auto pt-2">{label}</div>
+
+      {/* Label Area */}
+      <div className="text-sm text-gray-600 h-10 flex items-center justify-center w-full px-1">
+        {label}
+      </div>
     </div>
   );
 };
@@ -239,7 +240,6 @@ const AboutPage = () => {
   const openContactPanel = () => setIsContactPanelOpen(true);
   const closeContactPanel = () => setIsContactPanelOpen(false);
 
-  // Hooks for visibility
   const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -261,13 +261,11 @@ const AboutPage = () => {
     <>
       {/* Hero Section */}
       <section
-        className="relative h-48 sm:h-52 md:h-56 lg:h-60 flex items-center justify-center text-white overflow-hidden bg-cover bg-center bg-fixed" // MODIFIED HEIGHTS for smaller screens
+        className="relative h-48 sm:h-52 md:h-56 lg:h-60 flex items-center justify-center text-white overflow-hidden bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${heroBackgroundImage})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/70 to-blue-600/70 z-10 text-center"></div>
         <div className="relative z-20 w-full max-w-4xl px-4 text-center">
-          {" "}
-          {/* This div is centered by its parent */}
           <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white mb-1 mt-13">
             About Us
           </h1>
@@ -276,8 +274,7 @@ const AboutPage = () => {
           </p>
         </div>
       </section>
-
-      {/* Introduction Section */}
+      {/* Intro Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 lg:pt-12 lg:pb-12">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16 overflow-hidden">
           <div
@@ -291,7 +288,8 @@ const AboutPage = () => {
                             : "opacity-0 -translate-x-10"
                         }`}
           >
-            <div className="aspect-[16/9] h-auto md:aspect-auto md:h-[12.5rem] lg:h-[21.5rem]">
+            {/* MODIFIED: Increased md:h value for better image fit at 768px */}
+            <div className="aspect-[16/9] h-auto md:aspect-auto md:h-[16rem] lg:h-[21.5rem]">
               <img
                 src={highFiveImage}
                 alt="Team collaborating and giving high fives"
@@ -301,27 +299,28 @@ const AboutPage = () => {
           </div>
           <div
             ref={introTextRef}
-            className={`w-full md:w-1/2 transition-all duration-700 ease-out delay-200 
+            // MODIFIED: Added md:text-center to ensure text block is centered at 768px
+            className={`w-full md:w-1/2 transition-all duration-700 ease-out delay-200 md:text-center
                         ${
                           introTextInView
                             ? "opacity-100 translate-x-0"
                             : "opacity-0 translate-x-10"
                         }`}
           >
-            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-6 text-center">
+            <h2 className="text-3xl md:text-2xl lg:text-4xl font-semibold text-gray-800 mb-2 text-center md:text-left">
               We make Security Possible!
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4 text-center">
+            <p className="text-gray-600 leading-relaxed mb-4 text-center md:text-left">
               We are your one-stop Cyber Security Solution and Your trusted
               partner for business-focused cybersecurity solutions.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-4 text-center">
+            <p className="text-gray-600 leading-relaxed mb-4 text-center md:text-left">
               Our goal is to equip your business with the knowledge and tools
               needed to navigate cyberspace safely. Explore our comprehensive
               range of services tailored to meet the unique needs of every
               business, institution, and individual.
             </p>
-            <p className="text-gray-600 leading-relaxed text-center">
+            <p className="text-gray-600 leading-relaxed text-center md:text-left">
               At Ten Sentinel, we're committed to not just offering services,
               but to actively building a secure cyber environment.
             </p>
@@ -331,13 +330,18 @@ const AboutPage = () => {
 
       {/* People, Process, Technology Section */}
       <section className="bg-gradient-to-br from-gray-50 to-blue-100 pt-8 pb-16 lg:pt-16 lg:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* MODIFIED CONTAINER PADDING HERE for md breakpoint */}
+        {/* Increased md padding to add space left/right of the card grid */}
+        <div className="container mx-auto px-4 sm:px-6 md:px-6 lg:px-8">
+          {" "}
+          {/* Changed md:px-3 back to md:px-6 */}
           <h2 className="text-3xl lg:text-4xl font-semibold text-center text-gray-800 mb-4">
             We are your <span className="text-cs-teal">Cyber Defence Team</span>
           </h2>
           <p className="text-lg text-gray-600 text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
             focused on safeguarding essential aspects of your Business!
           </p>
+          {/* Grid layout remains 3 columns for md and up */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-stretch">
             <InfoCard
               iconSrc={peopleIconSrc}
@@ -400,7 +404,8 @@ const AboutPage = () => {
           </div>
 
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            <div className="relative h-80 lg:absolute lg:right-0 lg:bottom-[-1.5rem] lg:w-1/2 lg:h-[30rem] z-10 flex items-end justify-center">
+            {/* MODIFIED: Added md:h-[22rem] for slightly larger image at 768px */}
+            <div className="relative h-80 md:h-[22rem] lg:absolute lg:right-0 lg:bottom-[-1.5rem] lg:w-1/2 lg:h-[30rem] z-10 flex items-end justify-center">
               <img
                 src={businessmanImageSrc}
                 alt="Businessman"
@@ -463,7 +468,6 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      {/* The ContactFlyoutPanel will be rendered here via the Portal */}
       <ContactFlyoutPanel
         isOpen={isContactPanelOpen}
         onClose={closeContactPanel}
