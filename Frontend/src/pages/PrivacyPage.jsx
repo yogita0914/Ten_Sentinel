@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import first from "../assets/privacy_images/privacy1.png";
+import two from "../assets/privacy_images/privacy2.png";
+import three from "../assets/privacy_images/privacy3.png";
+import four from "../assets/privacy_images/privacy4.png";
+import five from "../assets/privacy_images/privacy5.png";
+import six from "../assets/privacy_images/privacy6.png";
+import seven from "../assets/privacy_images/privacy6.png";
 
 export const PrivacyPage = () => {
-  // Privacy Policy Texts
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [mobileExpanded, setMobileExpanded] = useState({});
+
+  const toggleExpand = (index) => {
+    setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  const toggleMobileExpand = (index) => {
+    setMobileExpanded((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
   const privacyElements = [
     {
       title: "Introduction",
+      image: first,
       text: (
         <>
-          Welcome to The Entrepreneurship Network (referred to as "we," "our," or "us").
-          We are deeply committed to protecting and respecting your privacy. This Privacy Policy
-          outlines how we collect, use, disclose, and protect your information when you access
-          our website at{" "}
+          Welcome to The Entrepreneurship Network (referred to as "we," "our,"
+          or "us"). We are deeply committed to protecting and respecting your
+          privacy. This Privacy Policy outlines how we collect, use, disclose,
+          and protect your information when you access our website at{" "}
           <a
             href="https://www.entrepreneurshipnetwork.net/"
             target="_blank"
@@ -19,41 +39,63 @@ export const PrivacyPage = () => {
             className="text-blue-500 hover:underline"
           >
             https://www.entrepreneurshipnetwork.net/
-          </a>{" "}
-          or utilize any of our services. By continuing to use our website, you agree to the
-          practices described in this policy. We encourage you to read this document thoroughly
-          to understand our approach to handling your personal data and the steps we take to
-          safeguard your privacy.
+          </a>
+          . By continuing to use our website, you agree to the practices
+          described in this policy. We encourage you to read this policy
+          carefully to understand our views and practices regarding your
+          personal data and how we treat it.
+          <br />
+          <br />
+          This policy applies to all visitors, users, and others who access or
+          use our services. It’s essential to us that you know how your data is
+          being used and how you can manage your privacy settings at any time.
         </>
       ),
     },
     {
       title: "Information We Collect",
-      text: `We may collect both personal and non-personal information when you interact with our website or services. Personal information includes data that can be used to identify you, such as your name, email address, telephone number, physical address, and payment information provided for transaction purposes. This data is typically collected when you fill out forms, make purchases, or communicate with us directly. In addition to personal details, we automatically collect non-personal information about your visit, including your browser type and version, time zone settings, plug-in types, operating system, and platform. We also track details such as your navigation through the site, including the full URLs you access, your activity on each page, page response times, any download errors, the duration of visits to certain sections, interaction behaviors like scrolling and clicking, and how you leave or move away from our pages.`,
+      image: two,
+      text: `We may collect both personal and non-personal information when you interact with our website or services. This includes, but is not limited to, your name, email address, contact number, and any other information you provide while signing up or filling out forms. We also collect information through cookies and other tracking technologies that help us understand how users engage with our site, including IP address, browser type, pages visited, and duration of sessions.
+  
+      This data helps us personalize your experience, provide tailored content, and enhance the performance and security of our services. We ensure that all data collected is handled with strict confidentiality and in compliance with relevant data protection regulations.`,
     },
     {
       title: "How We Use Your Information",
-      text: "Your personal information is used primarily to provide the services or information that you request from us, to execute obligations arising from contracts between you and us, and to notify you of any changes to the services we offer. It also helps us ensure that the content you see is displayed in the most efficient way for your device and browsing setup. As for non-personal information, we use it to administer our website, diagnose issues, conduct research and statistical analysis, and improve the performance and structure of the site. This information is vital for us to understand user behavior, maintain a seamless browsing experience, and develop new features that enhance your interaction with our services. Furthermore, such data supports the security of our platform and enables us to offer interactive functionalities when you choose to engage with them.",
+      image: three,
+      text: `Your personal information is used primarily to provide the services or information that you request from us. We may also use your data to send administrative communications, respond to inquiries, manage accounts, and provide customer support.
+  
+      In addition, we analyze the data to improve our website functionality, user interface, and offerings. By understanding user behavior and preferences, we can deliver a more relevant and customized user experience. Your data may also be used for marketing purposes with your explicit consent, ensuring you stay informed about new features or updates.`,
     },
     {
       title: "Disclosure of Your Information",
-      text: "We may share your personal information with members of our organizational group, including our subsidiaries and parent companies, as well as select third-party partners, suppliers, and subcontractors when necessary to fulfill contractual obligations. This sharing may include analytics providers and search engines that assist in optimizing the website. Additionally, we may disclose your personal information if we are involved in a business transaction such as the sale or acquisition of assets. In such cases, customer data may be transferred to the new owners. Moreover, we may release your information to comply with legal responsibilities or enforce our terms and conditions. These disclosures are done in alignment with the law and to protect the rights, safety, or property of The Entrepreneurship Network, our users, or others.",
+      image: four,
+      text: `We may share your personal information with members of our organizational group, including subsidiaries, affiliates, and parent companies, but only to the extent required for legitimate business purposes.
+  
+      In cases where third-party service providers are involved—such as cloud storage, payment processors, or analytics services—we ensure they meet strict data protection standards. We never sell your personal data to any external party. Disclosure may also occur to comply with legal obligations or to enforce our site policies, protect our rights, property, or safety, or the rights of others.`,
     },
     {
       title: "Your Rights",
-      text: "You have the right to access the personal data we hold about you and request corrections if any of that information is inaccurate or incomplete. You may also ask us to delete or remove your personal data when there is no longer a compelling reason for us to keep it. In certain situations, you have the right to object to our processing of your data based on legitimate interests, particularly if your circumstances give you grounds to make such a request. Furthermore, you may ask us to limit the way we process your information, or you can request that we transfer your data to another service provider of your choice. We are committed to honoring these rights and will respond to such requests in accordance with applicable data protection laws.",
+      image: five,
+      text: `You have the right to access the personal data we hold about you and request corrections if it is inaccurate. You can also request deletion of your personal data under certain circumstances or object to specific processing practices.
+  
+      Additionally, you may opt out of receiving non-essential emails or communications at any time. We are committed to enabling you to exercise control over your personal information and ensuring transparency in our data handling processes. Please contact our support team if you wish to make a data access or deletion request.`,
     },
     {
       title: "Data Security",
-      text: "The security of your personal data is a priority for us. We have implemented robust technical and organizational measures designed to safeguard your data from accidental loss, unauthorized access, use, modification, or disclosure. All the information you provide to us is stored securely on our servers, and we regularly review our data protection procedures to ensure their continued effectiveness.",
+      image: six,
+      text: `The security of your personal data is a priority for us. We implement industry-standard security measures such as SSL encryption, secure servers, and access control to prevent unauthorized access, disclosure, or modification.
+  
+      Regular audits, staff training, and updates to our security protocols ensure your data remains protected against evolving threats. Despite our efforts, no digital platform is entirely immune to risk. Therefore, we urge users to take their own precautions, such as using strong passwords and logging out after sessions.`,
     },
     {
       title: "Changes to This Privacy Policy",
-      text: "We may update this Privacy Policy from time to time to reflect changes in legal requirements, our operations, or the way we handle your personal information. Any updates will be posted on this page, and we recommend that you check back periodically to stay informed of any changes. Continued use of our website after changes are made will constitute your acceptance of those changes.",
+      image: seven,
+      text: `We may update this Privacy Policy from time to time to reflect changes in legal requirements, technology, or our business practices. When we make material changes, we will notify you by updating the date at the top of the policy and possibly through additional notices such as email alerts or banners on the website.
+  
+      Your continued use of our services after such updates will constitute your acknowledgment of the new policy. We encourage users to review this page periodically to stay informed about how we are protecting their data.`,
     },
   ];
 
-  // Animation
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -72,10 +114,14 @@ export const PrivacyPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 mt-16">
+    <div className="flex flex-col gap-10 mt-16 bg-white">
+      {/* ✅ Hero Section */}
       <div
         className="w-full bg-cover bg-center bg-no-repeat py-8 flex justify-center items-center shadow md:py-12 lg:py-16"
-        style={{ backgroundImage: "url('https://img.freepik.com/free-vector/cyber-security-concept_23-2148534852.jpg?semt=ais_hybrid&w=740')" }}
+        style={{
+          backgroundImage:
+            "url('https://img.freepik.com/free-vector/cyber-security-concept_23-2148534852.jpg?semt=ais_hybrid&w=740')",
+        }}
       >
         <div className="bg-opacity-50 px-4 py-2 rounded">
           <h1 className="text-3xl text-white md:text-4xl lg:text-5xl text-center font-semibold">
@@ -84,22 +130,65 @@ export const PrivacyPage = () => {
         </div>
       </div>
 
+      {/* ✅ Privacy Sections */}
       <motion.ul
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="w-full max-w-10xl flex flex-col gap-12 px-8 md:px-8 lg:px-20"
+        className="w-full max-w-6xl mx-auto flex flex-col gap-8 px-6 md:px-10"
       >
-        {privacyElements.map((element, key) => (
+        {privacyElements.map((element, index) => (
           <motion.li
-            key={key}
+            key={index}
             variants={fadeInUp}
-            className="flex flex-col gap-2 md:gap-4"
+            className="border border-gray-200 rounded-xl overflow-hidden shadow"
           >
-            <h2 className="text-xl font-medium md:text-3xl lg:text-4xl">
-              {element.title}
-            </h2>
-            <p className="text-xs md:text-sm leading-loose">{element.text}</p>
+            {/* ✅ Content block (alternating layout) */}
+            <div
+              className={`flex flex-col ${
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+              } items-center gap-6 p-6 bg-gray-50 hover:bg-gray-100 transition`}
+              onClick={() => toggleExpand(index)}
+            >
+              {/* ✅ Image */}
+              <img
+                src={element.image}
+                alt={element.title}
+                className="w-full max-w-[320px] h-56 object-cover rounded-md"
+              />
+
+              {/* ✅ Text Content */}
+              <div className="flex-1">
+                <h2 className="text-xl md:text-2xl font-semibold mb-2 text-center lg:text-left">
+                  {element.title}
+                </h2>
+
+                {/* ✅ Full description on large screens */}
+                <div className="hidden lg:block text-gray-700 text-base">
+                  {element.text}
+                </div>
+
+                {/* ✅ Truncated description + Read more toggle for <1024px */}
+                <div className="block lg:hidden text-sm text-gray-700">
+                  <div
+                    className={`overflow-hidden transition-all ${
+                      mobileExpanded[index] ? "" : "line-clamp-3"
+                    }`}
+                  >
+                    {element.text}
+                  </div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleMobileExpand(index);
+                    }}
+                    className="text-blue-500 mt-1 text-sm"
+                  >
+                    {mobileExpanded[index] ? "Read less" : "Read more..."}
+                  </button>
+                </div>
+              </div>
+            </div>
           </motion.li>
         ))}
       </motion.ul>

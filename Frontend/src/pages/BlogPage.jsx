@@ -1,15 +1,16 @@
 import React from "react";
-import blogData from "../assets/blogData.json";
+import blogData from "../assets/blogData";
 import BlogCard from "../components/BlogComponents/BlogCard";
+import BlogBackground1 from "../assets/BlogPage_Images/BlogBackground2.jpg";
 
 const BlogPage = () => {
   return (
     <>
-      <div className="relative mt-20 min-h-[200px] sm:min-h-[280px] md:min-h-[200px] flex items-center justify-center text-center overflow-hidden">
+      <div className="relative mt-[64px] min-h-[100px] sm:min-h-[120px] md:min-h-[150px] flex items-center justify-center text-center overflow-hidden">
         <img
-          src="/images/blogBackground2.jpg"
+          src={BlogBackground1}
           alt="Blog background"
-          className="absolute inset-0 w-full h-full object-cover blur-3xl brightness-50"
+          className="absolute inset-0 w-full h-full object-cover brightness-50"
         />
         <div className="relative z-10 px-4 sm:px-6 py-4">
           <h1 className="text-white text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-md transition-all duration-300">
