@@ -58,7 +58,7 @@ const MobileDropdownItem = ({ index, title, items, isOpen, onToggle }) => {
     <div className="mb-2">
       <button
         onClick={() => onToggle(index)}
-        className="flex items-center justify-between w-full text-white font-medium py-2"
+        className="flex items-center justify-start w-full text-white font-medium py-2"
       >
         <span>{title}</span>
         <svg
