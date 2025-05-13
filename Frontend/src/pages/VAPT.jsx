@@ -10,19 +10,19 @@ export const VAPT = () => {
 
     const reviews = [
         {
-            img: "https://img.freepik.com/free-photo/confident-handsome-guy-posing-against-white-wall_176420-32936.jpg?t=st=1746739713~exp=1746743313~hmac=8ffc43466e3196893fbd57d995876f813a7bcf7e37c661469b5e3ba37e398fe0&w=996",
+            img: "https://img.freepik.com/free-photo/confident-handsome-guy-posing-against-white-wall_176420-32936.jpg?t=st=1746739713~exp=1746743313~hmac=8ffc43466e3196893fbd57d995876f813a7bcf7e37c661469b5e3ba37e398fe0&w=740",
             name: "Rohit Sharma",
             title: "Head of IT",
             text: "Since partnering with The Entrepreneurship Network, we've elevated our entire security framework. Their team's expertise, especially during VAPT engagements, has given us complete confidence in our defenses. They're more than just a service provider—they're a security partner we can rely on."
         },
         {
-            img: "https://img.freepik.com/free-photo/vertical-shot-happy-dark-skinned-female-with-curly-hair_273609-15519.jpg?t=st=1746739106~exp=1746742706~hmac=187d330466139f0661549b6d756f0a69ca33e910721e328c3f35e75f6755f2d9&w=740",
+            img: "https://img.freepik.com/free-photo/handsome-young-cheerful-man-with-arms-crossed_171337-1073.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740",
             name: "Pranathi Desai",
             title: "Security Analyst",
             text: "The Entrepreneurship Network exceeded our expectations. Their manual testing approach uncovered vulnerabilities we hadn't even considered. The dedication and clarity they provided throughout the process made a big difference for our team."
         },
         {
-            img: "https://img.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation_1258-59335.jpg?t=st=1746738748~exp=1746742348~hmac=d33c7f6a90b2266a86bd6e4b3e8e6d42745a6674c31e3ee1a95006e295ff9e1c&w=996",
+            img: "https://img.freepik.com/free-photo/indoor-shot-pretty-student-girl-with-cute-broad-smile_273609-13865.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740",
             name: "Larissa Almeida",
             title: "IT Manager",
             text: "I can't recommend The Entrepreneurship Network enough! Their professionalism, attention to detail, and thorough reports made it easy for us to enhance our security posture. Their Safe-to-Host certification has greatly boosted our credibility with clients."
@@ -199,13 +199,13 @@ export const VAPT = () => {
             <div className='px-6 flex flex-col gap-12 md:px-12 lg:px-20'>
 
                 {/* Home */}
-                <section className='flex flex-col gap-6 md:gap-8 xl:flex-row' >
+                <section className='flex flex-col gap-6 md:gap-12 xl:flex-row self-center' >
 
                     <img src="https://img.freepik.com/free-photo/metaverse-avatar-collage-concept_52683-96426.jpg?t=st=1746717179~exp=1746720779~hmac=ec69305cae6b1d83cc8fbe5954009b397b8637ea89d3cf529e4e4d5496904ad9&w=996" className='sm:h-[400px] self-center' />
 
-                    <div className='flex flex-col gap-4 text-base md:text-lg'>
+                    <div className='flex flex-col gap-4 text-base md:text-lg xl:max-w-[480px]'>
 
-                        <SectionTitle title={"About Our VAPT Services"} />
+                        <h2 className='font-semibold text-xl md:text-2xl lg:text-3xl'>About Our VAPT Services</h2>
 
                         <p className='font-light'>Vulnerability Assessment and Penetration Testing (VAPT) is a critical security process that uncovers weaknesses across your systems, applications, networks, and other digital assets. Our VAPT services not only identify existing vulnerabilities but also evaluate the potential impact of exploitation by malicious actors, helping you understand and manage your security risks more effectively.</p>
 
@@ -218,20 +218,21 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-4 md:gap-8'>
                     <SectionTitle title={"Our Reviews"} />
 
-                    <ul className='flex flex-col gap-4 md:gap-8 lg:items-center'>
+                    <ul className='flex flex-col gap-4 md:gap-8 lg:items-center xl:flex-row'>
                         {
                             reviews.map((review, key) => (
-                                <li key={key} className='flex flex-row px-2 py-4 gap-2 rounded-md border border-gray-400 md:gap-6 lg:max-w-[800px] xl:max-w-[1200px]'>
+                                <li key={key} className='flex flex-row px-2 py-4 gap-2 rounded-md border border-gray-300 md:gap-6 lg:max-w-[800px] shadow-md xl:flex-col xl:px-6'>
                                     <div
-                                        className='min-w-32 bg-cover bg-center rounded-md md:min-w-44'
+                                        className='min-w-32 bg-cover bg-center rounded-md md:min-w-44 xl:w-20 xl:h-40 xl:self-center'
                                         style={{ backgroundImage: `url(${review.img})` }}
                                     >
 
                                     </div>
 
-                                    <div className='flex flex-col gap-2 xl:pr-4'>
+                                    <div className='flex flex-col gap-2 xl:pr-4 overflow-hidden break-words'>
                                         <ul>
-                                            <li className='text-yellow-300 flex flex-row gap-2 text-xl md:text-2xl'>
+                                            <li className='text-yellow-300 flex flex-wrap gap sm:gap-1 text-xl md:text-2xl'>
+
                                                 <FaStar />
                                                 <FaStar />
                                                 <FaStar />
@@ -241,7 +242,7 @@ export const VAPT = () => {
                                         </ul>
 
                                         <h3 className='text-base font-semibold md:text-lg'>{review.name}</h3>
-                                        <h4 className='text-xs font-light md:text-base'>{review.title}</h4>
+                                        <h4 className='text-xs font-light md:text-base '>{review.title}</h4>
 
                                         <p className='text-xs md:text-base'>{review.text}</p>
                                     </div>
@@ -256,18 +257,20 @@ export const VAPT = () => {
                 <section className='flex flex-col gap-6'>
                     <SectionTitle title={"We peform VAPT on the below platforms"} />
 
-                    <ul className='grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3'>
+                    <ul className='grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3 auto-rows-fr'>
                         {
                             platforms.map((platform, key) => (
-                                <li key={key} className='flex flex-col gap-2 justify-center items-center bg-blue-50 p-4 rounded-md shadow-sm'>
+                                <li
+                                    key={key}
+                                    className='h-full w-full flex flex-col gap-2 justify-center items-center bg-blue-50 p-4 rounded-md shadow-sm'
+                                >
                                     {React.cloneElement(platform.icon, { className: 'w-12 h-12 text-blue-500 md:w-20 md:h-20' })}
-
                                     <h3 className='text-base font-semibold text-center md:text-lg'>{platform.title}</h3>
                                 </li>
                             ))
                         }
-
                     </ul>
+
 
                 </section>
 
@@ -277,27 +280,28 @@ export const VAPT = () => {
                     <p className='text-sm md:text-base'>We follow a comprehensive and structured approach to Vulnerability Assessment and Penetration Testing (VAPT), designed to provide a 360-degree view of your organization's security posture. Our methodology not only uncovers potential vulnerabilities but also offers actionable insights and recommendations to strengthen your overall defense. By enabling informed decision-making, we help clients minimize their exposure to cyber threats and improve risk management.</p>
 
 
-                    <ul className="relative flex flex-col gap-4">
-                        {/* Linha central ocupando toda altura da ul */}
+                    <ul className="relative flex flex-col gap-4 self-center lg:max-w-[1000px]">
+
                         <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-gray-300 -translate-x-1/2 z-0" />
 
                         {methodoloy.map((method, key) => (
                             <li
                                 key={key}
-                                className={`relative z-10 flex flex-row items-center gap-4 border border-gray-400 py-4 px-2 rounded-md shadow-sm w-full lg:max-w-[50%] ${key % 2 === 0 ? 'lg:self-start' : 'lg:self-end'}
+                                className={`relative z-10 flex flex-col items-center gap-4 border border-gray-400 py-4 px-4 rounded-md shadow-sm w-full lg:max-w-[50%] ${key % 2 === 0 ? 'lg:self-start' : 'lg:self-end'}
       `}
                             >
-                                <div className="flex-shrink-0">
-                                    {React.cloneElement(method.icon, {
-                                        className: 'w-16 h-16 text-blue-500',
-                                    })}
-                                </div>
-                                <div className="max-w-prose flex flex-col gap-2">
-                                    <h3 className="font-semibold text-base">{method.title}</h3>
+                                <div className="flex flex-col gap-2">
+                                    <div className='flex flex-row items-center'>
+                                        {React.cloneElement(method.icon, {
+                                            className: 'text-base text-blue-500',
+                                        })}
+                                        <h3 className="font-semibold text-base lg:text-lg">{method.title}</h3>
+                                    </div>
                                     <p className="text-sm">{method.text}</p>
                                 </div>
                             </li>
                         ))}
+
                     </ul>
 
                 </section>
@@ -332,7 +336,7 @@ export const VAPT = () => {
                     <ul className='flex flex-col gap-8 w-full'>
                         {
                             faqs.map((faq, key) => (
-                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px] self-center'>
+                                <li key={key} className='flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px] lg:self-center'>
                                     <div className='flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6 '>
                                         <h3>{faq.question}</h3>
 
