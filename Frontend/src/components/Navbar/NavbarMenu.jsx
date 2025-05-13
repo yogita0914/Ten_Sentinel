@@ -70,7 +70,7 @@ export const MenuItem = ({
                   ...transition,
                   delay: 0.2,
                 }}
-                className="absolute top-full left-0 mt-2 z-50"
+                className="absolute top-full left-0 mt-5 z-50"
               >
                 <motion.div
                   layoutId="dropdown"
