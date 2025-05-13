@@ -63,3 +63,42 @@ body {
     line-height: 1.4;
   }
 }
+
+/* This media query only for navbar */
+@media (min-width: 768px) and (max-width: 850px) {
+  .navbar-container {
+    width: 94% !important;
+    max-width: 850px !important;
+  }
+
+  .nav-item {
+    font-size: 16px !important;
+    padding: 0.25rem 0.25rem !important;
+  }
+
+  .nav-button {
+    font-size: 13px !important;
+    padding: 0.75rem 0.75rem !important;
+  }
+
+  .brand-logo img {
+    height: 1.25rem !important;
+  }
+
+  .brand-logo span {
+    font-size: 0.875rem !important;
+    margin-left: 0.5rem !important;
+  }
+}
+
+/* This media query only for navbar */
+@media (min-width: 861px) and (max-width: 1024px) {
+  .navbar-container {
+    width: 90% !important;
+  }
+
+  .nav-item {
+    font-size: 16px !important;
+    padding: 0.25rem 0.25rem !important;
+  }
+}

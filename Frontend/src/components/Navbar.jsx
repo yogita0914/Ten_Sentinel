@@ -1,192 +1,211 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Menu, MenuItem, HoveredLink } from "./Navbar/NavbarMenu";
 import logo from "../assets/logo.svg";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+// BrandLogo component
+const BrandLogo = ({ mobile = false }) => (
+  <div className={`flex items-center ${mobile ? 'min-w-[120px]' : ''}`}>
+    <img
+      src={logo}
+      alt="Logo"
+      className={`${mobile ? 'h-6' : 'h-5 sm:h-6'} w-auto`}
+    />
+    <span className={`${mobile ? 'ml-3 text-lg' : 'ml-2 text-sm sm:text-base'} font-bold text-transparent bg-gradient-to-r ${mobile ? 'from-blue-600 to-indigo-600' : 'from-blue-700 to-indigo-700'} bg-clip-text whitespace-nowrap`}>
+      Ten Sentinel
+    </span>
+  </div>
+);
+
+// MobileMenu component
+const MobileMenu = ({ items, isOpen }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
-  const [timeoutId, setTimeoutId] = useState(null);
 
-  const menuItems = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    {
-      label: "Services",
-      submenu: [
-        { label: "Web Design", href: "/web-design" },
-        { label: "Development", href: "" },
-        { label: "Marketing", href: "/marketing" },
-        { label: "Training & Certificate", href: "" },
-        { label: "Cloud Security", href: "/cloud-security" },
-      ],
-    },
-    {
-      label: "Careers",
-      submenu: [
-        {
-          label: "Internship",
-          href: "https://internships.entrepreneurshipnetwork.net/",
-        },
-        {
-          label: "Job Openings",
-          href: "https://jobs.entrepreneurshipnetwork.net/",
-        },
-      ],
-    },
-    { label: "Blogs", href: "/blogs" },
-    { label: "Contact Us", href: "/contact" },
-  ];
+  if (!isOpen) return null;
 
-  const handleMouseEnter = (label) => {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-      setTimeoutId(null);
-    }
-    setOpenDropdown(label);
-  };
-
-  const handleMouseLeave = () => {
-    const id = setTimeout(() => {
-      setOpenDropdown(null);
-    }, 200);
-    setTimeoutId(id);
+  const handleDropdownToggle = (index) => {
+    setOpenDropdown(openDropdown === index ? null : index);
   };
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      className="bg-white w-full z-50 shadow-md fixed top-0 left-0"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <img src={logo} alt="logo" className="h-10 w-10 mr-2" />
-            <span className="text-xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text">
-              Ten Sentinel
-            </span>
-          </div>
-
-          <div className="hidden lg:flex space-x-6 items-center">
-            {menuItems.map((item, idx) =>
-              item.submenu ? (
-                <div
-                  key={idx}
-                  className="relative group"
-                  onMouseEnter={() => handleMouseEnter(item.label)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <button className="flex items-center font-medium gap-1 text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text">
-                    {item.label}
-                    {openDropdown === item.label ? (
-                      <ChevronUp size={14} className="text-blue-600" />
-                    ) : (
-                      <ChevronDown size={14} className="text-blue-600" />
-                    )}
-                  </button>
-                  {openDropdown === item.label && (
-                    <div
-                      className="absolute bg-white rounded shadow-md mt-2 min-w-[160px] z-50"
-                      onMouseEnter={() => handleMouseEnter(item.label)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      {item.submenu.map((sub, i) => (
-                        <a
-                          key={i}
-                          href={sub.href || "#"}
-                          className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
-                        >
-                          {sub.label || sub}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a
-                  key={idx}
-                  href={item.href}
-                  className="font-medium text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text"
-                >
-                  {item.label}
-                </a>
-              )
-            )}
-          </div>
-
-          <div className="hidden lg:block">
-            <button className="bg-blue-600 text-white hover:bg-white hover:text-blue-700 font-semibold px-4 py-2 rounded">
-              Get Help NOW!
-            </button>
-          </div>
-
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-        </div>
-
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            transition={{ duration: 0.4 }}
-            className="lg:hidden bg-white rounded-lg px-4 py-3 space-y-2 mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 border-b border-transparent hover:border-blue-600 transition"
-          >
-            {menuItems.map((item, idx) =>
-              item.submenu ? (
-                <div key={idx}>
-                  <button
-                    className="flex items-center w-full font-semibold"
-                    onClick={() =>
-                      setMobileDropdown(
-                        mobileDropdown === item.label ? null : item.label
-                      )
-                    }
-                  >
-                    {item.label}
-                    {mobileDropdown === item.label ? (
-                      <ChevronUp size={16} className="text-blue-600" />
-                    ) : (
-                      <ChevronDown size={16} className="text-blue-600" />
-                    )}
-                  </button>
-                  {mobileDropdown === item.label && (
-                    <div className="pl-4 space-y-1 mt-1">
-                      {item.submenu.map((sub, i) => (
-                        <a
-                          key={i}
-                          href={sub.href || "#"}
-                          className="block text-sm hover:brightness-110 py-1 border-b border-transparent hover:border-blue-600 transition"
-                        >
-                          {sub.label || sub}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a
-                  key={idx}
-                  href={item.href}
-                  className="block font-medium hover:text-gray-300 py-1 border-b border-transparent hover:border-blue-600"
-                >
-                  {item.label}
-                </a>
-              )
-            )}
-            <button className="w-full mt-2 bg-blue-700 text-white hover:bg-gray-200 hover:text-blue-600 font-semibold py-2 rounded">
-              Get Help NOW!
-            </button>
-          </motion.div>
-        )}
-      </div>
-    </motion.nav>
+    <div className="mt-2 backdrop-blur-xl rounded-lg shadow-lg p-4 w-[70%] mx-auto">
+      {items.map((menuItem, index) => {
+        if (menuItem.type === "link") {
+          return (
+            <MobileMenuItem key={index} href={menuItem.href}>
+              {menuItem.item}
+            </MobileMenuItem>
+          );
+        } else {
+          return (
+            <MobileDropdownItem
+              key={index}
+              index={index}
+              title={menuItem.item}
+              items={menuItem.children}
+              isOpen={openDropdown === index}
+              onToggle={handleDropdownToggle}
+            />
+          );
+        }
+      })}
+    </div>
   );
 };
+
+// MobileDropdownItem component
+const MobileDropdownItem = ({ index, title, items, isOpen, onToggle }) => {
+  return (
+    <div className="mb-2">
+      <button
+        onClick={() => onToggle(index)}
+        className="flex items-center justify-between w-full text-white font-medium py-2"
+      >
+        <span>{title}</span>
+        <svg
+          className={`w-4 h-4 ml-2 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96' : 'max-h-0'}`}>
+        {items.map((child, childIndex) => (
+          <MobileMenuItem
+            key={childIndex}
+            href={child.href}
+            small
+          >
+            {child.item}
+          </MobileMenuItem>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// MobileMenuItem component (unchanged)
+const MobileMenuItem = ({ href, children, small = false }) => (
+  <a
+    href={href}
+    className={`block py-2 text-white hover:text-blue-400 transition ${small ? 'text-sm' : ''}`}
+  >
+    {children}
+  </a>
+);
+
+function Navbar() {
+  const [active, setActive] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Menu Items
+  const menuItems = [
+    { type: "link", item: "Home", href: "/" },
+    { type: "link", item: "About", href: "/about" },
+    {
+      type: "dropdown",
+      item: "Services",
+      children: [
+        { item: "Web Design", href: "/web-design" },
+        { item: "Development", href: "" },
+        { item: "Marketing", href: "/marketing" },
+        { item: "Training", href: "" },
+        { item: "Cloud Security", href: "/cloud-security" }
+      ]
+    },
+    {
+      type: "dropdown",
+      item: "Careers",
+      children: [
+        { item: "Internship", href: "https://internships.entrepreneurshipnetwork.net/" },
+        { item: "Job Openings", href: "https://jobs.entrepreneurshipnetwork.net/" }
+      ]
+    },
+    { type: "link", item: "Blogs", href: "/blogs" },
+    { type: "link", item: "Contact", href: "/contact" }
+  ];
+
+  return (
+    <>
+      {/* Desktop/Tablet Navbar (≥768px) */}
+      <div className="hidden md:flex justify-center w-full">
+        <div className={`
+          fixed top-4 z-50 shadow-lg bg-white rounded-full
+          flex items-center justify-between
+          px-3 py-3 mt-5
+          w-[94%]
+          max-w-[850px]
+          lg:w-[90%]
+          xl:w-[85%]
+          2xl:w-[75%]
+        `}>
+
+          <BrandLogo />
+
+          {/* Centered Menu */}
+          <div className="flex-1 mx-2">
+            <Menu setActive={setActive} activeItem={active}>
+              {menuItems.map((menuItem, index) => (
+                <MenuItem
+                  key={index}
+                  setActive={setActive}
+                  active={active}
+                  item={menuItem.item}
+                  href={menuItem.href}
+                  className="nav-item"
+                >
+                  {menuItem.type === "dropdown" && (
+                    <div className={`
+                      flex flex-col space-y-1 p-1.5
+                      text-xs md:text-[0.8125rem] lg:text-sm
+                    `}>
+                      {menuItem.children.map((child, childIndex) => (
+                        <HoveredLink key={childIndex} href={child.href}>
+                          {child.item}
+                        </HoveredLink>
+                      ))}
+                    </div>
+                  )}
+                </MenuItem>
+              ))}
+            </Menu>
+          </div>
+
+
+          {/* Right-side Button - Optimized for 768-790px */}
+
+          <button className="nav-button bg-black text-white
+            px-3 py-3
+            text-[13px] font-bold
+            rounded-full hover:bg-gray-600 
+            min-w-[90px] bg-[linear-gradient(to_right,#4776E6_0%,#8E54E9_51%,#4776E6_100%)] text-center uppercase transition-[0.5s] bg-[200%_auto] hover:bg-[right_center] hover:text-white hover:no-underline">
+            Get Started
+          </button>
+
+        </div>
+      </div>
+
+      {/* Mobile Navbar (≤767px) */}
+      <div className="md:hidden fixed top-6 z-50 w-full px-4">
+        <div className="bg-white rounded-full shadow-lg flex items-center justify-between p-3 w-[80%] mx-auto">
+          <BrandLogo mobile />
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-black focus:outline-none"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <MobileMenu items={menuItems} isOpen={mobileMenuOpen} />
+      </div>
+    </>
+  );
+}
 
 export default Navbar;
