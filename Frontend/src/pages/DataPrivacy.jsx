@@ -74,10 +74,7 @@ const services = [
   },
 ];
 
-
 const DataPrivacy = () => {
-
-  
   return (
     <>
       <div
@@ -151,7 +148,6 @@ const DataPrivacy = () => {
               scale: 1.02,
             }}
             whileTap={{ y: -20 }}
-           
           >
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center relative z-10">
               <motion.span
@@ -206,7 +202,8 @@ const DataPrivacy = () => {
               whileHover={{
                 y: -10,
                 scale: 1.02,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                boxShadow:
+                  "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
               }}
               whileTap={{ y: -12 }}
             >

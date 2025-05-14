@@ -16,13 +16,13 @@ const BlogPage = () => {
           <h1 className="text-white text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-md transition-all duration-300">
             Explore Our Latest Blogs
           </h1>
-          <h3 className="text-sky-200 text-sm sm:text-base md:text-xl mt-2 font-medium tracking-wide drop-shadow-sm transition-all duration-300">
+          <h3 className="text-sky-200 text-[10px] mt-2 font-medium tracking-wide drop-shadow-sm transition-all duration-300">
             Discover insights, stories, and updates from our team!
           </h3>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-7 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {blogData.map((post) => (
             <BlogCard key={post.id} post={post} />

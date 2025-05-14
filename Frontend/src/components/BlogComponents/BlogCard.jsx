@@ -12,7 +12,7 @@ function BlogCard({ post }) {
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-[200px] object-cover mx-auto rounded-md"
+            className="w-full h-[200px] object-co mx-auto rounded-md"
           />
           <div className="flex flex-col flex-grow p-4">
             <h2 className="text-lg font-semibold mb-2 text-center">
