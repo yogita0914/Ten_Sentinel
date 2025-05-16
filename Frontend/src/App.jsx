@@ -17,6 +17,7 @@ import CloudSecurity from "./pages/CloudSecurity";
 import IsoPage from "./components/IsoPage/IsoPage";
 import { VAPT } from "./pages/VAPT";
 import ContactUsPage from "./pages/ContactUsPage";
+import Development from "./pages/DevelopmentPage";
 
 
 const App = () => {
@@ -34,12 +35,13 @@ const App = () => {
           <Route path="/security-audits" element={<Security_Audits />} />
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
-          <Route path="/cloud-security" element={<CloudSecurity/>}/>
+          <Route path="/cloud-security" element={<CloudSecurity />} />
           <Route path="/web-design" element={<WebDesignPage />} />
           <Route path="/data-privacy" element={<DataPrivacy />} />
-          <Route path="/iso-page" element={<IsoPage/>}/>
-          <Route path="/vapt" element={<VAPT/>}/>
+          <Route path="/iso-page" element={<IsoPage />} />
+          <Route path="/vapt" element={<VAPT />} />
           <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="/development" element={<Development />} />
         </Routes>
       </main>
       <Footer />

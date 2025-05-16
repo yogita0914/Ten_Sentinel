@@ -109,7 +109,7 @@ function Navbar() {
       item: "Services",
       children: [
         { item: "Web Design", href: "/web-design" },
-        { item: "Development", href: "" },
+        { item: "Development", href: "/development" },
         { item: "Marketing", href: "/marketing" },
         { item: "Training", href: "" },
         { item: "Cloud Security", href: "/cloud-security" }
