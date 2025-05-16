@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { PaperAirplaneIcon, ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/outline";
+import {
+  PaperAirplaneIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+} from "@heroicons/react/24/outline";
 import ContactBanner from "../assets/ContactUSPage/ContactBanner.avif";
 import Support from "../assets/ContactUSPage/Support.jpg";
-
+import { Mail } from "lucide-react";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -33,33 +36,78 @@ const Contact = () => {
   return (
     <>
       {/* Banner Section */}
-      <div className="relative mt-20 min-h-[200px] sm:min-h-[280px] md:min-h-[200px] flex items-center justify-center text-center overflow-hidden">
-        <img
-          src={ContactBanner}
-          alt="Contact Banner"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+      <header
+        className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
+        style={{ backgroundImage: `url(${ContactBanner})` }}
+      >
+        {/* Gradient Overlay */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.75 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
+        ></motion.div>
 
-        />
-        {/* Heading Section */}
-        <div className="relative z-10 px-4 sm:px-6 py-4">
+        {/* Content Container */}
+        <div className="relative z-10 max-w-5xl mx-auto w-full">
+          <motion.div
+            className="flex justify-center mb-6"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full">
+              <Mail className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
+            </div>
+          </motion.div>
+
           <motion.h1
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-white text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-md "
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
           >
             Contact Us
           </motion.h1>
-          <motion.h3
+
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-            className="text-sky-200 text-sm sm:text-base md:text-xl mt-2 font-medium tracking-wide drop-shadow-sm "
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
           >
             Reach out to us for any queries or support
-          </motion.h3>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="mt-8"
+          >
+            <a
+              href="#contact"
+              className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:translate-y-[-2px] transition-all duration-300"
+            >
+              Get Started
+            </a>
+          </motion.div>
         </div>
-      </div>
+
+        {/* Optional bottom wave */}
+        <div className="absolute bottom-0 left-0 right-0 hidden md:block">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="w-full"
+          >
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+      </header>
 
       {/* Contact Section */}
       <div className="flex justify-center items-stretch gap-8 px-8 py-12 flex-wrap">
@@ -89,7 +137,12 @@ const Contact = () => {
           />
           <motion.div
             animate={{ x: [0, -40, 0], y: [0, 30, 0], rotate: [0, -5, 0] }}
-            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3,
+            }}
             className="absolute -right-20 -bottom-20 w-48 h-48 bg-blue-400 rounded-full opacity-30"
           />
 
@@ -100,7 +153,9 @@ const Contact = () => {
             >
               <div className="inline-flex items-center bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-5 py-2 rounded-full">
                 <ChatBubbleOvalLeftEllipsisIcon className="h-5 w-5 mr-2" />
-                <span className="text-sm font-medium tracking-wider">CONTACT US</span>
+                <span className="text-sm font-medium tracking-wider">
+                  CONTACT US
+                </span>
               </div>
             </motion.div>
 
@@ -186,11 +241,12 @@ const Contact = () => {
                       : "none",
                 }}
                 whileTap={{ scale: email && name && message ? 0.95 : 1 }}
-                className={`w-40 mx-auto block px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all ${email && name && message
-                  ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
-                  : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                  }`}
-                style={{ whiteSpace: 'nowrap' }}
+                className={`w-40 mx-auto block px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all ${
+                  email && name && message
+                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+                    : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                }`}
+                style={{ whiteSpace: "nowrap" }}
               >
                 Send Message <PaperAirplaneIcon className="h-5 w-5" />
               </motion.button>
@@ -239,9 +295,7 @@ const Contact = () => {
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
-            >
-                
-            </iframe>
+            ></iframe>
           </div>
         </div>
       </div>

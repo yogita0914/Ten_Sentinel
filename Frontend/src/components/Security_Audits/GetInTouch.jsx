@@ -3,7 +3,7 @@ import GetInTouch from "../../assets/GetInTouch.png"; // Adjust the path as nece
 
 const GetInTouchForm = () => {
   return (
-    <section className="bg-gray-50 mb-10">
+    <section className="bg-gray-50 mb-10" id="contact">
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Left illustration */}
         <div className="w-full lg:w-1/2 flex justify-center">

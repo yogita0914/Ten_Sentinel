@@ -48,7 +48,7 @@ const ConsultationForm = ({
               placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-5 py-3 rounded-full border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none"
+              className="w-full px-5 py-3 rounded-full border text-black border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none"
             />
             {name && (
               <motion.div
@@ -68,7 +68,7 @@ const ConsultationForm = ({
               placeholder="Company Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-5 py-3 rounded-full border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none"
+              className="w-full px-5 py-3 rounded-full text-black  border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none"
             />
             {email && (
               <motion.div
@@ -88,7 +88,7 @@ const ConsultationForm = ({
               placeholder="Company Name"
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
-              className="w-full px-5 py-3 rounded-full border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none"
+              className="w-full px-5 py-3 rounded-full text-black  border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none"
             />
             {companyName && (
               <motion.div
@@ -107,7 +107,7 @@ const ConsultationForm = ({
               placeholder="How can we help you?"
               value={helpMessage}
               onChange={(e) => setHelpMessage(e.target.value)}
-              className="w-full px-5 py-3 rounded-xl border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none resize-none h-28"
+              className="w-full px-5 py-3 rounded-xl text-black  border border-gray-300 text-sm sm:text-base focus:ring-2 focus:ring-cyan-500 outline-none resize-none h-28"
             />
             {helpMessage && (
               <motion.div

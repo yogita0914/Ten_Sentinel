@@ -56,7 +56,7 @@ const CloudServices = () => {
                 y: -10,
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
               }}
-              className="bg-fuchsia-50 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 group h-full flex flex-col"
+              className="bg-blue-200 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 group h-full flex flex-col"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-blue-100 rounded-xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">

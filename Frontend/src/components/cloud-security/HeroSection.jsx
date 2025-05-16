@@ -6,28 +6,20 @@ import { ShieldCheck } from "lucide-react";
 const HeroSection = () => {
   return (
     <header
-      className="relative text-white text-center py-25 md:py-40 lg:py-48 bg-cover bg-center overflow-hidden"
+      className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
       style={{ backgroundImage: `url(${hero.backgroundImage})` }}
     >
+      {/* Gradient Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.75 }}
         transition={{ duration: 1.5 }}
         className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
       ></motion.div>
-      
-      {/* Animated pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
-            <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#fff"></circle>
-          </pattern>
-          <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
-        </svg>
-      </div>
-      
-      <div className="relative z-10 px-4 max-w-5xl mx-auto">
-        <motion.div 
+
+      {/* Content Container */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full">
+        <motion.div
           className="flex justify-center mb-6"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -37,7 +29,7 @@ const HeroSection = () => {
             <ShieldCheck className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
           </div>
         </motion.div>
-        
+
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +38,7 @@ const HeroSection = () => {
         >
           {hero.title}
         </motion.h1>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +47,7 @@ const HeroSection = () => {
         >
           {hero.subtitle}
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,14 +62,18 @@ const HeroSection = () => {
           </a>
         </motion.div>
       </div>
-      
-      {/* Animated wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
+
+      {/* Optional bottom wave */}
+      <div className="absolute bottom-0 left-0 right-0 hidden md:block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="w-full"
+        >
           <path
             fill="#ffffff"
             fillOpacity="1"
-            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
           ></path>
         </svg>
       </div>

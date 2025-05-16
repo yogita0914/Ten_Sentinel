@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react"; // Added useEffect
 import ReactDOM from "react-dom"; // Added ReactDOM for createPortal
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-
-// Assets
 import heroBackgroundImage from "../assets/aboutus.page.assets/aboutUSbackground.jpg";
 import highFiveImage from "../assets/aboutus.page.assets/information.jpg";
 import peopleIconSrc from "../assets/aboutus.page.assets/gear-solid.svg";
 import processIconSrc from "../assets/aboutus.page.assets/globe-solid.svg";
 import technologyIconSrc from "../assets/aboutus.page.assets/microchip-solid.svg";
 import targetIconSrc from "../assets/aboutus.page.assets/target-icon.jpg";
-import checkmarkIconSrc from "../assets/aboutus.page.assets/checkmark-icon.jpg";
+import checkMarkIconSrc from "../assets/aboutus.page.assets/checkmark-icon.jpg";
 import businessmanImageSrc from "../assets/aboutus.page.assets/businessman-vision.png";
 import usersTrainedIconSrc from "../assets/aboutus.page.assets/globe-solid.svg";
 import clientsServedIconSrc from "../assets/aboutus.page.assets/fingerprint-solid.svg";
 import uptimeIconSrc from "../assets/aboutus.page.assets/arrow-up.svg";
 import teamExpertsIconSrc from "../assets/aboutus.page.assets/users-gear-solid.svg";
+import { motion } from "framer-motion";
+import { Users } from "lucide-react";
 
 // Contact Modal Component
 const ContactFlyoutPanel = ({ isOpen, onClose }) => {
@@ -203,14 +203,6 @@ const StatItem = ({
 
       {/* Number Area - FINAL REVISED RESPONSIVE FONT SIZES */}
       <div className="text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 flex-grow flex items-center justify-center w-full whitespace-nowrap">
-        {/* 
-          Breakdown:
-          - Base (< sm): text-3xl (Good mobile size)
-          - sm (640px+): text-4xl (Larger for wide mobile/tablet)
-          - md (768px+): text-2xl (Smallest to fit 1,000,000+ in 4-col)
-          - lg (1024px+): text-3xl (Reduced size for "normal desktop")
-          - xl (1280px+): text-5xl (Largest for wide screens)
-        */}
         {shouldCountUp ? (
           <CountUp
             start={0}
@@ -260,20 +252,66 @@ const AboutPage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative h-48 sm:h-52 md:h-56 lg:h-60 flex items-center justify-center text-white overflow-hidden bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: `url(${heroBackgroundImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/70 to-blue-600/70 z-10 text-center"></div>
-        <div className="relative z-20 w-full max-w-4xl px-4 text-center">
-          <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white mb-1 mt-13">
-            About Us
-          </h1>
-          <p className="text-sm sm:text-lg md:text-lg lg:text-lg text-sky-200 opacity-90">
-            Your trusted partner in securing data
-          </p>
-        </div>
-      </section>
+     <header
+      className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
+      style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+    >
+      {/* Gradient Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
+      ></motion.div>
+
+      {/* Content Container */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full">
+        <motion.div
+          className="flex justify-center mb-6"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full">
+            <Users className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
+          </div>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
+        >
+          About Us
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
+        >
+           Your trusted partner in securing data
+        </motion.p>
+      </div>
+
+      {/* Optional bottom wave */}
+      <div className="absolute bottom-0 left-0 right-0 hidden md:block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="w-full"
+        >
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+    </header>
+
       {/* Intro Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 lg:pt-12 lg:pb-12">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16 overflow-hidden">
@@ -389,7 +427,7 @@ const AboutPage = () => {
               Our vision is to be the beacon of cybersecurity for businesses,
               ensuring their businesses stand strong against evolving threats.
             </VisionMissionItem>
-            <VisionMissionItem iconSrc={checkmarkIconSrc} title="Our Mission">
+            <VisionMissionItem iconSrc={checkMarkIconSrc} title="Our Mission">
               Our mission is to deliver tailored cybersecurity solutions and
               empower businesses to navigate the cyber world with confidence.
             </VisionMissionItem>
