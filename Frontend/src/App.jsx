@@ -19,6 +19,7 @@ import { VAPT } from "./pages/VAPT";
 import ContactUsPage from "./pages/ContactUsPage";
 import Development from "./pages/DevelopmentPage";
 import InternTrainee from "./pages/InternTrainee";
+import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/security-audits" element={<Security_Audits />} />
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
+           <Route path="/cyber-working-professional" element={<Cyber_WorkingProfessional />} />
           <Route path="/cloud-security" element={<CloudSecurity />} />
           <Route path="/web-design" element={<WebDesignPage />} />
           <Route path="/data-privacy" element={<DataPrivacy />} />
