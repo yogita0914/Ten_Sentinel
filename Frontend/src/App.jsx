@@ -18,6 +18,7 @@ import IsoPage from "./components/IsoPage/IsoPage";
 import { VAPT } from "./pages/VAPT";
 import ContactUsPage from "./pages/ContactUsPage";
 import Development from "./pages/DevelopmentPage";
+import InternTrainee from "./pages/InternTrainee";
 
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/vapt" element={<VAPT />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/development" element={<Development />} />
+          <Route path="/intern-trainee" element={<InternTrainee />}/>
         </Routes>
       </main>
       <Footer />

@@ -18,7 +18,7 @@ const footerLinks = [
   {
     title: "TRAININGS",
     links: [
-      { label: "Cyber Security Intern Trainee", url: "/" },
+      { label: "Cyber Security Intern Trainee", url: "/intern-trainee" },
       { label: "Cyber Security Courses for Working Professionals", url: "/" },
     ],
   },
