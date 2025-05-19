@@ -25,6 +25,7 @@ const services = [
     color: "from-purple-400 to-violet-500",
     path: "/training",
   }
+  
 ];
 
 const ServiceCard = ({ service, index }) => {
