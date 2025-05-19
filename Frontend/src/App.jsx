@@ -20,6 +20,8 @@ import ContactUsPage from "./pages/ContactUsPage";
 import Development from "./pages/DevelopmentPage";
 import training from "./components/EmployeeTraining/EmployeeTraining";
 import EmployeeTraining from "./components/EmployeeTraining/EmployeeTraining";
+import InternTrainee from "./pages/InternTrainee";
+import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
 
 
 const App = () => {
@@ -37,6 +39,7 @@ const App = () => {
           <Route path="/security-audits" element={<Security_Audits />} />
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />
+           <Route path="/cyber-working-professional" element={<Cyber_WorkingProfessional />} />
           <Route path="/cloud-security" element={<CloudSecurity />} />
           <Route path="/web-design" element={<WebDesignPage />} />
           <Route path="/data-privacy" element={<DataPrivacy />} />
@@ -45,6 +48,7 @@ const App = () => {
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/development" element={<Development />} />
           <Route path="/training" element={<EmployeeTraining />} />
+          <Route path="/intern-trainee" element={<InternTrainee />}/>
         </Routes>
       </main>
       <Footer />
