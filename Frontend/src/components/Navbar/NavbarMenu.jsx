@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 const transition = {
   type: "spring",
@@ -83,12 +85,13 @@ export const MenuItem = ({
           </AnimatePresence>
         </>
       ) : (
-        <motion.a
-          href={href}
+        <motion.div
           transition={{ duration: 0.3 }}
           className={`cursor-pointer text-black font-medium whitespace-nowrap px-3 py-1.5 relative ${className}`}
         >
-          {item}
+          <Link to={href}>
+            {item}
+          </Link>
           {(isHovered || active === item) && (
             <motion.span
               layoutId="hoverBackground"
@@ -99,7 +102,7 @@ export const MenuItem = ({
               className="absolute inset-0 bg-gray-200 rounded-full -z-10"
             />
           )}
-        </motion.a>
+        </motion.div>
       )}
     </div>
   );
@@ -120,11 +123,11 @@ export const Menu = ({ setActive, children, activeItem }) => {
 
 export function HoveredLink({ href, children }) {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className="block px-3 py-2 text-black font-medium hover:text-blue-600 transition whitespace-nowrap text-sm"
     >
       {children}
-    </a>
+    </Link>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Menu, MenuItem, HoveredLink } from "./Navbar/NavbarMenu";
 import logo from "../assets/logo.svg";
+import { Link } from "react-router-dom";
+
 
 // BrandLogo component
 const BrandLogo = ({ mobile = false }) => (
@@ -88,12 +90,12 @@ const MobileDropdownItem = ({ index, title, items, isOpen, onToggle }) => {
 
 // MobileMenuItem component (unchanged)
 const MobileMenuItem = ({ href, children, small = false }) => (
-  <a
-    href={href}
+  <Link
+    to={href}
     className={`block py-2 text-white hover:text-blue-400 transition ${small ? 'text-sm' : ''}`}
   >
     {children}
-  </a>
+  </Link>
 );
 
 function Navbar() {
