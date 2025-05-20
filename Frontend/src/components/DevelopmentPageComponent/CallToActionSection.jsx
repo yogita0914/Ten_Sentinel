@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { buttonVariants } from './motion';
 
 const CallToActionSection = () => (
@@ -43,19 +44,22 @@ const CallToActionSection = () => (
             whileHover={{ scale: 1 }}
           />
         </motion.button>
-        <motion.button
-          className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-full font-semibold text-lg border border-blue-200 shadow-sm relative overflow-hidden group"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-        >
-          <span className="relative z-10">Contact Us</span>
-          <motion.span
-            className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            initial={{ scale: 0 }}
-            whileHover={{ scale: 1 }}
-          />
-        </motion.button>
+
+        <Link to="/contact" className="relative z-10">
+          <motion.button
+            className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-full font-semibold text-lg border border-blue-200 shadow-sm relative overflow-hidden group"
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+          >
+            Contact Us
+            <motion.span
+              className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              initial={{ scale: 0 }}
+              whileHover={{ scale: 1 }}
+            />
+          </motion.button>
+        </Link>
       </motion.div>
     </div>
   </section>
