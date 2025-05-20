@@ -34,13 +34,13 @@ const HeroSection = ({ openConsultation }) => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row justify-center items-center gap-4"
+            className="flex flex-col sm:flex-row justify-center items-center gap-4 px-4 sm:px-8 md:px-12 lg:px-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <motion.button
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg relative overflow-hidden group w-full sm:w-auto"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg relative overflow-hidden group w-full sm:w-auto"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -55,7 +55,7 @@ const HeroSection = ({ openConsultation }) => {
 
             <motion.button
               onClick={openConsultation}
-              className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg border border-white/30 shadow-lg relative overflow-hidden group w-full sm:w-auto"
+              className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-full font-semibold text-base sm:text-lg border border-white/30 shadow-lg relative overflow-hidden group w-full sm:w-auto"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -68,6 +68,7 @@ const HeroSection = ({ openConsultation }) => {
               />
             </motion.button>
           </motion.div>
+
         </div>
       </div>
     </section>
