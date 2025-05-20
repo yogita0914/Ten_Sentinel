@@ -3,18 +3,14 @@ import { motion } from 'framer-motion';
 import heroBg from "../../assets/Development/development-hero-bg.png";
 import { buttonVariants } from './motion';
 
-const HeroSection = () => {
+const HeroSection = ({ openConsultation }) => {
   return (
     <section
       className="relative w-full min-h-screen pt-24 sm:pt-28 z-30 bg-cover bg-center bg-no-repeat bg-fixed flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-      }}
+      style={{ backgroundImage: `url(${heroBg})` }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 backdrop-blur-xs bg-opacity-50 z-10" />
 
-      {/* Hero Content */}
       <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto flex flex-col items-center justify-center text-center py-12 sm:py-20">
           <motion.h1
@@ -58,6 +54,7 @@ const HeroSection = () => {
             </motion.button>
 
             <motion.button
+              onClick={openConsultation}
               className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg border border-white/30 shadow-lg relative overflow-hidden group w-full sm:w-auto"
               variants={buttonVariants}
               whileHover="hover"
