@@ -108,7 +108,7 @@ const ExternalHoveredLink = ({ href, children }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="block px-3 py-1.5 text-black font-medium rounded hover:bg-blue-100 hover:text-blue-700 transition"
+    className="block px-3 py-1.5 text-black font-medium rounded hover:text-blue-600 transition whitespace-nowrap text-sm"
   >
     {children}
   </a>
