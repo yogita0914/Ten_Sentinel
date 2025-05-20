@@ -75,7 +75,9 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-white to-blue-50" id="testimonials">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-green-100 via-white to-teal-100"
+      id="testimonials"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,7 +105,7 @@ const Testimonials = () => {
 
         <div className="relative max-w-4xl mx-auto px-2 sm:px-4">
           {/* Testimonial Cards */}
-          <div className="relative h-[320px] sm:h-[360px] md:h-[400px] overflow-hidden">
+          <div className="relative h-[200px] sm:h-[260px] md:h-[320px] lg:h-[400px] overflow-hidden">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -217,7 +219,7 @@ const Testimonials = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </section >
   );
 };
 
