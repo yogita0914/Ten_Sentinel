@@ -57,16 +57,15 @@ const ServiceCard = ({ service, index }) => {
         </div>
         <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-gray-800">{service.title}</h3>
         <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-5">{service.description}</p>
-        <Link
-          to={service.path}
-          className="inline-flex items-center font-medium group"
+        <motion.div
           whileHover={{ x: 5 }}
           transition={{ type: 'spring', stiffness: 300 }}
+          className="inline-flex items-center font-medium group cursor-pointer"
         >
-          <span className="text-cyan-600 group-hover:text-cyan-700 transition-colors text-sm sm:text-base">
+          <Link to={service.path} className="text-cyan-600 group-hover:text-cyan-700 transition-colors text-sm sm:text-base inline-flex items-center">
             {service.link}
-          </span>
-        </Link>
+          </Link>
+        </motion.div>
       </div>
     </motion.div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FingerPrintIcon, AcademicCapIcon, DocumentCheckIcon } from '@heroicons/react/24/outline';
 
 const services = [
@@ -25,7 +25,7 @@ const services = [
     color: "from-purple-400 to-violet-500",
     path: "/training",
   }
-  
+
 ];
 
 const ServiceCard = ({ service, index }) => {
@@ -47,24 +47,23 @@ const ServiceCard = ({ service, index }) => {
       </div>
       <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800">{service.title}</h3>
       <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
-      <motion.a
-        href="#"
-        className="inline-flex items-center font-medium group"
+      <motion.div
+        className="inline-flex items-center font-medium group cursor-pointer"
         whileHover={{ x: 5 }}
         transition={{ type: 'spring', stiffness: 300 }}
       >
-        <span className={`bg-gradient-to-r ${service.color} bg-clip-text text-transparent text-sm sm:text-base`}>
-          <Link to={service.path}>Learn more</Link>
-        </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={`h-4 w-4 sm:h-5 sm:w-5 ml-1 transition-transform group-hover:translate-x-1 ${service.color.includes('cyan') ? 'text-cyan-500' : service.color.includes('blue') ? 'text-blue-500' : 'text-purple-500'}`}
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-        </svg>
-      </motion.a>
+        <Link to={service.path} className={`bg-gradient-to-r ${service.color} bg-clip-text text-transparent text-sm sm:text-base inline-flex items-center`}>
+          Learn more
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className={`h-4 w-4 sm:h-5 sm:w-5 ml-1 transition-transform group-hover:translate-x-1 ${service.color.includes('cyan') ? 'text-cyan-500' : service.color.includes('blue') ? 'text-blue-500' : 'text-purple-500'}`}
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </Link>
+      </motion.div>
     </motion.div>
   );
 };
