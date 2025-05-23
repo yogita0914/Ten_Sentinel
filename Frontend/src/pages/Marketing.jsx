@@ -1,6 +1,6 @@
 import React from "react";
 import FaqAccordion_marketing from "../components/Marketing/FaqAccordion_marketing";
-import GetInTouch from "../components/Security_Audits/GetInTouch";
+import GetInTouch_Section from "../components/Marketing/GetInTouch_Section";
 import AwarenessSection from "../components/Marketing/AwarenessSection";
 import  Hero_marketing  from "../components/Marketing/hero_marketing";
 
@@ -10,7 +10,8 @@ const Marketing = () => {
 
       <Hero_marketing />
       <AwarenessSection />
-      <GetInTouch />
+      <GetInTouch_Section />
+
       <FaqAccordion_marketing />
     </>
   );

@@ -51,7 +51,6 @@ export default function FaqAccordion_marketing() {
       </h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
-
         {/* Right Side - FAQ Accordion */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -65,7 +64,7 @@ export default function FaqAccordion_marketing() {
               >
                 {faq.question}
                 <ChevronDown
-                  className={`h-5 w-5 transform transition-transform duration-300 ${
+                  className={`w-5 h-5 min-w-[20px] min-h-[20px] transform transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
@@ -90,7 +89,6 @@ export default function FaqAccordion_marketing() {
             className="w-full h-[350px] object-cover rounded-lg"
           />
         </div>
-
       </div>
     </section>
   );
