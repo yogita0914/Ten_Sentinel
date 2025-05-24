@@ -2,9 +2,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  height: 100%;
   width: 100%;
+  height: auto;
   overflow-x: hidden;
 }
 
@@ -12,7 +11,7 @@ body {
   transform: scale(1);
   transform-origin: top left;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   overflow-y: auto;
 }
 

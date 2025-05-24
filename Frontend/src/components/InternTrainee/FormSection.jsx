@@ -4,7 +4,7 @@ import MultiStepForm from './MultiStepForm'; // import your component
 const FormSection = () => {
   return (
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-4 md:px-6"
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-4 md:px-6" id='form'
       style={{
         backgroundImage:
           "url('https://cdn.vectorstock.com/i/500p/00/37/padlock-concept-cyber-security-protection-vector-47170037.jpg')",

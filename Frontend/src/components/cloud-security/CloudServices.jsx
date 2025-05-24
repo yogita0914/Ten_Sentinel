@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { cloudServices } from "../../assets/data/cloudSecurity";
+import { cloudServices } from "../data/cloudSecurity";
 
 const CloudServices = () => {
   const containerVariants = {

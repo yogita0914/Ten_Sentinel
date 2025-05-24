@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { intro } from "../../assets/data/cloudSecurity";
+import { intro } from "../data/cloudSecurity";
 import { Shield } from "lucide-react";
 
 const Introduction = () => {

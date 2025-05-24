@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Faq from "../../assets/cloud-security/faq.avif";
 import React from "react";
 
 const faqs = [
@@ -82,7 +83,7 @@ export default function FaqAccordion() {
         {/* Left Side - Image */}
         <div className="hidden md:flex">
           <img
-            src="https://img.freepik.com/free-vector/cloud-with-cyber-wires_78370-6678.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"
+            src={Faq}
             alt="FAQ Illustration"
             className="w-full h-auto object-cover object-center rounded-lg"
           />

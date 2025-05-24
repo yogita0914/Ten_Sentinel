@@ -1,17 +1,17 @@
 // cloudSecurityData.js
-
+import CloudBgImage from "../../assets/cloud-security/cloudBg-image.avif";
+import IntroImage from "../../assets/cloud-security/cloud1.avif";
 export const hero = {
   title: "Cloud Security",
   subtitle:
     "Stay ahead of threats with smart, scalable, and secure cloud solutions — customized for AWS, Azure, and GCP.",
-  backgroundImage:
-    "https://img.freepik.com/premium-vector/security-cyber-digital-concept-abstract-technology-background-protect-system-innovation_42421-306.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740",
+  backgroundImage: `${CloudBgImage}`
+    ,
 };
 
 export const intro = {
   title: "Why Cloud Security Matters for Entrepreneurs & Startups",
-  image:
-    "https://img.freepik.com/premium-vector/cloud-computing-concept-data-center-cloud-storage-server-shield-isolated-vector-illustration_18660-5013.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740",
+  image:`${IntroImage}`,
   text: `In today’s fast-moving digital ecosystem, startups and early-stage businesses are leveraging cloud platforms like AWS, Azure, and GCP to accelerate development, reduce costs, and reach markets faster than ever. These platforms provide the agility and scalability that innovation demands — but with great flexibility comes great responsibility. As your cloud environment expands, so does your exposure to threats: misconfigurations, unauthorized access, data leaks, and service disruptions can occur in seconds if security is overlooked. For startups, a single breach can damage your brand reputation, disrupt operations, and erode customer trust — often before you’ve had a chance to scale.`,
 };
 
