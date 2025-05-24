@@ -5,7 +5,7 @@ import { ServicesSection } from "../components/WebDesign/ServicesSection";
 import { ImportanceSection } from "../components/WebDesign/ImportanceSection";
 import { DeliverSection } from "../components/WebDesign/DeliverSection";
 import { ContactSection } from "../components/WebDesign/ContactSection";
-import { FaqSection } from "../components/WebDesign/FaqSection";
+import FaqSection from "../components/WebDesign/FaqSection";
 // import { PopupModal } from "../components/WebDesign/PopupModal";
 import { initialFaqs } from "../components/WebDesign/WebDesignData";
 

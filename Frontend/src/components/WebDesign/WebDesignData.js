@@ -74,27 +74,27 @@ export const deliverListItems = [
 export const initialFaqs = [
   {
     question: "Why is professional web design critical for my business?",
-    response:
+    answer:
       "Your website is your digital storefront. A well-designed site builds trust, improves user experience, and directly impacts conversions. Poor design can drive potential customers away."
   },
   {
     question: "How long does the web design process take?",
-    response:
+    answer:
       "Typically 2-6 weeks, depending on complexity. We prioritize quality while meeting your deadlines."
   },
   {
     question: "Do you design mobile-friendly websites?",
-    response:
+    answer:
       "Absolutely. Every site we build is fully responsive, ensuring seamless performance on all devices (60%+ traffic comes from mobile!)."
   },
   {
     question: "Will my website be optimized for search engines (SEO)?",
-    response:
+    answer:
       "Yes. Our designs include SEO best practices (clean code, speed optimization, and metadata structuring) to help you rank higher."
   },
   {
     question: "What ongoing support do you offer after launch?",
-    response:
+    answer:
       "We provide post-launch updates, security patches, and performance tweaks to keep your site ahead of competitors."
   },
 ];
