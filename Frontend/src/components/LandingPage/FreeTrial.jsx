@@ -5,7 +5,7 @@ import {
   LockClosedIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
-import ConsultationForm from "./ConsultationForm"; // 🔥 Import ConsultationForm
+import ConsultationForm from "./ConsultationForm";
 
 export default function FreeTrial() {
   const [isHovering, setIsHovering] = useState(false);
@@ -39,10 +39,10 @@ export default function FreeTrial() {
     closeModal();
   };
 
-  
+
 
   return (
-    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white z-50py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative z-50">
+    <section className="relative py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white z-50">
       <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
@@ -80,9 +80,9 @@ export default function FreeTrial() {
                 animate={
                   isBreaking
                     ? {
-                        x: [0, 5, -5, 0],
-                        boxShadow: "0 0 15px rgba(239, 68, 68, 0.5)",
-                      }
+                      x: [0, 5, -5, 0],
+                      boxShadow: "0 0 15px rgba(239, 68, 68, 0.5)",
+                    }
                     : {}
                 }
                 onHoverStart={() => setIsHovering(true)}
@@ -94,16 +94,14 @@ export default function FreeTrial() {
                     setIsSecure(false);
                   }, 1000);
                 }}
-                className={`flex items-center ${
-                  isBreaking
+                className={`flex items-center ${isBreaking
                     ? "bg-red-500/20 border-red-500"
                     : "bg-gray-700 hover:bg-gray-600 border-gray-600"
-                } p-4 sm:p-5 rounded-xl border transition-all cursor-pointer flex-1 max-w-full md:max-w-md`}
+                  } p-4 sm:p-5 rounded-xl border transition-all cursor-pointer flex-1 max-w-full md:max-w-md`}
               >
                 <LockOpenIcon
-                  className={`h-8 w-8 sm:h-10 sm:w-10 mr-4 ${
-                    isBreaking ? "text-red-500" : "text-red-400"
-                  }`}
+                  className={`h-8 w-8 sm:h-10 sm:w-10 mr-4 ${isBreaking ? "text-red-500" : "text-red-400"
+                    }`}
                 />
                 <div>
                   <h3 className="font-bold text-base sm:text-lg">
@@ -126,25 +124,23 @@ export default function FreeTrial() {
                 animate={
                   isSecure
                     ? {
-                        x: [0, 5, -5, 0],
-                        boxShadow: "0 0 15px rgba(16, 185, 129, 0.5)",
-                      }
+                      x: [0, 5, -5, 0],
+                      boxShadow: "0 0 15px rgba(16, 185, 129, 0.5)",
+                    }
                     : {}
                 }
                 onClick={() => {
                   setIsSecure(true);
                   setTimeout(() => setIsSecure(false), 1000);
                 }}
-                className={`flex items-center ${
-                  isSecure
+                className={`flex items-center ${isSecure
                     ? "bg-green-500/20 border-green-500"
                     : "bg-gray-700 hover:bg-gray-600 border-gray-600"
-                } p-4 sm:p-5 rounded-xl border transition-all cursor-pointer flex-1 max-w-full md:max-w-md`}
+                  } p-4 sm:p-5 rounded-xl border transition-all cursor-pointer flex-1 max-w-full md:max-w-md`}
               >
                 <LockClosedIcon
-                  className={`h-8 w-8 sm:h-10 sm:w-10 mr-4 ${
-                    isSecure ? "text-green-500" : "text-green-400"
-                  }`}
+                  className={`h-8 w-8 sm:h-10 sm:w-10 mr-4 ${isSecure ? "text-green-500" : "text-green-400"
+                    }`}
                 />
                 <div>
                   <h3 className="font-bold text-base sm:text-lg">
