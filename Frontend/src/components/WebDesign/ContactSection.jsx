@@ -18,7 +18,7 @@ export const ContactSection = () => (
           viewport={{ once: true }}
         >
           <img
-            className="w-full h-auto object-contain rounded-xl shadow-md"
+            className="w-full h-auto object-contain"
             src="https://img.freepik.com/premium-photo/logo-web-design-is-shown-white-background_939033-77071.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"
             alt="Contact Illustration"
           />
