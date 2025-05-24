@@ -17,19 +17,19 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      when: "beforeChildren"
-    }
-  }
+      when: 'beforeChildren',
+    },
+  },
 };
 
 const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [helpMessage, setHelpMessage] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [helpMessage, setHelpMessage] = useState('');
 
   const isFormValid = name && email && companyName && helpMessage;
 
@@ -43,33 +43,32 @@ const LandingPage = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    const scrollY = document.body.style.top;
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    window.scrollTo(0, scrollPosition);
   };
 
+  // Cleanup body styles on unmount to avoid side effects
   useEffect(() => {
     return () => {
-      // Cleanup on component unmount
-      if (isModalOpen) {
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-      }
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
-  }, [isModalOpen]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isFormValid) return;
 
-    // Form submission logic (e.g. API call)
-    setName("");
-    setEmail("");
-    setCompanyName("");
-    setHelpMessage("");
+    // Form submission logic here (e.g. API call)
+
+    // Clear form
+    setName('');
+    setEmail('');
+    setCompanyName('');
+    setHelpMessage('');
     closeModal();
   };
 
@@ -80,7 +79,6 @@ const LandingPage = () => {
       variants={containerVariants}
       className="bg-gradient-to-br from-gray-50 to-blue-50 relative"
     >
-      {/* Modal (Global) */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen p-4">
@@ -101,7 +99,6 @@ const LandingPage = () => {
         </div>
       )}
 
-      {/* Components */}
       <Hero openModal={openModal} />
       <Services />
       <Stats />

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const ContactSection = () => {
-  // State for all form fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,10 +9,8 @@ export const ContactSection = () => {
     message: "",
   });
 
-  // State for showing success message
   const [submitted, setSubmitted] = useState(false);
 
-  // Handle input change
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({
@@ -22,26 +19,27 @@ export const ContactSection = () => {
     }));
   };
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Clear form fields
     setFormData({
       name: "",
       email: "",
       company: "",
       message: "",
     });
-
-    // Show submitted confirmation for 3 seconds
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden" id="contact">
-      {/* Background gradient */}
+    <motion.section
+      className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      id="contact"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="absolute inset-0 bg-gradient-to-r from-white-600 to-white-700 opacity-90 -z-10"></div>
 
       <div className="max-w-7xl mx-auto">
@@ -75,7 +73,10 @@ export const ContactSection = () => {
               <form className="space-y-4" onSubmit={handleSubmit}>
                 {/* Full Name */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Full Name:
                   </label>
                   <input
@@ -90,7 +91,10 @@ export const ContactSection = () => {
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Company Email:
                   </label>
                   <input
@@ -105,7 +109,10 @@ export const ContactSection = () => {
 
                 {/* Company Name */}
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Company Name:
                   </label>
                   <input
@@ -120,7 +127,10 @@ export const ContactSection = () => {
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Message
                   </label>
                   <textarea
@@ -141,17 +151,27 @@ export const ContactSection = () => {
                   >
                     Submit Form
                   </button>
-                  {submitted && (
-                    <p className="mt-3 text-green-600 font-semibold">
-                      Thank you for submitting!
-                    </p>
-                  )}
+
+                  <AnimatePresence>
+                    {submitted && (
+                      <motion.p
+                        key="submitted-msg"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.4 }}
+                        className="mt-3 text-green-600 font-semibold"
+                      >
+                        Thank you for submitting!
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
                 </div>
               </form>
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
