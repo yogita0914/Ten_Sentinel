@@ -1,33 +1,40 @@
+import crownIcon from '../../assets/WebDesignPage/importanceIcons/crown.png';
+import rocketIcon from '../../assets/WebDesignPage/importanceIcons/rocket.png';
+import phoneIcon from '../../assets/WebDesignPage/importanceIcons/phone.png';
+import boltIcon from '../../assets/WebDesignPage/importanceIcons/bolt.png';
+import trophyIcon from '../../assets/WebDesignPage/importanceIcons/trophy.png';
+import searchIcon from '../../assets/WebDesignPage/importanceIcons/search.png';
+
 export const importanceListItems = [
   {
-    icon: "./importanceIcons/crown.png",
+    icon: crownIcon,
     title: "Strong First Impressions",
-    text: "Your website is often the first interaction customers have with your brand. A polished, modern design builds immediate credibility.",
+    description: "Your website is often the first interaction customers have with your brand. A polished, modern design builds immediate credibility.",
   },
   {
-    icon: "./importanceIcons/rocket.png",
+    icon: rocketIcon,
     title: "Enhanced User Experience",
-    text: "Intuitive navigation and responsive layouts keep visitors engaged and reduce bounce rates.",
+    description: "Intuitive navigation and responsive layouts keep visitors engaged and reduce bounce rates.",
   },
   {
-    icon: "./importanceIcons/phone.png",
+    icon: phoneIcon,
     title: "Mobile Optimization",
-    text: "Ensures your site looks and functions perfectly on all devices, reaching a wider audience.",
+    description: "Ensures your site looks and functions perfectly on all devices, reaching a wider audience.",
   },
   {
-    icon: "./importanceIcons/bolt.png",
+    icon: boltIcon,
     title: "Faster Loading Speeds",
-    text: "Optimized design improves performance, keeping users happy and boosting SEO rankings.",
+    description: "Optimized design improves performance, keeping users happy and boosting SEO rankings.",
   },
   {
-    icon: "./importanceIcons/trophy.png",
+    icon: trophyIcon,
     title: "Competitive Edge",
-    text: "Stand out from competitors with a unique, visually appealing, and functional website.",
+    description: "Stand out from competitors with a unique, visually appealing, and functional website.",
   },
   {
-    icon: "./importanceIcons/search.png",
+    icon: searchIcon,
     title: "SEO-Friendly Structure",
-    text: "Clean code + SEO-optimized architecture to rank higher and attract organic traffic.",
+    description: "Clean code + SEO-optimized architecture to rank higher and attract organic traffic.",
   },
 ];
 
