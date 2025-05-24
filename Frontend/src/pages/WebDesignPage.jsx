@@ -6,7 +6,7 @@ import { ImportanceSection } from "../components/WebDesign/ImportanceSection";
 import { DeliverSection } from "../components/WebDesign/DeliverSection";
 import { ContactSection } from "../components/WebDesign/ContactSection";
 import { FaqSection } from "../components/WebDesign/FaqSection";
-import { PopupModal } from "../components/WebDesign/PopupModal";
+// import { PopupModal } from "../components/WebDesign/PopupModal";
 import { initialFaqs } from "../components/WebDesign/WebDesignData";
 
 export const WebDesignPage = () => {
@@ -26,7 +26,7 @@ export const WebDesignPage = () => {
 
   return (
     <div className="flex flex-col">
-      <PopupModal isOpen={isPopUpOpen} setIsPopUpOpen={setIsPopUpOpen} />
+      {/* <PopupModal isOpen={isPopUpOpen} setIsPopUpOpen={setIsPopUpOpen} /> */}
       <HeaderSection />
       <div>
         <HomeSection />
