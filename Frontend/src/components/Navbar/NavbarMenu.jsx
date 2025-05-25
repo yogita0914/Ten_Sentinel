@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-
 const transition = {
   type: "spring",
   mass: 0.5,
@@ -30,6 +29,11 @@ export const MenuItem = ({
   };
 
   const handleMouseLeave = () => {
+    setIsHovered(false);
+    if (setActive) setActive(null);
+  };
+
+  const handleDropdownClose = () => {
     setIsHovered(false);
     if (setActive) setActive(null);
   };
@@ -78,7 +82,10 @@ export const MenuItem = ({
                   layoutId="dropdown"
                   className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl border border-gray-200 overflow-hidden max-h-[80vh] overflow-y-auto w-max px-2"
                 >
-                  {children}
+                  {/* Pass close handler to all children */}
+                  {React.Children.map(children, (child) =>
+                    React.cloneElement(child, { onClick: handleDropdownClose })
+                  )}
                 </motion.div>
               </motion.div>
             )}
@@ -121,13 +128,14 @@ export const Menu = ({ setActive, children, activeItem }) => {
   );
 };
 
-export function HoveredLink({ href, children }) {
+export function HoveredLink({ href, children, onClick }) {
   return (
     <Link
       to={href}
+      onClick={onClick}
       className="block px-3 py-2 text-black font-medium hover:text-blue-600 transition whitespace-nowrap text-sm"
     >
       {children}
     </Link>
   );
-};
+}
