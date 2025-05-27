@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, MenuItem, HoveredLink } from "./Navbar/NavbarMenu";
 import logo from "../assets/logo.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 // BrandLogo component
 const BrandLogo = ({ mobile = false }) => (
@@ -17,7 +18,7 @@ const BrandLogo = ({ mobile = false }) => (
 );
 
 // MobileMenu component
-const MobileMenu = ({ items, isOpen }) => {
+const MobileMenu = ({ items, isOpen, onClose }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   if (!isOpen) return null;
@@ -31,7 +32,7 @@ const MobileMenu = ({ items, isOpen }) => {
       {items.map((menuItem, index) => {
         if (menuItem.type === "link") {
           return (
-            <MobileMenuItem key={index} href={menuItem.href}>
+            <MobileMenuItem key={index} href={menuItem.href} onNavigate={onClose}>
               {menuItem.item}
             </MobileMenuItem>
           );
@@ -44,6 +45,7 @@ const MobileMenu = ({ items, isOpen }) => {
               items={menuItem.children}
               isOpen={openDropdown === index}
               onToggle={handleDropdownToggle}
+              onNavigate={onClose}
             />
           );
         }
@@ -53,7 +55,7 @@ const MobileMenu = ({ items, isOpen }) => {
 };
 
 // MobileDropdownItem component
-const MobileDropdownItem = ({ index, title, items, isOpen, onToggle }) => {
+const MobileDropdownItem = ({ index, title, items, isOpen, onToggle, onNavigate }) => {
   return (
     <div className="mb-2">
       <button
@@ -77,6 +79,7 @@ const MobileDropdownItem = ({ index, title, items, isOpen, onToggle }) => {
             key={childIndex}
             href={child.href}
             small
+            onNavigate={onNavigate}
           >
             {child.item}
           </MobileMenuItem>
@@ -86,21 +89,44 @@ const MobileDropdownItem = ({ index, title, items, isOpen, onToggle }) => {
   );
 };
 
-// MobileMenuItem component (unchanged)
-const MobileMenuItem = ({ href, children, small = false }) => (
+// MobileMenuItem component
+const MobileMenuItem = ({ href, children, small = false, onNavigate }) => {
+  const navigate = useNavigate();
+  const isExternal = href.startsWith("http");
+  const className = `block py-2 text-white hover:text-blue-400 transition ${small ? 'text-sm' : ''}`;
+
+  const handleClick = () => {
+    if (onNavigate) onNavigate();
+    navigate(href);
+  };
+
+  return isExternal ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      {children}
+    </a>
+  ) : (
+    <button onClick={handleClick} className={className}>
+      {children}
+    </button>
+  );
+};
+
+const ExternalHoveredLink = ({ href, children }) => (
   <a
     href={href}
-    className={`block py-2 text-white hover:text-blue-400 transition ${small ? 'text-sm' : ''}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block px-3 py-1.5 text-black font-medium rounded hover:text-blue-600 transition whitespace-nowrap text-sm"
   >
     {children}
   </a>
 );
 
+// Main Navbar component
 function Navbar() {
   const [active, setActive] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Menu Items
   const menuItems = [
     { type: "link", item: "Home", href: "/" },
     { type: "link", item: "About", href: "/about" },
@@ -131,17 +157,7 @@ function Navbar() {
     <>
       {/* Desktop/Tablet Navbar (≥768px) */}
       <div className="hidden md:flex justify-center w-full">
-        <div className={`
-          fixed top-4 z-50 shadow-lg bg-white rounded-full
-          flex items-center justify-between
-          px-3 py-3 mt-5
-          w-[94%]
-          max-w-[850px]
-          lg:w-[90%]
-          xl:w-[85%]
-          2xl:w-[75%]
-        `}>
-
+        <div className={`fixed top-4 z-50 shadow-lg bg-white rounded-full flex items-center justify-between px-3 py-3 mt-5 w-[94%] max-w-[850px] lg:w-[90%] xl:w-[85%] 2xl:w-[75%]`}>
           <BrandLogo />
 
           {/* Centered Menu */}
@@ -157,14 +173,17 @@ function Navbar() {
                   className="nav-item"
                 >
                   {menuItem.type === "dropdown" && (
-                    <div className={`
-                      flex flex-col space-y-1 p-1.5
-                      text-xs md:text-[0.8125rem] lg:text-sm
-                    `}>
+                    <div className="flex flex-col space-y-1 p-1.5 text-xs md:text-[0.8125rem] lg:text-sm">
                       {menuItem.children.map((child, childIndex) => (
-                        <HoveredLink key={childIndex} href={child.href}>
-                          {child.item}
-                        </HoveredLink>
+                        menuItem.item === "Careers" ? (
+                          <ExternalHoveredLink key={childIndex} href={child.href}>
+                            {child.item}
+                          </ExternalHoveredLink>
+                        ) : (
+                          <HoveredLink key={childIndex} href={child.href}>
+                            {child.item}
+                          </HoveredLink>
+                        )
                       ))}
                     </div>
                   )}
@@ -173,9 +192,7 @@ function Navbar() {
             </Menu>
           </div>
 
-
-          {/* Right-side Button - Optimized for 768-790px */}
-
+          {/* Right-side Button */}
           <button className="nav-button bg-black text-white
             px-3 py-3
             text-[13px] font-bold
@@ -183,7 +200,6 @@ function Navbar() {
             min-w-[90px] bg-[linear-gradient(to_right,#4776E6_0%,#8E54E9_51%,#4776E6_100%)] text-center uppercase transition-[0.5s] bg-[200%_auto] hover:bg-[right_center] hover:text-white hover:no-underline">
             Get Started
           </button>
-
         </div>
       </div>
 
@@ -202,7 +218,11 @@ function Navbar() {
           </button>
         </div>
 
-        <MobileMenu items={menuItems} isOpen={mobileMenuOpen} />
+        <MobileMenu
+          items={menuItems}
+          isOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+        />
       </div>
     </>
   );

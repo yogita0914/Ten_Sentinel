@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { whatIsCloudSecurity } from "../../assets/data/cloudSecurity";
+import { whatIsCloudSecurity } from "../data/cloudSecurity";
 import { Cloud, Lock, Shield } from "lucide-react";
 
 const WhatCloudSecurity = () => {

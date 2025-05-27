@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { benefits } from "../../assets/data/cloudSecurity";
+import { benefits } from "../data/cloudSecurity";
 import { Award, Shield, Clock, Users, Zap, Lock } from "lucide-react";
 
 const Benefits = () => {

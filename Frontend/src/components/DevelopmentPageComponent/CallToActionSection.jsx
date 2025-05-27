@@ -32,7 +32,7 @@ const CallToActionSection = () => (
         viewport={{ once: true }}
       >
         <motion.button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg relative overflow-hidden group"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg relative overflow-hidden group whitespace-nowrap"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
@@ -47,7 +47,7 @@ const CallToActionSection = () => (
 
         <Link to="/contact" className="relative z-10">
           <motion.button
-            className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-full font-semibold text-lg border border-blue-200 shadow-sm relative overflow-hidden group"
+            className="bg-white hover:bg-gray-100 text-blue-600 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg border border-blue-200 shadow-sm relative overflow-hidden group whitespace-nowrap"
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"

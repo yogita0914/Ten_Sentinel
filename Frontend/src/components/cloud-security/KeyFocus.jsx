@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { keyFocusAreas } from "../../assets/data/cloudSecurity";
+import { keyFocusAreas } from "../data/cloudSecurity";
+import ComputerImage from "../../assets/cloud-security/computer.webp";
 import { Check } from "lucide-react";
 
 const KeyFocus = () => {
@@ -67,7 +68,7 @@ const KeyFocus = () => {
             <div className="absolute -bottom-6 -left-6 w-full h-full bg-indigo-100 rounded-2xl"></div>
             <img
               className="w-full h-auto rounded-2xl shadow-lg relative z-10"
-              src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              src={ComputerImage}
               alt="Cloud Security"
             />
           </div>

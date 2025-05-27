@@ -2,39 +2,38 @@ import React from "react";
 
 const AwarenessSection = () => {
   return (
-    <div className="font-sans">
+    <div className="font-sans pb-0">
       {/* Top Stats Section */}
-      <div className=" rounded-xl p-8 mx-4 my-8">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x">
-              <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-50 transition">
-                <div className="text-4xl font-extrabold text-blue-600">
-                  100,000+
-                </div>
-                <div className="mt-2 text-gray-500 text-lg font-medium">
-                  Professionals Trained
-                </div>
+      <div className="max-w-7xl mx-auto py-2 lg:py-16 px-4 sm:px-6 lg:px-0">
+        <div className="bg-blue-100 rounded-2xl shadow-md overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x">
+            <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-200 transition">
+              <div className="text-4xl md:text-2xl font-extrabold text-blue-600">
+                100,000+
               </div>
-              <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-50 transition">
-                <div className="text-4xl font-extrabold text-blue-600">
-                  500+
-                </div>
-                <div className="mt-2 text-gray-500 text-lg font-medium">
-                  Workshops Delivered
-                </div>
+              <div className="mt-2 text-gray-700 text-base md:text-sm font-medium whitespace-nowrap">
+
+                Professionals Trained
               </div>
-              <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-50 transition">
-                <div className="text-4xl font-extrabold text-blue-600">95%</div>
-                <div className="mt-2 text-gray-500 text-lg font-medium">
-                  Client Satisfaction
-                </div>
+            </div>
+            <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-200 transition">
+              <div className="text-4xl md:text-2xl font-extrabold text-blue-600">
+                500+
               </div>
-              <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-50 transition">
-                <div className="text-4xl font-extrabold text-blue-600">60+</div>
-                <div className="mt-2 text-gray-500 text-lg font-medium">
-                  Marketing Experts
-                </div>
+              <div className="mt-2 text-gray-700 text-base md:text-sm font-medium whitespace-nowrap">
+                Workshops Delivered
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-200 transition">
+              <div className="text-4xl md:text-2xl font-extrabold text-blue-600">95%</div>
+              <div className="mt-2 text-gray-700 text-base md:text-sm font-medium whitespace-nowrap">
+                Client Satisfaction
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center p-8 hover:bg-blue-200 transition">
+              <div className="text-4xl md:text-2xl font-extrabold text-blue-600">60+</div>
+              <div className="mt-2 text-gray-700 text-base md:text-sm font-medium whitespace-nowrap">
+                Marketing Experts
               </div>
             </div>
           </div>
@@ -42,7 +41,7 @@ const AwarenessSection = () => {
       </div>
 
       {/* Button */}
-      <div className="flex justify-center my-6">
+      <div className="flex justify-center p-5 my-2">
         <a
           href="/"
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded text-center"
@@ -52,7 +51,7 @@ const AwarenessSection = () => {
       </div>
 
       {/* Awareness Section */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-y-8 md:gap-x-20 px-4 py-6 bg-gray-100 mt-15">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-y-8 md:gap-x-20 px-4 py-6 bg-gray-100 mt-2">
         {/* Left Card */}
         <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white p-5 sm:p-6 rounded-2xl text-center shadow-2xl w-full sm:w-[380px] md:w-[450px] h-[300px] relative flex flex-col justify-center transform hover:scale-105 transition-transform duration-300 ease-in-out">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-wide">

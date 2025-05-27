@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { hero } from "../../assets/data/cloudSecurity";
+import { hero } from "../data/cloudSecurity";
 import { ShieldCheck } from "lucide-react";
 
 const HeroSection = () => {
