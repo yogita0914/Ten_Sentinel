@@ -1,13 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { hero } from "../data/cloudSecurity";
-import { ShieldCheck } from "lucide-react";
 
-const HeroSection = () => {
+const HeroSection = ({backgroundImage, title, subtitle, Icon}) => {
   return (
     <header
       className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
-      style={{ backgroundImage: `url(${hero.backgroundImage})` }}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Gradient Overlay */}
       <motion.div
@@ -26,7 +24,7 @@ const HeroSection = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full">
-            <ShieldCheck className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
+            <Icon className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
           </div>
         </motion.div>
 
@@ -36,7 +34,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
         >
-          {hero.title}
+          {title}
         </motion.h1>
 
         <motion.p
@@ -45,7 +43,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
         >
-          {hero.subtitle}
+          {subtitle}
         </motion.p>
 
         <motion.div

@@ -1,12 +1,13 @@
 // cloudSecurityData.js
 import CloudBgImage from "../../assets/cloud-security/cloudBg-image.avif";
 import IntroImage from "../../assets/cloud-security/cloud1.avif";
+import { ShieldCheck } from "lucide-react";
 export const hero = {
   title: "Cloud Security",
   subtitle:
     "Stay ahead of threats with smart, scalable, and secure cloud solutions — customized for AWS, Azure, and GCP.",
-  backgroundImage: `${CloudBgImage}`
-    ,
+  backgroundImage: `${CloudBgImage}`,
+  Icon: ShieldCheck,
 };
 
 export const intro = {
