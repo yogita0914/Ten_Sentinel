@@ -46,14 +46,21 @@ export default function SecurityAuditServices() {
       </h2>
 
       {/* Grid of Audit Services */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center mb-12 mt-8 px-4 sm:px-10 lg:px-20">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 mt-8 px-2 sm:px-8 lg:px-15">
         {services.map(({ label, img }) => (
           <div
             key={label}
-            className="rounded-xl border border-[#E5E7EB] hover:shadow-lg hover:border-blue-800 p-4 w-full max-w-[300px] sm:max-w-[220px] min-h-[155px] bg-[#F8F9FD] flex flex-col items-center text-center transition-all duration-300"
+            className="rounded-xl border border-[#E5E7EB] hover:shadow-lg hover:border-blue-800 
+                 w-[160px] sm:w-[180px] md:w-[200px] h-[180px]
+                 bg-[#F8F9FD] flex flex-col items-center justify-center text-center 
+                 transition-all duration-300 p-4"
           >
-            <img src={img} alt={label} className="h-16 mb-4 object-contain" />
-            <p className="text-sm font-medium text-gray-800 leading-snug">
+            <img
+              src={img}
+              alt={label}
+              className="h-12 sm:h-14 mb-3 object-contain"
+            />
+            <p className="text-sm font-medium text-gray-800 leading-snug px-2 break-words">
               {label}
             </p>
           </div>
