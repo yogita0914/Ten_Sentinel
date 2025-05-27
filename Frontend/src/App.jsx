@@ -22,6 +22,7 @@ import training from "./components/EmployeeTraining/EmployeeTraining";
 import EmployeeTraining from "./components/EmployeeTraining/EmployeeTraining";
 import InternTrainee from "./pages/InternTrainee";
 import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
+import { GCP } from "./pages/GCP";
 
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/development" element={<Development />} />
           <Route path="/training" element={<EmployeeTraining />} />
           <Route path="/intern-trainee" element={<InternTrainee />}/>
+          <Route path="/gcp" element={<GCP />} />
         </Routes>
       </main>
       <Footer />
