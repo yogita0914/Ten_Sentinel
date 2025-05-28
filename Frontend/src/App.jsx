@@ -24,6 +24,7 @@ import InternTrainee from "./pages/InternTrainee";
 import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
 import AzureGuardian from "./pages/AzureGuardian";
 import { GCP } from "./pages/GCP";
+import PishingSimulation from "./pages/PhishingSimulation";
 
 const App = () => {
   return (
@@ -57,6 +58,7 @@ const App = () => {
             <Route path="/intern-trainee" element={<InternTrainee />} />
               <Route path="/cloud-security/AzureGuardian" element={<AzureGuardian />} />
             <Route path="/gcp" element={<GCP />} />
+            <Route path="/phishing-simulation" element={<PishingSimulation />} />
           </Routes>
         </main>
         <Footer />
