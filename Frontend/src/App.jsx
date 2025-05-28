@@ -23,6 +23,7 @@ import EmployeeTraining from "./components/EmployeeTraining/EmployeeTraining";
 import InternTrainee from "./pages/InternTrainee";
 import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
 import AzureGuardian from "./pages/AzureGuardian";
+import { GCP } from "./pages/GCP";
 
 const App = () => {
   return (
@@ -55,6 +56,7 @@ const App = () => {
             <Route path="/training" element={<EmployeeTraining />} />
             <Route path="/intern-trainee" element={<InternTrainee />} />
               <Route path="/cloud-security/AzureGuardian" element={<AzureGuardian />} />
+            <Route path="/gcp" element={<GCP />} />
           </Routes>
         </main>
         <Footer />

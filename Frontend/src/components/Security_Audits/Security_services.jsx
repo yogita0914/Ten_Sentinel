@@ -1,17 +1,27 @@
 import React from "react";
 import { CheckCircle } from "lucide-react";
+import ISO_logo_copie_1 from "../../assets/security_audits/ISO_logo_copie_1.png";
+import pcidss_2 from "../../assets/security_audits/pcidss_2.png";
+import Hippa_3 from "../../assets/security_audits/Hippa_3.png";
+import nist_4 from "../../assets/security_audits/nist_4.png";
+import gdpr_5 from "../../assets/security_audits/gdpr_5.png";
+import ACSC from "../../assets/security_audits/ACSC.png";
+import ISM_7 from "../../assets/security_audits/ISM_7.png";
+import pspf_8 from "../../assets/security_audits/pspf_8.png";
+import RBI_framework_9 from "../../assets/security_audits/RBI_framework_9.png";
+import SOC_10 from "../../assets/security_audits/SOC_10.png";
 
 const services = [
-  { label: "ISO 27001:2013", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "PCI DSS", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "HIPAA", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "NIST", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "GDPR", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "Australian Cyber Security Centre (ACSC)", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "Information Security Manual (ISM)", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "Protective Security Policy Framework (PSPF)", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "RBI Framework", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
-  { label: "SOC", img: "https://res.cloudinary.com/dj8fjdbcx/image/upload/v1745435733/ISO_logo_copie_kg7taq.png" },
+  { label: "ISO 27001:2013", img: ISO_logo_copie_1 },
+  { label: "PCI DSS", img: pcidss_2 },
+  { label: "HIPAA", img: Hippa_3 },
+  { label: "NIST", img: nist_4 },
+  { label: "GDPR", img: gdpr_5 },
+  { label: "Australian Cyber Security Centre (ACSC)", img: ACSC },
+  { label: "Information Security Manual (ISM)", img: ISM_7 },
+  { label: "Protective Security Policy Framework (PSPF)", img: pspf_8 },
+  { label: "RBI Framework", img: RBI_framework_9 },
+  { label: "SOC", img: SOC_10 },
 ];
 
 const benefits = [
@@ -36,14 +46,21 @@ export default function SecurityAuditServices() {
       </h2>
 
       {/* Grid of Audit Services */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center mb-12 mt-8 px-4 sm:px-10 lg:px-20">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 mt-8 px-2 sm:px-8 lg:px-15">
         {services.map(({ label, img }) => (
           <div
             key={label}
-            className="rounded-xl border border-[#E5E7EB] hover:shadow-lg hover:border-blue-800 p-4 w-full max-w-[220px] min-h-[155px] bg-white flex flex-col items-center text-center transition-all duration-300"
+            className="rounded-xl border border-[#E5E7EB] hover:shadow-lg hover:border-blue-800 
+                 w-[160px] sm:w-[180px] md:w-[200px] h-[180px]
+                 bg-[#F8F9FD] flex flex-col items-center justify-center text-center 
+                 transition-all duration-300 p-4"
           >
-            <img src={img} alt={label} className="h-16 mb-4 object-contain" />
-            <p className="text-sm font-medium text-gray-800 leading-snug">
+            <img
+              src={img}
+              alt={label}
+              className="h-12 sm:h-14 mb-3 object-contain"
+            />
+            <p className="text-sm font-medium text-gray-800 leading-snug px-2 break-words">
               {label}
             </p>
           </div>
