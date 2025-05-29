@@ -23,6 +23,7 @@ import EmployeeTraining from "./components/EmployeeTraining/EmployeeTraining";
 import InternTrainee from "./pages/InternTrainee";
 import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
 import { GCP } from "./pages/GCP";
+import CyberAttackAnalysisPage from "./components/CyberAttackAnalysis/CyberAttackAnalysisPage";
 
 const App = () => {
   return (
@@ -55,6 +56,8 @@ const App = () => {
             <Route path="/training" element={<EmployeeTraining />} />
             <Route path="/intern-trainee" element={<InternTrainee />} />
             <Route path="/gcp" element={<GCP />} />
+            <Route path="/CyberAttackAnalysisPage" element={<CyberAttackAnalysisPage />} />
+
           </Routes>
         </main>
         <Footer />

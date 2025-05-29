@@ -18,7 +18,7 @@ const services = [
     description: "Faced cyber or malware attack? Our team of Cyber Experts can assist you to recover from such attacks.",
     color: "bg-blue-100",
     link: "Read More →",
-    path: "cyber-attack-analysis"
+    path: "/CyberAttackAnalysisPage"
   },
   {
     icon: <DocumentMagnifyingGlassIcon className="h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 text-purple-500" />,
