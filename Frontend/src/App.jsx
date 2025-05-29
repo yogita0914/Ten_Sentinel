@@ -22,8 +22,10 @@ import training from "./components/EmployeeTraining/EmployeeTraining";
 import EmployeeTraining from "./components/EmployeeTraining/EmployeeTraining";
 import InternTrainee from "./pages/InternTrainee";
 import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
+import AzureGuardian from "./pages/AzureGuardian";
 import { GCP } from "./pages/GCP";
 import CyberAttackAnalysisPage from "./components/CyberAttackAnalysis/CyberAttackAnalysisPage";
+import PishingSimulation from "./pages/PhishingSimulation";
 
 const App = () => {
   return (
@@ -55,9 +57,11 @@ const App = () => {
             <Route path="/development" element={<Development />} />
             <Route path="/training" element={<EmployeeTraining />} />
             <Route path="/intern-trainee" element={<InternTrainee />} />
+              <Route path="/cloud-security/AzureGuardian" element={<AzureGuardian />} />
             <Route path="/gcp" element={<GCP />} />
             <Route path="/CyberAttackAnalysisPage" element={<CyberAttackAnalysisPage />} />
 
+            <Route path="/phishing-simulation" element={<PishingSimulation />} />
           </Routes>
         </main>
         <Footer />

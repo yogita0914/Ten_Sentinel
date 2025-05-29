@@ -12,7 +12,8 @@ export const hero = {
 
 export const intro = {
   title: "Why Cloud Security Matters for Entrepreneurs & Startups",
-  image:`${IntroImage}`,
+  image:
+    "https://img.freepik.com/premium-vector/cloud-computing-concept-data-center-cloud-storage-server-shield-isolated-vector-illustration_18660-5013.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740",
   text: `In today’s fast-moving digital ecosystem, startups and early-stage businesses are leveraging cloud platforms like AWS, Azure, and GCP to accelerate development, reduce costs, and reach markets faster than ever. These platforms provide the agility and scalability that innovation demands — but with great flexibility comes great responsibility. As your cloud environment expands, so does your exposure to threats: misconfigurations, unauthorized access, data leaks, and service disruptions can occur in seconds if security is overlooked. For startups, a single breach can damage your brand reputation, disrupt operations, and erode customer trust — often before you’ve had a chance to scale.`,
 };
 
@@ -63,6 +64,7 @@ export const cloudServices = [
     description:
       "TEN Sentinel for Azure offers complete protection across hybrid cloud deployments, including continuous security assessments, automated remediation, and identity threat detection using Azure AD and Defender. It’s designed to enforce secure DevOps pipelines, govern role-based access, and maintain industry compliance effortlessly.",
     icon: "🔷",
+     slug: "AzureGuardian" 
   },
   {
     name: "GCP Fortify",
