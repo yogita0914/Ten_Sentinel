@@ -49,7 +49,7 @@ export default function FaqAccordion() {
         Cloud Security FAQs – TEN Sentinel
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-15 items-start m-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
         {/* Right Side - FAQ Accordion */}
         <div className="space-y-4 mt-10">
           {faqs.map((faq, index) => (
@@ -61,9 +61,9 @@ export default function FaqAccordion() {
                 onClick={() => toggle(index)}
                 className="text-sm md:text-lg flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
               >
-                {faq.question}
+                <span>{faq.question}</span>
                 <ChevronDown
-                  className={`h-5 w-5 transform transition-transform duration-300 ${
+                  className={`h-4 w-4 min-w-[1.5rem] min-h-[1.5rem] transform transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
