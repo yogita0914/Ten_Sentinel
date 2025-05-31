@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { motion } from "framer-motion";
 import { MdOutlineSecurity } from "react-icons/md";
 import { SectionTitle } from '../components/GCP/SectionTitle';
@@ -14,6 +14,9 @@ import { InputForm } from '../components/GCP/InputForm';
 
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
+import NeedOfSecuring from '../components/GCP/NeedOfSecuring';
+import PentestTypes from '../components/GCP/PentestTypes';
+
 export const GCP = () => {
 
     const whyChoose = [
@@ -21,22 +24,22 @@ export const GCP = () => {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="m385-412 36-115-95-74h116l38-119 37 119h117l-95 74 35 115-94-71-95 71ZM244-40v-304q-45-47-64.5-103T160-560q0-136 92-228t228-92q136 0 228 92t92 228q0 57-19.5 113T716-344v304l-236-79-236 79Zm236-260q109 0 184.5-75.5T740-560q0-109-75.5-184.5T480-820q-109 0-184.5 75.5T220-560q0 109 75.5 184.5T480-300ZM304-124l176-55 176 55v-171q-40 29-86 42t-90 13q-44 0-90-13t-86-42v171Zm176-86Z" /></svg>
             ),
-            title: "Experienced Team of Certified Security Analysts",
-            text: "Our team consists of highly skilled and certified security analysts with extensive expertise in safeguarding cloud environments. Their qualifications and experience ensure that your GCP infrastructure is evaluated and protected by industry leading professionals."
+            title: "Elite Threat Hunters, Not Just Analysts",
+            text: "Our team consists of offensive security experts certified in GCP and advanced penetration testing. They don’t just assess risks—they think like attackers, exposing what others miss."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M480-80q-83 0-141.5-58.5T280-280v-360q-33 0-56.5-23.5T200-720v-80q0-33 23.5-56.5T280-880h400q33 0 56.5 23.5T760-800v80q0 33-23.5 56.5T680-640v360q0 83-58.5 141.5T480-80ZM260-700h440v-120H260v120Zm219.76 560Q538-140 579-180.83q41-40.84 41-99.17v-20H480v-60h140v-100H480v-60h140v-120H340v360q0 58.33 40.76 99.17 40.77 40.83 99 40.83ZM260-700v-120 120Z" /></svg>
             ),
-            title: "Comprehensive Testing Methodologies Tailored ",
-            text: "We employ thorough and customized testing methodologies specifically designed for GCP environments. Our approach covers a wide range of security aspects, ensuring a robust assessment of your cloud infrastructure's resilience against potential threats."
+            title: "GCP-Specific Battle Testing",
+            text: "We use tailored adversarial methodologies that mirror real-world breach scenarios, rigorously stress-testing every layer of your cloud environment—from APIs to IAM permissions."
         },
         {
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#2563EB"><path d="M450-154v-309L180-619v309l270 156Zm60 0 270-156v-310L510-463v309Zm-60 69L150-258q-14-8-22-22t-8-30v-340q0-16 8-30t22-22l300-173q14-8 30-8t30 8l300 173q14 8 22 22t8 30v340q0 16-8 30t-22 22L510-85q-14 8-30 8t-30-8Zm194-525 102-59-266-154-102 59 266 154Zm-164 96 104-61-267-154-104 60 267 155Z" /></svg>
             ),
-            title: "Commitment to Delivering Actionable Insights",
-            text: "We are dedicated to providing clear, actionable insights from our security assessments. Our detailed reports and recommendations are crafted to address vulnerabilities effectively, enabling your organization to enhance security and make informed decisions to protect your GCP environment."
+            title: "Fix-Priority Intelligence, Not Just Reports",
+            text: "We deliver prioritized, executable remediation plans—not just findings. Our insights cut through noise to harden your posture where it matters most."
         },
     ]
 
@@ -67,22 +70,22 @@ export const GCP = () => {
         {
             icon: "./GCP/network.svg",
             title: "Network and Web Security",
-            text: "We assist organizations in creating robust security measures for web access and securing network traffic in the cloud environment using both virtual and physical protection strategies, tailored for GCP."
+            text: "We attack your GCP-hosted networks, APIs, and web apps like real adversaries—exposing flaws in firewalls, load balancers, and application logic before attackers exploit them."
         },
         {
             icon: "./GCP/cloud.svg",
             title: "Intrusion Security",
-            text: "We assist organizations in creating robust security measures for web access and securing network traffic in the cloud environment using both virtual and physical protection strategies, tailored for GCP."
+            text: "We emulate advanced persistent threats (APTs) to test detection gaps in your GCP environment, validating your SOC's ability to spot and stop lateral movement."
         },
         {
             icon: "./GCP/security.svg",
             title: "Identity and Access Security",
-            text: "We assist organizations in creating robust security measures for web access and securing network traffic in the cloud environment using both virtual and physical protection strategies, tailored for GCP."
+            text: "We weaponize misconfigured permissions, overprivileged service accounts, and weak authentication to show how attackers escalate access in your cloud environment."
         },
         {
             icon: "./GCP/test.svg",
             title: "Retesting",
-            text: "We assist organizations in creating robust security measures for web access and securing network traffic in the cloud environment using both virtual and physical protection strategies, tailored for GCP."
+            text: "We don't just report vulnerabilities—we verify fixes through targeted attacks, ensuring remediations actually work under pressure."
         },
     ]
 
@@ -161,40 +164,40 @@ export const GCP = () => {
 
     const [faqs, setFaqs] = useState([
         {
-            question: "What is VAPT and why does my organization need it?",
+            question: "What is Cloud Penetration Testing?",
             response:
-                "VAPT stands for Vulnerability Assessment and Penetration Testing. It’s a systematic process used to identify, evaluate, and mitigate security vulnerabilities in your IT infrastructure, applications, and networks. Organizations need VAPT to proactively defend against cyberattacks, comply with industry regulations, and ensure the safety of sensitive data.",
+                "Cloud penetration testing is a security assessment that simulates real-world cyberattacks against your cloud infrastructure. The goal is to identify vulnerabilities, misconfigurations, and potential risks that attackers could exploit. This process helps organizations strengthen their security posture and ensure compliance with industry standards.",
             isOpen: false,
         },
         {
-            question: "How often should VAPT be performed?",
+            question: "Why is Cloud Penetration Testing important?",
             response:
-                "The frequency of VAPT depends on the nature of your business, compliance requirements, and the rate of infrastructure changes. As a best practice, organizations should conduct VAPT annually or after any significant system updates, infrastructure changes, or application deployments to ensure consistent security.",
+                "Cloud environments are frequent targets for cyberattacks due to misconfigurations, weak access controls, or overlooked vulnerabilities. Penetration testing is essential to proactively identify and fix security gaps before malicious actors can exploit them. It helps protect sensitive data, ensure business continuity, and meet regulatory compliance requirements.",
             isOpen: false,
         },
         {
-            question: "Will VAPT disrupt my business operations?",
+            question: "What cloud platforms do you test?",
             response:
-                "No, our VAPT process is designed to be non-intrusive. While Penetration Testing involves simulating real-world attacks, we coordinate closely with your team to avoid downtime and minimize impact. Testing can also be scheduled during off-peak hours to ensure business continuity.",
+                "At Ten Sentinel, we provide penetration testing services for major cloud platforms, including Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure, as well as hybrid and multi-cloud environments. Our assessments are tailored to the unique architecture and services of each platform.",
             isOpen: false,
         },
         {
             question:
-                "What is the difference between Vulnerability Assessment and Penetration Testing?",
+                "Will cloud penetration testing impact my live environment?",
             response:
-                "A Vulnerability Assessment identifies and reports known security flaws, while Penetration Testing goes a step further by actively exploiting those flaws to understand the depth of potential damage. Both are essential—one highlights what’s weak, and the other tests how those weaknesses can be used against you.",
+                "Our testing is carefully designed to minimize risks to your production environment. We follow strict guidelines and perform testing within approved scopes, using safe methods that avoid disruption. If required, testing can be conducted in staging or sandbox environments to eliminate any potential operational impact.",
             isOpen: false,
         },
         {
-            question: "What do I receive after the VAPT is complete?",
+            question: "How often should cloud penetration testing be performed?",
             response:
-                "Upon completion, you'll receive a comprehensive report detailing identified vulnerabilities, categorized by severity (Critical, High, Medium, Low). The report includes technical findings, risk assessments, and tailored remediation guidance. If all issues are resolved, we also provide a Safe-to-Host certificate.",
+                "It is recommended to perform cloud penetration testing at least once a year or whenever significant changes occur in your cloud environment—such as deploying new services, applications, or infrastructure. Regular testing helps ensure that security measures stay effective against evolving threats.",
             isOpen: false,
         },
         {
-            question: "Who performs the VAPT audits?",
+            question: "What happens after the penetration test is completed?",
             response:
-                "Our VAPT audits are carried out by certified cybersecurity experts with extensive experience in manual and automated testing. Our team uses advanced tools along with deep manual analysis to ensure even the most complex vulnerabilities are discovered and properly addressed.",
+                "Upon completion, Ten Sentinel delivers a detailed report outlining the identified vulnerabilities, risk levels, and actionable recommendations for remediation. Our experts also offer a debrief session to walk you through the findings, answer questions, and guide your team on how to strengthen your cloud security posture effectively.",
             isOpen: false,
         },
     ]);
@@ -208,10 +211,8 @@ export const GCP = () => {
         );
     };
 
-
     return (
         <>
-
 
             {/* Banner Section */}
             <header
@@ -254,7 +255,7 @@ export const GCP = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
                     >
-                        CyberSapiens GCP  Penetration Testing service helps you identify and eliminate security vulnerabilities in your GCP infrastructure, all while keeping costs optimized.
+                        Ten Sentinel's GCP Penetration Testing exposes and remediates security flaws in your cloud infrastructure—delivering robust protection without overspending.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -288,13 +289,11 @@ export const GCP = () => {
             </header>
 
             {/* What Is */}
-            <section className='flex flex-col px-4 py-6 gap-4 md:px-8 md:gap-8 md:py-12 lg:px-12 lg:items-center xl:flex-row xl:justify-center'>
+            <section className='flex flex-col px-4 py-6 gap-4 md:px-8 md:gap-8 md:py-12 lg:px-12 lg:items-center xl:flex-row xl:items-start xl:justify-center'>
 
                 <div className='flex flex-col gap-4 md:gap-8 lg:max-w-[750px]'>
                     <SectionTitle>What is GCP Penetration Testing?</SectionTitle>
-                    <p className='text-base text-gray-600 md:text-lg lg:text-xl'>GCP Penetration Testing is the process of evaluating the security of GCP-based applications and infrastructure by simulating real-world attacks. Experts identify vulnerabilities and misconfigurations to proactively uncover risks and provide recommendations for improving security.
-
-                        At CyberSapiens, we offer GCP penetration testing services to help protect your GCP environment and maintain strong security.</p>
+                    <p className='text-base text-gray-600 md:text-lg lg:text-xl'>GCP Penetration Testing rigorously assesses the security of your Google Cloud applications and infrastructure by simulating real-world cyberattacks. Our experts uncover vulnerabilities, expose misconfigurations, and deliver actionable fixes—before attackers strike. Ten Sentinel's GCP penetration testing ensures your cloud environment stays resilient, compliant, and secure.</p>
                 </div>
 
                 <img src="https://img.freepik.com/free-photo/cloud-technology-with-futuristic-hologram-smartwatch_53876-124625.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740" className='hidden sm:block sm:max-w-[400px] md:max-w-[600px] sm:self-center' />
@@ -324,7 +323,6 @@ export const GCP = () => {
                 </ul>
 
             </section>
-
 
             {/* Tools */}
             <section className='flex flex-col px-4 py-6 gap-4 bg-blue-800 md:px-8 md:py-12 lg:px-12'>
@@ -385,13 +383,12 @@ export const GCP = () => {
             </section>
 
             {/* Testing Process */}
-
             <section className="flex flex-col items-center px-4 py-8 gap-8 md:pt-12 md:pb-24 md:gap-24 lg:px-12 xl:flex-row lg:justify-center lg:py-32">
 
                 <div className='flex flex-col gap-8 max-w-[500px]'>
                     <SectionTitle>GCP Penetration Testing Process</SectionTitle>
                     <p className="text-base text-gray-800 max-w-2xl">
-                        CyberSapiens stands out as a leading provider of GCP Penetration Testing Service for several compelling reasons:
+                        Ten Sentinel emerges as a trusted leader in delivering comprehensive GCP Penetration Testing services. Our expertise, advanced methodologies, and commitment to securing cloud infrastructures make us the preferred choice for organizations looking to identify vulnerabilities, strengthen defenses, and ensure the highest standards of cloud security.
                     </p>
                 </div>
 
@@ -452,6 +449,10 @@ export const GCP = () => {
 
             </section>
 
+            <NeedOfSecuring />
+
+            <PentestTypes />
+
             {/* Form */}
             <section className='flex flex-col px-4 py-6 gap-4 lg:px-12 lg:flex-row lg:justify-center lg:gap-16'>
                 <img src="./GCP/form.svg" className='hidden lg:block w-1/2 max-w-[600px]' />
@@ -469,13 +470,12 @@ export const GCP = () => {
 
                         <textarea className='bg-white py-2 px-4 border border-gray-300 rounded-sm' type="text" placeholder='Please outline the queries or issues you need help with!' rows={4} />
 
-                        <button className='bg-linear-to-r from-blue-600 to-indigo-600 text-white py-2 w-1/2 rounded-md self-center'>SUBMIT FORM</button>
+                        <button className='text-sm bg-linear-to-r from-blue-600 to-indigo-600 text-white py-2 w-1/2 max-w-[300px] rounded-md self-center hover:cursor-pointer hover:from-blue-500 hover:to-indigo-500'>SUBMIT FORM</button>
 
                     </form>
                 </div>
 
             </section>
-
 
             {/* FAQ's */}
             <section className="flex flex-col gap-4 items-center px-4 py-6 lg:px-12">
