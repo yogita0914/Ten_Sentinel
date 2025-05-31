@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { forwardRef } from "react";
+import { motion } from "framer-motion";
 
 const ContactUs = forwardRef((props, ref) => {
   return (
@@ -46,7 +46,9 @@ const ContactUs = forwardRef((props, ref) => {
           </div>
 
           <div>
-            <label className="block font-medium text-gray-700">Phone Number</label>
+            <label className="block font-medium text-gray-700">
+              Phone Number
+            </label>
             <input
               type="text"
               inputMode="numeric"
@@ -65,12 +67,14 @@ const ContactUs = forwardRef((props, ref) => {
             ></textarea>
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+            >
+              Send Message
+            </button>
+          </div>
         </form>
       </motion.div>
     </div>
