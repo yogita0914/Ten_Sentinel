@@ -11,7 +11,7 @@ const testimonials = [
     id: 1,
     name: "Sarah Johnson",
     content:
-      "Before joining CyberSapiens, I had theoretical knowledge but lacked confidence applying it. The Red-Team internship changed that completely. I was exposed to real-world attack scenarios where I had to think critically and work under pressure. The mentors didn’t just give answers—they challenged me to find my own. Weekly reviews kept me focused, and the simulation-based learning made everything click. By the second month, I was already leading tasks and contributing to actual project workflows. I’ve grown into someone who can now audit, exploit, and report in a structured way. This was the most transformative experience of my career so far.",
+      "Joining CyberSapiens transformed the way I view cybersecurity. The Red-Team internship gave me hands-on exposure to real-world scenarios. I learned how to perform detailed assessments, exploit vulnerabilities, and write impactful reports. Weekly simulation challenges kept me engaged and constantly improving. This internship gave me the confidence to pursue a professional role in security.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
@@ -19,81 +19,81 @@ const testimonials = [
     id: 2,
     name: "Michael Chen",
     content:
-      "I’ve taken online courses and even had a couple of certificates, but nothing compares to CyberSapiens’ internship. It pushed me in ways no class ever has. We didn’t just learn how tools work—we built our own scripts, tackled live scenarios, and learned how to document every step clearly. The Android pentesting module especially stood out to me. By the end of the internship, I had contributed to real vulnerability reports. I finally understood how to convert findings into actionable recommendations. That’s what clients and companies care about. CyberSapiens helped me shift from being just a learner to being a contributor.",
+      "CyberSapiens offered the most intense learning environment I’ve ever been part of. From Android pentesting to web app attacks, every module was practical and report-driven. I gained a deep understanding of how to communicate technical findings clearly. By the end, I had real reports and scripts to showcase. This shifted my mindset from student to security contributor.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     id: 3,
+    name: "Nina Patel",
+    content:
+      "As someone without a CS degree, I feared I wouldn't keep up. But the team at CyberSapiens made learning accessible and exciting. The mentorship was phenomenal—I could ask anything, anytime. I learned methodology, documentation, and even how to prep for interviews. I now feel ready to apply for roles I once thought were out of reach.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/22.jpg",
+  },
+  {
+    id: 4,
     name: "David Rodriguez",
     content:
-      "As someone from a non-technical background, I was nervous joining this program. But from the first week, the CyberSapiens team made it approachable. I learned how to scan, exploit, and document like a professional. Their live sessions were practical and full of insights you just won’t find on YouTube or Udemy. What impressed me most was the mentorship—I could ask anything without hesitation. They even helped me prepare for my first job interview with a security company. I now have a solid portfolio of work, a clear methodology, and most importantly, the confidence to continue learning on my own.",
+      "The internship helped me go beyond just knowing tools—it made me understand how to use them strategically. Every attack vector we explored was followed by real-time reporting and peer review. This helped me sharpen both my technical and communication skills. Now, I can break down a vulnerability for both devs and execs alike.",
     rating: 4,
     avatar: "https://randomuser.me/api/portraits/men/65.jpg",
   },
   {
-    id: 4,
+    id: 5,
     name: "Emily Wilson",
     content:
-      "This internship was nothing short of amazing. I always wanted to understand how real hackers think, and CyberSapiens gave me exactly that insight. Every week we had practical challenges focused on specific attack vectors—SQLi, XSS, SSRF, IDOR, you name it. The best part was the reporting. It wasn’t enough to just find a bug—we had to document it professionally, which is what most courses don’t teach. That alone gave me a major edge during job applications. Now, I approach every test methodically and can clearly explain the impact of any vulnerability I find. That’s a powerful skill to have.",
+      "Every week brought something new—SQLi, SSRF, IDOR, you name it. We weren’t just solving CTFs; we were running simulated audits and delivering structured reports. This internship taught me to think like both an attacker and a consultant. I’ve walked away with skills, confidence, and a job offer in security consulting.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
-    id: 5,
+    id: 6,
     name: "James Peterson",
     content:
-      "CyberSapiens gave me my first taste of what it means to be in a real red-team operation. From OSINT gathering to post-exploitation and lateral movement, everything was structured yet hands-on. It wasn’t just about running Nmap or Burp Suite—it was about interpreting the results and using that to plan the next move. I also learned how to communicate findings in a way that executives can understand. That was huge for me, as I used to struggle explaining technical risks in layman’s terms. Today, I’m part of a blue team in a financial firm, and I owe that leap to this internship.",
+      "CyberSapiens taught me more in three months than years of self-study did. I led attack chains, wrote findings, and learned how to explain risk to executives. It wasn’t just technical—it was strategic. I now know how to prioritize impact, focus on business value, and communicate effectively. That’s what got me into a blue team role.",
     rating: 4,
     avatar: "https://randomuser.me/api/portraits/men/85.jpg",
   },
   {
-    id: 6,
-    name: "Michael Chen",
-    content:
-      "My second internship with CyberSapiens allowed me to take on a leadership role, which was a whole new level. I helped guide juniors while working on more advanced topics like privilege escalation chains and custom payloads. We even simulated a full attack chain from phishing to data exfiltration. It felt real. I also collaborated on writing an internal knowledge base that is now used by other interns. That made me realize how far I’ve come—from beginner to mentor. This place doesn’t just teach you—it shapes you into someone who can think, execute, and lead in cybersecurity environments.",
-    rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-  },
-  {
     id: 7,
-    name: "Michael Chen",
+    name: "Priya Mehta",
     content:
-      "I focused a lot on automation this time—building scripts that could handle recon, fingerprinting, and even some basic exploit chains. The team was extremely supportive and encouraged experimentation. I learned how to optimize processes, reduce false positives, and focus only on what matters. These are the kind of soft-skills that make a difference in high-pressure pentest projects. I also started documenting my work more thoroughly and presenting findings to a mock client panel. That experience was golden. I now have better scripting skills and more awareness about report impact, and that makes me a more efficient and reliable consultant.",
+      "Automation was my focus—I built scripts for recon, scanning, and reporting. The team supported every experiment, and I grew faster than I imagined. I also presented to mock client panels, learning to deliver professional summaries. My confidence and scripting abilities improved drastically. I now contribute to real-world assessments independently.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
   },
   {
     id: 8,
-    name: "Michael Chen",
+    name: "Ali Khan",
     content:
-      "Each time I come back to CyberSapiens, I grow a little more. In this round, I explored cloud security and container vulnerabilities—topics I had zero exposure to before. I even led a small task force that simulated lateral movement within a Kubernetes cluster. That was intense, but deeply rewarding. The mentorship and peer review process kept me on my toes and helped me develop a strong eye for detail. We were constantly encouraged to explain our logic and defend our methodologies. That habit alone changed how I now approach every new vulnerability, every tool, and every assessment.",
+      "CyberSapiens introduced me to cloud and container security—topics I had never explored before. Leading a Kubernetes simulation was intense but incredibly rewarding. The habit of justifying every tool and action made me more thoughtful and precise. Today, I document everything clearly and plan assessments with confidence.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/53.jpg",
   },
   {
     id: 9,
-    name: "Michael Chen",
+    name: "Jessica Lee",
     content:
-      "This internship wasn’t just technical—it was strategic. I learned how to plan full assessments, allocate time, and prepare deliverables that map to compliance goals. We also explored risk-based reporting, which helped me distinguish between high-impact findings and noise. I wrote playbooks, helped build internal tools, and even contributed to drafting scope documents. That kind of exposure is rare for interns. The best part? I now have a portfolio I can showcase to recruiters with pride. CyberSapiens didn’t just make me a better hacker—it made me a better consultant, with a clear understanding of how security fits in the bigger picture.",
+      "This internship made me realize security isn’t just about hacking—it’s about communication, structure, and business alignment. I wrote playbooks, helped draft scope docs, and worked on internal tooling. I’ve now built a portfolio that’s helped me land interviews and freelance gigs. CyberSapiens shaped me into a true security professional.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: "https://randomuser.me/api/portraits/women/51.jpg",
   },
   {
     id: 10,
-    name: "Michael Chen",
+    name: "Ravi Prakash",
     content:
-      "One of my proudest moments was leading a red-team simulation from end to end—everything from phishing email crafting to establishing a C2 channel and capturing internal assets. Presenting that to a review panel taught me the importance of both technical depth and business alignment. The feedback I received improved how I write executive summaries and structure my remediation advice. I now understand the value of concise communication as much as technical detail. I’ve also grown to be more resourceful, routinely trying new techniques and tools on my own time. CyberSapiens gave me the mindset of a lifelong learner.",
+      "Running a full red-team simulation was the highlight of my internship. From phishing to C2 setups and report writing, it was end-to-end and real. Presenting findings to a review panel taught me how to communicate impact, not just findings. This helped me get better at writing summaries and preparing for client meetings.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/47.jpg",
   },
   {
     id: 11,
-    name: "Michael Chen",
+    name: "Laura Martins",
     content:
-      "Every time I return to CyberSapiens, I find something new to learn. This time, I worked on creating threat models for new environments. That exercise gave me clarity on how adversaries might move, and how defenders can contain them. We simulated multi-stage attacks and even reviewed our own logs to understand what telemetry is useful during an incident. I also trained others on API testing and taught a workshop internally. It felt amazing to give back. CyberSapiens isn’t just an internship; it’s a professional playground where you grow, teach, and learn from a community of passionate defenders and breakers.",
+      "In my final round with CyberSapiens, I built threat models, conducted API tests, and even trained new interns. Teaching others was one of the best parts—it solidified my knowledge. I now see myself as part of a larger community of learners and mentors. This experience has set a strong foundation for my long-term goals.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
   },
 ];
 
@@ -251,40 +251,44 @@ const Rating = () => {
             </AnimatePresence>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex justify-between items-center mt-6 sm:mt-8">
-            <button
-              onClick={prevTestimonial}
-              aria-label="Previous testimonial"
-              className="p-2 sm:p-3 rounded-full bg-white shadow-md hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
-            >
-              <ChevronLeftIcon className="h-6 w-6 text-cyan-700" />
-            </button>
-            <div className="flex space-x-2 sm:space-x-3">
-              {testimonials.map((t, index) => (
-                <button
-                  key={t.id}
-                  aria-label={`Go to testimonial by ${t.name}`}
-                  onClick={() => {
-                    setDirection(index > currentIndex ? 1 : -1);
-                    setCurrentIndex(index);
-                    setExpanded(false); // reset on dot click too
-                  }}
-                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors ${
-                    index === currentIndex
-                      ? "bg-cyan-600"
-                      : "bg-cyan-300 hover:bg-cyan-500"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={nextTestimonial}
-              aria-label="Next testimonial"
-              className="p-2 sm:p-3 rounded-full bg-white shadow-md hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
-            >
-              <ChevronRightIcon className="h-6 w-6 text-cyan-700" />
-            </button>
+          {/* Navigation Arrows */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={prevTestimonial}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-6 md:-translate-x-8 lg:-translate-x-10 bg-white p-1.5 sm:p-2 md:p-2.5 rounded-full shadow-sm sm:shadow-md hover:bg-gray-50 transition-colors z-20"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeftIcon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-gray-700" />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={nextTestimonial}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 md:translate-x-8 lg:translate-x-10 bg-white p-1.5 sm:p-2 md:p-2.5 rounded-full shadow-sm sm:shadow-md hover:bg-gray-50 transition-colors z-20"
+            aria-label="Next testimonial"
+          >
+            <ChevronRightIcon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-gray-700" />
+          </motion.button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-4 sm:mt-6 md:mt-8 space-x-1.5 sm:space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setDirection(index > currentIndex ? 1 : -1);
+                  setCurrentIndex(index);
+                }}
+                className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "bg-cyan-600 sm:w-4 md:w-5"
+                    : "bg-gray-300"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

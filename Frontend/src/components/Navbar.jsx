@@ -172,7 +172,7 @@ function Navbar() {
         { item: "Web Design", href: "/web-design" },
         { item: "Development", href: "/development" },
         { item: "Marketing", href: "/marketing" },
-        { item: "Training", href: "/trainingg" },
+        { item: "Training & Certifications", href: "/Training-Certifications" },
         { item: "Cloud Security", href: "/cloud-security" },
       ],
     },

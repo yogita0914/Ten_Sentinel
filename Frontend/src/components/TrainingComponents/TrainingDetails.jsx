@@ -66,10 +66,9 @@ export default function TrainingDetails() {
     <section className="bg-white py-6 m-5 lg:m-10 px-0">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start m-10">
         {/* Heading */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-800 leading-tight">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 leading-snug">
           <span>Join us NOW</span>
           <br />
-          {/* className="whitespace-nowrap" */}
           <span>to become a Cyber Professional!</span>
           <br />
           <span>The World Needs YOU.....</span>
