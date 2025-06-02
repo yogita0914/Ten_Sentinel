@@ -61,7 +61,7 @@ const FeaturesSection = () => {
             </motion.p>
             <button
               onClick={() => setShowMore((prev) => !prev)}
-              className="text-blue-600 underline text-sm"
+              className="text-blue-600 cursor-pointer underline text-sm"
             >
               {showMore ? "Read Less" : "Read More"}
             </button>

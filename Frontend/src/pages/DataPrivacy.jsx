@@ -360,7 +360,7 @@ const DataPrivacy = () => {
                 <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="w-45 text-sm md:text-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-300"
+                  className="w-45 cursor-pointer text-sm md:text-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-300"
                 >
                   Submit Form
                 </button>

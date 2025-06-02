@@ -48,7 +48,7 @@ const studentReview = [
 
 const SampleNextArrow = ({ onClick }) => (
   <div
-    className="absolute -right-5 top-1/3 transform -translate-y-1/2 z-10 cursor-pointer"
+    className="absolute -right-5 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
     onClick={onClick}
   >
     <ChevronRightIcon className="w-8 h-8 text-gray-400" />
@@ -57,7 +57,7 @@ const SampleNextArrow = ({ onClick }) => (
 
 const SamplePrevArrow = ({ onClick }) => (
   <div
-    className="absolute -left-5 top-1/3 transform -translate-y-1/2 z-10 cursor-pointer"
+    className="absolute -left-5 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer"
     onClick={onClick}
   >
     <ChevronLeftIcon className="w-8 h-8 text-gray-400" />
@@ -136,7 +136,7 @@ const ReviewSection = () => {
                     {review.desc.length > 120 && (
                       <button
                         onClick={() => toggleExpand(review.id)}
-                        className="text-blue-500 text-sm underline focus:outline-none"
+                        className="text-blue-500 cursor-pointer text-sm underline focus:outline-none"
                       >
                         {isExpanded ? "Show Less" : "Read More"}
                       </button>
