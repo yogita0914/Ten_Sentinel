@@ -85,7 +85,8 @@ const Contact = () => {
             className="mt-8"
           >
             <a
-              href="#contact"
+              href="#contact-form"
+
               className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:translate-y-[-2px] transition-all duration-300"
             >
               Get Started
@@ -110,7 +111,7 @@ const Contact = () => {
       </header>
 
       {/* Contact Section */}
-      <div className="flex justify-center items-stretch gap-8 px-8 py-12 flex-wrap">
+      <div id="contact-form" className="flex justify-center items-stretch gap-8 px-8 py-12 flex-wrap">
         {/* Left Image */}
         <div className="flex-1 min-w-[300px] max-w-[500px] hidden md:block">
           <motion.img

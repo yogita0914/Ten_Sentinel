@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   StarIcon,
   ChevronLeftIcon,
@@ -10,59 +10,104 @@ const testimonials = [
   {
     id: 1,
     name: "Sarah Johnson",
-    role: "CTO, TechSolutions Inc.",
     content:
-      "CyberSapiens transformed our security posture. After implementing their recommendations, we passed our compliance audit with zero findings for the first time ever.",
+      "Joining CyberSapiens transformed the way I view cybersecurity. The Red-Team internship gave me hands-on exposure to real-world scenarios. I learned how to perform detailed assessments, exploit vulnerabilities, and write impactful reports. Weekly simulation challenges kept me engaged and constantly improving. This internship gave me the confidence to pursue a professional role in security.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     id: 2,
     name: "Michael Chen",
-    role: "Security Director, FinTrust Bank",
     content:
-      "Their penetration testing uncovered vulnerabilities our team had missed for years. The detailed remediation plan saved us countless hours of work.",
+      "CyberSapiens offered the most intense learning environment I’ve ever been part of. From Android pentesting to web app attacks, every module was practical and report-driven. I gained a deep understanding of how to communicate technical findings clearly. By the end, I had real reports and scripts to showcase. This shifted my mindset from student to security contributor.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
     id: 3,
-    name: "David Rodriguez",
-    role: "IT Manager, HealthCare Plus",
+    name: "Nina Patel",
     content:
-      "The employee training program reduced our phishing click-through rate from 35% to under 2% in just three months. Remarkable results!",
+      "As someone without a CS degree, I feared I wouldn't keep up. But the team at CyberSapiens made learning accessible and exciting. The mentorship was phenomenal—I could ask anything, anytime. I learned methodology, documentation, and even how to prep for interviews. I now feel ready to apply for roles I once thought were out of reach.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/22.jpg",
+  },
+  {
+    id: 4,
+    name: "David Rodriguez",
+    content:
+      "The internship helped me go beyond just knowing tools—it made me understand how to use them strategically. Every attack vector we explored was followed by real-time reporting and peer review. This helped me sharpen both my technical and communication skills. Now, I can break down a vulnerability for both devs and execs alike.",
     rating: 4,
     avatar: "https://randomuser.me/api/portraits/men/65.jpg",
   },
   {
-    id: 4,
+    id: 5,
     name: "Emily Wilson",
-    role: "COO, RetailChain Corp",
     content:
-      "Their 24/7 monitoring stopped a ransomware attack before it could spread. The quick response saved us millions in potential damages.",
+      "Every week brought something new—SQLi, SSRF, IDOR, you name it. We weren’t just solving CTFs; we were running simulated audits and delivering structured reports. This internship taught me to think like both an attacker and a consultant. I’ve walked away with skills, confidence, and a job offer in security consulting.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
-    id: 5,
+    id: 6,
     name: "James Peterson",
-    role: "CEO, Startup Ventures",
     content:
-      "As a small business, we thought enterprise-grade security was out of reach. CyberSapiens made it affordable and manageable for our team.",
+      "CyberSapiens taught me more in three months than years of self-study did. I led attack chains, wrote findings, and learned how to explain risk to executives. It wasn’t just technical—it was strategic. I now know how to prioritize impact, focus on business value, and communicate effectively. That’s what got me into a blue team role.",
     rating: 4,
     avatar: "https://randomuser.me/api/portraits/men/85.jpg",
   },
+  {
+    id: 7,
+    name: "Priya Mehta",
+    content:
+      "Automation was my focus—I built scripts for recon, scanning, and reporting. The team supported every experiment, and I grew faster than I imagined. I also presented to mock client panels, learning to deliver professional summaries. My confidence and scripting abilities improved drastically. I now contribute to real-world assessments independently.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+  },
+  {
+    id: 8,
+    name: "Ali Khan",
+    content:
+      "CyberSapiens introduced me to cloud and container security—topics I had never explored before. Leading a Kubernetes simulation was intense but incredibly rewarding. The habit of justifying every tool and action made me more thoughtful and precise. Today, I document everything clearly and plan assessments with confidence.",
+    rating: 4,
+    avatar: "https://randomuser.me/api/portraits/men/53.jpg",
+  },
+  {
+    id: 9,
+    name: "Jessica Lee",
+    content:
+      "This internship made me realize security isn’t just about hacking—it’s about communication, structure, and business alignment. I wrote playbooks, helped draft scope docs, and worked on internal tooling. I’ve now built a portfolio that’s helped me land interviews and freelance gigs. CyberSapiens shaped me into a true security professional.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/51.jpg",
+  },
+  {
+    id: 10,
+    name: "Ravi Prakash",
+    content:
+      "Running a full red-team simulation was the highlight of my internship. From phishing to C2 setups and report writing, it was end-to-end and real. Presenting findings to a review panel taught me how to communicate impact, not just findings. This helped me get better at writing summaries and preparing for client meetings.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/men/47.jpg",
+  },
+  {
+    id: 11,
+    name: "Laura Martins",
+    content:
+      "In my final round with CyberSapiens, I built threat models, conducted API tests, and even trained new interns. Teaching others was one of the best parts—it solidified my knowledge. I now see myself as part of a larger community of learners and mentors. This experience has set a strong foundation for my long-term goals.",
+    rating: 5,
+    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
+  },
 ];
 
-const Testimonials = () => {
+const Rating = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [expanded, setExpanded] = useState(false);
 
   const nextTestimonial = () => {
     setDirection(1);
     setCurrentIndex((prev) =>
       prev === testimonials.length - 1 ? 0 : prev + 1
     );
+    setExpanded(false); // reset expanded state on change
   };
 
   const prevTestimonial = () => {
@@ -70,26 +115,39 @@ const Testimonials = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
+    setExpanded(false); // reset expanded state on change
   };
 
   const variants = {
     enter: (direction) => ({
-      x: direction > 0 ? 50 : -50,
+      x: direction > 0 ? 100 : -100,
       opacity: 0,
+      position: "absolute",
     }),
     center: {
+      zIndex: 1,
       x: 0,
       opacity: 1,
+      position: "relative",
     },
     exit: (direction) => ({
-      x: direction < 0 ? 50 : -50,
+      zIndex: 0,
+      x: direction < 0 ? 100 : -100,
       opacity: 0,
+      position: "absolute",
     }),
   };
 
+  const MAX_LENGTH = 150;
+  const testimonial = testimonials[currentIndex];
+  const isLong = testimonial.content.length > MAX_LENGTH;
+  const displayText = expanded
+    ? testimonial.content
+    : testimonial.content.slice(0, MAX_LENGTH) + (isLong ? "..." : "");
+
   return (
     <section
-      className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-green-100 via-white to-teal-100"
+      className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-white to-blue-50"
       id="testimonials"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,29 +157,15 @@ const Testimonials = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <motion.div
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 100 }}
-            className="inline-block mb-2 sm:mb-3 lg:mb-4"
-          >
-            <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3 py-1 sm:px-4 sm:py-1.5 rounded-full">
-              Client Success Stories
-            </span>
-          </motion.div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-            What Our Clients Say
+            See What our Students Say About Us!
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-            Don't just take our word for it - hear from organizations we've
-            protected
-          </p>
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto px-2 sm:px-4">
           {/* Testimonial Cards */}
-          <div className="relative h-[200px] sm:h-[260px] md:h-[320px] lg:h-[400px] overflow-hidden">
-            {testimonials.map((testimonial, index) => (
+          <div className="relative overflow-visible transition-all duration-300">
+            <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={testimonial.id}
                 custom={direction}
@@ -130,9 +174,7 @@ const Testimonials = () => {
                 animate="center"
                 exit="exit"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className={`absolute inset-0 bg-white rounded-lg md:rounded-xl lg:rounded-2xl shadow-md sm:shadow-lg p-5 sm:p-6 md:p-7 lg:p-8 flex flex-col ${
-                  index === currentIndex ? "z-10" : "z-0"
-                }`}
+                className="bg-white rounded-lg md:rounded-xl lg:rounded-2xl shadow-md sm:shadow-lg p-5 sm:p-6 md:p-7 lg:p-8 flex flex-col h-full"
               >
                 <div className="flex items-center mb-3 sm:mb-4 md:mb-5">
                   <div className="relative">
@@ -160,14 +202,19 @@ const Testimonials = () => {
                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-800">
                       {testimonial.name}
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base text-gray-600">
-                      {testimonial.role}
-                    </p>
                   </div>
                 </div>
 
                 <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 mb-3 sm:mb-4 md:mb-5 lg:mb-6 flex-1">
-                  "{testimonial.content}"
+                  &quot;{displayText}&quot;
+                  {isLong && (
+                    <button
+                      onClick={() => setExpanded(!expanded)}
+                      className="ml-2  text-cyan-600 font-semibold hover:underline focus:outline-none "
+                    >
+                      {expanded ? "Read less" : "Read more"}
+                    </button>
+                  )}
                 </p>
 
                 <div className="flex items-center justify-between">
@@ -201,7 +248,7 @@ const Testimonials = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            </AnimatePresence>
           </div>
 
           {/* Navigation Arrows */}
@@ -244,38 +291,9 @@ const Testimonials = () => {
             ))}
           </div>
         </div>
-
-        {/* Trust Badges */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 px-2"
-        >
-          {[
-            { name: "ISO 27001 Certified", icon: "🔒" },
-            { name: "500+ Clients", icon: "😊" },
-            { name: "4.9/5 Rating", icon: "⭐" },
-            { name: "24/7 Support", icon: "🛡️" },
-          ].map((badge, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ y: -3 }}
-              className="flex items-center bg-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-2.5 rounded-full shadow-xs sm:shadow-sm hover:shadow-md transition-all text-xs sm:text-sm md:text-base"
-            >
-              <span className="text-sm sm:text-base md:text-lg lg:text-xl mr-1 sm:mr-1.5 md:mr-2">
-                {badge.icon}
-              </span>
-              <span className="font-medium text-gray-800 whitespace-nowrap">
-                {badge.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Testimonials;
+export default Rating;

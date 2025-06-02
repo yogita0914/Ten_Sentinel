@@ -1,15 +1,25 @@
 import React from "react";
 import security_bg from "../../assets/security_bg.jpg"; // Adjust the path as necessary
 import Marketing from "../../assets/marketing.jpg"; // Adjust the path as necessary
-import { TrendingUp  } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero_marketing = () => {
+  // Smooth scroll function for "Get Started"
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      window.scrollTo({
+        top: contactSection.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    (
-      <div className="bg-cyan-200">
-        {/* Hero Section with Background Image */}
-        <header
+    <div className="bg-cyan-200">
+      {/* Hero Section with Background Image */}
+      <header
         className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
         style={{ backgroundImage: `url(${security_bg})` }}
       >
@@ -51,18 +61,20 @@ const Hero_marketing = () => {
           >
             Innovative strategies to boost your brand’s reach and engagement.
           </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
             className="mt-8"
           >
-            <a
-              href="#contact"
-              className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:translate-y-[-2px] transition-all duration-300"
+            {/* Changed to button with smooth scroll */}
+            <button
+              onClick={scrollToContact}
+              className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 transition-all duration-300"
             >
               Get Started
-            </a>
+            </button>
           </motion.div>
         </div>
 
@@ -80,59 +92,57 @@ const Hero_marketing = () => {
             ></path>
           </svg>
         </div>
-      </header> 
+      </header>
 
-        {/* Marketing Strategy Section */}
-        <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start gap-8">
-            <div className="w-full lg:w-1/2">
-              <img
-                src={Marketing}
-                alt="Marketing Strategy"
-                className="rounded-lg shadow-lg w-full h-66 object-cover"
-              />
-            </div>
+      {/* Marketing Strategy Section */}
+      <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start gap-8">
+          <div className="w-full lg:w-1/2">
+            <img
+              src={Marketing}
+              alt="Marketing Strategy"
+              className="rounded-lg shadow-lg w-full h-66 object-cover"
+            />
+          </div>
 
-            <div className="text-left w-full lg:w-1/2">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Strategic Marketing Solutions
-              </h2>
-              <ul className="list-none space-y-3 text-gray-700">
-                <li>
-                  <span className="font-semibold">Grow your business</span>{" "}
-                  through data-driven marketing approaches and audience
-                  engagement
-                </li>
-                <li>
-                  <span className="font-semibold">
-                    Develop compelling brand narratives
-                  </span>{" "}
-                  that resonate with your ideal customer base
-                </li>
-                <li>
-                  <span className="font-semibold">
-                    Enhance your digital presence
-                  </span>{" "}
-                  with tailored strategies across web, social, and paid media
-                </li>
-                <li>
-                  <span className="font-semibold">
-                    Leverage SEO, social media, and analytics
-                  </span>{" "}
-                  to increase visibility and conversion rates
-                </li>
-                <li>
-                  <span className="font-semibold">
-                    Achieve measurable results
-                  </span>{" "}
-                  through personalized, performance-driven marketing plans
-                </li>
-              </ul>
-            </div>
+          <div className="text-left w-full lg:w-1/2">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              Strategic Marketing Solutions
+            </h2>
+            <ul className="list-none space-y-3 text-gray-700">
+              <li>
+                <span className="font-semibold">Grow your business</span>{" "}
+                through data-driven marketing approaches and audience engagement
+              </li>
+              <li>
+                <span className="font-semibold">
+                  Develop compelling brand narratives
+                </span>{" "}
+                that resonate with your ideal customer base
+              </li>
+              <li>
+                <span className="font-semibold">
+                  Enhance your digital presence
+                </span>{" "}
+                with tailored strategies across web, social, and paid media
+              </li>
+              <li>
+                <span className="font-semibold">
+                  Leverage SEO, social media, and analytics
+                </span>{" "}
+                to increase visibility and conversion rates
+              </li>
+              <li>
+                <span className="font-semibold">
+                  Achieve measurable results
+                </span>{" "}
+                through personalized, performance-driven marketing plans
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    )
+    </div>
   );
 };
 export default Hero_marketing;

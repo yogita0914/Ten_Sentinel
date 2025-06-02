@@ -77,7 +77,7 @@ const GetInTouch_Section = () => {
   };
 
   return (
-    <section className="bg-gray-50 mb-8 px-4 py-8">
+    <section id="contact" className="bg-gray-50 mb-8 px-4 py-8">
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Image Section */}
         <div className="w-full hidden lg:flex justify-center">
