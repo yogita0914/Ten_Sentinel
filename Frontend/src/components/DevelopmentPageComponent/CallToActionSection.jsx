@@ -31,19 +31,7 @@ const CallToActionSection = () => (
         transition={{ delay: 0.4, duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }}
         viewport={{ once: true }}
       >
-        <motion.button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg relative overflow-hidden group whitespace-nowrap"
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-        >
-          <span className="relative z-10">Get a Free Quote</span>
-          <motion.span
-            className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            initial={{ scale: 0 }}
-            whileHover={{ scale: 1 }}
-          />
-        </motion.button>
+     
 
         <Link to="/contact" className="relative z-10">
           <motion.button

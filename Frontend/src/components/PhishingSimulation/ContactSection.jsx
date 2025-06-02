@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const ContactUs = forwardRef((props, ref) => {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center p-4 bg-gray-100">
+    <div id='contact' className="min-h-screen flex flex-col md:flex-row items-center justify-center p-4 bg-gray-100">
       {/* Left Side - Image */}
       <div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0">
         <img
