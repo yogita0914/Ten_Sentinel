@@ -58,6 +58,7 @@ export const cloudServices = [
     description:
       "TEN Sentinel for AWS provides advanced identity protection, VPC traffic monitoring, S3 encryption, and real-time compliance alerts. It integrates seamlessly with native AWS tools like CloudTrail and GuardDuty, giving you full control and visibility over your infrastructure while minimizing risks from misconfigurations and external threats.",
     icon: "🟧",
+    slug: "aws-sentinel"
   },
   {
     name: "Azure Guardian",

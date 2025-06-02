@@ -30,6 +30,11 @@ const CloudServices = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+const handleLearnMore = (service) => {
+    if (service.link) {
+      window.location.href = service.link;  // Navigate to the link specified
+    }
+  };
   return (
     <section className="relative py-24 overflow-hidden bg-green-50">
       {/* Background decorations */}
