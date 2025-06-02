@@ -120,7 +120,7 @@ const MultiStepForm = () => {
       // style={{ minHeight: "440px" }} // ← Add fixed height or minHeight
     >
       <h1 className="text-2xl font-bold mb-6 text-center text-black">
-       Cyber Skills Registration
+        Cyber Skills Registration
       </h1>
       <form onSubmit={handleSubmit} className="space-y-1 text-black">
         {step === 1 && (
@@ -164,13 +164,15 @@ const MultiStepForm = () => {
                 {errors.phone || ""}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={handleNext}
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
-            >
-              Next
-            </button>
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={handleNext}
+                className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+              >
+                Next
+              </button>
+            </div>
           </>
         )}
 

@@ -111,23 +111,31 @@ const Hero_marketing = () => {
             </h2>
             <ul className="list-none space-y-3 text-gray-700">
               <li>
-                <span className="font-semibold">Grow your business</span> through
-                data-driven marketing approaches and audience engagement
+                <span className="font-semibold">Grow your business</span>{" "}
+                through data-driven marketing approaches and audience engagement
               </li>
               <li>
-                <span className="font-semibold">Develop compelling brand narratives</span>{" "}
+                <span className="font-semibold">
+                  Develop compelling brand narratives
+                </span>{" "}
                 that resonate with your ideal customer base
               </li>
               <li>
-                <span className="font-semibold">Enhance your digital presence</span>{" "}
+                <span className="font-semibold">
+                  Enhance your digital presence
+                </span>{" "}
                 with tailored strategies across web, social, and paid media
               </li>
               <li>
-                <span className="font-semibold">Leverage SEO, social media, and analytics</span>{" "}
+                <span className="font-semibold">
+                  Leverage SEO, social media, and analytics
+                </span>{" "}
                 to increase visibility and conversion rates
               </li>
               <li>
-                <span className="font-semibold">Achieve measurable results</span>{" "}
+                <span className="font-semibold">
+                  Achieve measurable results
+                </span>{" "}
                 through personalized, performance-driven marketing plans
               </li>
             </ul>
@@ -137,5 +145,4 @@ const Hero_marketing = () => {
     </div>
   );
 };
-
 export default Hero_marketing;
