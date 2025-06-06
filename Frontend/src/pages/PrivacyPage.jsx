@@ -1,8 +1,7 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import HeroSection from "../components/cloud-security/HeroSection";
-import { ShieldCheck } from "lucide-react"; 
+import { ShieldCheck } from "lucide-react";
 
 import first from "../assets/privacy_images/privacy1.png";
 import second from "../assets/privacy_images/privacy2.png";
@@ -11,8 +10,6 @@ import fourth from "../assets/privacy_images/privacy4.png";
 import fifth from "../assets/privacy_images/privacy5.png";
 import sixth from "../assets/privacy_images/privacy6.png";
 import seventh from "../assets/privacy_images/privacy7.png";
-import HeroSection from "../components/cloud-security/HeroSection";
-import { ShieldCheck } from "lucide-react";
 
 export const PrivacyPage = () => {
   const [mobileExpanded, setMobileExpanded] = useState({});
@@ -141,7 +138,6 @@ export const PrivacyPage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty dependency array ensures this effect runs only on mount and unmount
 
-
   // Determine if the "Read more" functionality should be active
   // Active if window width is 445px or less
   const showReadMoreOption = windowWidth <= 445;
@@ -175,8 +171,9 @@ export const PrivacyPage = () => {
               className="border border-gray-200 rounded-xl overflow-hidden shadow-lg bg-white"
             >
               <div
-                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } items-center lg:items-start gap-6 p-6 transition`}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                } items-center lg:items-start gap-6 p-6 transition`}
               >
                 <img
                   src={element.image}
@@ -195,7 +192,9 @@ export const PrivacyPage = () => {
                     <div
                       className={`overflow-hidden transition-all ${
                         // Apply line-clamp only if "Read more" is active AND section is not expanded
-                        (showReadMoreOption && !mobileExpanded[index]) ? "line-clamp-3" : ""
+                        showReadMoreOption && !mobileExpanded[index]
+                          ? "line-clamp-3"
+                          : ""
                       }`}
                     >
                       {element.text}
