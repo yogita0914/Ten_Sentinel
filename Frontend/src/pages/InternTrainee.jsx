@@ -7,7 +7,7 @@ import Home from "../components/InternTrainee/Home";
 import EmailSection from "../components/InternTrainee/EmailSection";
 import MultiStepForm from "../components/InternTrainee/MultiStepForm";
 import FormSection from "../components/InternTrainee/FormSection";
-
+import { questionsData } from "../components/InternTrainee/FaqQuestion";
 
 const InternTrainee = () => {
   return (
@@ -17,7 +17,7 @@ const InternTrainee = () => {
       <ReviewSection />
       <ProgramCurriculum />
       <VedioFile />
-      <FAQSection />
+      <FAQSection data={questionsData} />
       <EmailSection />
     </div>
   );

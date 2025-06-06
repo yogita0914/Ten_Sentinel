@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Faq from "../../assets/cloud-security/faq.avif";
 import React from "react";
 
 const faqs = [
@@ -48,7 +49,7 @@ export default function FaqAccordion() {
         Cloud Security FAQs – TEN Sentinel
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-15 items-start m-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
         {/* Right Side - FAQ Accordion */}
         <div className="space-y-4 mt-10">
           {faqs.map((faq, index) => (
@@ -60,9 +61,9 @@ export default function FaqAccordion() {
                 onClick={() => toggle(index)}
                 className="text-sm md:text-lg flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
               >
-                {faq.question}
+                <span>{faq.question}</span>
                 <ChevronDown
-                  className={`h-5 w-5 transform transition-transform duration-300 ${
+                  className={`h-4 w-4 min-w-[1.5rem] min-h-[1.5rem] transform transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
@@ -82,7 +83,7 @@ export default function FaqAccordion() {
         {/* Left Side - Image */}
         <div className="hidden md:flex">
           <img
-            src="https://img.freepik.com/free-vector/cloud-with-cyber-wires_78370-6678.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"
+            src={Faq}
             alt="FAQ Illustration"
             className="w-full h-auto object-cover object-center rounded-lg"
           />

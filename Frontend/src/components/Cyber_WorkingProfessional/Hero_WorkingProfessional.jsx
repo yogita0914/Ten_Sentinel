@@ -6,7 +6,7 @@ const Hero_WorkingProfessional = ({ scrollToForm }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+    <div className="relative bg-gradient-to-r from-blue-900 to-blue-700">
       {/* Main Container */}
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col mt-10 lg:mt-20 md:mt-18 lg:flex-row gap-12 items-center">
@@ -16,7 +16,7 @@ const Hero_WorkingProfessional = ({ scrollToForm }) => {
               Flexible, expert-led Cyber Security Course designed for busy working professionals.
             </p>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold leading-tight text-white">
               Upskill & Boost Your Income with Our Advanced Cybersecurity Course.
             </h1>
 
@@ -49,8 +49,8 @@ const Hero_WorkingProfessional = ({ scrollToForm }) => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-4 relative flex flex-col md:flex-row">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/10">
+          <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-4 relative flex flex-col md:flex-row top-0 lg:top-10">
             {/* Close button */}
             <button
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl"

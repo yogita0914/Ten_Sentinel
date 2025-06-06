@@ -10,7 +10,7 @@ const Curriculum = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-20 py-2 px-4 sm:px-6 lg:px-8">
+    <div className="relative max-w-7xl mx-auto mt-20 py-2 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
       <div className="flex flex-col lg:flex-row justify-between items-start">
         <div className="max-w-2xl">
@@ -101,7 +101,7 @@ const Curriculum = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-40">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/5">
           <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-4 relative flex flex-col md:flex-row">
             {/* Close button */}
             <button

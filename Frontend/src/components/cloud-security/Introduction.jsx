@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { intro } from "../../assets/data/cloudSecurity";
+import { intro } from "../data/cloudSecurity";
 import { Shield } from "lucide-react";
 
 const Introduction = () => {
+  const [showFullText, setShowFullText] = useState(false);
+  const toggleReadMore = () => setShowFullText(!showFullText);
+
+  const getTruncatedText = (text, limit = 350) => {
+    if (text.length <= limit) return text;
+    return text.slice(0, limit) + "...";
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -69,10 +77,20 @@ const Introduction = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-700 leading-relaxed mb-8"
+            className="text-gray-700 leading-relaxed mb-4"
           >
-            {intro.text}
+            {showFullText ? intro.text : getTruncatedText(intro.text)}
           </motion.p>
+
+          <motion.div variants={itemVariants} className="mb-8">
+            <button
+              onClick={toggleReadMore}
+              className="text-blue-600 font-medium focus:outline-none"
+            >
+              {showFullText ? "Read Less" : "Read More.."}
+            </button>
+
+          </motion.div>
 
           <motion.div variants={itemVariants}>
             <div className="flex flex-col sm:flex-row gap-4">

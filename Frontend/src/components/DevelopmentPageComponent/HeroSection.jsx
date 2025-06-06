@@ -39,19 +39,7 @@ const HeroSection = ({ openConsultation }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <motion.button
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-full font-semibold text-base sm:text-lg shadow-lg relative overflow-hidden group w-full sm:w-auto"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <span className="relative z-10">Start Your Project</span>
-              <motion.span
-                className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={{ scale: 0 }}
-                whileHover={{ scale: 1 }}
-              />
-            </motion.button>
+           
 
             <motion.button
               onClick={openConsultation}

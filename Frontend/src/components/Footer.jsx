@@ -25,8 +25,8 @@ const footerLinks = [
   {
     title: "IMPORTANT PAGES",
     links: [
-      { label: "About Us", url: "/" },
-      { label: "Contact Us", url: "/" },
+      { label: "About Us", url: "/about" },
+      { label: "Contact Us", url: "/contact" },
       {
         label: "Internship",
         url: "https://internships.entrepreneurshipnetwork.net/",
@@ -124,7 +124,6 @@ const Footer = () => {
                     >
                       <Link
                         to={link.url}
-                        onClick={() => window.scrollTo(0, 0)}
                         className="text-gray-600 hover:text-blue-600 text-sm"
                       >
                         {link.label}

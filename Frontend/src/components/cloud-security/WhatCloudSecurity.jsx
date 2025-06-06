@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { whatIsCloudSecurity } from "../../assets/data/cloudSecurity";
+import { whatIsCloudSecurity } from "../data/cloudSecurity";
 import { Cloud, Lock, Shield } from "lucide-react";
 
 const WhatCloudSecurity = () => {
+  const [showFullText, setShowFullText] = useState(false);
+  const toggleReadMore = () => setShowFullText(!showFullText);
+
+  const getTruncatedText = (text, limit = 350) => {
+    if (text.length <= limit) return text;
+    return text.slice(0, limit) + "...";
+  };
+
   return (
     <div className="relative py-20 overflow-hidden">
       {/* Background elements */}
@@ -15,7 +23,7 @@ const WhatCloudSecurity = () => {
           <Lock className="w-72 h-72 text-blue-900" />
         </div>
       </div>
-      
+
       <motion.div
         className="relative max-w-5xl mx-auto text-center px-6 z-10"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -28,15 +36,31 @@ const WhatCloudSecurity = () => {
             <Shield className="w-10 h-10 text-blue-600" />
           </div>
         </div>
-        
+
         <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8">
           {whatIsCloudSecurity.title}
         </h2>
-        
+
+       
+
         <p className="text-sm md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-          {whatIsCloudSecurity.description}
+          {showFullText
+            ? whatIsCloudSecurity.description
+            : getTruncatedText(whatIsCloudSecurity.description)}
         </p>
+
+         {/* Read More button above description */}
+        <div className="mb-4">
+          <button
+            onClick={toggleReadMore}
+            className="text-blue-600 font-medium focus:outline-none"
+          >
+            {showFullText ? "Read Less" : "Read More.."}
+          </button>
+        </div>
+
         
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300">
             <div className="bg-blue-100 p-3 rounded-full inline-block mb-4">
@@ -47,7 +71,7 @@ const WhatCloudSecurity = () => {
               Comprehensive evaluation of your cloud infrastructure to identify vulnerabilities
             </p>
           </div>
-          
+
           <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300">
             <div className="bg-blue-100 p-3 rounded-full inline-block mb-4">
               <Lock className="w-8 h-8 text-blue-600" />
@@ -57,7 +81,7 @@ const WhatCloudSecurity = () => {
               Secure your sensitive data with advanced encryption and access controls
             </p>
           </div>
-          
+
           <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300">
             <div className="bg-blue-100 p-3 rounded-full inline-block mb-4">
               <Shield className="w-8 h-8 text-blue-600" />
