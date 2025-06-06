@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"; // Added useEffect
-import ReactDOM from "react-dom"; // Added ReactDOM for createPortal
+import React, { useState, useEffect, useRef } from "react"; // Added useRef
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import heroBackgroundImage from "../assets/aboutus.page.assets/aboutUSbackground.jpg";
@@ -17,48 +16,53 @@ import teamExpertsIconSrc from "../assets/aboutus.page.assets/users-gear-solid.s
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
 
-// Contact Modal Component
-const ContactFlyoutPanel = ({ isOpen, onClose }) => {
+const ContactPopup = ({ isOpen, onClose }) => {
   const handleEmailClick = () => {
-    window.location.href = "mailto:contact@example.com"; // Replace with your email
+    window.location.href = "mailto:contact@example.com";
   };
 
+  const popupRef = useRef();
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+      document.addEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen) {
     return null;
   }
 
-  const modalContent = (
+  return (
     <>
       <div
-        className={`fixed inset-0 bg-opacity-75 backdrop-blur-sm z-[9998]
-                    transition-opacity duration-300 ease-in-out
-                    ${
-                      isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-                    }`}
+        className="fixed inset-0  bg-opacity-50 backdrop-blur-sm z-40"
         onClick={onClose}
+        aria-hidden="true"
       />
+      {/* --- THIS CODE CENTERS THE POPUP --- */}
       <div
-        className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-                    w-11/12 max-w-md z-[9999] p-6 sm:p-8 rounded-xl shadow-xl
-                    bg-gradient-to-br from-gray-100 to-blue-300
-                    flex flex-col transition-all duration-300 ease-in-out
+        ref={popupRef}
+        className={`absolute z-50 top-1/2 left-1/2
+                    w-11/12 max-w-md p-6 sm:p-8 rounded-xl shadow-xl
+                    bg-gradient-to-br from-gray-100 to-blue-200
+                    flex flex-col
+                    transform -translate-x-1/2 -translate-y-1/2
+                    transition-all duration-300 ease-in-out
                     ${
                       isOpen
                         ? "scale-100 opacity-100"
                         : "scale-95 opacity-0 pointer-events-none"
                     }`}
       >
+        {/* The rest of the popup content is the same... */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100 transition-colors"
@@ -80,10 +84,7 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
           </svg>
         </button>
         <div className="text-center mt-4 mb-6 sm:mt-5 sm:mb-8">
-          <h2
-            id="contact-panel-title"
-            className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2"
-          >
+          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
             Have any Questions?
           </h2>
           <p className="text-md sm:text-lg text-gray-600">
@@ -98,7 +99,7 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-[3.25rem] h-[3.25rem] sm:w-12 sm:h-12 text-[#4a5d93]"
+              className="w-12 h-12 text-[#4a5d93]"
             >
               <path
                 strokeLinecap="round"
@@ -109,7 +110,7 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
           </div>
           <button
             onClick={handleEmailClick}
-            className="bg-blue-600 text-white hover:bg-white hover:text-blue-700 w-full py-3 px-4 border border-gray-300 rounded-lg  font-medium "
+            className="bg-blue-600 text-white hover:bg-white hover:text-blue-700 w-full py-3 px-4 border border-gray-300 rounded-lg font-medium"
           >
             Email Us
           </button>
@@ -117,22 +118,17 @@ const ContactFlyoutPanel = ({ isOpen, onClose }) => {
       </div>
     </>
   );
-  return ReactDOM.createPortal(modalContent, document.body);
 };
-
-// InfoCard Component (remains the same as your version before the last misunderstood change)
+// InfoCard Component
 const InfoCard = ({ iconSrc, title, children, animationDelay = "delay-0" }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
     <div
       ref={ref}
-      className={`
-        bg-white p-8 md:p-6 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col
+      className={`bg-white p-8 md:p-6 rounded-2xl border border-sky-100 shadow-md text-center flex flex-col
         transition-all duration-700 ease-out ${animationDelay}
         ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-        hover:shadow-2xl hover:shadow-blue-lg hover:-translate-y-1
-      `}
+        hover:shadow-2xl hover:shadow-blue-lg hover:-translate-y-1`}
     >
       <div className="flex justify-center mb-4">
         <div className="bg-sky-200 rounded-full p-3 inline-flex items-center justify-center w-20 h-20">
@@ -151,7 +147,7 @@ const InfoCard = ({ iconSrc, title, children, animationDelay = "delay-0" }) => {
   );
 };
 
-//  Vision/Mission Item
+// Vision/Mission Item
 const VisionMissionItem = ({ iconSrc, title, children }) => (
   <div className="flex items-start gap-5 mb-12">
     <div className="flex-shrink-0 w-10 flex justify-center mt-1">
@@ -164,7 +160,7 @@ const VisionMissionItem = ({ iconSrc, title, children }) => (
   </div>
 );
 
-// Stat Counter Item
+// StatItem Component
 const StatItem = ({
   iconSrc,
   endValue,
@@ -181,18 +177,14 @@ const StatItem = ({
     threshold: 0.1,
   });
   const shouldCountUp = statInView && trigger;
-
   return (
     <div
       ref={ref}
-      className={`
-        bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center h-full text-center
+      className={`bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center h-full text-center
         transition-all duration-700 ease-out ${animationDelay}
         ${statInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
-        hover:-translate-y-1 overflow-hidden 
-      `}
+        hover:-translate-y-1 overflow-hidden`}
     >
-      {/* Icon Area */}
       <div className="flex justify-center items-center mb-4 h-16">
         <img
           src={iconSrc}
@@ -200,8 +192,6 @@ const StatItem = ({
           className="h-10 object-contain"
         />
       </div>
-
-      {/* Number Area - FINAL REVISED RESPONSIVE FONT SIZES */}
       <div className="text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 flex-grow flex items-center justify-center w-full whitespace-nowrap">
         {shouldCountUp ? (
           <CountUp
@@ -216,8 +206,6 @@ const StatItem = ({
           <span>0{suffix}</span>
         )}
       </div>
-
-      {/* Label Area */}
       <div className="text-sm text-gray-600 h-10 flex items-center justify-center w-full px-1">
         {label}
       </div>
@@ -229,9 +217,12 @@ const StatItem = ({
 const AboutPage = () => {
   const [isContactPanelOpen, setIsContactPanelOpen] = useState(false);
 
+  // --- SIMPLIFIED LOGIC ---
+  // No more position calculation needed!
   const openContactPanel = () => setIsContactPanelOpen(true);
   const closeContactPanel = () => setIsContactPanelOpen(false);
 
+  // All useInView hooks remain the same
   const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -251,68 +242,61 @@ const AboutPage = () => {
 
   return (
     <>
-      {/* Hero Section */}
-     <header
-      className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
-      style={{ backgroundImage: `url(${heroBackgroundImage})` }}
-    >
-      {/* Gradient Overlay */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.75 }}
-        transition={{ duration: 1.5 }}
-        className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
-      ></motion.div>
-
-      {/* Content Container */}
-      <div className="relative z-10 max-w-5xl mx-auto w-full">
+      {/* Hero Section (No changes) */}
+      <header
+        className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
+        style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+      >
         <motion.div
-          className="flex justify-center mb-6"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full">
-            <Users className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
-          </div>
-        </motion.div>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.75 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
+        ></motion.div>
+        <div className="relative z-10 max-w-5xl mx-auto w-full">
+          <motion.div
+            className="flex justify-center mb-6"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full">
+              <Users className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
+            </div>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
+          >
+            About Us
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
+          >
+            Your trusted partner in securing data
+          </motion.p>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 hidden md:block">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="w-full"
+          >
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+      </header>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
-        >
-          About Us
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
-        >
-           Your trusted partner in securing data
-        </motion.p>
-      </div>
-
-      {/* Optional bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 hidden md:block">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          className="w-full"
-        >
-          <path
-            fill="#ffffff"
-            fillOpacity="1"
-            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
-    </header>
-
-      {/* Intro Section */}
+      {/* Intro Section (No changes) */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 lg:pt-12 lg:pb-12">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16 overflow-hidden">
           <div
@@ -326,7 +310,6 @@ const AboutPage = () => {
                             : "opacity-0 -translate-x-10"
                         }`}
           >
-            {/* MODIFIED: Increased md:h value for better image fit at 768px */}
             <div className="aspect-[16/9] h-auto md:aspect-auto md:h-[16rem] lg:h-[21.5rem]">
               <img
                 src={highFiveImage}
@@ -337,7 +320,6 @@ const AboutPage = () => {
           </div>
           <div
             ref={introTextRef}
-            // MODIFIED: Added md:text-center to ensure text block is centered at 768px
             className={`w-full md:w-1/2 transition-all duration-700 ease-out delay-200 md:text-center
                         ${
                           introTextInView
@@ -366,20 +348,15 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* People, Process, Technology Section */}
+      {/* People, Process, Technology Section (No changes) */}
       <section className="bg-gradient-to-br from-gray-50 to-blue-100 pt-8 pb-16 lg:pt-16 lg:pb-24">
-        {/* MODIFIED CONTAINER PADDING HERE for md breakpoint */}
-        {/* Increased md padding to add space left/right of the card grid */}
         <div className="container mx-auto px-4 sm:px-6 md:px-6 lg:px-8">
-          {" "}
-          {/* Changed md:px-3 back to md:px-6 */}
           <h2 className="text-3xl lg:text-4xl font-semibold text-center text-gray-800 mb-4">
             We are your <span className="text-cs-teal">Cyber Defence Team</span>
           </h2>
           <p className="text-lg text-gray-600 text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
             focused on safeguarding essential aspects of your Business!
           </p>
-          {/* Grid layout remains 3 columns for md and up */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-stretch">
             <InfoCard
               iconSrc={peopleIconSrc}
@@ -411,7 +388,7 @@ const AboutPage = () => {
       </section>
 
       {/* Vision and Mission Section */}
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative mb-6">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 mb-6 relative">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20 overflow-hidden">
           <div
             ref={visionTextRef}
@@ -442,7 +419,6 @@ const AboutPage = () => {
           </div>
 
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
-            {/* MODIFIED: Added md:h-[22rem] for slightly larger image at 768px */}
             <div className="relative h-80 md:h-[22rem] lg:absolute lg:right-0 lg:bottom-[-1.5rem] lg:w-1/2 lg:h-[30rem] z-10 flex items-end justify-center">
               <img
                 src={businessmanImageSrc}
@@ -452,9 +428,13 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
+
+        {/* --- SIMPLIFIED COMPONENT CALL --- */}
+        {/* No more `position` prop is needed */}
+        <ContactPopup isOpen={isContactPanelOpen} onClose={closeContactPanel} />
       </section>
 
-      {/* Statistics Section */}
+      {/* Statistics Section (No changes) */}
       <section
         ref={statsRef}
         className="relative py-10 lg:py-16 overflow-hidden bg-gradient-to-br from-gray-50 to-blue-100"
@@ -506,12 +486,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-      <ContactFlyoutPanel
-        isOpen={isContactPanelOpen}
-        onClose={closeContactPanel}
-      />
     </>
   );
 };
-
 export default AboutPage;
