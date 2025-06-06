@@ -1,5 +1,8 @@
+
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import HeroSection from "../components/cloud-security/HeroSection";
+import { ShieldCheck } from "lucide-react"; 
 
 import first from "../assets/privacy_images/privacy1.png";
 import second from "../assets/privacy_images/privacy2.png";
@@ -13,6 +16,8 @@ import { ShieldCheck } from "lucide-react";
 
 export const PrivacyPage = () => {
   const [mobileExpanded, setMobileExpanded] = useState({});
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   const privacyElements = [
     {
       title: "Introduction",
@@ -122,7 +127,24 @@ export const PrivacyPage = () => {
         }
       });
     };
-  }, []); // Empty dependency array is correct here
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty dependency array ensures this effect runs only on mount and unmount
+
+
+  // Determine if the "Read more" functionality should be active
+  // Active if window width is 445px or less
+  const showReadMoreOption = windowWidth <= 445;
 
   return (
     <div className="flex flex-col gap-10 bg-white">
@@ -134,7 +156,10 @@ export const PrivacyPage = () => {
         showButton={false}
       />
 
-      <ul className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-4 md:px-8">
+      {/* The rest of your page content */}
+      <ul className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-4 md:px-8 -mt-20 md:-mt-16 z-10 relative pb-16">
+        {/* Added -mt (negative margin top) to pull the content up over the wave SVG from HeroSection */}
+        {/* Added z-10, relative, and pb-16 for better layout and spacing */}
         {privacyElements.map((element, index) => {
           const ref = sectionRefs.current[index];
           const isInView = inViewStates[index];
@@ -146,12 +171,12 @@ export const PrivacyPage = () => {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={fadeInUp}
-              className="border border-gray-200 rounded-xl overflow-hidden shadow"
+              // Enhanced styling for better visual separation
+              className="border border-gray-200 rounded-xl overflow-hidden shadow-lg bg-white"
             >
               <div
-                className={`flex flex-col ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center gap-6 p-6 bg-gray-50 hover:bg-gray-100 transition`}
+                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } items-center lg:items-start gap-6 p-6 transition`}
               >
                 <img
                   src={element.image}
@@ -159,26 +184,31 @@ export const PrivacyPage = () => {
                   className="w-[95%] sm:w-full max-w-[460px] object-contain rounded-md"
                 />
                 <div className="flex-1">
-                  <h2 className="text-xl md:text-2xl font-semibold mb-2 text-center lg:text-left">
+                  <h2 className="text-xl md:text-2xl font-semibold mb-2 text-center lg:text-left text-gray-800">
                     {element.title}
                   </h2>
-                  <div className="hidden lg:block text-gray-700 text-base">
+                  <div className="hidden lg:block text-gray-700 text-base leading-relaxed">
                     {element.text}
                   </div>
+                  {/* Mobile specific text view */}
                   <div className="block lg:hidden text-sm text-gray-700">
                     <div
                       className={`overflow-hidden transition-all ${
-                        mobileExpanded[index] ? "" : "line-clamp-3"
+                        // Apply line-clamp only if "Read more" is active AND section is not expanded
+                        (showReadMoreOption && !mobileExpanded[index]) ? "line-clamp-3" : ""
                       }`}
                     >
                       {element.text}
                     </div>
-                    <button
-                      onClick={() => toggleMobileExpand(index)}
-                      className="text-blue-500 mt-1 text-sm"
-                    >
-                      {mobileExpanded[index] ? "Read less" : "Read more..."}
-                    </button>
+                    {/* Show button only if "Read more" functionality is active */}
+                    {showReadMoreOption && (
+                      <button
+                        onClick={() => toggleMobileExpand(index)}
+                        className="text-blue-500 mt-1 text-sm font-semibold"
+                      >
+                        {mobileExpanded[index] ? "Read less" : "Read more..."}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
