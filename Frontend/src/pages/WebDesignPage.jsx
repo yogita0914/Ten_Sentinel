@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { HeaderSection } from "../components/WebDesign/HeaderSection";
 import { HomeSection } from "../components/WebDesign/HomeSection";
 import { ServicesSection } from "../components/WebDesign/ServicesSection";
 import { ImportanceSection } from "../components/WebDesign/ImportanceSection";
@@ -8,6 +7,8 @@ import { DeliverSection } from "../components/WebDesign/DeliverSection";
 import { ContactSection } from "../components/WebDesign/ContactSection";
 import FaqSection from "../components/WebDesign/FaqSection";
 import { initialFaqs } from "../components/WebDesign/WebDesignData";
+import HeroSection from "../components/cloud-security/HeroSection";
+import { ShieldCheck } from "lucide-react";
 
 export const WebDesignPage = () => {
   const [faqs, setFaqs] = useState(
@@ -32,11 +33,15 @@ export const WebDesignPage = () => {
 
   return (
     <div className="flex flex-col">
-      <HeaderSection />
+      {/* HeroSection */}
+      <HeroSection
+        subtitle="Crafting visually stunning and user-friendly digital experiences."
+        title="Web Design"
+        backgroundImage="https://promwad.com/sites/default/files/web-development_0.jpg"
+        Icon={ShieldCheck}
+      />
 
-      <motion.div
-        className="space-y-8"
-      >
+      <motion.div className="space-y-8">
         <motion.div
           variants={sectionVariants}
           initial="hidden"

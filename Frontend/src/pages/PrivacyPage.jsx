@@ -8,6 +8,8 @@ import fourth from "../assets/privacy_images/privacy4.png";
 import fifth from "../assets/privacy_images/privacy5.png";
 import sixth from "../assets/privacy_images/privacy6.png";
 import seventh from "../assets/privacy_images/privacy7.png";
+import HeroSection from "../components/cloud-security/HeroSection";
+import { ShieldCheck } from "lucide-react";
 
 export const PrivacyPage = () => {
   const [mobileExpanded, setMobileExpanded] = useState({});
@@ -17,9 +19,10 @@ export const PrivacyPage = () => {
       image: first,
       text: (
         <>
-          Welcome to The Entrepreneurship Network (referred to as "we," "our," or "us"). We are
-          deeply committed to protecting and respecting your privacy. This Privacy Policy outlines
-          how we collect, use, disclose, and protect your information when you access our website at{" "}
+          Welcome to The Entrepreneurship Network (referred to as "we," "our,"
+          or "us"). We are deeply committed to protecting and respecting your
+          privacy. This Privacy Policy outlines how we collect, use, disclose,
+          and protect your information when you access our website at{" "}
           <a
             href="https://www.entrepreneurshipnetwork.net/"
             target="_blank"
@@ -28,7 +31,8 @@ export const PrivacyPage = () => {
           >
             https://www.entrepreneurshipnetwork.net/
           </a>
-          . By continuing to use our website, you agree to the practices described in this policy.
+          . By continuing to use our website, you agree to the practices
+          described in this policy.
         </>
       ),
     },
@@ -122,24 +126,13 @@ export const PrivacyPage = () => {
 
   return (
     <div className="flex flex-col gap-10 bg-white">
-      <header
-        className="relative text-white text-center h-screen bg-cover bg-center flex items-center justify-center px-4"
-        style={{
-          backgroundImage: `url(https://img.freepik.com/free-vector/cyber-security-concept_23-2148534852.jpg?semt=ais_hybrid&w=740)`,
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold">Privacy Policy</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Your trust is our priority. Learn how we protect your information.
-          </p>
-        </motion.div>
-      </header>
+      <HeroSection
+        subtitle="Your trust is our priority. Learn how we protect your information."
+        title="Privacy Policy"
+        backgroundImage="https://img.freepik.com/free-vector/cyber-security-concept_23-2148534852.jpg?semt=ais_hybrid&w=740"
+        Icon={ShieldCheck}
+        showButton={false}
+      />
 
       <ul className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-4 md:px-8">
         {privacyElements.map((element, index) => {
@@ -156,8 +149,9 @@ export const PrivacyPage = () => {
               className="border border-gray-200 rounded-xl overflow-hidden shadow"
             >
               <div
-                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } items-center gap-6 p-6 bg-gray-50 hover:bg-gray-100 transition`}
+                className={`flex flex-col ${
+                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                } items-center gap-6 p-6 bg-gray-50 hover:bg-gray-100 transition`}
               >
                 <img
                   src={element.image}
@@ -173,8 +167,9 @@ export const PrivacyPage = () => {
                   </div>
                   <div className="block lg:hidden text-sm text-gray-700">
                     <div
-                      className={`overflow-hidden transition-all ${mobileExpanded[index] ? "" : "line-clamp-3"
-                        }`}
+                      className={`overflow-hidden transition-all ${
+                        mobileExpanded[index] ? "" : "line-clamp-3"
+                      }`}
                     >
                       {element.text}
                     </div>

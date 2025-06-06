@@ -1,13 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const HeroSection = ({backgroundImage, title, subtitle, Icon}) => {
+const HeroSection = ({
+  backgroundImage,
+  title,
+  subtitle,
+  Icon,
+  showButton = true,
+}) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header
       className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      {/* Gradient Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.75 }}
@@ -15,7 +25,6 @@ const HeroSection = ({backgroundImage, title, subtitle, Icon}) => {
         className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
       ></motion.div>
 
-      {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <motion.div
           className="flex justify-center mb-6"
@@ -46,22 +55,27 @@ const HeroSection = ({backgroundImage, title, subtitle, Icon}) => {
           {subtitle}
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-8"
-        >
-          <a
-            href="#contact"
-            className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:translate-y-[-2px] transition-all duration-300"
+        {showButton && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="mt-8"
           >
-            Get Started
-          </a>
-        </motion.div>
+            <button
+              onClick={handleClick}
+              className="cursor-pointer inline-block text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-400/30 hover:-translate-y-2 transition-all duration-300"
+              style={{
+                backgroundImage:
+                  "linear-gradient(109.6deg, rgba(166,64,221,1) 21.2%, rgba(102,165,235,1) 74.4%)",
+              }}
+            >
+              Get Started
+            </button>
+          </motion.div>
+        )}
       </div>
 
-      {/* Optional bottom wave */}
       <div className="absolute bottom-0 left-0 right-0 hidden md:block">
         <svg
           xmlns="http://www.w3.org/2000/svg"

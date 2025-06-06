@@ -8,9 +8,9 @@ const Marketing = () => {
   return (
     <>
       <Hero_marketing />
+
       <AwarenessSection />
       <GetInTouch_Section />
-
       <FaqAccordion_marketing />
     </>
   );
