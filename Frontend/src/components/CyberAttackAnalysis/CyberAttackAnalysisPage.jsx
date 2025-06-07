@@ -451,44 +451,43 @@ const AnimatedImmediateActions = () => {
   );
 };
 
-const FAQItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleOpen = () => setIsOpen(!isOpen);
+const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   const answerId = `faq-answer-${question.replace(/\s+/g, '-')}`;
 
   return (
     <motion.div
       tabIndex={0}
-      onClick={toggleOpen}
-      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleOpen()}
-      className="border border-gray-300 rounded-md mb-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 max-w-2xl mx-auto"
+      onClick={onToggle}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onToggle()}
+      className="border border-gray-300 rounded-xl mb-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 w-full"
       aria-expanded={isOpen}
       role="button"
       aria-controls={answerId}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.0, ease: 'easeOut' }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      <div className="flex justify-between items-center px-4 py-3 bg-white">
+      <div className="flex justify-between items-center px-4 py-3 bg-white rounded-t-xl">
         <h3 className="text-base font-medium text-gray-900 text-left">{question}</h3>
         <ChevronDown
           size={20}
-          className={`text-gray-700 transition-transform duration-300 ${
-            isOpen ? 'rotate-180' : 'rotate-0'
-          }`}
+          className={`text-gray-700 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
           aria-hidden="true"
-          style={{ flexShrink: 0, width: 20, height: 20 }}
         />
       </div>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             id={answerId}
-            className="px-4 py-3 text-sm text-gray-700 bg-gray-50 text-left"
+            className="px-4 py-3 text-sm text-gray-700 bg-gray-50 text-left rounded-b-xl"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{
+              opacity: { duration: 0 },
+              height: { duration: 0 },
+              when: 'beforeChildren',
+            }}
           >
             {answer}
           </motion.div>
@@ -499,60 +498,38 @@ const FAQItem = ({ question, answer }) => {
 };
 
 const faqData = [
-  {
-    question: 'What is a cyber attack?',
-    answer:
-      'A cyber attack is an attempt by hackers to damage or gain unauthorized access to a computer system, network, or device, often with malicious intent.',
-  },
-  {
-    question: 'How does malware affect my system?',
-    answer:
-      'Malware can damage your system by stealing data, corrupting files, disrupting operations, or allowing attackers to control your device remotely.',
-  },
-  {
-    question: 'What is Root Cause Analysis in cybersecurity?',
-    answer:
-      'Root Cause Analysis (RCA) is the process of identifying the underlying cause of a security incident to prevent future attacks.',
-  },
-  {
-    question: 'How soon should I respond after detecting an attack?',
-    answer:
-      'Immediate response is critical; disconnect affected systems and notify your security team within minutes to limit damage.',
-  },
-  {
-    question: 'Can TEN Sentinel help recover lost data?',
-    answer:
-      'Yes, our experts assist with data recovery whenever possible by analyzing attack vectors and applying the best remediation techniques.',
-  },
-  {
-    question: 'What steps should I take to secure my network post-attack?',
-    answer:
-      'After an attack, implement strong access controls, update software patches, conduct security audits, and train staff on cyber hygiene.',
-  },
-  {
-    question: 'How can I prevent future cyber attacks?',
-    answer:
-      'Regularly update systems, use firewalls and antivirus software, perform employee awareness training, and conduct frequent security assessments.',
-  },
-  {
-    question: 'What is the difference between a virus and a ransomware attack?',
-    answer:
-      'A virus replicates itself to spread and cause damage, while ransomware encrypts your data and demands payment to restore access.',
-  },
-  {
-    question: 'Is it necessary to involve law enforcement after a cyber attack?',
-    answer:
-      'Depending on the severity and legal requirements, involving law enforcement may help investigate and prosecute attackers.',
-  },
+  { question: 'What is a cyber attack?', answer: 'A cyber attack is an attempt by hackers to damage or gain unauthorized access to a computer system, network, or device, often with malicious intent.' },
+  { question: 'How does malware affect my system?', answer: 'Malware can damage your system by stealing data, corrupting files, disrupting operations, or allowing attackers to control your device remotely.' },
+  { question: 'What is Root Cause Analysis in cybersecurity?', answer: 'Root Cause Analysis (RCA) is the process of identifying the underlying cause of a security incident to prevent future attacks.' },
+  { question: 'How soon should I respond after detecting an attack?', answer: 'Immediate response is critical; disconnect affected systems and notify your security team within minutes to limit damage.' },
+  { question: 'Can TEN Sentinel help recover lost data?', answer: 'Yes, our experts assist with data recovery whenever possible by analyzing attack vectors and applying the best remediation techniques.' },
+  { question: 'What steps should I take to secure my network post-attack?', answer: 'After an attack, implement strong access controls, update software patches, conduct security audits, and train staff on cyber hygiene.' },
+  { question: 'How can I prevent future cyber attacks?', answer: 'Regularly update systems, use firewalls and antivirus software, perform employee awareness training, and conduct frequent security assessments.' },
+  { question: 'What is the difference between a virus and a ransomware attack?', answer: 'A virus replicates itself to spread and cause damage, while ransomware encrypts your data and demands payment to restore access.' },
+  { question: 'Is it necessary to involve law enforcement after a cyber attack?', answer: 'Depending on the severity and legal requirements, involving law enforcement may help investigate and prosecute attackers.' },
 ];
 
-const AnimatedFAQSection = () => (
-  <>
-    {faqData.map(({ question, answer }, i) => (
-      <FAQItem key={i} question={question} answer={answer} />
-    ))}
-  </>
-);
+const AnimatedFAQSection = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="flex flex-col">
+      {faqData.map(({ question, answer }, i) => (
+        <FAQItem
+          key={i}
+          question={question}
+          answer={answer}
+          isOpen={openIndex === i}
+          onToggle={() => handleToggle(i)}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default CyberAttackAnalysisPage;
 
