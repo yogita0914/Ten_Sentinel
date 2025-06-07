@@ -1,5 +1,4 @@
 import React from "react";
-
 import { SectionTitle } from "../components/VAPT_Components/SectionTitle";
 import { VAPTHeader } from "../components/VAPT_Components/VAPTHeader";
 import { VAPTAbout } from "../components/VAPT_Components/VAPTAbout";

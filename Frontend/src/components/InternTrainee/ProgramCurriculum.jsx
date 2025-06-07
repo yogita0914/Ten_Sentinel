@@ -43,7 +43,7 @@ const ProgramCurriculum = () => {
       <div className="flex flex-col items-center space-y-6 px-4 py-10">
         <button
           onClick={handleShowForm}
-          className="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 font-bold text-sm sm:text-base"
+          className="px-6 py-3 cursor-pointer bg-blue-600 text-white rounded hover:bg-blue-700 font-bold text-sm sm:text-base"
         >
           DOWNLOAD BROCHURE
         </button>

@@ -3,8 +3,102 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import image from "../../assets/Cyber attack analysis images/ET41.webp"; // Adjust the path as necessary
 import GetInTouch from "../../components/CyberAttackAnalysis/GetInTouch";
+import CS1 from "../../assets/Cyber attack analysis images/CS1.jpg"; // Background image
+import CS13 from "../../assets/Cyber attack analysis images/CS13.png"; 
 
+// HeroSection component as provided
+const HeroSection = ({backgroundImage, title, subtitle, Icon}) => {
+  return (
+    <header
+      className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
+     style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      {/* Gradient Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
+      ></motion.div>
 
+      {/* Content Container */}
+      <div className="relative z-10 max-w-5xl mx-auto w-full">
+        <motion.div
+          className="flex justify-center mb-6"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full inline-flex justify-center items-center">
+            <Icon className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
+          </div>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
+        >
+          {title}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
+        >
+          {subtitle}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mt-8"
+        >
+          <a
+            href="#contact"
+            className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:translate-y-[-2px] transition-all duration-300"
+          >
+            Get Started
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Optional bottom wave */}
+      <div className="absolute bottom-0 left-0 right-0 hidden md:block">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          className="w-full"
+        >
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+    </header>
+  );
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: 'easeOut' } },
+};
+
+const slideInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: 'easeOut' } },
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: 'easeOut' } },
+};
 
 const CyberAttackAnalysisPage = () => {
   // Restore scroll position on mount and save on unload
@@ -29,47 +123,69 @@ const CyberAttackAnalysisPage = () => {
 
   return (
     <div className="text-center font-sans overflow-x-hidden">
-      {/* Header Section */}
-      <header
-        className="relative bg-cover bg-center flex flex-col items-center justify-center text-center text-white px-4 pt-36 pb-10 w-full"
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom, #06b6d4, #3b82f6), url('/images/ET23.jpg')",
-          backgroundBlendMode: 'overlay',
-        }}
-      >
-        <h1 className="text-3xl md:text-5xl font-bold mb-2 md:text-left">
-          Cyber Attack Analysis
-        </h1>
-        <p className="text-lg md:text-xl font-medium tracking-wide md:text-left text-cyan-200 drop-shadow-md">
-          Protect whatever&apos;s yours!
-        </p>
-      </header>
+      {/* Hero Section */}
+      <HeroSection
+        backgroundImage={CS1} // Adjust the path if needed
+        title="Cyber Attack Analysis"
+        subtitle="Protect whatever&apos;s yours!"
+        Icon={() => <img src={CS13} alt="Cyber Attack Icon" className="w-10 h-10 md:w-16 md:h-16" />}
+      />
 
       {/* Introduction Section */}
-      <section className="bg-white w-full py-12">
+      <motion.section
+        className="bg-white w-full py-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+      >
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-semibold md:tracking-tight mb-10 text-gray-800 text-center">
+          <motion.h2
+            className="text-2xl md:text-3xl font-semibold md:tracking-tight mb-10 text-gray-800 text-center"
+            variants={fadeInUp}
+            transition={{ delay: 0.6 }}
+          >
             Has your system been compromised by malware or unauthorized access?
-          </h2>
+          </motion.h2>
 
-          <div className="hidden md:block lg:hidden mb-10">
-            <img
-            src={image}
+          <motion.div
+            className="hidden md:block lg:hidden mb-10"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+          >
+            <motion.img
+              src={image}
               alt="Training Session"
               className="rounded-lg shadow-lg w-full max-w-3xl object-cover mx-auto"
+              initial={{ rotate: -5, scale: 0.9 }}
+              animate={{ rotate: 0, scale: 1 }}
+              transition={{ duration: 1.5, ease: 'easeOut' }}
             />
-          </div>
+          </motion.div>
 
           <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-stretch">
-            <div className="flex justify-center h-full">
+            <motion.div
+              className="flex justify-center h-full"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={slideInLeft}
+            >
               <img
                 src={image}
                 alt="Training Session"
                 className="rounded-lg shadow-lg w-full h-full max-w-3xl object-cover"
               />
-            </div>
-            <div className="text-left flex flex-col justify-center">
+            </motion.div>
+            <motion.div
+              className="text-left flex flex-col justify-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={slideInRight}
+            >
               <p className="text-lg text-gray-700 mb-4">
                 Our team of cyber experts is here to help you swiftly respond to
                 and recover from incidents such as cyber-attacks and malware breaches.
@@ -84,10 +200,16 @@ const CyberAttackAnalysisPage = () => {
                 are frequently targeted—making it essential to act promptly to
                 contain the damage and safeguard your network from further compromise.
               </p>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="block lg:hidden text-left">
+          <motion.div
+            className="block lg:hidden text-left"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+          >
             <p className="text-lg text-gray-700 mb-4">
               Our team of cyber experts is here to help you swiftly respond to
               and recover from incidents such as cyber-attacks and malware breaches.
@@ -102,47 +224,77 @@ const CyberAttackAnalysisPage = () => {
               are frequently targeted—making it essential to act promptly to
               contain the damage and safeguard your network from further compromise.
             </p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* StepFlow Section */}
-      <section className="bg-gray-100 py-12 px-4 w-full">
+      <motion.section
+        className="bg-gray-100 py-12 px-4 w-full"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.5, ease: 'easeOut' }}
+        variants={fadeInUp}
+      >
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-10 text-gray-900">
+          <motion.h2
+            className="text-2xl font-bold mb-10 text-gray-900"
+            variants={fadeInUp}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+          >
             What does TEN Sentinel do during an incident?
-          </h2>
+          </motion.h2>
           <AnimatedStepFlow />
         </div>
-      </section>
+      </motion.section>
 
-      {/* Immediate Actions Section with reduced height and responsive padding, no horizontal scroll */}
-      <section className="w-full bg-blue-900 py-6 px-4 sm:px-8 md:px-12 text-center text-white">
+      {/* Immediate Actions Section */}
+      <motion.section
+        className="w-full bg-blue-900 py-6 px-4 sm:px-8 md:px-12 text-center text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.5, ease: 'easeOut' }}
+        variants={fadeInUp}
+      >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-yellow-400">
+          <motion.h2
+            className="text-2xl font-bold mb-6 text-yellow-400"
+            variants={fadeInUp}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+          >
             What should YOU do immediately?
-          </h2>
+          </motion.h2>
           <AnimatedImmediateActions />
           <p className="mt-4 text-md">Take these 3 steps before reaching out to us.</p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Form */}
-
-
       <div className="mt-10 bg-gray-50 p-6">
-  <GetInTouch />
-</div>
+        <GetInTouch />
+      </div>
 
       {/* FAQ Section */}
-      <section className="bg-gray-100 py-12 px-4 w-full">
+      <motion.section
+        className="bg-gray-100 py-12 px-4 w-full"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+      >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8 text-center text-gray-900">
+          <motion.h2
+            className="text-2xl font-bold mb-8 text-center text-gray-900"
+            variants={fadeInUp}
+            transition={{ duration: 1.0, ease: 'easeOut' }}
+          >
             Frequently Asked Questions
-          </h2>
+          </motion.h2>
           <AnimatedFAQSection />
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
@@ -154,7 +306,7 @@ const StepCard = ({ title, color, height = 120, isLast }) => (
     animate={{ opacity: 1, scale: 1, y: 0 }}
     exit={{ opacity: 0, scale: 0.8 }}
     whileHover={{ scale: 1.05 }}
-    transition={{ duration: 0.5, ease: 'easeInOut' }}
+    transition={{ duration: 1.2, ease: 'easeInOut' }}
     tabIndex={-1}
     className={`flex-grow min-w-[220px] max-w-[220px] px-4 sm:px-6 py-4 rounded-md text-white font-medium shadow-lg flex items-center justify-center text-center ${color} focus:outline-none focus:ring-0
       md:flex-grow-0
@@ -185,7 +337,7 @@ const AnimatedStepFlow = () => {
     if (isInView) {
       timeoutId = setTimeout(() => {
         setShowOriginalOrder(false);
-      }, 500);
+      }, 800);
     }
     return () => clearTimeout(timeoutId);
   }, [isInView]);
@@ -205,7 +357,7 @@ const AnimatedStepFlow = () => {
       className="w-full flex flex-wrap justify-center items-center gap-4 overflow-visible"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.8, ease: 'easeInOut' }}
+      transition={{ duration: 1.5, ease: 'easeInOut' }}
       layout
     >
       <AnimatePresence mode="popLayout" initial={false}>
@@ -222,7 +374,7 @@ const AnimatedStepFlow = () => {
                 className="hidden md:flex items-center"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2 + index * 0.4, duration: 0.5, ease: 'easeOut' }}
+                transition={{ delay: 2 + index * 0.5, duration: 0.7, ease: 'easeOut' }}
                 aria-hidden="true"
               >
                 <ChevronRight size={24} className="text-gray-500" />
@@ -253,7 +405,7 @@ const AnimatedImmediateActions = () => {
     if (isInView) {
       timeoutId = setTimeout(() => {
         setShowOriginalOrder(false);
-      }, 500);
+      }, 800);
     }
     return () => clearTimeout(timeoutId);
   }, [isInView]);
@@ -270,9 +422,9 @@ const AnimatedImmediateActions = () => {
     <motion.div
       ref={ref}
       className="w-full flex flex-wrap justify-center items-center gap-4 overflow-visible"
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.8, ease: 'easeInOut' }}
+      transition={{ duration: 1.5, ease: 'easeInOut' }}
       layout
       style={{ minHeight: 90 }}
     >
@@ -286,7 +438,7 @@ const AnimatedImmediateActions = () => {
                 className="hidden md:flex items-center"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.8 + index * 0.4, duration: 0.5, ease: 'easeOut' }}
+                transition={{ delay: 2 + index * 0.5, duration: 0.7, ease: 'easeOut' }}
                 aria-hidden="true"
               >
                 <ChevronRight size={24} className="text-gray-300" />
@@ -305,7 +457,7 @@ const FAQItem = ({ question, answer }) => {
   const answerId = `faq-answer-${question.replace(/\s+/g, '-')}`;
 
   return (
-    <div
+    <motion.div
       tabIndex={0}
       onClick={toggleOpen}
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleOpen()}
@@ -313,27 +465,36 @@ const FAQItem = ({ question, answer }) => {
       aria-expanded={isOpen}
       role="button"
       aria-controls={answerId}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.0, ease: 'easeOut' }}
     >
       <div className="flex justify-between items-center px-4 py-3 bg-white">
         <h3 className="text-base font-medium text-gray-900 text-left">{question}</h3>
         <ChevronDown
           size={20}
-          className={`text-gray-700 transition-transform duration-0 ${
+          className={`text-gray-700 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : 'rotate-0'
           }`}
           aria-hidden="true"
-          style={{ flexShrink: 0, width: 20, height: 20 }} // Ensures consistent size
+          style={{ flexShrink: 0, width: 20, height: 20 }}
         />
       </div>
-      {isOpen && (
-        <div
-          id={answerId}
-          className="px-4 py-3 text-sm text-gray-700 bg-gray-50 text-left"
-        >
-          {answer}
-        </div>
-      )}
-    </div>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            id={answerId}
+            className="px-4 py-3 text-sm text-gray-700 bg-gray-50 text-left"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

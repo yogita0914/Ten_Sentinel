@@ -170,7 +170,7 @@ const Hero = () => {
                 custom={0.6}
               >
                 <a
-                  href="#contact-us-section" /* Changed href to point to the section ID */
+                  href="#contact" /* MODIFIED: Changed href to point to the section ID "contact" */
                   className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300"
                 >
                   Talk to Our Expert!

@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { PrivacyPage } from "./pages/PrivacyPage";
+import { PrivacyPage} from "./pages/PrivacyPage";
 import Security_Audits from "./pages/Security_Audits";
 import { WebDesignPage } from "./pages/WebDesignPage";
 import LandingPage from "./pages/LandingPage";
@@ -27,6 +27,9 @@ import { GCP } from "./pages/GCP";
 import CyberAttackAnalysisPage from "./components/CyberAttackAnalysis/CyberAttackAnalysisPage";
 import PishingSimulation from "./pages/PhishingSimulation";
 import Training_and_Certifications from "./pages/Training_and_Certifications";
+import AWSSentinel from "./components/AWS/AWSSentinel";
+import OrbitalDiagram from "./components/AWS/OrbitalDiagram";
+import OrbitalDiagram2 from "./components/AWS/OrbitalDiagram2";
 
 const App = () => {
   return (
@@ -76,6 +79,9 @@ const App = () => {
               path="/Training-Certifications"
               element={<Training_and_Certifications />}
             />
+              <Route path="/aws-sentinel" element={<AWSSentinel />} />
+          <Route path="/orbital" element={<OrbitalDiagram/>}/>
+          <Route path="/orbital" element={<OrbitalDiagram2/>}/>
           </Routes>
         </main>
         <Footer />

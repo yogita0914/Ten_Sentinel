@@ -168,7 +168,7 @@ const MultiStepForm = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+                className="bg-blue-600 cursor-pointer text-white px-6 py-2 rounded hover:bg-blue-700"
               >
                 Next
               </button>
@@ -203,14 +203,14 @@ const MultiStepForm = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600"
+                className="bg-gray-700 text-white cursor-pointer px-4 py-2 rounded hover:bg-gray-600"
               >
                 Back
               </button>
               <button
                 type="button"
                 onClick={handleNext}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="bg-blue-500 text-white cursor-pointer px-4 py-2 rounded hover:bg-blue-600"
               >
                 Continue
               </button>
@@ -263,13 +263,13 @@ const MultiStepForm = () => {
               <button
                 type="button"
                 onClick={handleBack}
-                className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600"
+                className="bg-gray-700 text-white cursor-pointer px-4 py-2 rounded hover:bg-gray-600"
               >
                 Back
               </button>
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                className="bg-blue-600 text-white cursor-pointer px-4 py-2 rounded hover:bg-blue-700"
               >
                 Submit
               </button>

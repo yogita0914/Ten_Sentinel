@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const VedioFile = () => {
   return (
@@ -21,9 +22,11 @@ const VedioFile = () => {
           </div>
         </div>
 
-        <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm lg:text-lg md:text-lg font-semibold py-2 px-6 rounded-lg shadow">
-          Looking for Certified Hacker Course
-        </button>
+        <Link to="/">
+          <button className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white text-sm lg:text-lg md:text-lg font-semibold py-2 px-6 rounded-lg shadow">
+            Looking for Certified Hacker Course
+          </button>
+        </Link>
       </div>
 
       {/* Background Banner Section */}
@@ -39,10 +42,12 @@ const VedioFile = () => {
 
         <div className="relative z-10 space-y-4 max-w-5xl px-4">
           <h1 className="text-white text-lg lg:text-3xl md:text-2xl  font-semibold">
-            This is a Job-Oriented Program wherein you would be either promoted in our company with a fixed stipend or assisted for jobs outside.
+            This is a Job-Oriented Program wherein you would be either promoted
+            in our company with a fixed stipend or assisted for jobs outside.
           </h1>
           <h1 className="text-white text-lg lg:text-3xl md:text-2xl font-semibold">
-            At the end, you would have a training certificate and an experience certificate to kick start your career further.
+            At the end, you would have a training certificate and an experience
+            certificate to kick start your career further.
           </h1>
         </div>
       </div>
