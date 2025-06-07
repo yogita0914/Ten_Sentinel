@@ -1,4 +1,5 @@
 import React from 'react';
+import content from '../../assets/PhishingSimulation/content.png';
 
 const ContentPage = () =>{
     return(
@@ -7,7 +8,7 @@ const ContentPage = () =>{
         {/* Left side - Image */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
           <img
-            src="https://www.jnrmr.com/Cyber-Security/Phishing%20Image.png"
+            src={content}
             alt="Data Privacy"
             className="w-full h-auto md:h-78"
           />

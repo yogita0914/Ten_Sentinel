@@ -1,34 +1,36 @@
 import React from "react";
 import { motion } from "framer-motion";
+import icon1 from '../../assets/InternTrainee/icon1.png';
+import icon2 from '../../assets/InternTrainee/icon2.png';
+import icon3 from '../../assets/InternTrainee/icon3.png';
+import icon4 from '../../assets/InternTrainee/icon4.webp';
+import icon5 from '../../assets/InternTrainee/icon5.webp';
+
 
 const cardData = [
   {
     id: 1,
-    image: "https://cdn-icons-png.flaticon.com/512/16863/16863138.png",
+    image: icon1,
     text: "Security Aduits",
   },
   {
     id: 2,
-    image:
-      "https://www.briskinfosec.com/assets/seocontents/application-security-assessment.png",
+    image:icon2,
     text: "Web VAPT",
   },
   {
     id: 3,
-    image:
-      "https://png.pngtree.com/png-vector/20230428/ourmid/pngtree-risk-management-line-icon-vector-png-image_6739736.png",
+    image:icon3,
     text: "Risk Management",
   },
   {
     id: 4,
-    image:
-      "https://ias-singapore.com/wp-content/uploads/2023/08/VAPT-Testing.png",
+    image:icon4,
     text: "Network VAPT",
   },
   {
     id: 5,
-    image:
-      "https://hyperproof.io/wp-content/uploads/2023/06/framework-informational-page_hero-badges-iso27001.png",
+    image:icon5,
     text: "ISO 270001, PCI DSS, HIPAA GRC",
   },
 ];

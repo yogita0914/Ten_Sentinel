@@ -1,6 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Lock, CheckCircle } from "lucide-react";
+import service1 from '../../src/assets/DataPrivacy/service1.png';
+import service2 from '../../src/assets/DataPrivacy/service2.webp';
+import service3 from '../../src/assets/DataPrivacy/service3.png';
+import service4 from '../../src/assets/DataPrivacy/service4.png';
+import service5 from '../../src/assets/DataPrivacy/service5.png';
+import service6 from '../../src/assets/DataPrivacy/service6.png';
+import hero from '../assets/DataPrivacy/hero.avif';
+import content from '../assets/DataPrivacy/content.webp';
+import shield from '../assets/DataPrivacy/shield.avif';
+
 
 
 const solutions = [
@@ -34,44 +44,42 @@ const services = [
     title: "Assessments",
     description:
       "Analyze the current risk posture against strategic goals and compliance expectations.",
-    image: "https://cdn-icons-png.flaticon.com/512/7870/7870809.png",
+    image: service1,
     color: "bg-blue-100",
   },
   {
     title: "Design",
     description:
       "Design a customized privacy compliance strategy with you, ensuring it fulfills legal and regulatory obligations.",
-    image:
-      "https://cdn.iconscout.com/icon/free/png-256/free-pencil-icon-download-in-svg-png-gif-file-formats--edit-write-drow-iconhub-pack-miscellaneous-icons-1093489.png?f=webp",
+    image: service2,
     color: "bg-green-100",
   },
   {
     title: "Methodology",
     description:
       "A clear, step-by-step approach to help manage data privacy effectively and meet compliance goals.",
-    image:
-      "https://cdn-icons-png.freepik.com/256/2643/2643513.png?semt=ais_hybrid",
+    image: service3,
     color: "bg-fuchsia-100",
   },
   {
     title: "Surveillance",
     description:
       "Surveillance in data privacy involves monitoring systems to detect breaches and maintain compliance.",
-    image: "https://cdn-icons-png.flaticon.com/512/4046/4046313.png",
+    image: service4,
     color: "bg-rose-100",
   },
   {
     title: "Tasks",
     description:
       "Tasks refer to specific actions or duties that are performed to achieve a particular goal or outcome.",
-    image: "https://cdn-icons-png.flaticon.com/512/4345/4345800.png",
+    image: service5,
     color: "bg-purple-100",
   },
   {
     title: "Execution",
     description:
       "Execution refers to the process of carrying out plans, strategies, or tasks to achieve specific goals or objectives.",
-    image: "https://cdn-icons-png.flaticon.com/512/9503/9503512.png",
+    image: service6,
     color: "bg-cyan-100",
   },
 ];
@@ -81,7 +89,7 @@ const DataPrivacy = () => {
     <>
     <header
         className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
-        style={{ backgroundImage: `url(https://img.freepik.com/premium-photo/data-security-systems-computer-with-shield-data-network-protect-crime-by-anonymous-hacker-internet-technology-background-cyber-security-concept_1217659-617.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740)` }}
+        style={{ backgroundImage: `url(${hero})` }}
       >
         {/* Gradient Overlay */}
         <motion.div
@@ -155,7 +163,7 @@ const DataPrivacy = () => {
         {/* Left side - Image */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
           <img
-            src="https://educationpost.in/_next/image?url=https%3A%2F%2Fapi.educationpost.in%2Fs3-images%2F1719037378470-415.png&w=3840&q=75"
+            src= {content}
             alt="Data Privacy"
             className="w-full h-auto rounded-xl shadow-lg md:h-78"
           />
@@ -299,7 +307,7 @@ const DataPrivacy = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           <motion.div >
-            <img src="https://img.freepik.com/free-vector/cyber-security-shield-light-blue_78370-7843.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"/>
+            <img src={shield}/>
           </motion.div>          
           <motion.div 
             className="w-full lg:w-1/2"

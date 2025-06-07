@@ -1,5 +1,6 @@
 import React from 'react';
 import MultiStepForm from './MultiStepForm'; // import your component
+import hero from '../../assets/InternTrainee/hero.jpg';
 
 const FormSection = () => {
   return (
@@ -7,7 +8,7 @@ const FormSection = () => {
       className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-4 md:px-6" id='form'
       style={{
         backgroundImage:
-          "url('https://cdn.vectorstock.com/i/500p/00/37/padlock-concept-cyber-security-protection-vector-47170037.jpg')",
+          `url(${hero})`,
       }}
     >
       <div className="p-6 md:p-4 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-2 w-full max-w-7xl mt-8">
