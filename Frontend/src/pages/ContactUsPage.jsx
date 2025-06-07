@@ -242,7 +242,7 @@ const Contact = () => {
                       : "none",
                 }}
                 whileTap={{ scale: email && name && message ? 0.95 : 1 }}
-                className={`w-40 mx-auto block px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all ${
+                className={`w-40 mx-auto block px-6 py-3 rounded-full font-semibold  items-center justify-center gap-2 transition-all ${
                   email && name && message
                     ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
                     : "bg-gray-200 text-gray-400 cursor-not-allowed"
