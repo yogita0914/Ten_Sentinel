@@ -41,32 +41,32 @@ export const PrivacyPage = () => {
     {
       title: "Information We Collect",
       image: second,
-      text: `We may collect both personal and non-personal information when you interact with our website or services, including your name, email, IP address, browser type, and usage data.`,
+      text: `We may collect both personal and non-personal information when you interact with our website, mobile applications, or other services. This information helps us provide a better user experience, improve our services, and communicate effectively with you.`
     },
     {
       title: "How We Use Your Information",
       image: third,
-      text: `Your personal information is used primarily to provide the services or information that you request from us, such as sending newsletters or responding to inquiries.`,
+      text: `Your personal information is used primarily to provide the services or information that you request from us, such as sending newsletters, updates, promotional offers, or responding to inquiries and customer support requests. We also use your data to enhance and personalize your experience with our products and services, ensuring content, features, and communication are tailored to your preferences.`
     },
     {
       title: "Disclosure of Your Information",
       image: fourth,
-      text: `We may share your personal information with members of our organizational group or trusted third parties under strict confidentiality agreements and only for the purposes outlined in this policy.`,
+      text: `We may share your personal information with members of our organizational group or trusted third parties under strict confidentiality agreements and only for the purposes outlined in this policy. These third parties may include service providers, business partners, or legal authorities when required, and they are obligated to handle your data securely and lawfully.`
     },
     {
       title: "Your Rights",
       image: fifth,
-      text: `You have the right to access the personal data we hold about you and request corrections or deletions where appropriate. Contact us for any data access requests.`,
+      text: `We respect your rights regarding your personal data and are committed to ensuring transparency, fairness, and control over how your information is handled. Depending on applicable data protection laws in your region, you may have several rights in relation to the personal data we collect and process about you.`
     },
     {
       title: "Data Security",
       image: sixth,
-      text: `The security of your personal data is a priority for us. We implement industry-standard security measures to prevent unauthorized access, alteration, or destruction of your data.`,
+      text: `The security of your personal data is a top priority for us. We are committed to protecting your information against unauthorized access, use, disclosure, alteration, or destruction. To achieve this, we implement a combination of technical, administrative, and physical security measures aligned with industry best practices.`
     },
     {
       title: "Changes to This Privacy Policy",
       image: seventh,
-      text: `We may update this Privacy Policy from time to time to reflect changes in legal requirements or our data practices. Updates will be posted on this page with a revised effective date.`,
+      text: `We may update this Privacy Policy from time to time to reflect changes in legal requirements, our data handling practices, the services we offer, or advancements in technology. Such changes may be necessary to comply with new regulations, enhance user privacy, or improve transparency. Whenever we make updates, we will post the revised Privacy Policy on this page and update the “Effective Date” at the top of the document.`
     },
   ];
 
@@ -136,20 +136,17 @@ export const PrivacyPage = () => {
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty dependency array ensures this effect runs only on mount and unmount
-
-  // Determine if the "Read more" functionality should be active
-  // Active if window width is 445px or less
+  }, []); 
   const showReadMoreOption = windowWidth <= 445;
 
   return (
-    <div className="flex flex-col gap-10 bg-white">
+    <div className="flex flex-col bg-white">
+      {/* 2. Replace the old header with the reusable HeroSection component */}
       <HeroSection
-        subtitle="Your trust is our priority. Learn how we protect your information."
-        title="Privacy Policy"
         backgroundImage="https://img.freepik.com/free-vector/cyber-security-concept_23-2148534852.jpg?semt=ais_hybrid&w=740"
+        title="Privacy Policy"
+        subtitle="Your trust is our priority. Learn how we protect your information."
         Icon={ShieldCheck}
-        showButton={false}
       />
 
       {/* The rest of your page content */}
@@ -218,3 +215,5 @@ export const PrivacyPage = () => {
     </div>
   );
 };
+
+
