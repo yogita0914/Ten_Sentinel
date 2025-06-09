@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu, MenuItem, HoveredLink } from "./Navbar/NavbarMenu";
 import logo from "../assets/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
+import NavbarForm from "./Navbar/NavbarForm";
 
 // BrandLogo component
 const BrandLogo = ({ mobile = false }) => (
@@ -161,6 +162,7 @@ const ExternalHoveredLink = ({ href, children }) => (
 function Navbar() {
   const [active, setActive] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
   const menuItems = [
     { type: "link", item: "Home", href: "/" },
@@ -240,6 +242,7 @@ function Navbar() {
 
           {/* Right-side Button */}
           <button
+          onClick={() => setShowModal(true)}
             className="nav-button bg-black text-white
             px-3 py-3
             text-[13px] font-bold
@@ -248,7 +251,10 @@ function Navbar() {
           >
             Get Started
           </button>
+          {showModal && <NavbarForm onClose = {() => setShowModal(false)}/>}
+         
         </div>
+        
       </div>
 
       {/* Mobile Navbar (≤767px) */}

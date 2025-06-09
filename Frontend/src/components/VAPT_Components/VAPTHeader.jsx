@@ -2,12 +2,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
+import hero from '../../assets/Vapt/hero.avif';
 
 export const VAPTHeader = () => {
   return (
     <header
       className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
-      style={{ backgroundImage: `url(https://img.freepik.com/free-photo/online-security-dark-background-3d-illustration_1419-2804.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740)` }}
+      style={{ backgroundImage: `url(${hero})` }}
     >
       {/* Gradient Overlay */}
       <motion.div

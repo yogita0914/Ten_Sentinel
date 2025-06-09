@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { SectionTitle } from './SectionTitle';
 import { vaptContent } from './VAPTData';
+import { motion } from "framer-motion";
 
 export const VAPTFAQs = () => {
-  // Initialize FAQs with data from vaptContent and add isOpen state
   const [faqs, setFaqs] = useState(
     vaptContent.faqsData.map(faq => ({ ...faq, isOpen: false }))
   );
@@ -21,15 +21,26 @@ export const VAPTFAQs = () => {
 
   return (
     <section className="flex flex-col gap-6 items-center">
-      <SectionTitle title={"FAQ's"} />
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <SectionTitle title={"FAQ's"} />
+      </motion.div>
 
       <ul className="flex flex-col gap-8 w-full">
         {faqs.map((faq, key) => (
-          <li
+          <motion.li
             key={key}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: key * 0.15 }}
             className="flex flex-col gap-2 bg-gray-100 rounded-lg shadow-xl lg:w-[800px] lg:self-center"
           >
-            <div className="flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6 ">
+            <div className="flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6">
               <h3>{faq.question}</h3>
 
               <button
@@ -45,11 +56,16 @@ export const VAPTFAQs = () => {
             </div>
 
             {faq.isOpen && (
-              <p className="text-sm text-gray-800 bg-gray-50 rounded-b-lg md:text-lg w-full px-4 py-2 md:px-8 md:py-6 ">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                className="text-sm text-gray-800 bg-gray-50 rounded-b-lg md:text-lg w-full px-4 py-2 md:px-8 md:py-6"
+              >
                 {faq.response}
-              </p>
+              </motion.p>
             )}
-          </li>
+          </motion.li>
         ))}
       </ul>
     </section>

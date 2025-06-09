@@ -1,8 +1,9 @@
 import React from "react";
 import security_bg from "../../assets/security_bg.jpg"; // Adjust the path as necessary
 import Marketing from "../../assets/marketing.jpg"; // Adjust the path as necessary
-import { TrendingUp } from "lucide-react";
+import { ShieldCheck, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
+import HeroSection from "../cloud-security/HeroSection";
 
 const Hero_marketing = () => {
   // Smooth scroll function for "Get Started"
@@ -19,11 +20,21 @@ const Hero_marketing = () => {
   return (
     <div className="bg-cyan-200">
       {/* Hero Section with Background Image */}
-      <header
+
+      {/* Hero Section with Background Image */}
+      <HeroSection
+        subtitle=" Innovative strategies to boost your brand’s reach and engagement."
+        title="Marketing"
+        backgroundImage={security_bg}
+        Icon={ShieldCheck}
+      />
+
+      {/* Remove this */}
+      {/* <header
         className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
         style={{ backgroundImage: `url(${security_bg})` }}
       >
-        {/* Gradient Overlay */}
+        Gradient Overlay
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.75 }}
@@ -31,7 +42,7 @@ const Hero_marketing = () => {
           className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
         ></motion.div>
 
-        {/* Content Container */}
+        Content Container
         <div className="relative z-10 max-w-5xl mx-auto w-full">
           <motion.div
             className="flex justify-center mb-6"
@@ -68,7 +79,7 @@ const Hero_marketing = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="mt-8"
           >
-            {/* Changed to button with smooth scroll */}
+            Changed to button with smooth scroll
             <button
               onClick={scrollToContact}
               className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5 transition-all duration-300"
@@ -77,8 +88,8 @@ const Hero_marketing = () => {
             </button>
           </motion.div>
         </div>
-
-        {/* Optional bottom wave */}
+      
+        Optional bottom wave
         <div className="absolute bottom-0 left-0 right-0 hidden md:block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +103,7 @@ const Hero_marketing = () => {
             ></path>
           </svg>
         </div>
-      </header>
+      </header> */}
 
       {/* Marketing Strategy Section */}
       <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">

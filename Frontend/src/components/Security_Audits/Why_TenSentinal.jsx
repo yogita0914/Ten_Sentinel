@@ -1,45 +1,55 @@
 import React from "react";
+import icon1 from '../../assets/security_audits/icon1.png';
+import icon2 from '../../assets/security_audits/icon2.png';
+import icon3 from '../../assets/security_audits/icon3.png';
+import icon4 from '../../assets/security_audits/icon4.png';
+import icon5 from '../../assets/security_audits/icon5.png';
+import icon6 from '../../assets/security_audits/icon6.png';
+import icon7 from '../../assets/security_audits/icon7.png';
+import icon8 from '../../assets/security_audits/icon8.png';
+import icon9 from '../../assets/security_audits/icon9.png';
+import icon10 from '../../assets/security_audits/icon10.png';
 
 const features = [
   {
     label: "24×7 Operation",
-    icon: "https://img.icons8.com/fluency/48/customer-support.png",
+    icon: icon1,
   },
   {
     label: "Proven Track Record",
-    icon: "https://img.icons8.com/color/48/000000/happy.png",
+    icon: icon2,
   },
   {
     label: "Single Point of Contact",
-    icon: "https://img.icons8.com/color/48/000000/touchscreen-smartphone.png",
+    icon: icon3,
   },
   {
     label: "Vendor Neutral",
-    icon: "https://img.icons8.com/fluency/48/home.png",
+    icon: icon4,
   },
   {
     label: "Customer Focused",
-    icon: "https://img.icons8.com/color/48/000000/customer-support.png",
+    icon: icon5,
   },
   {
     label: "Passionate & Experienced",
-    icon: "https://img.icons8.com/color/48/000000/teamwork.png",
+    icon: icon6,
   },
   {
     label: "Trusted Partner",
-    icon: "https://img.icons8.com/color/48/000000/handshake.png",
+    icon: icon7,
   },
   {
     label: "Focused on Quality",
-    icon: "https://img.icons8.com/color/48/000000/approval.png",
+    icon: icon8,
   },
   {
     label: "Agile & Aware",
-    icon: "https://img.icons8.com/color/48/000000/artificial-intelligence.png",
+    icon: icon9,
   },
   {
     label: "Fully Accountable",
-    icon: "https://img.icons8.com/color/48/000000/facebook-like.png",
+    icon: icon10,
   },
 ];
 

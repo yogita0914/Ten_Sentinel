@@ -14,7 +14,7 @@ const BlogDetail = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-2 py-8">
+    <div className="max-w-6xl mx-auto px-2 py-8 pt-22">
       <div className="w-full flex justify-center mb-8 pt-14 px-4 sm:px-0 rounded-2xl">
         <img
           src={blog.image}

@@ -40,7 +40,7 @@ const ServiceCard = ({ service, index }) => {
         scale: 1.03,
         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
       }}
-      className={`bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-${service.color.split(' ')[1]}`}
+      className={`bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-sky-800`}
     >
       <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl mb-4 sm:mb-6 flex items-center justify-center bg-gradient-to-br ${service.color} bg-opacity-10`}>
         {service.icon}

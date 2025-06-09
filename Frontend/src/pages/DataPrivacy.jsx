@@ -1,16 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Lock, CheckCircle } from "lucide-react";
-import service1 from '../../src/assets/DataPrivacy/service1.png';
-import service2 from '../../src/assets/DataPrivacy/service2.webp';
-import service3 from '../../src/assets/DataPrivacy/service3.png';
-import service4 from '../../src/assets/DataPrivacy/service4.png';
-import service5 from '../../src/assets/DataPrivacy/service5.png';
-import service6 from '../../src/assets/DataPrivacy/service6.png';
+import { Lock, CheckCircle, Shield } from "lucide-react";
+import service1 from '../assets/DataPrivacy/service1.png';
+import service2 from '../assets/DataPrivacy/service2.webp';
+import service3 from '../assets/DataPrivacy/service3.png';
+import service4 from '../assets/DataPrivacy/service4.png';
+import service5 from '../assets/DataPrivacy/service5.png';
+import service6 from '../assets/DataPrivacy/service6.png';
 import hero from '../assets/DataPrivacy/hero.avif';
 import content from '../assets/DataPrivacy/content.webp';
 import shield from '../assets/DataPrivacy/shield.avif';
-
 
 
 const solutions = [
@@ -334,51 +333,57 @@ const DataPrivacy = () => {
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                       Company Email:
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                    Company Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                    placeholder="Tell us about your security needs"
-                  ></textarea>
-                </div>
-                
-                <div className="flex justify-center">
-                <button
-                  type="submit"
-                  className="w-45 cursor-pointer text-sm md:text-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-300"
-                >
-                  Submit Form
-                </button>
-                </div>
-              </form>
-            </div>
-          </motion.div>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Company Name:
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                      placeholder="Tell us about your security needs"
+                    ></textarea>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <button
+                      type="submit"
+                      className="w-45 cursor-pointer text-sm md:text-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-300"
+                    >
+                      Submit Form
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };

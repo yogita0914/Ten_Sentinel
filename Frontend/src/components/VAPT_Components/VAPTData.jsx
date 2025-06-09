@@ -1,21 +1,24 @@
 import React from "react";
+import review1 from '../../assets/Vapt/review1.avif'
+import review2 from '../../assets/Vapt/review2.avif'
+import review3 from '../../assets/Vapt/review3.avif'
 
 export const vaptContent = {
   reviews: [
     {
-      img: "https://img.freepik.com/free-photo/confident-handsome-guy-posing-against-white-wall_176420-32936.jpg?t=st=1746739713~exp=1746743313~hmac=8ffc43466e3196893fbd57d995876f813a7bcf7e37c661469b5e3ba37e398fe0&w=740",
+      img: review1,
       name: "Rohit Sharma",
       title: "Head of IT",
       text: "Since partnering with The Entrepreneurship Network, we've elevated our entire security framework. Their team's expertise, especially during VAPT engagements, has given us complete confidence in our defenses. They're more than just a service provider—they're a security partner we can rely on.",
     },
     {
-      img: "https://img.freepik.com/free-photo/handsome-young-cheerful-man-with-arms-crossed_171337-1073.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740",
+      img: review2,
       name: "Pranathi Desai",
       title: "Security Analyst",
       text: "The Entrepreneurship Network exceeded our expectations. Their manual testing approach uncovered vulnerabilities we hadn't even considered. The dedication and clarity they provided throughout the process made a big difference for our team.",
     },
     {
-      img: "https://img.freepik.com/free-photo/indoor-shot-pretty-student-girl-with-cute-broad-smile_273609-13865.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740",
+      img: review3,
       name: "Larissa Almeida",
       title: "IT Manager",
       text: "I can't recommend The Entrepreneurship Network enough! Their professionalism, attention to detail, and thorough reports made it easy for us to enhance our security posture. Their Safe-to-Host certification has greatly boosted our credibility with clients.",

@@ -1,5 +1,62 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import { HelpCircle, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import HeroSection from "../../components/cloud-security/HeroSection";
+import GetInTouchImage from "../../assets/GetInTouch.png";
+import CS2 from "../../assets/Cyber attack analysis images/CS2.jpg";
+console.log(CS2);
+
+
+const containerTextVariant = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const textLineVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.4, ease: "easeOut" }
+  },
+};
+
+const jumpHoverVariant = {
+  hover: {
+    scale: 1.08,
+    y: -14,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 18,
+    },
+  },
+};
+
+const floatingAnimation = {
+  y: [0, -6, 0],
+  transition: {
+    duration: 3,
+    ease: "easeInOut",
+    repeat: Infinity,
+    repeatType: "loop",
+  },
+};
+
+const faqAnswerVariant = {
+  closed: { opacity: 0, height: 0, y: -10, transition: { duration: 0.3 } },
+  open: {
+    opacity: 1,
+    height: "auto",
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 const EmployeeTraining = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -8,92 +65,212 @@ const EmployeeTraining = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const GetInTouchForm = () => {
+    return (
+      <section className="bg-gray-50 mb-10" id="contact">
+        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
+          {/* Left illustration */}
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <img
+              src={GetInTouchImage}
+              alt="FAQ Illustration"
+              className="hidden min-[769px]:block w-full h-[450px] object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Right form */}
+          <div className="w-full lg:w-1/2 bg-white shadow-xl rounded-xl p-8">
+            <h2 className="text-3xl font-semibold text-center mb-6">
+              Get In Touch <br />
+              <span className="text-blue-600 font-bold">By filling this form ↓</span>
+            </h2>
+
+            {/* Form */}
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  { type: "text", placeholder: "Name" },
+                  { type: "email", placeholder: "Company Email" },
+                  { type: "tel", placeholder: "Phone Number" },
+                  { type: "text", placeholder: "Company Name" },
+                ].map(({ type, placeholder }) => (
+                  <input
+                    key={placeholder}
+                    type={type}
+                    placeholder={placeholder}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
+                  />
+                ))}
+              </div>
+
+              {/* Call time selection */}
+              <div>
+                <label className="block font-medium text-gray-700 mb-2">
+                  When do we call you? <span className="text-red-500">*</span>
+                </label>
+                <div className="flex gap-3 flex-wrap">
+                  {["9-12 PM", "12-3 PM", "3-6 PM"].map((time) => (
+                    <button
+                      type="button"
+                      key={time}
+                      className="border border-blue-500 text-blue-600 px-4 py-2 rounded-full hover:bg-blue-500 hover:text-white transition"
+                    >
+                      {time}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Message box */}
+              <textarea
+                rows="4"
+                placeholder="Please outline the queries or issues you need help with!"
+                className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
+              />
+
+              {/* Submit button */}
+              <button
+                type="submit"
+                className="w-36 mx-auto block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              >
+                SUBMIT FORM
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
   return (
-    <div className="bg-gray-50 text-center font-sans">
-      {/* Header */}
-      <header
-  className="relative bg-cover bg-center flex flex-col items-center justify-center text-center text-white px-4 pt-36 pb-10"
-
-        style={{
-          backgroundImage:
-            "linear-gradient(to bottom, #06b6d4, #3b82f6), url('/images/ET23.jpg')",
-          backgroundBlendMode: "overlay",
-        }}
-      >
-        <h1 className="text-3xl md:text-5xl font-bold mb-2 md:text-left">
-          Employee Awareness & Training
-        </h1>
-        <p className="text-lg md:text-xl font-medium tracking-wide md:text-left !text-cyan-200 drop-shadow-md">
-          Grow. Escalate. Learn
-        </p>
-      </header>
-
-<section className="w-full bg-white">
-  <div className="max-w-6xl mx-auto p-6">
-    <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800 text-center">
-      Empower Your People to Protect Your Organization
-    </h2>
-
-    {/* Image ONLY visible at md (768px), stacked above text */}
-    <div className="hidden md:block lg:hidden mb-10">
-      <img
-        src="./employee training images/ET32.png"
-        alt="Training Session"
-        className="rounded-lg shadow-lg w-full max-w-3xl object-cover mx-auto"
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      className="bg-gray-50 text-center font-sans"
+    >
+      {/* Hero Section with subtitle animation */}
+      <HeroSection
+        backgroundImage={CS2} // Updated to use CS2 directly
+        title="Employee Awareness & Training"
+        subtitle={
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ display: "inline-block" }}
+          >
+            Grow. Escalate. Learn
+          </motion.span>
+        }
+        Icon={HelpCircle} // Icon passed here properly
+        ShowButton={true}
       />
-    </div>
 
-    {/* Side-by-side layout for lg and above */}
-    <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-stretch">
-      {/* Image */}
-      <div className="flex justify-center h-full">
-        <img
-          src="/employee training images/ET32.png"
-          alt="Training Session"
-          className="rounded-lg shadow-lg w-full h-full max-w-3xl object-cover"
-        />
-      </div>
+      {/* Text Section with synchronized fade/slide */}
+      <motion.section
+        className="w-full bg-white"
+        variants={containerTextVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        style={{ overflow: "hidden" }}
+      >
+        <div className="max-w-6xl mx-auto p-6">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-10 text-gray-800 text-center"
+            variants={textLineVariant}
+          >
+            Empower Your People to Protect Your Organization
+          </motion.h2>
 
-      {/* Content */}
-      <div className="w-full text-left flex flex-col justify-center h-full">
-        <p className="text-lg text-gray-700 mb-4">
-          Regardless of how sophisticated your organization’s security systems are, the human factor always introduces potential vulnerabilities. In fact, human error continues to be a leading cause of data breaches.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          Ten Sentinel offers a comprehensive approach to cybersecurity education through both general end-user awareness and role-based training, helping your employees stay informed and vigilant.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          By fostering a culture of security awareness, you enable employees to become your first line of defense. Empowered users recognize threats, respond quickly, and contribute to a safer digital environment.
-        </p>
-      </div>
-    </div>
+          {/* Image visible md only */}
+          <motion.div
+            className="hidden md:block lg:hidden mb-10"
+            variants={textLineVariant}
+          >
+            <img
+              src="./employee training images/ET32.png"
+              alt="Training Session"
+              className="rounded-lg shadow-lg w-full max-w-3xl object-cover mx-auto"
+            />
+          </motion.div>
 
-    {/* Content for mobile and md (768px), excluding large screens */}
-    <div className="block lg:hidden">
-      <div className="w-full text-left">
-        <p className="text-lg text-gray-700 mb-4">
-          Regardless of how sophisticated your organization’s security systems are, the human factor always introduces potential vulnerabilities. In fact, human error continues to be a leading cause of data breaches.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          Ten Sentinel offers a comprehensive approach to cybersecurity education through both general end-user awareness and role-based training, helping your employees stay informed and vigilant.
-        </p>
-        <p className="text-lg text-gray-700 mb-4">
-          By fostering a culture of security awareness, you enable employees to become your first line of defense. Empowered users recognize threats, respond quickly, and contribute to a safer digital environment.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Side-by-side large */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-stretch">
+            <motion.div
+              className="flex justify-center h-full"
+              variants={textLineVariant}
+            >
+              <img
+                src="/employee training images/ET32.png"
+                alt="Training Session"
+                className="rounded-lg shadow-lg w-full h-full max-w-3xl object-cover"
+              />
+            </motion.div>
 
+            <motion.div
+              className="w-full text-left flex flex-col justify-center h-full"
+              variants={containerTextVariant}
+            >
+              {[
+                "Regardless of how sophisticated your organization’s security systems are, the human factor always introduces potential vulnerabilities. In fact, human error continues to be a leading cause of data breaches.",
+                "Ten Sentinel offers a comprehensive approach to cybersecurity education through both general end-user awareness and role-based training, helping your employees stay informed and vigilant.",
+                "By fostering a culture of security awareness, you enable employees to become your first line of defense. Empowered users recognize threats, respond quickly, and contribute to a safer digital environment.",
+              ].map((text, idx) => (
+                <motion.p
+                  key={idx}
+                  className="text-lg text-gray-700 mb-4"
+                  variants={textLineVariant}
+                >
+                  {text}
+                </motion.p>
+              ))}
+            </motion.div>
+          </div>
 
-      {/* Human Element */}
-      <section className="w-full bg-gray-100 py-12 px-4 sm:px-8">
+          {/* Text content for mobile/md under lg */}
+          <motion.div
+            className="block lg:hidden"
+            variants={containerTextVariant}
+          >
+            {[
+              "Regardless of how sophisticated your organization’s security systems are, the human factor always introduces potential vulnerabilities. In fact, human error continues to be a leading cause of data breaches.",
+              "Ten Sentinel offers a comprehensive approach to cybersecurity education through both general end-user awareness and role-based training, helping your employees stay informed and vigilant.",
+              "By fostering a culture of security awareness, you enable employees to become your first line of defense. Empowered users recognize threats, respond quickly, and contribute to a safer digital environment.",
+            ].map((text, idx) => (
+              <motion.p
+                className="text-lg text-gray-700 mb-4 text-left"
+                variants={textLineVariant}
+                key={`mobile-text-${idx}`}
+              >
+                {text}
+              </motion.p>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Human Element Cards with jump + floating */}
+      <motion.section
+        className="w-full bg-gray-100 py-12 px-4 sm:px-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerTextVariant}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[...Array(3)].map((_, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl flex flex-col h-full bg-white shadow-md ${(index === 2) ? "md:col-span-2 lg:col-span-1" : ""}`}
+                className={
+                  "rounded-lg overflow-hidden flex flex-col h-full bg-white shadow-md cursor-pointer " +
+                  (index === 2 ? " md:col-span-2 lg:col-span-1 " : "")
+                }
+                variants={jumpHoverVariant}
+                whileHover="hover"
+                style={{ originY: 1 }}
+                animate={floatingAnimation}
               >
                 <div className="h-48 md:h-64 lg:h-48 w-full">
                   <img
@@ -110,174 +287,188 @@ const EmployeeTraining = () => {
                     className="w-full h-full object-cover rounded-t-lg"
                   />
                 </div>
-                <div className="flex flex-col justify-start p-6 h-full">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <motion.div
+                  className="flex flex-col justify-start p-6 h-full"
+                  variants={containerTextVariant}
+                >
+                  <motion.h3
+                    className="text-xl font-semibold text-gray-800 mb-3"
+                    variants={textLineVariant}
+                  >
                     {[
                       "The Human Element",
                       "On-Demand Training",
                       "Completed Annually",
                     ][index]}
-                  </h3>
-                  <p className="text-gray-700 text-sm">
+                  </motion.h3>
+                  <motion.p
+                    className="text-gray-700 text-sm"
+                    variants={textLineVariant}
+                  >
                     {[
                       "The most effective way to train your employees in strengthening the human aspect of your company’s security is through cybersecurity awareness programs. This is especially critical for remote workers, as phishing, social engineering, compromised passwords, and insecure network practices can put your business at risk of attacks.",
                       "Cybersecurity training is usually offered on demand through online courses, allowing learners to complete it at their own pace, access it from anywhere, and revisit the material as needed. Interactive and engaging training is essential for driving real change in user behavior.",
                       "To ensure employees remain up-to-date on protecting themselves online and stay informed about new and evolving threats, annual training is recommended. Additionally, many business compliance and insurance regulations require training to be completed at least once a year.",
                     ][index]}
-                  </p>
+                  </motion.p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Purpose Section */}
+      <motion.section
+        className="w-full bg-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerTextVariant}
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:w-[95%]">
+          <motion.div className="text-center mb-8 md:mb-10">
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-2xl xl:text-3xl font-bold text-gray-800 mb-4 text-center max-w-full"
+              variants={textLineVariant}
+            >
+              What is the Goal of Cybersecurity Awareness Training for Employees?
+            </motion.h2>
+          </motion.div>
+
+          {/* Layout */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-stretch">
+            <motion.div
+              className="hidden md:flex justify-center items-center"
+              variants={textLineVariant}
+            >
+              <div className="overflow-hidden md:rounded-l-xl md:rounded-r-xl bg-gray-100 w-full max-w-2xl">
+                <img
+                  src="/employee training images/ET26.jpeg"
+                  alt="Benefits of Training"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col justify-center text-left text-gray-700 text-base leading-relaxed md:text-lg"
+              variants={containerTextVariant}
+            >
+              {[
+                "The goal of cybersecurity awareness training is to build a strong human firewall within the organization. It prepares employees to identify and avoid phishing emails, social engineering attacks, and unsafe online behavior.",
+                "Employees are often the weakest link in security. Training transforms them into informed individuals who can detect red flags, follow best practices, and reduce risk across digital workflows.",
+                "Ultimately, the program helps prevent data breaches, protects sensitive assets, and fosters a proactive security culture at every level of the organization.",
+              ].map((text, idx) => (
+                <motion.p
+                  key={`purpose-text-${idx}`}
+                  className="mb-4"
+                  variants={textLineVariant}
+                >
+                  {text}
+                </motion.p>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Feature Cards */}
+      <motion.section
+        className="w-full bg-gray-100"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerTextVariant}
+      >
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              "Social Engineering Attacks",
+              "Password Management",
+              "Official Devices",
+              "Devices Security",
+              "Data Security",
+              "Incident Management",
+            ].map((label, index) => (
+              <motion.div
+                key={index}
+                className="border border-gray-200 rounded-xl shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col items-center justify-between p-4 h-[220px] box-border cursor-pointer"
+                whileHover="hover"
+                variants={jumpHoverVariant}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                animate={floatingAnimation}
+              >
+                <img
+                  src={[
+                    "/employee training images/ET7.png",
+                    "/employee training images/ET8.png",
+                    "/employee training images/ET11.png",
+                    "/employee training images/ET13.png",
+                    "/employee training images/ET14.png",
+                    "/employee training images/ET16.jpeg",
+                  ][index]}
+                  alt={label}
+                  className="w-full h-32 object-contain mb-2"
+                />
+                <h3 className="text-md font-semibold text-yellow-600 text-center">
+                  {label}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Contact form */}
+      <GetInTouchForm />
+
+      {/* FAQ Section */}
+      <motion.section
+        className="w-full bg-gray-100"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerTextVariant}
+      >
+        <div className="max-w-3xl mx-auto px-4 py-10">
+          <h2 className="text-3xl font-bold text-center mb-6">FAQs</h2>
+          <div className="flex flex-col gap-4 text-sm text-gray-800">
+            {faqList.map((item, i) => (
+              <div
+                key={i}
+                className="border border-gray-200 rounded-md overflow-hidden bg-white"
+              >
+                <div
+                  onClick={() => toggleFAQ(i)}
+                  className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 select-none"
+                >
+                  <p className="font-semibold text-base text-left">{item.question}</p>
+                  <motion.div
+                    animate={{ rotate: openIndex === i ? 180 : 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="w-5 h-5 min-w-[20px] min-h-[20px]"
+                  >
+                    <ChevronDown />
+                  </motion.div>
                 </div>
+                <motion.div
+                  initial="closed"
+                  animate={openIndex === i ? "open" : "closed"}
+                  variants={faqAnswerVariant}
+                  className="overflow-hidden px-4 pt-0 text-left text-gray-700 bg-gray-200 border-t border-gray-300"
+                >
+                  {item.answer}
+                </motion.div>
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-{/* Purpose */}
-<section className="w-full bg-white">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:w-[95%]">
-    <div className="text-center mb-8 md:mb-10">
-<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-2xl xl:text-3xl font-bold text-gray-800 mb-4 text-center max-w-full">
-  What is the Goal of Cybersecurity Awareness Training for Employees?
-</h2>
-    </div>
-
-    {/* Responsive layout: stack at md, side-by-side at lg */}
-    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-stretch">
-      
-      {/* Image Wrapper with side curves at md+ */}
-      <div className="hidden md:flex justify-center items-center">
-        <div className="overflow-hidden md:rounded-l-xl md:rounded-r-xl bg-gray-100 w-full max-w-2xl">
-          <img
-            src="/employee training images/ET26.jpeg"
-            alt="Benefits of Training"
-            className="w-full h-auto object-contain"
-          />
-        </div>
-      </div>
-
-      {/* Text Content */}
-      <div className="flex flex-col justify-center text-left text-gray-700 text-base leading-relaxed md:text-lg">
-        <p className="mb-4">
-          The goal of cybersecurity awareness training is to build a strong human firewall within the organization. It prepares employees to identify and avoid phishing emails, social engineering attacks, and unsafe online behavior.
-        </p>
-        <p className="mb-4">
-          Employees are often the weakest link in security. Training transforms them into informed individuals who can detect red flags, follow best practices, and reduce risk across digital workflows.
-        </p>
-        <p>
-          Ultimately, the program helps prevent data breaches, protects sensitive assets, and fosters a proactive security culture at every level of the organization.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Feature Cards */}
-<section className="w-full bg-gray-100">
-  <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-6">
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {[
-        "Social Engineering Attacks",
-        "Password Management",
-        "Official Devices",
-        "Devices Security",
-        "Data Security",
-        "Incident Management",
-      ].map((label, index) => (
-        <div
-          key={index}
-          className="border border-gray-200 rounded-xl shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col items-center justify-between p-4 h-[220px] box-border"
-        >
-          <img
-            src={[
-              "/employee training images/ET7.png",
-              "/employee training images/ET8.png",
-              "/employee training images/ET11.png",
-              "/employee training images/ET13.png",
-              "/employee training images/ET14.png",
-              "/employee training images/ET16.jpeg",
-            ][index]}
-            alt={label}
-            className="w-full h-32 object-contain mb-2"
-          />
-          <h3 className="text-md font-semibold text-yellow-600 text-center">
-            {label}
-          </h3>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-    {/* Contact Section */}
-      <section className="w-full bg-white">
-        <div className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
-          <div className="flex justify-center">
-            <img
-              src="/employee training images/ET21.jpg"
-              alt="Get in Touch Illustration"
-              className="rounded-lg max-w-full h-auto hidden md:block"
-            />
-          </div>
-          <div className="w-full max-w-md">
-            <h2 className="text-xl font-bold mb-1">Get In Touch</h2>
-            <p className="text-sm text-gray-600 mb-4">By filling this form ↓</p>
-            <form className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-              <input type="text" placeholder="Name" className="p-2 border rounded-md" />
-              <input type="email" placeholder="Company Email" className="p-2 border rounded-md" />
-              <input type="tel" placeholder="Phone Number" className="p-2 border rounded-md" />
-              <input type="text" placeholder="Company Name" className="p-2 border rounded-md" />
-              <textarea
-                placeholder="Please outline the queries or issues you need help with!"
-                className="sm:col-span-2 p-2 border rounded-md h-24"
-              />
-              <button
-  type="submit"
-  className="sm:col-span-2 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 mx-auto w-32"
->
-  SUBMIT FORM
-</button>
-
-            </form>
-          </div>
-        </div>
-      </section>
-
-
-{/* FAQ Section */}
-
-      <section className="w-full bg-gray-100">
-  <div className="max-w-3xl mx-auto px-4 py-10">
-  <h2 className="text-3xl font-bold text-center mb-6">FAQs</h2>
-    <div className="flex flex-col gap-4 text-sm text-gray-800">
-      {faqList.map((item, i) => (
-        <div
-          key={i}
-          className="border border-gray-200 rounded-md overflow-hidden bg-white"
-        >
-          <div
-            onClick={() => toggleFAQ(i)}
-            className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50"
-          >
-            <p className="font-semibold text-base text-left">{item.question}</p>
-            <ChevronDown
-              className={`w-5 h-5 min-w-[20px] min-h-[20px] transition-transform duration-300 ${
-                openIndex === i ? "rotate-180" : ""
-              }`}
-            />
-          </div>
-        {openIndex === i && (
-  <div className="p-4 pt-0 text-left text-gray-700 bg-gray-200 border-t border-gray-300">
-    {item.answer}
-  </div>
-)}
-  </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
+
 
 const faqList = [
   {
@@ -338,3 +529,4 @@ const faqList = [
 ];
 
 export default EmployeeTraining;
+
