@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { PrivacyPage} from "./pages/PrivacyPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
 import Security_Audits from "./pages/Security_Audits";
 import { WebDesignPage } from "./pages/WebDesignPage";
 import LandingPage from "./pages/LandingPage";
@@ -79,9 +79,9 @@ const App = () => {
               path="/Training-Certifications"
               element={<Training_and_Certifications />}
             />
-              <Route path="/aws-sentinel" element={<AWSSentinel />} />
-          <Route path="/orbital" element={<OrbitalDiagram/>}/>
-          <Route path="/orbital" element={<OrbitalDiagram2/>}/>
+            <Route path="/aws-sentinel" element={<AWSSentinel />} />
+            <Route path="/orbital" element={<OrbitalDiagram />} />
+            <Route path="/orbital" element={<OrbitalDiagram2 />} />
           </Routes>
         </main>
         <Footer />

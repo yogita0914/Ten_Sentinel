@@ -15,11 +15,11 @@ const GetInTouch_Section = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Special handling for phone number to only allow digits
     if (name === "phone") {
       // Remove all non-digit characters
-      const digitsOnly = value.replace(/\D/g, '');
+      const digitsOnly = value.replace(/\D/g, "");
       setFormData({ ...formData, [name]: digitsOnly });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -49,8 +49,10 @@ const GetInTouch_Section = () => {
       newErrors.phone = "Invalid phone number";
     }
 
-    if (!formData.company.trim()) newErrors.company = "Company name is required";
-    if (!formData.callTime) newErrors.callTime = "Please select a preferred call time";
+    if (!formData.company.trim())
+      newErrors.company = "Company name is required";
+    if (!formData.callTime)
+      newErrors.callTime = "Please select a preferred call time";
     if (!formData.message.trim()) newErrors.message = "Message is required";
 
     setErrors(newErrors);
@@ -92,7 +94,9 @@ const GetInTouch_Section = () => {
         <div className="w-full bg-white shadow-lg rounded-2xl p-6">
           <h2 className="text-3xl font-semibold text-center mb-4 leading-tight">
             Get In Touch <br />
-            <span className="text-blue-600 font-bold">By filling this form ↓</span>
+            <span className="text-blue-600 font-bold">
+              By filling this form ↓
+            </span>
           </h2>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
@@ -107,7 +111,9 @@ const GetInTouch_Section = () => {
                   onChange={handleChange}
                   className="w-full p-3 border rounded-lg focus:ring-2 shadow-sm transition focus:outline-none focus:ring-blue-500 border-gray-300"
                 />
-                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <input
@@ -118,7 +124,9 @@ const GetInTouch_Section = () => {
                   onChange={handleChange}
                   className="w-full p-3 border rounded-lg focus:ring-2 shadow-sm transition focus:outline-none focus:ring-blue-500 border-gray-300"
                 />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
               <div>
                 <input
@@ -132,7 +140,9 @@ const GetInTouch_Section = () => {
                   inputMode="numeric"
                   maxLength="10"
                 />
-                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
               </div>
               <div>
                 <input
@@ -143,7 +153,9 @@ const GetInTouch_Section = () => {
                   onChange={handleChange}
                   className="w-full p-3 border rounded-lg focus:ring-2 shadow-sm transition focus:outline-none focus:ring-blue-500 border-gray-300"
                 />
-                {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
+                {errors.company && (
+                  <p className="text-red-500 text-sm mt-1">{errors.company}</p>
+                )}
               </div>
             </div>
 
@@ -168,7 +180,9 @@ const GetInTouch_Section = () => {
                   </button>
                 ))}
               </div>
-              {errors.callTime && <p className="text-red-500 text-sm mt-1">{errors.callTime}</p>}
+              {errors.callTime && (
+                <p className="text-red-500 text-sm mt-1">{errors.callTime}</p>
+              )}
             </div>
 
             {/* Message Box */}
@@ -181,7 +195,9 @@ const GetInTouch_Section = () => {
                 onChange={handleChange}
                 className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
               />
-              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              )}
             </div>
 
             {/* Submit Button */}

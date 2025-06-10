@@ -12,6 +12,7 @@
   "dependencies": {
     "@biomejs/biome": "^1.9.4",
     "@heroicons/react": "^2.2.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/vite": "^4.1.4",
     "bootstrap": "^5.3.5",
     "class-variance-authority": "^0.7.1",

@@ -43,7 +43,7 @@ const OrbitalDiagram2 = () => {
 
                     <div className="mb-10 p-6 bg-gradient-to-br from-slate-50 to-gray-100 rounded-xl shadow-xl text-center">
                         <div className="flex justify-center items-center mb-3">
-                            <activeStep.icon className={`h-10 w-10 ${activeStep.bgColor.replace('bg-', 'text-')} rounded-full p-2 mr-3`} />
+                            {/* <activeStep.icon className={`h-10 w-10 ${activeStep.bgColor.replace('bg-', 'text-')} rounded-full p-2 mr-3`} /> */}
                             <h3 className="text-xl font-semibold text-gray-800">{activeStep.title}</h3>
                         </div>
                         <p className="text-sm text-gray-600">{activeStep.description}</p>
