@@ -1,13 +1,16 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Lock, CheckCircle } from "lucide-react";
+import phishing1 from "../../assets/PhishingSimulation/phishing1.jpg";
+
+
 
 const Home = () =>{
     return(
         <div>
             <header
         className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
-        style={{ backgroundImage: `url(https://stage2data.com/wp-content/uploads/2019/11/AdobeStock_182812671-resized.jpg)` }}
+        style={{ backgroundImage: `url(${phishing1})` }}
       >
         {/* Gradient Overlay */}
         <motion.div

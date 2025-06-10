@@ -8,6 +8,7 @@ import { VAPTMethodology } from "../components/VAPT_Components/VAPTMethodology";
 import { VAPTBenefits } from "../components/VAPT_Components/VAPTBenefits";
 import { VAPTContactForm } from "../components/VAPT_Components/VAPTContactForm";
 import { VAPTFAQs } from "../components/VAPT_Components/VAPTFAQs";
+import Testimonials  from "../components/LandingPage/Testimonials";
 
 export const VAPT = () => {
   return (
@@ -16,10 +17,16 @@ export const VAPT = () => {
 
       <div className="px-6 flex flex-col gap-12 md:px-12 lg:px-20">
         <VAPTAbout />
-        <VAPTReviews />
+        </div>
+        
+        <Testimonials />
+
+        <div className="px-6 flex flex-col gap-12 md:px-12 lg:px-20">
         <VAPTPlatforms />
         <VAPTMethodology />
-      </div>
+        </div>
+        
+      
 
       <VAPTBenefits />
       <VAPTContactForm />

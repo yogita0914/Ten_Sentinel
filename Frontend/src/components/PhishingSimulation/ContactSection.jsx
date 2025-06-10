@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
+import contact from '../../assets/PhishingSimulation/contact.png';
 
 const ContactUs = forwardRef((ref) => {
   return (
@@ -7,7 +8,7 @@ const ContactUs = forwardRef((ref) => {
       {/* Left Side - Image */}
       <div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0">
         <img
-          src="https://png.pngtree.com/png-clipart/20220620/original/pngtree-customer-service-png-illustration-image-png-image_8137014.png"
+          src= {contact}
           alt="Contact Illustration"
           className="max-w-[90%] h-full md:max-w-full"
         />

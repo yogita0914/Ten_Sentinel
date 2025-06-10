@@ -1,6 +1,7 @@
 // src/components/VAPT/VAPTContactForm.js
 import React from 'react';
 import { motion } from 'framer-motion';
+import image2 from '../../assets/Vapt/image2.avif';
 
 export const VAPTContactForm = () => {
   return (
@@ -11,7 +12,7 @@ export const VAPTContactForm = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           <motion.div>
-            <img src="https://img.freepik.com/free-vector/branding-identity-corporate-vector-logo-v-design_460848-9106.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740" alt="Contact Us" />
+            <img src={image2} alt="Contact Us" />
           </motion.div>
           <motion.div
             className="w-full lg:w-1/2"

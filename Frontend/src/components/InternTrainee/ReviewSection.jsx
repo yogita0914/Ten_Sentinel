@@ -3,6 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import img1 from '../../assets/InternTrainee/img1.jpg';
+import img2 from '../../assets/InternTrainee/img2.jpeg';
+import img3 from '../../assets/InternTrainee/img3.jpg';
+import img4 from '../../assets/InternTrainee/img4.jpg';
+import img5 from '../../assets/InternTrainee/img5.jpg';
+
 
 const studentReview = [
   {
@@ -10,39 +16,35 @@ const studentReview = [
     desc: " Joining Ten Sentinel’s cyber security program was one of the best decisions I made. The training was beginner-friendly but gradually covered advanced topics. The instructors were knowledgeable and always ready to help. I now feel confident about entering the cybersecurity field.",
     name: "Ritika Sharma",
     date: "25 March 2024",
-    studentImg:
-      "https://static.vecteezy.com/system/resources/previews/030/798/365/non_2x/beautiful-asian-girl-wearing-over-size-hoodie-in-casual-style-ai-generative-photo.jpg",
+    studentImg:img1,
   },
   {
     id: 2,
     desc: "What I loved most was the hands-on exposure. We worked on real-time threat simulations and got to understand how cyber attacks are detected and prevented. It wasn’t just theory—everything was practical and up to industry standards.",
     name: "Aman Verma",
     date: "15 Feb 2024",
-    studentImg:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNs1Nu8YGp0GjI9eYeA-L8A_jW7Z8Napam1GyRIuRPTXHt-pfKCvTDgDTDvGi7qJmT2ZE&usqp=CAU",
+    studentImg:img2,
   },
   {
     id: 3,
     desc: "The mentors at Ten Sentinel are industry professionals who genuinely care about your progress. I got personalized guidance throughout the internship, and their feedback helped me improve immensely.",
     name: " Sneha Patil",
     date: "20 Aug 2024",
-    studentImg: "https://randomuser.me/api/portraits/women/3.jpg",
+    studentImg: img3,
   },
   {
     id: 4,
     desc: "The best part? I got placed right after completing the internship! Their job assistance and resume-building sessions were incredibly helpful. I’m now working as a junior security analyst.",
     name: "Rohit Mehta",
     date: "17 June 2024",
-    studentImg:
-      "https://c1.wallpaperflare.com/preview/369/675/600/boy-life-style-fashion-smile.jpg",
+    studentImg:img4,
   },
   {
     id: 5,
     desc: "As someone with no background in cybersecurity, I was a bit nervous. But the course was structured so well, starting from the basics and slowly building up. By the end of it, I was confident in using various tools and writing basic scripts.",
     name: "Neha Gupta",
     date: "15 Feb 2025",
-    studentImg:
-      "https://www.shutterstock.com/shutterstock/photos/2151833739/display_1500/stock-photo-portrait-of-a-young-latin-woman-with-pleasant-smile-and-crossed-arms-isolated-on-grey-wall-with-2151833739.jpg",
+    studentImg:img5,
   },
 ];
 

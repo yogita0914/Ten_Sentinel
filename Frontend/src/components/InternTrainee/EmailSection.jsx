@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import email from '../../assets/InternTrainee/email.avif';
 
 const EmailSection = () => {
   return (
@@ -45,7 +46,7 @@ const EmailSection = () => {
 
           {/* Email logo */}
           <img
-            src="https://img.freepik.com/premium-vector/envelope-email-icon-vector-template-logo-trendy-collection-flat-design_917138-8582.jpg"
+            src={email}
             alt="Email Icon"
             className="w-20 h-20 object-contain mb-3"
           />

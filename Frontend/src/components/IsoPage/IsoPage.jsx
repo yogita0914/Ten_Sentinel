@@ -4,6 +4,28 @@ import { motion } from "framer-motion";
 // import { hero } from "../../assets/data/cloudSecurity";
 import { ShieldCheck } from "lucide-react";
 import { useState } from "react";
+import hero from '../../assets/IsoPage/hero.avif';
+import img1 from '../../assets/IsoPage/img1.avif';
+import img2 from '../../assets/IsoPage/img2.webp';
+import img3 from '../../assets/IsoPage/img3.webp';
+import img4 from '../../assets/IsoPage/img4.avif';
+import icon1 from '../../assets/IsoPage/icon1.png';
+import icon2 from '../../assets/IsoPage/icon2.jpg';
+import icon3 from '../../assets/IsoPage/icon3.avif';
+import icon4 from '../../assets/IsoPage/icon4.avif';
+import icon5 from '../../assets/IsoPage/icon5.avif';
+import icon6 from '../../assets/IsoPage/icon6.avif';
+import icon7 from '../../assets/IsoPage/icon7.avif';
+import icon8 from '../../assets/IsoPage/icon8.avif';
+import b1 from '../../assets/IsoPage/b1.png';
+import b2 from '../../assets/IsoPage/b2.png';
+import b3 from '../../assets/IsoPage/b3.png';
+import b4 from '../../assets/IsoPage/b4.png';
+import b5 from '../../assets/IsoPage/b5.png';
+import b6 from '../../assets/IsoPage/b6.png';
+import b7 from '../../assets/IsoPage/b7.png';
+import b8 from '../../assets/IsoPage/b8.png';
+import check from '../../assets/IsoPage/check.png';
 
 const ISO27001CertificationPage = () => {
   return (
@@ -11,7 +33,7 @@ const ISO27001CertificationPage = () => {
       <header
         className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
         style={{
-          backgroundImage: `url(https://img.freepik.com/free-vector/cyber-security-concept_53876-93472.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740)`,
+          backgroundImage: `url(${hero})`,
         }}
       >
         {/* Gradient Overlay */}
@@ -93,7 +115,7 @@ const ISO27001CertificationPage = () => {
               <div
                 className="w-full h-[200px] sm:h-[250px] md:h-[350px] relative text-white overflow-hidden flex-shrink-0 mt-6 md:mt-8"
                 style={{
-                  backgroundImage: `url(https://img.freepik.com/premium-photo/iso-27001-concept-businessman-use-laptop-with-virtual-iso-27001-icon-information-security-management-system-isms-requirements-certification-management-standards_562687-6447.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740)`,
+                  backgroundImage: `url(${img1})`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   backgroundSize: "cover",
@@ -208,7 +230,7 @@ const ISO27001CertificationPage = () => {
               <div
                 className="w-full h-[200px] sm:h-[250px] md:h-[350px] shadow-lg flex-shrink-0 mt-6 md:mt-8"
                 style={{
-                  backgroundImage: `url(https://acresecurity.com/hubfs/Website/Blogs/ISO%2027001%20blog%20post.jpg)`,
+                  backgroundImage: `url(${img2})`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   backgroundSize: "cover",
@@ -234,7 +256,7 @@ const ISO27001CertificationPage = () => {
               <div
                 className="w-full h-[200px] sm:h-[250px] md:h-[350px] lg:h-[400px] flex-shrink-0 mt-6 md:mt-8"
                 style={{
-                  backgroundImage: `url(https://isoplanner.app/wp-content/uploads/2024/11/Best-ISO-27001-certification-software.jpg)`,
+                  backgroundImage: `url(${img3})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -260,42 +282,42 @@ const ISO27001CertificationPage = () => {
                 {
                   title: "Define Scope",
                   desc: "Understand the requirement and define the scope accordingly",
-                  icon: "https://media.globaldev.tech/images/how_to_build_an_online_marketplace_image_1.width-800.png",
+                  icon: icon1,
                 },
                 {
                   title: "Current State Analysis",
                   desc: "Analyze what controls are implemented currently",
-                  icon: "https://www.controlautomationsolutions.com/wp-content/uploads/2023/01/3515462-1024x1024.jpg",
+                  icon: icon2,
                 },
                 {
                   title: "Control Mapping",
                   desc: "Map the existing controls to the applicable standard/regulation",
-                  icon: "https://img.freepik.com/free-vector/web-hosting-service-information-chains-content-management-networking-connection-synchronization-internet-server-data-storage_335657-2371.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740",
+                  icon: icon3,
                 },
                 {
                   title: "Gap Assessment",
                   desc: "Identify controls/Gaps that would be required as per applicability",
-                  icon: "https://img.freepik.com/free-vector/hand-drawn-flat-design-benchmark-illustration_23-2149331621.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740",
+                  icon: icon4,
                 },
                 {
                   title: "Risk Analysis",
                   desc: "Assess and Define Risks as per the applicable factors",
-                  icon: "https://img.freepik.com/free-vector/statistical-analysis-man-cartoon-character-with-magnifying-glass-analyzing-data-circular-diagram-with-colorful-segments-statistics-audit-research_335657-342.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740",
+                  icon: icon5,
                 },
                 {
                   title: "Implementation",
                   desc: "Ensure the controls are implemented accordingly",
-                  icon: "https://img.freepik.com/free-vector/custom-style-script-website-optimization-coding-software-development-female-programmer-cartoon-character-working-adding-javascript-css-code_335657-2370.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740",
+                  icon: icon6,
                 },
                 {
                   title: "Internal Audit",
                   desc: "Perform Internal Audit to prepare for the final Certification",
-                  icon: "https://img.freepik.com/free-vector/people-analyzing-growth-charts_23-2148866843.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740",
+                  icon: icon7,
                 },
                 {
                   title: "External Audit",
                   desc: "Participate in external audits and assist accordingly",
-                  icon: "https://img.freepik.com/free-vector/flat-design-csr-concept-illustrated_23-2148915156.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740",
+                  icon: icon8,
                 },
               ].map((step, index) => (
                 <div
@@ -325,49 +347,49 @@ const ISO27001CertificationPage = () => {
             <div className="p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
               {[
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/10857/10857009.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b1,
                   title: "Improved Information Security",
                   desc: "Helps your organization improve its information security posture, safeguard against cyber threats, and protect sensitive info.",
                   bg: "bg-red-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/17810/17810757.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b2,
                   title: "Compliance with Legal and Regulatory Requirements",
                   desc: "Ensures compliance with information security laws and regulations, reducing non-compliance risk.",
                   bg: "bg-orange-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/9746/9746267.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b3,
                   title: "Enhanced Customer Trust",
                   desc: "Demonstrates commitment to protecting sensitive data, boosting trust in your services and products.",
                   bg: "bg-green-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/16089/16089782.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b4,
                   title: "Competitive Advantage",
                   desc: "Gives your organization a competitive edge by differentiating from uncertified competitors.",
                   bg: "bg-teal-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/18207/18207786.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b5,
                   title: "Cost Savings",
                   desc: "Reduces costly data breach risks by identifying and mitigating information security threats.",
                   bg: "bg-blue-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/17673/17673656.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b6,
                   title: "Improved Business Continuity",
                   desc: "Helps establish a structured approach for managing security risks and maintaining operations.",
                   bg: "bg-pink-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/18188/18188378.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b7,
                   title: "Better Relationships with Partners and Suppliers",
                   desc: "Builds trust with partners who need proof of your information security practices.",
                   bg: "bg-rose-100",
                 },
                 {
-                  icon: "https://cdn-icons-png.freepik.com/256/17555/17555610.png?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid",
+                  icon: b8,
                   title: "Process Improvement",
                   desc: "Encourages structured management and continuous improvement in security procedures.",
                   bg: "bg-lime-100",
@@ -393,7 +415,7 @@ const ISO27001CertificationPage = () => {
               {/* Left Image */}
               <div className="w-full lg:w-1/2">
                 <img
-                  src="https://img.freepik.com/premium-photo/three-young-designers-having-discussion-meeting-modern-office_274679-21338.jpg?ga=GA1.1.1288109737.1748003592&semt=ais_hybrid&w=740" // Replace with actual image
+                  src={img4} // Replace with actual image
                   alt="Team Discussion"
                   className="shadow-lg w-full h-auto object-cover rounded-lg"
                 />
@@ -416,7 +438,7 @@ const ISO27001CertificationPage = () => {
                       className="flex items-center bg-white border border-gray-200 rounded-full px-4 py-3 sm:px-6 sm:py-4 shadow-sm"
                     >
                       <img
-                        src="https://cdn-icons-png.flaticon.com/512/5290/5290058.png"
+                        src={check}
                         alt="check"
                         className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4"
                       />

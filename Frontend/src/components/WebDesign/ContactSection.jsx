@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import contact from '../../assets/WebDesignPage/contact.avif';
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ export const ContactSection = () => {
           >
             <img
               className="w-full h-auto object-contain"
-              src="https://img.freepik.com/premium-photo/logo-web-design-is-shown-white-background_939033-77071.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740"
+              src={contact}
               alt="Contact Illustration"
             />
           </motion.div>

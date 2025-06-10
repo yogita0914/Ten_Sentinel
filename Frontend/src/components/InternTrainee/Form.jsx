@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { CircleX } from "lucide-react";
+import broucher from '../../assets/InternTrainee/broucher.jpg'
 
 const Form = ({ onClose }) => {
   const formRef = useRef();
@@ -30,7 +31,7 @@ const Form = ({ onClose }) => {
         
         {/* Image */}
         <img
-          src="https://media.istockphoto.com/id/643897058/photo/woman-using-her-laptop.jpg?s=170667a&w=0&k=20&c=1J1U02QZ0JhBw3fXBi_PXPMwRSqkJS-xYk27zhoxds0="
+          src={broucher}
           alt="Brochure Preview"
           className="w-full h-45 object-cover rounded mb-3"
         />

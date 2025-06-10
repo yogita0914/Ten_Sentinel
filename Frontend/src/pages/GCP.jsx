@@ -16,6 +16,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 import NeedOfSecuring from "../components/GCP/NeedOfSecuring";
 import PentestTypes from "../components/GCP/PentestTypes";
+import hero from '../assets/GCP/hero.avif';
+import image1 from '../assets/GCP/image1.avif';
 
 export const GCP = () => {
   const whyChoose = [
@@ -303,7 +305,7 @@ export const GCP = () => {
       <header
         className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
         style={{
-          backgroundImage: `url(https://img.freepik.com/free-photo/biometric-technology-background-with-fingerprint-scanning-system-virtual-screen-digital-remix_53876-104197.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740)`,
+          backgroundImage: `url(${hero})`,
         }}
       >
         {/* Gradient Overlay */}
@@ -398,7 +400,7 @@ export const GCP = () => {
         </motion.div>
 
         <motion.img
-          src="https://img.freepik.com/free-photo/cloud-technology-with-futuristic-hologram-smartwatch_53876-124625.jpg?ga=GA1.1.462800661.1745940262&semt=ais_hybrid&w=740"
+          src={image1}
           className="hidden sm:block sm:max-w-[400px] md:max-w-[600px] sm:self-center"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}

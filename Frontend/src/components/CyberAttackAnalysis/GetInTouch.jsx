@@ -74,7 +74,7 @@ const GetInTouchForm = () => {
             {/* Submit button */}
          <button
   type="submit"
-  className="w-36 mx-auto block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+  className="w-28 mx-auto block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition text-sm"
 >
   SUBMIT FORM
 </button>

@@ -9,6 +9,7 @@ import FaqSection from "../components/WebDesign/FaqSection";
 import { initialFaqs } from "../components/WebDesign/WebDesignData";
 import HeroSection from "../components/cloud-security/HeroSection";
 import { ShieldCheck } from "lucide-react";
+import hero from '../assets/WebDesignPage/hero.jpg';
 
 export const WebDesignPage = () => {
   const [faqs, setFaqs] = useState(
@@ -37,7 +38,7 @@ export const WebDesignPage = () => {
       <HeroSection
         subtitle="Crafting visually stunning and user-friendly digital experiences."
         title="Web Design"
-        backgroundImage="https://promwad.com/sites/default/files/web-development_0.jpg"
+        backgroundImage={hero}
         Icon={ShieldCheck}
       />
 

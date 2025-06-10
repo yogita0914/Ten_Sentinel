@@ -5,6 +5,17 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
+import avatar1 from '../../assets/Training_and_Certifications_images/avatar1.jpg'
+import avatar2 from '../../assets/Training_and_Certifications_images/avatar2.jpg'
+import avatar3 from '../../assets/Training_and_Certifications_images/avatar3.jpg'
+import avatar4 from '../../assets/Training_and_Certifications_images/avatar4.jpg'
+import avatar5 from '../../assets/Training_and_Certifications_images/avatar5.jpg'
+import avatar6 from '../../assets/Training_and_Certifications_images/avatar6.jpg'
+import avatar7 from '../../assets/Training_and_Certifications_images/avatar7.jpg'
+import avatar8 from '../../assets/Training_and_Certifications_images/avatar8.jpg'
+import avatar9 from '../../assets/Training_and_Certifications_images/avatar9.jpg'
+import avatar10 from '../../assets/Training_and_Certifications_images/avatar10.jpg'
+import avatar11 from '../../assets/Training_and_Certifications_images/avatar11.jpg'
 
 const testimonials = [
   {
@@ -13,7 +24,7 @@ const testimonials = [
     content:
       "Joining CyberSapiens transformed the way I view cybersecurity. The Red-Team internship gave me hands-on exposure to real-world scenarios. I learned how to perform detailed assessments, exploit vulnerabilities, and write impactful reports. Weekly simulation challenges kept me engaged and constantly improving. This internship gave me the confidence to pursue a professional role in security.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    avatar: avatar1,
   },
   {
     id: 2,
@@ -21,7 +32,7 @@ const testimonials = [
     content:
       "CyberSapiens offered the most intense learning environment I’ve ever been part of. From Android pentesting to web app attacks, every module was practical and report-driven. I gained a deep understanding of how to communicate technical findings clearly. By the end, I had real reports and scripts to showcase. This shifted my mindset from student to security contributor.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar: avatar2,
   },
   {
     id: 3,
@@ -29,7 +40,7 @@ const testimonials = [
     content:
       "As someone without a CS degree, I feared I wouldn't keep up. But the team at CyberSapiens made learning accessible and exciting. The mentorship was phenomenal—I could ask anything, anytime. I learned methodology, documentation, and even how to prep for interviews. I now feel ready to apply for roles I once thought were out of reach.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/22.jpg",
+    avatar: avatar3,
   },
   {
     id: 4,
@@ -37,7 +48,7 @@ const testimonials = [
     content:
       "The internship helped me go beyond just knowing tools—it made me understand how to use them strategically. Every attack vector we explored was followed by real-time reporting and peer review. This helped me sharpen both my technical and communication skills. Now, I can break down a vulnerability for both devs and execs alike.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/65.jpg",
+    avatar: avatar4,
   },
   {
     id: 5,
@@ -45,7 +56,7 @@ const testimonials = [
     content:
       "Every week brought something new—SQLi, SSRF, IDOR, you name it. We weren’t just solving CTFs; we were running simulated audits and delivering structured reports. This internship taught me to think like both an attacker and a consultant. I’ve walked away with skills, confidence, and a job offer in security consulting.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+    avatar: avatar5,
   },
   {
     id: 6,
@@ -53,7 +64,7 @@ const testimonials = [
     content:
       "CyberSapiens taught me more in three months than years of self-study did. I led attack chains, wrote findings, and learned how to explain risk to executives. It wasn’t just technical—it was strategic. I now know how to prioritize impact, focus on business value, and communicate effectively. That’s what got me into a blue team role.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/85.jpg",
+    avatar: avatar6,
   },
   {
     id: 7,
@@ -61,7 +72,7 @@ const testimonials = [
     content:
       "Automation was my focus—I built scripts for recon, scanning, and reporting. The team supported every experiment, and I grew faster than I imagined. I also presented to mock client panels, learning to deliver professional summaries. My confidence and scripting abilities improved drastically. I now contribute to real-world assessments independently.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    avatar: avatar7,
   },
   {
     id: 8,
@@ -69,7 +80,7 @@ const testimonials = [
     content:
       "CyberSapiens introduced me to cloud and container security—topics I had never explored before. Leading a Kubernetes simulation was intense but incredibly rewarding. The habit of justifying every tool and action made me more thoughtful and precise. Today, I document everything clearly and plan assessments with confidence.",
     rating: 4,
-    avatar: "https://randomuser.me/api/portraits/men/53.jpg",
+    avatar: avatar8,
   },
   {
     id: 9,
@@ -77,7 +88,7 @@ const testimonials = [
     content:
       "This internship made me realize security isn’t just about hacking—it’s about communication, structure, and business alignment. I wrote playbooks, helped draft scope docs, and worked on internal tooling. I’ve now built a portfolio that’s helped me land interviews and freelance gigs. CyberSapiens shaped me into a true security professional.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/51.jpg",
+    avatar: avatar9,
   },
   {
     id: 10,
@@ -85,7 +96,7 @@ const testimonials = [
     content:
       "Running a full red-team simulation was the highlight of my internship. From phishing to C2 setups and report writing, it was end-to-end and real. Presenting findings to a review panel taught me how to communicate impact, not just findings. This helped me get better at writing summaries and preparing for client meetings.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/men/47.jpg",
+    avatar: avatar10,
   },
   {
     id: 11,
@@ -93,7 +104,7 @@ const testimonials = [
     content:
       "In my final round with CyberSapiens, I built threat models, conducted API tests, and even trained new interns. Teaching others was one of the best parts—it solidified my knowledge. I now see myself as part of a larger community of learners and mentors. This experience has set a strong foundation for my long-term goals.",
     rating: 5,
-    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
+    avatar: avatar11,
   },
 ];
 

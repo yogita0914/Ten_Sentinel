@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import icon1 from '../../assets/PhishingSimulation/icon1.png';
+import icon2 from '../../assets/PhishingSimulation/icon2.png';
+import icon3 from '../../assets/PhishingSimulation/icon3.png';
 
 const cardData = [
   {
     id: 1,
-    image: "https://cdn-icons-png.flaticon.com/512/6916/6916712.png",
+    image: icon1,
     target: 90,
     buttonText: "Raise Awareness",
     description: "Employees reported phishing attempts this quarter.",
   },
   {
     id: 2,
-    image: "https://png.pngtree.com/png-vector/20220610/ourlarge/pngtree-phishing-personal-account-icon-png-image_4864073.png",
+    image: icon2,
     target: 97,
     buttonText: "Implement Training",
     description: "Organizations affected by phishing annually.",
   },
   {
     id: 3,
-    image: "https://png.pngtree.com/png-vector/20221001/ourmid/pngtree-criminal-sent-phishing-email-to-man-png-image_6230342.png",
+    image: icon3,
     target: 64,
     buttonText: "Launch Programs",
     description: "Incidents could be prevented with proper training.",
