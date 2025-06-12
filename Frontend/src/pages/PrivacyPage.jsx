@@ -10,7 +10,7 @@ import fourth from "../assets/privacy_images/privacy4.png";
 import fifth from "../assets/privacy_images/privacy5.png";
 import sixth from "../assets/privacy_images/privacy6.png";
 import seventh from "../assets/privacy_images/privacy7.png";
-import hero from '../assets/privacy_images/hero.avif';
+import hero from "../assets/privacy_images/hero.avif";
 
 export const PrivacyPage = () => {
   const [mobileExpanded, setMobileExpanded] = useState({});
@@ -42,32 +42,32 @@ export const PrivacyPage = () => {
     {
       title: "Information We Collect",
       image: second,
-      text: `We may collect both personal and non-personal information when you interact with our website, mobile applications, or other services. This information helps us provide a better user experience, improve our services, and communicate effectively with you.`
+      text: `We may collect both personal and non-personal information when you interact with our website, mobile applications, or other services. This information helps us provide a better user experience, improve our services, and communicate effectively with you.`,
     },
     {
       title: "How We Use Your Information",
       image: third,
-      text: `Your personal information is used primarily to provide the services or information that you request from us, such as sending newsletters, updates, promotional offers, or responding to inquiries and customer support requests. We also use your data to enhance and personalize your experience with our products and services, ensuring content, features, and communication are tailored to your preferences.`
+      text: `Your personal information is used primarily to provide the services or information that you request from us, such as sending newsletters, updates, promotional offers, or responding to inquiries and customer support requests. We also use your data to enhance and personalize your experience with our products and services, ensuring content, features, and communication are tailored to your preferences.`,
     },
     {
       title: "Disclosure of Your Information",
       image: fourth,
-      text: `We may share your personal information with members of our organizational group or trusted third parties under strict confidentiality agreements and only for the purposes outlined in this policy. These third parties may include service providers, business partners, or legal authorities when required, and they are obligated to handle your data securely and lawfully.`
+      text: `We may share your personal information with members of our organizational group or trusted third parties under strict confidentiality agreements and only for the purposes outlined in this policy. These third parties may include service providers, business partners, or legal authorities when required, and they are obligated to handle your data securely and lawfully.`,
     },
     {
       title: "Your Rights",
       image: fifth,
-      text: `We respect your rights regarding your personal data and are committed to ensuring transparency, fairness, and control over how your information is handled. Depending on applicable data protection laws in your region, you may have several rights in relation to the personal data we collect and process about you.`
+      text: `We respect your rights regarding your personal data and are committed to ensuring transparency, fairness, and control over how your information is handled. Depending on applicable data protection laws in your region, you may have several rights in relation to the personal data we collect and process about you.`,
     },
     {
       title: "Data Security",
       image: sixth,
-      text: `The security of your personal data is a top priority for us. We are committed to protecting your information against unauthorized access, use, disclosure, alteration, or destruction. To achieve this, we implement a combination of technical, administrative, and physical security measures aligned with industry best practices.`
+      text: `The security of your personal data is a top priority for us. We are committed to protecting your information against unauthorized access, use, disclosure, alteration, or destruction. To achieve this, we implement a combination of technical, administrative, and physical security measures aligned with industry best practices.`,
     },
     {
       title: "Changes to This Privacy Policy",
       image: seventh,
-      text: `We may update this Privacy Policy from time to time to reflect changes in legal requirements, our data handling practices, the services we offer, or advancements in technology. Such changes may be necessary to comply with new regulations, enhance user privacy, or improve transparency. Whenever we make updates, we will post the revised Privacy Policy on this page and update the “Effective Date” at the top of the document.`
+      text: `We may update this Privacy Policy from time to time to reflect changes in legal requirements, our data handling practices, the services we offer, or advancements in technology. Such changes may be necessary to comply with new regulations, enhance user privacy, or improve transparency. Whenever we make updates, we will post the revised Privacy Policy on this page and update the “Effective Date” at the top of the document.`,
     },
   ];
 
@@ -137,7 +137,7 @@ export const PrivacyPage = () => {
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []); 
+  }, []);
   const showReadMoreOption = windowWidth <= 445;
 
   return (
@@ -148,6 +148,7 @@ export const PrivacyPage = () => {
         title="Privacy Policy"
         backgroundImage={hero}
         Icon={ShieldCheck}
+        showButton={false}
       />
 
       {/* The rest of your page content */}
@@ -216,5 +217,3 @@ export const PrivacyPage = () => {
     </div>
   );
 };
-
-

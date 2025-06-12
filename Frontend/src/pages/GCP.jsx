@@ -12,12 +12,13 @@ import "swiper/css/pagination";
 import "../swiper.css";
 import { InputForm } from "../components/GCP/InputForm";
 
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, ShieldCheck } from "lucide-react";
 
 import NeedOfSecuring from "../components/GCP/NeedOfSecuring";
 import PentestTypes from "../components/GCP/PentestTypes";
-import hero from '../assets/GCP/hero.avif';
-import image1 from '../assets/GCP/image1.avif';
+import hero from "../assets/GCP/hero.avif";
+import image1 from "../assets/GCP/image1.avif";
+import HeroSection from "../components/cloud-security/HeroSection";
 
 export const GCP = () => {
   const whyChoose = [
@@ -301,83 +302,15 @@ export const GCP = () => {
 
   return (
     <>
-      {/* Banner Section */}
-      <header
-        className="relative text-white text-center h-screen bg-cover bg-center overflow-hidden flex items-center justify-center px-4"
-        style={{
-          backgroundImage: `url(${hero})`,
-        }}
-      >
-        {/* Gradient Overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.75 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 bg-gradient-to-r from-green-900 to-indigo-900"
-        ></motion.div>
-
-        {/* Content Container */}
-        <div className="relative z-10 max-w-5xl mx-auto w-full">
-          <motion.div
-            className="flex justify-center mb-6"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full">
-              <MdOutlineSecurity className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
-            </div>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl md:text-5xl lg:text-6xl font-bold leading-tight"
-          >
-            GCP Fortify
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-6 text-sm md:text-xl max-w-3xl mx-auto text-blue-100"
-          >
-            Ten Sentinel's GCP Penetration Testing exposes and remediates
-            security flaws in your cloud infrastructure—delivering robust
-            protection without overspending.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-8"
-          >
-            <a
-              href="#contact"
-              className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm md:text-lg font-medium px-5 py-3 md:px-8 md:py-4 rounded-lg shadow-lg hover:shadow-blue-500/20 hover:translate-y-[-2px] transition-all duration-300"
-            >
-              Talk to Our Experts!
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Optional bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0 hidden md:block">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            className="w-full"
-          >
-            <path
-              fill="#ffffff"
-              fillOpacity="1"
-              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L0,320Z"
-            ></path>
-          </svg>
-        </div>
-      </header>
+      {/* Hero Section */}
+      <HeroSection
+        subtitle="Ten Sentinel's GCP Penetration Testing exposes and remediates
+                  security flaws in your cloud infrastructure—delivering robust
+                  protection without overspending."
+        title="GCP Fortify"
+        backgroundImage={hero}
+        Icon={ShieldCheck}
+      />
 
       {/* What Is */}
       <section className="flex flex-col px-4 py-6 gap-4 md:px-8 md:gap-8 md:py-12 lg:px-12 lg:items-center xl:flex-row xl:items-start xl:justify-center">
@@ -408,7 +341,6 @@ export const GCP = () => {
           viewport={{ once: false }}
         />
       </section>
-
       {/*  Why Choose */}
       <section className="flex flex-col px-4 py-6 gap-4 bg-gray-100 md:px-8 md:py-12 lg:px-12 lg:gap-8">
         <motion.h2
@@ -445,7 +377,6 @@ export const GCP = () => {
           ))}
         </ul>
       </section>
-
       {/* Tools */}
       <section className="flex flex-col px-4 py-6 gap-4 bg-blue-800 md:px-8 md:py-12 lg:px-12">
         <motion.h2
@@ -505,7 +436,6 @@ export const GCP = () => {
           </div>
         </div>
       </section>
-
       {/* What We Provide */}
       <section className="flex flex-col px-4 py-6 gap-4 bg-gray-100 md:px-8 md:py-12 lg:px-12">
         <motion.SectionTitle
@@ -541,7 +471,6 @@ export const GCP = () => {
           ))}
         </ul>
       </section>
-
       {/* Testing Process */}
       <section className="flex flex-col items-center px-4 py-8 gap-8 md:pt-12 md:pb-24 md:gap-24 lg:px-12 xl:flex-row lg:justify-center lg:py-32">
         <div className="flex flex-col gap-8 max-w-[500px]">
@@ -580,78 +509,80 @@ export const GCP = () => {
             </span>
           </div>
 
-         <div className="relative w-full h-full">
-  {process.map((step, index) => {
-    const totalItems = process.length;
-    const angle = index * ((2 * Math.PI) / totalItems) - Math.PI / 2;
-    const radius = 240;
+          <div className="relative w-full h-full">
+            {process.map((step, index) => {
+              const totalItems = process.length;
+              const angle = index * ((2 * Math.PI) / totalItems) - Math.PI / 2;
+              const radius = 240;
 
-    const x = Math.cos(angle) * radius;
-    const y = Math.sin(angle) * radius;
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
 
-    return (
-      <motion.div
-        key={index}
-        initial={{ opacity: 0, scale: 0.6 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        whileHover={{ scale: 1.1 }}
-        viewport={{ once: true }}
-        className={`rounded-full border-4 ${step.color} w-32 h-32 flex flex-col justify-center items-center mb-2 transform -translate-x-1/2 -translate-y-1/2 absolute p-2
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1 }}
+                  viewport={{ once: true }}
+                  className={`rounded-full border-4 ${
+                    step.color
+                  } w-32 h-32 flex flex-col justify-center items-center mb-2 transform -translate-x-1/2 -translate-y-1/2 absolute p-2
                     hover:bg-blue-100 ${
                       index === activeProcess ? "bg-blue-100" : "bg-white"
                     }`}
-        style={{
-          left: `calc(50% + ${x}px)`,
-          top: `calc(50% + ${y}px)`,
-        }}
-        onMouseEnter={() => handleSetActiveProcess(index)}
-      >
-        {React.cloneElement(step.icon, {
-          className: "min-w-8 min-h-8",
-        })}
-        <h3 className="font-semibold text-xs text-center">{step.title}</h3>
-      </motion.div>
-    );
-  })}
-</div>
-
+                  style={{
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
+                  }}
+                  onMouseEnter={() => handleSetActiveProcess(index)}
+                >
+                  {React.cloneElement(step.icon, {
+                    className: "min-w-8 min-h-8",
+                  })}
+                  <h3 className="font-semibold text-xs text-center">
+                    {step.title}
+                  </h3>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
-       <ul className="flex flex-col gap-6 items-center justify-center max-w-[500px] md:hidden">
-  {process.map((step, index) => (
-    <motion.li
-      key={index}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="bg-gray-50 shadow-md rounded-sm flex flex-col gap-2 justify-center items-center py-4 px-2"
-    >
-      <div
-        className={`rounded-full border-4 ${step.color} w-20 h-20 flex justify-center items-center`}
-      >
-        {React.cloneElement(step.icon, {
-          className: "w-12 h-12",
-        })}
-        <h3 className="hidden">{step.title}</h3>
-      </div>
-      <div className="text-center flex flex-col gap-1">
-        <h3 className="text-base font-semibold">{step.title}</h3>
-        <p className="text-sm text-gray-600">{step.text}</p>
-      </div>
-    </motion.li>
-  ))}
-</ul>
-
+        <ul className="flex flex-col gap-6 items-center justify-center max-w-[500px] md:hidden">
+          {process.map((step, index) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 shadow-md rounded-sm flex flex-col gap-2 justify-center items-center py-4 px-2"
+            >
+              <div
+                className={`rounded-full border-4 ${step.color} w-20 h-20 flex justify-center items-center`}
+              >
+                {React.cloneElement(step.icon, {
+                  className: "w-12 h-12",
+                })}
+                <h3 className="hidden">{step.title}</h3>
+              </div>
+              <div className="text-center flex flex-col gap-1">
+                <h3 className="text-base font-semibold">{step.title}</h3>
+                <p className="text-sm text-gray-600">{step.text}</p>
+              </div>
+            </motion.li>
+          ))}
+        </ul>
       </section>
-
       <NeedOfSecuring />
-
       <PentestTypes />
-
       {/* Form */}
-      <section className="flex flex-col px-4 py-6 gap-4 lg:px-12 lg:flex-row lg:justify-center lg:gap-16">
+      <section
+        id="contact"
+        className="flex flex-col px-4 py-6 gap-4 lg:px-12 lg:flex-row lg:justify-center lg:gap-16"
+      >
         <img
           src="./GCP/form.svg"
           className="hidden lg:block w-1/2 max-w-[600px]"
@@ -695,64 +626,60 @@ export const GCP = () => {
           </motion.form>
         </div>
       </section>
-
       {/* FAQ's */}
       <section className="flex flex-col gap-4 items-center px-4 py-6 lg:px-12">
-      <SectionTitle title={"FAQ's"} />
+        <SectionTitle title={"FAQ's"} />
 
-      <ul className="flex flex-col gap-8 w-full">
-        {faqs.map((faq, key) => (
-          <motion.li
-            key={key}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-             whileHover={{
-              boxShadow: "0px 0px 20px rgba(59,130,246,0.5)",
-              scale: 1.02,
-            }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="flex flex-col bg-gray-100 rounded-lg shadow-xl lg:w-[800px] lg:self-center min-h-[80px] justify-center hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300"
-          >
-            {/* Question Section */}
-            <div className="flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6">
-              <h3>
-                {faq.question}
-              </h3>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className="w-6 cursor-pointer"
-                onClick={(e) => handleSetFaqs(e, key)}
-              >
-                {faq.isOpen ? (
-                  <ChevronUp size={28} />
-                ) : (
-                  <ChevronDown size={28} />
-                )}
-              </motion.button>
-            </div>
-
-            {/* Answer Section */}
-            <motion.div
-              initial={false}
-              animate={{ height: faq.isOpen ? "auto" : 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
+        <ul className="flex flex-col gap-8 w-full">
+          {faqs.map((faq, key) => (
+            <motion.li
+              key={key}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{
+                boxShadow: "0px 0px 20px rgba(59,130,246,0.5)",
+                scale: 1.02,
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="flex flex-col bg-gray-100 rounded-lg shadow-xl lg:w-[800px] lg:self-center min-h-[80px] justify-center hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300"
             >
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: faq.isOpen ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="text-sm text-gray-800 bg-gray-50 md:text-lg w-full px-4 py-2 md:px-8 md:py-6"
-              >
-                {faq.response}
-              </motion.p>
-            </motion.div>
-          </motion.li>
-        ))}
-      </ul>
-    </section>
+              {/* Question Section */}
+              <div className="flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6">
+                <h3>{faq.question}</h3>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  className="w-6 cursor-pointer"
+                  onClick={(e) => handleSetFaqs(e, key)}
+                >
+                  {faq.isOpen ? (
+                    <ChevronUp size={28} />
+                  ) : (
+                    <ChevronDown size={28} />
+                  )}
+                </motion.button>
+              </div>
 
+              {/* Answer Section */}
+              <motion.div
+                initial={false}
+                animate={{ height: faq.isOpen ? "auto" : 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: faq.isOpen ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-sm text-gray-800 bg-gray-50 md:text-lg w-full px-4 py-2 md:px-8 md:py-6"
+                >
+                  {faq.response}
+                </motion.p>
+              </motion.div>
+            </motion.li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 };
