@@ -1,25 +1,21 @@
-import React, { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { MdOutlineSecurity } from "react-icons/md";
 import { SectionTitle } from "../components/GCP/SectionTitle";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../swiper.css";
 import { InputForm } from "../components/GCP/InputForm";
-
-import { ChevronDown, ChevronUp, ShieldCheck } from "lucide-react";
-
+import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
 import NeedOfSecuring from "../components/GCP/NeedOfSecuring";
 import PentestTypes from "../components/GCP/PentestTypes";
 import hero from "../assets/GCP/hero.avif";
 import image1 from "../assets/GCP/image1.avif";
 import HeroSection from "../components/cloud-security/HeroSection";
-
+import FAQ from "../assets/FAQ.png";
 export const GCP = () => {
   const whyChoose = [
     {
@@ -252,54 +248,54 @@ export const GCP = () => {
     setActiveProcess(processIndex);
   };
 
-  const [faqs, setFaqs] = useState([
+  const initialFaqs = [
     {
       question: "What is Cloud Penetration Testing?",
-      response:
+      answer:
         "Cloud penetration testing is a security assessment that simulates real-world cyberattacks against your cloud infrastructure. The goal is to identify vulnerabilities, misconfigurations, and potential risks that attackers could exploit. This process helps organizations strengthen their security posture and ensure compliance with industry standards.",
-      isOpen: false,
     },
     {
       question: "Why is Cloud Penetration Testing important?",
-      response:
+      answer:
         "Cloud environments are frequent targets for cyberattacks due to misconfigurations, weak access controls, or overlooked vulnerabilities. Penetration testing is essential to proactively identify and fix security gaps before malicious actors can exploit them. It helps protect sensitive data, ensure business continuity, and meet regulatory compliance requirements.",
-      isOpen: false,
     },
     {
       question: "What cloud platforms do you test?",
-      response:
+      answer:
         "At Ten Sentinel, we provide penetration testing services for major cloud platforms, including Google Cloud Platform (GCP), Amazon Web Services (AWS), and Microsoft Azure, as well as hybrid and multi-cloud environments. Our assessments are tailored to the unique architecture and services of each platform.",
-      isOpen: false,
     },
     {
       question: "Will cloud penetration testing impact my live environment?",
-      response:
+      answer:
         "Our testing is carefully designed to minimize risks to your production environment. We follow strict guidelines and perform testing within approved scopes, using safe methods that avoid disruption. If required, testing can be conducted in staging or sandbox environments to eliminate any potential operational impact.",
-      isOpen: false,
     },
     {
       question: "How often should cloud penetration testing be performed?",
-      response:
+      answer:
         "It is recommended to perform cloud penetration testing at least once a year or whenever significant changes occur in your cloud environment—such as deploying new services, applications, or infrastructure. Regular testing helps ensure that security measures stay effective against evolving threats.",
-      isOpen: false,
     },
     {
       question: "What happens after the penetration test is completed?",
-      response:
+      answer:
         "Upon completion, Ten Sentinel delivers a detailed report outlining the identified vulnerabilities, risk levels, and actionable recommendations for remediation. Our experts also offer a debrief session to walk you through the findings, answer questions, and guide your team on how to strengthen your cloud security posture effectively.",
-      isOpen: false,
     },
-  ]);
+  ];
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const handleSetFaqs = (e, key) => {
-    e.preventDefault();
-    setFaqs((prevFaqs) =>
-      prevFaqs.map((faq, index) =>
-        index === key ? { ...faq, isOpen: !faq.isOpen } : faq
-      )
-    );
+  const toggle = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  const answerVariants = {
+    collapsed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+    expanded: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  // Optional: fade/slide variant for entire FAQ container
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
   return (
     <>
       {/* Hero Section */}
@@ -626,60 +622,136 @@ export const GCP = () => {
           </motion.form>
         </div>
       </section>
+
       {/* FAQ's */}
-      <section className="flex flex-col gap-4 items-center px-4 py-6 lg:px-12">
-        <SectionTitle title={"FAQ's"} />
 
-        <ul className="flex flex-col gap-8 w-full">
-          {faqs.map((faq, key) => (
-            <motion.li
-              key={key}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                boxShadow: "0px 0px 20px rgba(59,130,246,0.5)",
-                scale: 1.02,
-              }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="flex flex-col bg-gray-100 rounded-lg shadow-xl lg:w-[800px] lg:self-center min-h-[80px] justify-center hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300"
-            >
-              {/* Question Section */}
-              <div className="flex flex-row items-center justify-between gap-4 text-base md:text-xl px-4 py-2 md:px-8 md:py-6">
-                <h3>{faq.question}</h3>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  className="w-6 cursor-pointer"
-                  onClick={(e) => handleSetFaqs(e, key)}
-                >
-                  {faq.isOpen ? (
-                    <ChevronUp size={28} />
-                  ) : (
-                    <ChevronDown size={28} />
-                  )}
-                </motion.button>
-              </div>
+      <motion.section
+        className="bg-white py-8 px-4 sm:px-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
+          Frequently Asked Questions (FAQs)
+        </h2>
 
-              {/* Answer Section */}
-              <motion.div
-                initial={false}
-                animate={{ height: faq.isOpen ? "auto" : 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: faq.isOpen ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-sm text-gray-800 bg-gray-50 md:text-lg w-full px-4 py-2 md:px-8 md:py-6"
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          {/* Accordion */}
+          <div className="space-y-4">
+            {initialFaqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
                 >
-                  {faq.response}
-                </motion.p>
-              </motion.div>
-            </motion.li>
-          ))}
-        </ul>
-      </section>
+                  <button
+                    onClick={() => toggle(index)}
+                    className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                  >
+                    {faq.question}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial="collapsed"
+                        animate="expanded"
+                        exit="collapsed"
+                        variants={answerVariants}
+                        className="px-6 overflow-hidden"
+                      >
+                        <p className="text-gray-600 text-sm">{faq.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Image (visible on medium+ screens only) */}
+          <div className="hidden md:flex justify-center items-start">
+            <img
+              src={FAQ}
+              alt="FAQ Illustration"
+              className="w-auto max-h-[400px] object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      </motion.section>
+
+      {/* <motion.section
+        className="bg-white py-8 px-4 sm:px-8 "
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
+          Frequently Asked Questions (FAQs)
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          {/* Accordion *
+          <div className="space-y-4">
+            {initialFaqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
+                >
+                  <button
+                    onClick={() => toggle(index)}
+                    className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                  >
+                    {faq.question}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial="collapsed"
+                        animate="expanded"
+                        exit="collapsed"
+                        variants={answerVariants}
+                        className="px-6 overflow-hidden"
+                      >
+                        <p className="text-gray-600 text-sm">{faq.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Image (hidden on small screens) 
+          <div className="hidden md:flex justify-center items-center min-h-screen">
+            <img
+              src={FAQ}
+              alt="FAQ Illustration"
+              className="max-h-[50vh] w-auto object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      </motion.section> */}
     </>
   );
 };

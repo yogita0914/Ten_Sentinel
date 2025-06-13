@@ -1,11 +1,11 @@
-import React, { useState } from "react"; 
-import { HelpCircle, ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
-import HeroSection from "../../components/cloud-security/HeroSection";
+import React, { useEffect, useState, useRef } from "react";
+import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import GetInTouchImage from "../../assets/GetInTouch.png";
 import CS2 from "../../assets/Cyber attack analysis images/CS2.jpg";
+import HeroSection from "../cloud-security/HeroSection";
+import FAQ from "../../assets/FAQ.png";
 console.log(CS2);
-
 
 const containerTextVariant = {
   hidden: { opacity: 0 },
@@ -19,10 +19,10 @@ const containerTextVariant = {
 
 const textLineVariant = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.4, ease: "easeOut" }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
@@ -61,10 +61,78 @@ const faqAnswerVariant = {
 const EmployeeTraining = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggle = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  const answerVariants = {
+    collapsed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+    expanded: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  // Optional: fade/slide variant for entire FAQ container
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+  const initialFaqs = [
+    {
+      question: "What is employee awareness training?",
+      answer:
+        "It's a program that educates employees on cybersecurity risks and best practices to reduce threats caused by human error.",
+    },
+    {
+      question: "What do you get in employee awareness training?",
+      answer:
+        "Training includes modules on phishing, data protection, password hygiene, incident response, and more, tailored to various employee roles.",
+    },
+    {
+      question: "What is the purpose behind security awareness training?",
+      answer:
+        "To build a security-conscious workforce that actively prevents cyber threats and adheres to organizational policies.",
+    },
+    {
+      question:
+        "What is covered under Ten Sentinel employee awareness training program?",
+      answer:
+        "Topics like phishing awareness, secure browsing, email safety, password management, and device security are covered.",
+    },
+    {
+      question: "What are the benefits of employee awareness training?",
+      answer:
+        "It reduces risks, prevents breaches, ensures compliance, builds trust, and strengthens the overall security posture.",
+    },
+    {
+      question:
+        "Why is cyber security awareness training essential for employees in today’s digital age?",
+      answer:
+        "Because modern threats exploit human error; training makes employees the first line of defense.",
+    },
+    {
+      question:
+        "How can cyber security awareness training benefit my organization and its employees?",
+      answer:
+        "It boosts confidence, reduces incidents, improves response time, and meets regulatory requirements.",
+    },
+    {
+      question:
+        "What are the key topics covered in Ten Sentinel cyber security awareness training for employees?",
+      answer:
+        "Key topics include phishing, malware, social engineering, password security, and safe remote work practices.",
+    },
+    {
+      question:
+        "How does Ten Sentinel’s cyber security awareness training help employees recognize and respond to phishing attacks?",
+      answer:
+        "Through simulations, real-world scenarios, and practical guidance on identifying and reporting phishing.",
+    },
+    {
+      question:
+        "What strategies does Ten Sentinel employ to engage employees during cyber security awareness training?",
+      answer:
+        "Interactive modules, quizzes, gamified learning, and progress tracking tools keep employees engaged.",
+    },
+  ];
   const GetInTouchForm = () => {
     return (
       <section className="bg-gray-50 mb-10" id="contact">
@@ -82,7 +150,9 @@ const EmployeeTraining = () => {
           <div className="w-full lg:w-1/2 bg-white shadow-xl rounded-xl p-8">
             <h2 className="text-3xl font-semibold text-center mb-6">
               Get In Touch <br />
-              <span className="text-blue-600 font-bold">By filling this form ↓</span>
+              <span className="text-blue-600 font-bold">
+                By filling this form ↓
+              </span>
             </h2>
 
             {/* Form */}
@@ -150,20 +220,10 @@ const EmployeeTraining = () => {
     >
       {/* Hero Section with subtitle animation */}
       <HeroSection
-        backgroundImage={CS2} // Updated to use CS2 directly
+        subtitle="Grow. Escalate. Learn"
         title="Employee Awareness & Training"
-        subtitle={
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ display: "inline-block" }}
-          >
-            Grow. Escalate. Learn
-          </motion.span>
-        }
-        Icon={HelpCircle} // Icon passed here properly
-        ShowButton={true}
+        backgroundImage={CS2}
+        Icon={ShieldCheck}
       />
 
       {/* Text Section with synchronized fade/slide */}
@@ -274,16 +334,20 @@ const EmployeeTraining = () => {
               >
                 <div className="h-48 md:h-64 lg:h-48 w-full">
                   <img
-                    src={[
-                      "/employee training images/ET30.png",
-                      "/employee training images/ET3.webp",
-                      "/employee training images/ET28.png",
-                    ][index]}
-                    alt={[
-                      "The Human Element",
-                      "On-Demand Training",
-                      "Completed Annually",
-                    ][index]}
+                    src={
+                      [
+                        "/employee training images/ET30.png",
+                        "/employee training images/ET3.webp",
+                        "/employee training images/ET28.png",
+                      ][index]
+                    }
+                    alt={
+                      [
+                        "The Human Element",
+                        "On-Demand Training",
+                        "Completed Annually",
+                      ][index]
+                    }
                     className="w-full h-full object-cover rounded-t-lg"
                   />
                 </div>
@@ -295,21 +359,25 @@ const EmployeeTraining = () => {
                     className="text-xl font-semibold text-gray-800 mb-3"
                     variants={textLineVariant}
                   >
-                    {[
-                      "The Human Element",
-                      "On-Demand Training",
-                      "Completed Annually",
-                    ][index]}
+                    {
+                      [
+                        "The Human Element",
+                        "On-Demand Training",
+                        "Completed Annually",
+                      ][index]
+                    }
                   </motion.h3>
                   <motion.p
                     className="text-gray-700 text-sm"
                     variants={textLineVariant}
                   >
-                    {[
-                      "The most effective way to train your employees in strengthening the human aspect of your company’s security is through cybersecurity awareness programs. This is especially critical for remote workers, as phishing, social engineering, compromised passwords, and insecure network practices can put your business at risk of attacks.",
-                      "Cybersecurity training is usually offered on demand through online courses, allowing learners to complete it at their own pace, access it from anywhere, and revisit the material as needed. Interactive and engaging training is essential for driving real change in user behavior.",
-                      "To ensure employees remain up-to-date on protecting themselves online and stay informed about new and evolving threats, annual training is recommended. Additionally, many business compliance and insurance regulations require training to be completed at least once a year.",
-                    ][index]}
+                    {
+                      [
+                        "The most effective way to train your employees in strengthening the human aspect of your company’s security is through cybersecurity awareness programs. This is especially critical for remote workers, as phishing, social engineering, compromised passwords, and insecure network practices can put your business at risk of attacks.",
+                        "Cybersecurity training is usually offered on demand through online courses, allowing learners to complete it at their own pace, access it from anywhere, and revisit the material as needed. Interactive and engaging training is essential for driving real change in user behavior.",
+                        "To ensure employees remain up-to-date on protecting themselves online and stay informed about new and evolving threats, annual training is recommended. Additionally, many business compliance and insurance regulations require training to be completed at least once a year.",
+                      ][index]
+                    }
                   </motion.p>
                 </motion.div>
               </motion.div>
@@ -332,7 +400,8 @@ const EmployeeTraining = () => {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-2xl xl:text-3xl font-bold text-gray-800 mb-4 text-center max-w-full"
               variants={textLineVariant}
             >
-              What is the Goal of Cybersecurity Awareness Training for Employees?
+              What is the Goal of Cybersecurity Awareness Training for
+              Employees?
             </motion.h2>
           </motion.div>
 
@@ -400,14 +469,16 @@ const EmployeeTraining = () => {
                 animate={floatingAnimation}
               >
                 <img
-                  src={[
-                    "/employee training images/ET7.png",
-                    "/employee training images/ET8.png",
-                    "/employee training images/ET11.png",
-                    "/employee training images/ET13.png",
-                    "/employee training images/ET14.png",
-                    "/employee training images/ET16.jpeg",
-                  ][index]}
+                  src={
+                    [
+                      "/employee training images/ET7.png",
+                      "/employee training images/ET8.png",
+                      "/employee training images/ET11.png",
+                      "/employee training images/ET13.png",
+                      "/employee training images/ET14.png",
+                      "/employee training images/ET16.jpeg",
+                    ][index]
+                  }
                   alt={label}
                   className="w-full h-32 object-contain mb-2"
                 />
@@ -425,43 +496,65 @@ const EmployeeTraining = () => {
 
       {/* FAQ Section */}
       <motion.section
-        className="w-full bg-gray-100"
+        className="bg-white py-8 px-4 sm:px-8 "
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        variants={containerTextVariant}
+        variants={sectionVariants}
       >
-        <div className="max-w-3xl mx-auto px-4 py-10">
-          <h2 className="text-3xl font-bold text-center mb-6">FAQs</h2>
-          <div className="flex flex-col gap-4 text-sm text-gray-800">
-            {faqList.map((item, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-md overflow-hidden bg-white"
-              >
+        <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
+          Frequently Asked Questions (FAQs)
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          {/* Accordion */}
+          <div className="space-y-4">
+            {initialFaqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
                 <div
-                  onClick={() => toggleFAQ(i)}
-                  className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 select-none"
+                  key={index}
+                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
                 >
-                  <p className="font-semibold text-base text-left">{item.question}</p>
-                  <motion.div
-                    animate={{ rotate: openIndex === i ? 180 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="w-5 h-5 min-w-[20px] min-h-[20px]"
+                  <button
+                    onClick={() => toggle(index)}
+                    className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
                   >
-                    <ChevronDown />
-                  </motion.div>
+                    {faq.question}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial="collapsed"
+                        animate="expanded"
+                        exit="collapsed"
+                        variants={answerVariants}
+                        className="px-6 overflow-hidden"
+                      >
+                        <p className="text-gray-600 text-sm">{faq.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <motion.div
-                  initial="closed"
-                  animate={openIndex === i ? "open" : "closed"}
-                  variants={faqAnswerVariant}
-                  className="overflow-hidden px-4 pt-0 text-left text-gray-700 bg-gray-200 border-t border-gray-300"
-                >
-                  {item.answer}
-                </motion.div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* Image (hidden on small screens) */}
+          <div className="hidden md:flex justify-center items-center min-h-screen">
+            <img
+              src={FAQ}
+              alt="FAQ Illustration"
+              className="max-h-[80vh] w-auto object-contain rounded-lg"
+            />
           </div>
         </div>
       </motion.section>
@@ -469,64 +562,4 @@ const EmployeeTraining = () => {
   );
 };
 
-
-const faqList = [
-  {
-    question: "What is employee awareness training?",
-    answer:
-      "It's a program that educates employees on cybersecurity risks and best practices to reduce threats caused by human error.",
-  },
-  {
-    question: "What do you get in employee awareness training?",
-    answer:
-      "Training includes modules on phishing, data protection, password hygiene, incident response, and more, tailored to various employee roles.",
-  },
-  {
-    question: "What is the purpose behind security awareness training?",
-    answer:
-      "To build a security-conscious workforce that actively prevents cyber threats and adheres to organizational policies.",
-  },
-  {
-    question: "What is covered under Ten Sentinel employee awareness training program?",
-    answer:
-      "Topics like phishing awareness, secure browsing, email safety, password management, and device security are covered.",
-  },
-  {
-    question: "What are the benefits of employee awareness training?",
-    answer:
-      "It reduces risks, prevents breaches, ensures compliance, builds trust, and strengthens the overall security posture.",
-  },
-  {
-    question:
-      "Why is cyber security awareness training essential for employees in today’s digital age?",
-    answer:
-      "Because modern threats exploit human error; training makes employees the first line of defense.",
-  },
-  {
-    question:
-      "How can cyber security awareness training benefit my organization and its employees?",
-    answer:
-      "It boosts confidence, reduces incidents, improves response time, and meets regulatory requirements.",
-  },
-  {
-    question:
-      "What are the key topics covered in Ten Sentinel cyber security awareness training for employees?",
-    answer:
-      "Key topics include phishing, malware, social engineering, password security, and safe remote work practices.",
-  },
-  {
-    question:
-      "How does Ten Sentinel’s cyber security awareness training help employees recognize and respond to phishing attacks?",
-    answer:
-      "Through simulations, real-world scenarios, and practical guidance on identifying and reporting phishing.",
-  },
-  {
-    question:
-      "What strategies does Ten Sentinel employ to engage employees during cyber security awareness training?",
-    answer:
-      "Interactive modules, quizzes, gamified learning, and progress tracking tools keep employees engaged.",
-  },
-];
-
 export default EmployeeTraining;
-

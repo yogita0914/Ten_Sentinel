@@ -4,8 +4,8 @@ import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
 import image from "../../assets/Cyber attack analysis images/ET41.webp"; // Adjust the path as necessary
 import GetInTouch from "../../components/CyberAttackAnalysis/GetInTouch";
 import CS1 from "../../assets/Cyber attack analysis images/CS1.jpg"; // Background image
-import CS13 from "../../assets/Cyber attack analysis images/CS13.png";
 import HeroSection from "../cloud-security/HeroSection";
+import FAQ from "../../assets/FAQ.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -205,21 +205,20 @@ const CyberAttackAnalysisPage = () => {
 
       {/* FAQ Section */}
       <motion.section
-        className="bg-gray-100 py-12 px-4 w-full"
+        className="bg-gray-100 py-2  w-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           <motion.h2
             className="text-2xl font-bold mb-8 text-center text-gray-900"
             variants={fadeInUp}
             transition={{ duration: 1.0, ease: "easeOut" }}
-          >
-            Frequently Asked Questions
-          </motion.h2>
-          <AnimatedFAQSection />
+          ></motion.h2>
+          {/* <AnimatedFAQSection /> */}
+          <FaqAccordion_marketing />
         </div>
       </motion.section>
     </div>
@@ -440,7 +439,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
   );
 };
 
-const faqData = [
+const initialFaqs = [
   {
     question: "What is a cyber attack?",
     answer:
@@ -489,25 +488,88 @@ const faqData = [
   },
 ];
 
-const AnimatedFAQSection = () => {
+const FaqAccordion_marketing = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggle = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  const answerVariants = {
+    collapsed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+    expanded: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  // Optional: fade/slide variant for entire FAQ container
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
-    <div className="flex flex-col">
-      {faqData.map(({ question, answer }, i) => (
-        <FAQItem
-          key={i}
-          question={question}
-          answer={answer}
-          isOpen={openIndex === i}
-          onToggle={() => handleToggle(i)}
-        />
-      ))}
-    </div>
+    <motion.section
+      className="bg-white py-8 px-4 sm:px-8 "
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={sectionVariants}
+    >
+      <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
+        Frequently Asked Questions (FAQs)
+      </h2>
+
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        {/* Accordion */}
+        <div className="space-y-4">
+          {initialFaqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
+              >
+                <button
+                  onClick={() => toggle(index)}
+                  className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                >
+                  {faq.question}
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown className="w-5 h-5" />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial="collapsed"
+                      animate="expanded"
+                      exit="collapsed"
+                      variants={answerVariants}
+                      className="px-6 overflow-hidden"
+                    >
+                      <p className="text-gray-600 text-sm">{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Image (hidden on small screens) */}
+        <div className="hidden md:flex justify-center items-center min-h-screen">
+          <img
+            src={FAQ}
+            alt="FAQ Illustration"
+            className="max-h-[80vh] w-auto object-contain rounded-lg"
+          />
+        </div>
+      </div>
+    </motion.section>
   );
 };
 

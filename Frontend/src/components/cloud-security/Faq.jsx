@@ -3,38 +3,7 @@ import { ChevronDown } from "lucide-react";
 import Faq from "../../assets/cloud-security/faq.avif";
 import React from "react";
 
-const faqs = [
-  {
-    question: "What is Cloud Security?",
-    answer:
-      "Cloud Security involves protecting cloud-based infrastructure, applications, and data using a combination of policies, controls, and technologies. TEN Sentinel ensures that cloud environments are safe from data breaches, intrusions, and misconfigurations."
-  },
-  {
-    question: "Which cloud platforms does TEN Sentinel support?",
-    answer:
-      "TEN Sentinel supports AWS, Microsoft Azure, and Google Cloud Platform (GCP), offering tailored security solutions for each to address platform-specific threats and configurations."
-  },
-  {
-    question: "How does TEN Sentinel help startups secure their cloud?",
-    answer:
-      "We design practical, scalable security strategies based on the startup’s architecture and growth stage — including secure IAM practices, encryption, real-time monitoring, and automated compliance."
-  },
-  {
-    question: "What makes TEN Sentinel different from generic cloud security tools?",
-    answer:
-      "Unlike one-size-fits-all tools, TEN Sentinel provides entrepreneur-focused solutions with expert guidance, deep cloud platform knowledge, and personalized risk assessments designed for dynamic business environments."
-  },
-  {
-    question: "Does TEN Sentinel offer compliance support?",
-    answer:
-      "Yes, we help businesses align with regulations like ISO 27001, GDPR, and HIPAA through policy design, risk management, and technical controls — especially for industries like fintech, healthtech, and SaaS."
-  },
-  {
-    question: "Can I request a free cloud security assessment?",
-    answer:
-      "Absolutely. TEN Sentinel offers a no-risk cloud security assessment. If vulnerabilities are found, we deliver a detailed report. If none are detected, you gain peace of mind — at no cost."
-  }
-];
+
 
 export default function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState(null);

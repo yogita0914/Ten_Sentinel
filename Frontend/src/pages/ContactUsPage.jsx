@@ -168,6 +168,7 @@ const Contact = () => {
               </div>
 
               {/* Submit Button */}
+
               <motion.button
                 type="submit"
                 disabled={!email || !name || !message}
@@ -178,15 +179,21 @@ const Contact = () => {
                       ? "0 10px 25px -5px rgba(34, 211, 238, 0.3)"
                       : "none",
                 }}
-                whileTap={{ scale: email && name && message ? 0.95 : 1 }}
-                className={`w-40 mx-auto block px-6 py-3 rounded-full font-semibold  items-center justify-center gap-2 transition-all ${
-                  email && name && message
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
-                    : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                }`}
+                whileTap={{
+                  scale: email && name && message ? 0.95 : 1,
+                }}
+                className={`w-44 mx-auto block px-6 py-3 rounded-full font-semibold transition-all
+                    ${
+                      email && name && message
+                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+                        : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    }`}
                 style={{ whiteSpace: "nowrap" }}
               >
-                Send Message <PaperAirplaneIcon className="h-5 w-5" />
+                <div className="flex items-center justify-center gap-2">
+                  Send Message
+                  <PaperAirplaneIcon className="h-5 w-5" />
+                </div>
               </motion.button>
 
               {submitted && (
