@@ -36,7 +36,7 @@ const GetInTouchForm = () => {
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
               />
               <input
-                type="tel"
+                type="number"
                 placeholder="Phone Number"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
               />
@@ -76,7 +76,7 @@ const GetInTouchForm = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                className="bg-blue-600 text-white text-sm px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition cursor-pointer"
               >
                 SUBMIT FORM
               </button>

@@ -4,12 +4,11 @@ import Introduction from "../components/cloud-security/Introduction";
 import WhatCloudSecurity from "../components/cloud-security/WhatCloudSecurity";
 import KeyFocus from "../components/cloud-security/KeyFocus";
 import CloudServices from "../components/cloud-security/CloudServices";
-import CallToAction from "../components/cloud-security/CallToAction";
 import Benefits from "../components/cloud-security/Benefits";
 import { hero as cloudHero } from "../components/data/cloudSecurity";
-import Faq from "../components/cloud-security/Faq";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
+import { motion, AnimatePresence} from "framer-motion";
+import GetInTouch_Section from "../components/Marketing/GetInTouch_Section";
+import { ChevronDown } from "lucide-react";
 import FAQ from "../assets/FAQ.png";
 
 const CloudSecurity = () => {
@@ -74,7 +73,7 @@ const CloudSecurity = () => {
       <WhatCloudSecurity />
       <KeyFocus />
       <CloudServices />
-      <CallToAction />
+      <GetInTouch_Section />
       <Benefits />
 
       {/* FAQ Section */}

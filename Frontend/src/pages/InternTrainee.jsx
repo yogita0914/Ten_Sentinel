@@ -1,11 +1,10 @@
 import React from "react";
 import ReviewSection from "../components/InternTrainee/ReviewSection";
 import ProgramCurriculum from "../components/InternTrainee/ProgramCurriculum";
-import VedioFile from "../components/InternTrainee/VedioFile";
+import VideoFile from "../components/InternTrainee/VideoFile";
 import FAQSection from "../components/InternTrainee/FAQSection";
 import Home from "../components/InternTrainee/Home";
 import EmailSection from "../components/InternTrainee/EmailSection";
-import MultiStepForm from "../components/InternTrainee/MultiStepForm";
 import FormSection from "../components/InternTrainee/FormSection";
 import { questionsData } from "../components/InternTrainee/FaqQuestion";
 
@@ -16,7 +15,7 @@ const InternTrainee = () => {
       <Home />
       <ReviewSection />
       <ProgramCurriculum />
-      <VedioFile />
+      <VideoFile />
       <FAQSection data={questionsData} />
       <EmailSection />
     </div>

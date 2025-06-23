@@ -1,18 +1,14 @@
 import React from "react";
-import { SectionTitle } from "../components/VAPT_Components/SectionTitle";
 import { VAPTAbout } from "../components/VAPT_Components/VAPTAbout";
-import { VAPTReviews } from "../components/VAPT_Components/VAPTReviews";
 import { VAPTPlatforms } from "../components/VAPT_Components/VAPTPlatforms";
 import { VAPTMethodology } from "../components/VAPT_Components/VAPTMethodology";
 import { VAPTBenefits } from "../components/VAPT_Components/VAPTBenefits";
 import { VAPTContactForm } from "../components/VAPT_Components/VAPTContactForm";
-import { VAPTFAQs } from "../components/VAPT_Components/VAPTFAQs";
+import VAPTFAQs from "../components/VAPT_Components/VAPTFAQs";
 import Testimonials from "../components/LandingPage/Testimonials";
 import HeroSection from "../components/cloud-security/HeroSection";
-// import hero from '../../assets/Vapt/hero.avif';
 import hero from "../assets/Vapt/hero.avif";
-
-import { ShieldCheck } from "lucide-react";
+import { ShieldAlert  } from "lucide-react";
 
 export const VAPT = () => {
   return (
@@ -21,7 +17,7 @@ export const VAPT = () => {
         subtitle="Identity, Analyze and Secure-Stay ahead of cyber threats"
         title="Vulnerability Assessment and Penetration Testing"
         backgroundImage={hero}
-        Icon={ShieldCheck}
+        Icon={ShieldAlert }
       />
       <div className="px-6 flex flex-col gap-12 md:px-12 lg:px-20">
         <VAPTAbout />

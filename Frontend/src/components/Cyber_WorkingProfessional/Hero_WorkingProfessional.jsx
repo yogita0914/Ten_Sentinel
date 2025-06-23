@@ -22,13 +22,13 @@ const Hero_WorkingProfessional = ({ scrollToForm }) => {
 
             <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
               <button
-                className="bg-white text-blue-800 hover:bg-blue-100 font-bold py-3 px-6 rounded-md transition duration-200"
+                className="bg-white text-blue-800 hover:bg-blue-100 font-bold py-3 px-6 rounded-md transition duration-200 cursor-pointer"
                 onClick={() => setIsModalOpen(true)}
               >
                 Download Brochure
               </button>
               <button
-                className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-6 rounded-md transition duration-200"
+                className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-6 rounded-md transition duration-200 cursor-pointer"
                 onClick={scrollToForm}
               >
                 ENROLL NOW
@@ -49,7 +49,7 @@ const Hero_WorkingProfessional = ({ scrollToForm }) => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/10">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/10 p-4">
           <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-4 relative flex flex-col md:flex-row top-0 lg:top-10">
             {/* Close button */}
             <button

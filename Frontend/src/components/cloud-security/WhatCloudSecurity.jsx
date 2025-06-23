@@ -53,7 +53,7 @@ const WhatCloudSecurity = () => {
         <div className="mb-4">
           <button
             onClick={toggleReadMore}
-            className="text-blue-600 font-medium focus:outline-none"
+            className="text-blue-400 hover:text-blue-600 focus:outline-none cursor-pointer"
           >
             {showFullText ? "Read Less" : "Read More.."}
           </button>

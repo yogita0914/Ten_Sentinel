@@ -1,25 +1,25 @@
 import React from "react";
 import { CheckCircle } from "lucide-react";
-import ISO_logo_copie_1 from "../../assets/security_audits/ISO_logo_copie_1.png";
-import pcidss_2 from "../../assets/security_audits/pcidss_2.png";
-import Hippa_3 from "../../assets/security_audits/Hippa_3.png";
-import nist_4 from "../../assets/security_audits/nist_4.png";
-import gdpr_5 from "../../assets/security_audits/gdpr_5.png";
-import ACSC from "../../assets/security_audits/ACSC.png";
+import ISO_logo_copy_1 from "../../assets/security_audits/ISO_logo_copie_1.png";
+import Pica_2 from "../../assets/security_audits/pcidss_2.png";
+import Hip_3 from "../../assets/security_audits/Hippa_3.png";
+import Nist_4 from "../../assets/security_audits/nist_4.png";
+import Gdpr_5 from "../../assets/security_audits/gdpr_5.png";
+import Acs from "../../assets/security_audits/ACSC.png";
 import ISM_7 from "../../assets/security_audits/ISM_7.png";
-import pspf_8 from "../../assets/security_audits/pspf_8.png";
+import Psp_8 from "../../assets/security_audits/pspf_8.png";
 import RBI_framework_9 from "../../assets/security_audits/RBI_framework_9.png";
 import SOC_10 from "../../assets/security_audits/SOC_10.png";
 
 const services = [
-  { label: "ISO 27001:2013", img: ISO_logo_copie_1 },
-  { label: "PCI DSS", img: pcidss_2 },
-  { label: "HIPAA", img: Hippa_3 },
-  { label: "NIST", img: nist_4 },
-  { label: "GDPR", img: gdpr_5 },
-  { label: "Australian Cyber Security Centre (ACSC)", img: ACSC },
+  { label: "ISO 27001:2013", img: ISO_logo_copy_1 },
+  { label: "PCI DSS", img: Pica_2 },
+  { label: "HIPAA", img: Hip_3 },
+  { label: "NIST", img: Nist_4 },
+  { label: "GDPR", img: Gdpr_5 },
+  { label: "Australian Cyber Security Centre (ACSC)", img: Acs },
   { label: "Information Security Manual (ISM)", img: ISM_7 },
-  { label: "Protective Security Policy Framework (PSPF)", img: pspf_8 },
+  { label: "Protective Security Policy Framework (PSPF)", img: Psp_8 },
   { label: "RBI Framework", img: RBI_framework_9 },
   { label: "SOC", img: SOC_10 },
 ];

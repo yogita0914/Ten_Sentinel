@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import HeroSection from "../components/cloud-security/HeroSection";
-import { ShieldCheck } from "lucide-react";
+import { FileLock } from "lucide-react";
 
 import first from "../assets/privacy_images/privacy1.png";
 import second from "../assets/privacy_images/privacy2.png";
@@ -147,14 +147,12 @@ export const PrivacyPage = () => {
         subtitle="Your trust is our priority. Learn how we protect your information."
         title="Privacy Policy"
         backgroundImage={hero}
-        Icon={ShieldCheck}
+        Icon={FileLock}
         showButton={false}
       />
 
       {/* The rest of your page content */}
-      <ul className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-4 md:px-8 -mt-20 md:-mt-16 z-10 relative pb-16">
-        {/* Added -mt (negative margin top) to pull the content up over the wave SVG from HeroSection */}
-        {/* Added z-10, relative, and pb-16 for better layout and spacing */}
+      <ul className="w-full max-w-7xl mx-auto flex flex-col gap-8 px-4 md:px-8 z-10 relative">
         {privacyElements.map((element, index) => {
           const ref = sectionRefs.current[index];
           const isInView = inViewStates[index];

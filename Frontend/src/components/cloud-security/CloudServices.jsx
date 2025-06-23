@@ -52,10 +52,10 @@ const CloudServices = () => {
         >
           {cloudServices.map(
             (
-              service // Removed index as key, using service.slu00g or service.name
+              service 
             ) => (
               <motion.div
-                key={service.slug || service.name} // Use slug for key, fallback to name if slug isn't there yet
+                key={service.slug || service.name} 
                 variants={itemVariants}
                 whileHover={{
                   y: -10,
@@ -74,7 +74,7 @@ const CloudServices = () => {
                 <p className="text-gray-600 flex-grow">{service.description}</p>
                 <div className="mt-6 pt-4 border-t border-gray-100">
                   <Link
-                    to={`/cloud-security/${service.slug}`}
+                    to={service.url}
                     className="text-blue-600 font-medium flex items-center group-hover:text-blue-700 transition-colors duration-300"
                   >
                     Learn more

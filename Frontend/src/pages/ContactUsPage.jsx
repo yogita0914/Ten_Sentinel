@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import ContactBanner from "../assets/ContactUSPage/ContactBanner.avif";
 import Support from "../assets/ContactUSPage/Support.jpg";
-import { Mail, ShieldCheck } from "lucide-react";
+import { Mail } from "lucide-react";
 import HeroSection from "../components/cloud-security/HeroSection";
 
 const Contact = () => {
@@ -41,7 +41,7 @@ const Contact = () => {
         subtitle="Reach out to us for any queries or support"
         title="Contact Us"
         backgroundImage={ContactBanner}
-        Icon={ShieldCheck}
+        Icon={Mail}
       />
 
       {/* Contact Section */}

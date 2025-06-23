@@ -13,7 +13,7 @@ const NavbarForm = ({onClose}) => {
     }
 
   return (
-    <div ref={modalRef} onClick={closeModal} className="fixed inset-0 bg-gray-50/3 bg-opacity-30 backdrop-blur-md flex flex-col items-center">
+    <div ref={modalRef} onClick={closeModal} className="fixed inset-0 z-[100] bg-gray-50/30 backdrop-blur-md flex flex-col items-center">
       <div className=" bg-gray-50 w-100 h-80 m-5 mt-30 p-2 rounded-2xl flex flex-col items-center">
         <button 
         onClick = {onClose} 

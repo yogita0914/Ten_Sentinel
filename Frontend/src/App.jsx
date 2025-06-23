@@ -18,7 +18,6 @@ import IsoPage from "./components/IsoPage/IsoPage";
 import { VAPT } from "./pages/VAPT";
 import ContactUsPage from "./pages/ContactUsPage";
 import Development from "./pages/DevelopmentPage";
-import training from "./components/EmployeeTraining/EmployeeTraining";
 import EmployeeTraining from "./components/EmployeeTraining/EmployeeTraining";
 import InternTrainee from "./pages/InternTrainee";
 import Cyber_WorkingProfessional from "./pages/Cyber_WorkingProfessional";
@@ -61,10 +60,7 @@ const App = () => {
             <Route path="/development" element={<Development />} />
             <Route path="/training" element={<EmployeeTraining />} />
             <Route path="/intern-trainee" element={<InternTrainee />} />
-            <Route
-              path="/cloud-security/AzureGuardian"
-              element={<AzureGuardian />}
-            />
+            <Route path="/azure-guardian" element={<AzureGuardian />} />
             <Route path="/gcp" element={<GCP />} />
             <Route
               path="/CyberAttackAnalysisPage"
@@ -76,7 +72,7 @@ const App = () => {
               element={<PishingSimulation />}
             />
             <Route
-              path="/Training-Certifications"
+              path="/training-certifications"
               element={<Training_and_Certifications />}
             />
             <Route path="/aws-sentinel" element={<AWSSentinel />} />

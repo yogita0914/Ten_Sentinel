@@ -20,7 +20,7 @@ const ConsultationForm = ({
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
-      className="relative w-[90vw] max-w-xl bg-white rounded-2xl shadow-2xl"
+      className="relative w-[90vw] max-w-xl bg-white rounded-2xl shadow-2xl mt-15"
     >
       {/* Close Button */}
       <button

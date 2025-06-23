@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const Accordion = ({ title, content, index, activeIndex, setActiveIndex }) => {
+const Module = ({ title, content, index, activeIndex, setActiveIndex }) => {
   const isOpen = activeIndex === index;
 
-  const toggleAccordion = () => {
+  const toggleModule = () => {
     setActiveIndex(isOpen ? null : index);
   };
 
   return (
     <div>
       <button
-        onClick={toggleAccordion}
+        onClick={toggleModule}
         className={`w-full flex items-center justify-between py-4 px-4 sm:px-6 cursor-pointer
           ${isOpen ? "bg-blue-100" : "bg-blue-50"} 
           hover:bg-white font-semibold text-left transition-colors duration-200`}
@@ -36,10 +36,10 @@ const Accordion = ({ title, content, index, activeIndex, setActiveIndex }) => {
   );
 };
 
-const Accordions = () => {
+const Modules = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const accordionData = [
+  const moduleData = [
     {
       title: "Chapter 1: Basic",
       content: (
@@ -312,7 +312,7 @@ const Accordions = () => {
   return (
     <div className="flex justify-center px-4">
       <div className="space-y-4 w-full max-w-5xl">
-        {accordionData.map((item, index) => (
+        {moduleData.map((item, index) => (
           <motion.div
             key={index}
             className="rounded-lg border border-gray-300 overflow-hidden"
@@ -323,7 +323,7 @@ const Accordions = () => {
             }}
             transition={{ duration: 0.2 }}
           >
-            <Accordion
+            <Module
               title={item.title}
               content={item.content}
               index={index}
@@ -337,4 +337,4 @@ const Accordions = () => {
   );
 };
 
-export default Accordions;
+export default Modules;

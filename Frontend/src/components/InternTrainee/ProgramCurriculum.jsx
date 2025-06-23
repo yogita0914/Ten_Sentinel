@@ -1,19 +1,12 @@
 import React, { useState, useRef } from "react";
-import Accordions from "./Accrodon";
+import Accordions from "./Module";
 import Form from "./Form";
 
 const ProgramCurriculum = () => {
   const [showForm, setShowForm] = useState(false);
-  const formAnchorRef = useRef(null);
 
   const handleShowForm = () => {
     setShowForm(true);
-    setTimeout(() => {
-      formAnchorRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }, 0);
   };
 
   const handleCloseForm = () => {
@@ -21,7 +14,7 @@ const ProgramCurriculum = () => {
   };
 
   return (
-    <div ref={formAnchorRef} className="relative w-full">
+    <div className="relative w-full">
       <div className="text-center px-4 py-10 bg-white">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
           Welcome to Ten Sentinel
@@ -49,17 +42,10 @@ const ProgramCurriculum = () => {
         </button>
 
         {showForm && (
-          <div className="fixed inset-0 z-50 overscroll-x-auto flex items-center justify-center">
-            {/* Blurred Background */}
-            <div className="absolute bg-white/40 backdrop-blur-sm z-10"></div>
-
-            {/* Foreground Form */}
-            <div className="relative z-20 w-full mx-auto">
-              <Form onClose={handleCloseForm} />
-            </div>
+          <div className="absolute inset-0 bg-black/10 z-50 flex items-center justify-center p-4">
+            <Form onClose={handleCloseForm} />
           </div>
         )}
-
         <p className="text-center font-semibold text-gray-700 pt-4 px-4 text-sm sm:text-base">
           *Download the brochure to better understand the course curriculum,
           structure and pricing structure of the training program.

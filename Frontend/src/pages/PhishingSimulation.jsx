@@ -6,12 +6,10 @@ import EmailSection from "../components/InternTrainee/EmailSection";
 import FAQSection from "../components/InternTrainee/FAQSection";
 import { questionsData } from "../components/PhishingSimulation/FaqSection";
 import StepsSection from "../components/PhishingSimulation/StepsSection";
-import ContactSection from "../components/PhishingSimulation/ContactSection";
 import HeroSection from "../components/cloud-security/HeroSection";
-import { ShieldCheck } from "lucide-react";
-// import phishing1 from "../../assets/PhishingSimulation/phishing1.jpg";
+import { AlertCircle  } from "lucide-react";
 import phishing1 from "../assets/PhishingSimulation/phishing1.jpg";
-
+import GetInTouch_Section from "../components/Marketing/GetInTouch_Section";
 const PishingSimulation = () => {
   const contactRef = useRef(null);
 
@@ -24,15 +22,15 @@ const PishingSimulation = () => {
         subtitle="Phishing simulation trains employees to spot fake emails."
         title="Phishing Simulation"
         backgroundImage={phishing1}
-        Icon={ShieldCheck}
+        Icon={AlertCircle }
       />
       <CardSection onContactClick={scrollToContact} />
       <ContentPage />
       <FeaturesSection />
       <StepsSection />
       <EmailSection />
+      <GetInTouch_Section/>
       <FAQSection data={questionsData} />
-      <ContactSection ref={contactRef} />
     </div>
   );
 };

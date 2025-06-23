@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import {Link} from "react-router-dom";
 import icon1 from '../../assets/PhishingSimulation/icon1.png';
 import icon2 from '../../assets/PhishingSimulation/icon2.png';
 import icon3 from '../../assets/PhishingSimulation/icon3.png';
@@ -74,11 +75,13 @@ const CardSection = ({ onContactClick }) => {
             </h2>
             <p className="text-gray-700 mb-4">{card.description}</p>
 
-            <button 
+            <Link to="/">
+              <button 
             onClick={onContactClick}
             className="mt-2 bg-blue-600 text-white cursor-pointer w-40 py-2 rounded hover:bg-blue-700 transition-colors">
               {card.buttonText}
             </button>
+            </Link>
           </motion.div>
         ))}
       </div>

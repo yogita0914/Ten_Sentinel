@@ -122,7 +122,7 @@ const GetInTouch_SecurityAudits = () => {
               </div>
               <div>
                 <input
-                  type="tel"
+                  type="number"
                   name="phone"
                   placeholder="Phone Number"
                   value={formData.phone}
@@ -188,7 +188,7 @@ const GetInTouch_SecurityAudits = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+                className="bg-blue-600 text-sm text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
               >
                 SUBMIT FORM
               </button>

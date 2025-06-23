@@ -5,11 +5,11 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
-import portait1 from '../../assets/LandingPage/portait1.jpg'
-import portait2 from '../../assets/LandingPage/portait2.jpg'
-import portait3 from '../../assets/LandingPage/portait3.jpg'
-import portait4 from '../../assets/LandingPage/portait4.jpg'
-import portait5 from '../../assets/LandingPage/portait5.jpg'
+import Portrait1 from '../../assets/LandingPage/portait1.jpg'
+import Portrait2 from '../../assets/LandingPage/portait2.jpg'
+import Portrait3 from '../../assets/LandingPage/portait3.jpg'
+import Portrait4 from '../../assets/LandingPage/portait4.jpg'
+import Portrait5 from '../../assets/LandingPage/portait5.jpg'
 
 const testimonials = [
   {
@@ -19,7 +19,7 @@ const testimonials = [
     content:
       "CyberSapiens transformed our security posture. After implementing their recommendations, we passed our compliance audit with zero findings for the first time ever.",
     rating: 5,
-    avatar: portait1,
+    avatar: Portrait1,
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const testimonials = [
     content:
       "Their penetration testing uncovered vulnerabilities our team had missed for years. The detailed remediation plan saved us countless hours of work.",
     rating: 5,
-    avatar: portait2,
+    avatar: Portrait2,
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const testimonials = [
     content:
       "The employee training program reduced our phishing click-through rate from 35% to under 2% in just three months. Remarkable results!",
     rating: 4,
-    avatar: portait3,
+    avatar: Portrait3,
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const testimonials = [
     content:
       "Their 24/7 monitoring stopped a ransomware attack before it could spread. The quick response saved us millions in potential damages.",
     rating: 5,
-    avatar: portait4,
+    avatar: Portrait4,
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const testimonials = [
     content:
       "As a small business, we thought enterprise-grade security was out of reach. CyberSapiens made it affordable and manageable for our team.",
     rating: 4,
-    avatar: portait5,
+    avatar: Portrait5,
   },
 ];
 

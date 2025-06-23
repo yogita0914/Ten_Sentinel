@@ -4,12 +4,12 @@ import { HomeSection } from "../components/WebDesign/HomeSection";
 import { ServicesSection } from "../components/WebDesign/ServicesSection";
 import { ImportanceSection } from "../components/WebDesign/ImportanceSection";
 import { DeliverSection } from "../components/WebDesign/DeliverSection";
-import { ContactSection } from "../components/WebDesign/ContactSection";
 import FaqSection from "../components/WebDesign/FaqSection";
 import { initialFaqs } from "../components/WebDesign/WebDesignData";
 import HeroSection from "../components/cloud-security/HeroSection";
-import { ShieldCheck } from "lucide-react";
+import { Layers } from "lucide-react";
 import hero from '../assets/WebDesignPage/hero.jpg';
+import GetInTouch_Section from "../components/Marketing/GetInTouch_Section";
 
 export const WebDesignPage = () => {
   const [faqs, setFaqs] = useState(
@@ -39,7 +39,7 @@ export const WebDesignPage = () => {
         subtitle="Crafting visually stunning and user-friendly digital experiences."
         title="Web Design"
         backgroundImage={hero}
-        Icon={ShieldCheck}
+        Icon={Layers}
       />
 
       <motion.div className="space-y-8">
@@ -85,7 +85,7 @@ export const WebDesignPage = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <ContactSection />
+          <GetInTouch_Section />
         </motion.div>
 
         <motion.div

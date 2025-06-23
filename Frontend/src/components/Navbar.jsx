@@ -247,7 +247,7 @@ function Navbar() {
             px-3 py-3
             text-[13px] font-bold
             rounded-full hover:bg-gray-600 
-            min-w-[90px] bg-[linear-gradient(to_right,#4776E6_0%,#8E54E9_51%,#4776E6_100%)] text-center uppercase transition-[0.5s] bg-[200%_auto] hover:bg-[right_center] hover:text-white hover:no-underline"
+            min-w-[90px] bg-[linear-gradient(to_right,#4776E6_0%,#8E54E9_51%,#4776E6_100%)] text-center uppercase transition-[0.5s] bg-[200%_auto] hover:bg-[right_center] hover:text-white hover:no-underline cursor-pointer"
           >
             Get Started
           </button>

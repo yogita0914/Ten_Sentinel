@@ -89,14 +89,6 @@ const WhyChooseUsCard = ({ icon: Icon, title, description, index }) => {
       <h3 className={`${titleBaseClasses} ${titleConditionalClasses}`}>
         {title}
       </h3>
-      {/*
-        - Removed line-clamp specific styles:
-          - md:[display:-webkit-box]
-          - md:[-webkit-box-orient:vertical]
-          - md:[-webkit-line-clamp:4]
-        - Kept md:overflow-hidden to clip text at md breakpoint.
-        - Kept md:break-words for better word wrapping before clipping.
-      */}
       <p
         className="
         text-gray-700 text-sm leading-relaxed flex-grow

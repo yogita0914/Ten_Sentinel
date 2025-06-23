@@ -28,7 +28,7 @@ const Curriculum = () => {
         <div className="flex flex-col gap-2 w-full lg:w-auto items-center lg:items-end mt-4 lg:mt-0">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="border border-black px-6 py-3 text-sm font-semibold hover:bg-gray-100 transition"
+            className="border border-black px-6 py-3 text-sm font-semibold hover:bg-gray-100 transition cursor-pointer"
           >
             Download Curriculum
           </button>
@@ -41,7 +41,7 @@ const Curriculum = () => {
           <div key={chapter} className="border-b border-gray-300">
             <button
               onClick={() => toggleChapter(chapter)}
-              className="w-full text-left py-4 px-2 font-semibold text-lg text-gray-800 hover:bg-gray-100 flex justify-between items-center"
+              className="w-full text-left py-4 px-2 font-semibold text-lg text-gray-800 hover:bg-gray-100 flex justify-between items-center cursor-pointer"
             >
               Chapter {chapter}
               <span>{openChapter === chapter ? '-' : '+'}</span>
@@ -101,7 +101,7 @@ const Curriculum = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/5">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/5 p-4">
           <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-4 relative flex flex-col md:flex-row">
             {/* Close button */}
             <button

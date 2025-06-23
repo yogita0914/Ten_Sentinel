@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import image1 from "../../assets/AWS-Sentinel/AWS-1.webp";
 import image2 from "../../assets/AWS-Sentinel/AWS-2.jpg";
 import image3 from "../../assets/AWS-Sentinel/AWS-3.svg";
 import image4 from "../../assets/AWS-Sentinel/AWS-4.svg";
@@ -13,14 +12,13 @@ import image8 from "../../assets/AWS-Sentinel/image-8.svg";
 import logo from "../../assets/AWS-Sentinel/azur.png";
 import OrbitalDiagram from "./OrbitalDiagram";
 import OrbitalDiagram2 from "./OrbitalDiagram2";
+import Faq from "./Faq";
 
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
-// Tool Images
 import tool1 from "../../assets/AWS-Sentinel/kube-bench.webp";
 import tool2 from "../../assets/AWS-Sentinel/pacu.webp";
 import tool3 from "../../assets/AWS-Sentinel/pacbot.webp";
@@ -33,6 +31,7 @@ import GetInTouch_Section from "../Marketing/GetInTouch_Section";
 
 const AWSSentinel = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+
   const toolImages = [
     {
       src: tool1,
@@ -111,7 +110,7 @@ const AWSSentinel = () => {
   };
 
   return (
-    <div className="relative text-white">
+    <div className="relative">
       {/* Hero Section */}
       <div
         className="relative min-h-screen pb-10 flex flex-col-reverse md:flex-row items-center px-6 pt-28 bg-cover bg-center"
@@ -420,142 +419,11 @@ const AWSSentinel = () => {
       </div>
 
       {/* Contact Section */}
-      <GetInTouch_Section />
-
-      {/* Frequently Asked Questions Section */}
-      <section className="bg-gray-50 py-16 px-6 md:px-12 lg:px-24">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-gray-600 text-center mb-12">
-            Find answers to the most common questions about AWS Penetration
-            Testing.
-          </p>
-
-          <div className="space-y-4">
-            <details className="bg-white p-6 rounded-2xl shadow-sm group">
-              <summary className="font-semibold text-lg cursor-pointer text-gray-800 group-open:text-blue-600 flex justify-between items-center">
-                What is AWS Penetration Testing?
-                <svg
-                  className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                AWS Penetration Testing is the process of simulating
-                cyberattacks on your AWS infrastructure to identify
-                vulnerabilities and misconfigurations.
-              </p>
-            </details>
-
-            <details className="bg-white p-6 rounded-2xl shadow-sm group">
-              <summary className="font-semibold text-lg cursor-pointer text-gray-800 group-open:text-blue-600 flex justify-between items-center">
-                Is penetration testing allowed on AWS?
-                <svg
-                  className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                Yes, AWS allows penetration testing on certain services without
-                prior approval. However, it's important to follow their
-                [penetration testing
-                policy](https://aws.amazon.com/security/penetration-testing/).
-              </p>
-            </details>
-
-            <details className="bg-white p-6 rounded-2xl shadow-sm group">
-              <summary className="font-semibold text-lg cursor-pointer text-gray-800 group-open:text-blue-600 flex justify-between items-center">
-                Which tools can I use for AWS testing?
-                <svg
-                  className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                Common tools include Prowler, Kube-Bench, Pacu, ScoutSuite, and
-                CloudSploit for auditing and security assessments.
-              </p>
-            </details>
-
-            <details className="bg-white p-6 rounded-2xl shadow-sm group">
-              <summary className="font-semibold text-lg cursor-pointer text-gray-800 group-open:text-blue-600 flex justify-between items-center">
-                Can I automate AWS security testing?
-                <svg
-                  className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                Yes, tools like AWS Inspector, Prowler CI/CD integration, and
-                custom Lambda scripts allow you to automate testing processes.
-              </p>
-            </details>
-
-            <details className="bg-white p-6 rounded-2xl shadow-sm group">
-              <summary className="font-semibold text-lg cursor-pointer text-gray-800 group-open:text-blue-600 flex justify-between items-center">
-                What are the main objectives of AWS Pen Test ?
-                <svg
-                  className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                The primary objectives are to identify vulnerabilities, assess
-                the effectiveness of security controls, and provide actionable
-                recommendations to enhance your AWS environment's security.
-              </p>
-            </details>
-
-            <details className="bg-white p-6 rounded-2xl shadow-sm group">
-              <summary className="font-semibold text-lg cursor-pointer text-gray-800 group-open:text-blue-600 flex justify-between items-center">
-                How can AWS penetration testing enhance cloud security
-                <svg
-                  className="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
-              </summary>
-              <p className="mt-4 text-gray-600">
-                AWS penetration testing helps organizations proactively identify
-                vulnerabilities, apply security patches, and strengthen overall
-                defenses. CyberSapiens provides detailed reports and
-                recommendations to enhance your AWS security posture.
-              </p>
-            </details>
-          </div>
-        </div>
+      <section>
+        <GetInTouch_Section/>
       </section>
+      <Faq/>
+
     </div>
   );
 };

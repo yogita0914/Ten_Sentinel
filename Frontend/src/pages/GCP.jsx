@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { MdOutlineSecurity } from "react-icons/md";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { SectionTitle } from "../components/GCP/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -8,14 +7,24 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../swiper.css";
-import { InputForm } from "../components/GCP/InputForm";
-import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
+import { ChevronDown,Cloud } from "lucide-react";
 import NeedOfSecuring from "../components/GCP/NeedOfSecuring";
-import PentestTypes from "../components/GCP/PentestTypes";
+import PenTestTypes from "../components/GCP/PenTestTypes";
 import hero from "../assets/GCP/hero.avif";
 import image1 from "../assets/GCP/image1.avif";
 import HeroSection from "../components/cloud-security/HeroSection";
 import FAQ from "../assets/FAQ.png";
+import GetInTouch_Section from "../components/Marketing/GetInTouch_Section";
+import CloudImage from "../assets/GCP/cloud.svg";
+import CloudS from "../assets/GCP/cloudsploit.png";
+import Console from "../assets/GCP/console.png";
+import Custodian from "../assets/GCP/custodian.png";
+import Iam from "../assets/GCP/iam.png";
+import Network from "../assets/GCP/network.svg";
+import Security from "../assets/GCP/security.svg";
+import SecurityMonkey from "../assets/GCP/securityMonkey.png";
+import Test from "../assets/GCP/test.svg";
+
 export const GCP = () => {
   const whyChoose = [
     {
@@ -67,45 +76,45 @@ export const GCP = () => {
 
   const tools = [
     {
-      icon: "./GCP/cloudsploit.png",
+      icon: CloudS,
       title: "CloudSploit",
     },
     {
-      icon: "./GCP/securityMonkey.png",
+      icon: SecurityMonkey,
       title: "Security Monkey",
     },
     {
-      icon: "./GCP/iam.png",
+      icon: Iam,
       title: "GCP/ IAM Collector",
     },
     {
-      icon: "./GCP/console.png",
+      icon: Console,
       title: "GCloud console",
     },
     {
-      icon: "./GCP/custodian.png",
+      icon: Custodian,
       title: "Cloud Custodian",
     },
   ];
 
   const provide = [
     {
-      icon: "./GCP/network.svg",
+      icon: Network,
       title: "Network and Web Security",
       text: "We attack your GCP-hosted networks, APIs, and web apps like real adversaries—exposing flaws in firewalls, load balancers, and application logic before attackers exploit them.",
     },
     {
-      icon: "./GCP/cloud.svg",
+      icon: CloudImage,
       title: "Intrusion Security",
       text: "We emulate advanced persistent threats (APTs) to test detection gaps in your GCP environment, validating your SOC's ability to spot and stop lateral movement.",
     },
     {
-      icon: "./GCP/security.svg",
+      icon: Security,
       title: "Identity and Access Security",
       text: "We weaponize misconfigured permissions, overprivileged service accounts, and weak authentication to show how attackers escalate access in your cloud environment.",
     },
     {
-      icon: "./GCP/test.svg",
+      icon: Test,
       title: "Retesting",
       text: "We don't just report vulnerabilities—we verify fixes through targeted attacks, ensuring remediations actually work under pressure.",
     },
@@ -285,17 +294,6 @@ export const GCP = () => {
   const toggle = (index) => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
-
-  const answerVariants = {
-    collapsed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
-    expanded: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
-  };
-
-  // Optional: fade/slide variant for entire FAQ container
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
   return (
     <>
       {/* Hero Section */}
@@ -305,7 +303,7 @@ export const GCP = () => {
                   protection without overspending."
         title="GCP Fortify"
         backgroundImage={hero}
-        Icon={ShieldCheck}
+        Icon={Cloud}
       />
 
       {/* What Is */}
@@ -573,185 +571,65 @@ export const GCP = () => {
         </ul>
       </section>
       <NeedOfSecuring />
-      <PentestTypes />
+      <PenTestTypes />
       {/* Form */}
-      <section
-        id="contact"
-        className="flex flex-col px-4 py-6 gap-4 lg:px-12 lg:flex-row lg:justify-center lg:gap-16"
-      >
-        <img
-          src="./GCP/form.svg"
-          className="hidden lg:block w-1/2 max-w-[600px]"
-        />
-
-        <div className="flex flex-col gap-4">
-          <SectionTitle>Get Your FREE Assessment Report!</SectionTitle>
-
-          <motion.form
-            className="bg-gray-50 shadow-md rounded-md border border-gray-300 flex flex-col justify-center p-4 gap-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={{
-              boxShadow: "0px 0px 20px rgba(59,130,246,0.5)",
-              scale: 1.02,
-            }}
-          >
-            <div className="grid gap-4">
-              <InputForm type={"text"} placeholder={"Name"} />
-              <InputForm type={"text"} placeholder={"Company Email"} />
-              <InputForm type={"text"} placeholder={"Phone Number"} />
-              <InputForm type={"text"} placeholder={"Company Name"} />
-            </div>
-
-            <textarea
-              className="bg-white py-2 px-4 border border-gray-300 rounded-sm"
-              type="text"
-              placeholder="Please outline the queries or issues you need help with!"
-              rows={4}
-            />
-
-            <motion.button
-              className="text-sm bg-linear-to-r from-blue-600 to-indigo-600 text-white py-2 w-1/2 max-w-[300px] rounded-md self-center hover:cursor-pointer hover:from-blue-500 hover:to-indigo-500"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              SUBMIT FORM
-            </motion.button>
-          </motion.form>
-        </div>
+      <section>
+        <GetInTouch_Section/>
       </section>
-
       {/* FAQ's */}
 
-      <motion.section
-        className="bg-white py-8 px-4 sm:px-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={sectionVariants}
-      >
+      <section className="bg-white py-8 px-0 sm:px-12 lg:px-6 m-5 lg:m-10">
         <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
           Frequently Asked Questions (FAQs)
         </h2>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          {/* Accordion */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
+          {/* FAQ Accordion */}
           <div className="space-y-4">
-            {initialFaqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div
-                  key={index}
-                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
+            {initialFaqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
+              >
+                <button
+                  onClick={() => toggle(index)}
+                  className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
                 >
-                  <button
-                    onClick={() => toggle(index)}
-                    className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
-                  >
-                    {faq.question}
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <ChevronDown className="w-5 h-5" />
-                    </motion.div>
-                  </button>
+                  {faq.question}
+                  <ChevronDown
+                    className={`w-5 h-5 min-w-[20px] min-h-[20px] transform transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="content"
-                        initial="collapsed"
-                        animate="expanded"
-                        exit="collapsed"
-                        variants={answerVariants}
-                        className="px-6 overflow-hidden"
-                      >
-                        <p className="text-gray-600 text-sm">{faq.answer}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                <div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                  className={`px-6 overflow-hidden transition-[max-height,padding] duration-500 ease-in-out ${
+                    openIndex === index ? "max-h-96 py-4" : "max-h-0 py-0"
+                  }`}
+                >
+                  <p className="text-gray-600 text-sm">{faq.answer}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
-          {/* Image (visible on medium+ screens only) */}
-          <div className="hidden md:flex justify-center items-start">
+          {/* Image - hidden on small screens */}
+          <div className="hidden md:flex justify-center items-center">
             <img
               src={FAQ}
               alt="FAQ Illustration"
-              className="w-auto max-h-[400px] object-contain rounded-lg"
+              className="w-full h-[350px] object-cover rounded-lg"
             />
           </div>
         </div>
-      </motion.section>
-
-      {/* <motion.section
-        className="bg-white py-8 px-4 sm:px-8 "
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={sectionVariants}
-      >
-        <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
-          Frequently Asked Questions (FAQs)
-        </h2>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          {/* Accordion *
-          <div className="space-y-4">
-            {initialFaqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div
-                  key={index}
-                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
-                >
-                  <button
-                    onClick={() => toggle(index)}
-                    className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
-                  >
-                    {faq.question}
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <ChevronDown className="w-5 h-5" />
-                    </motion.div>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="content"
-                        initial="collapsed"
-                        animate="expanded"
-                        exit="collapsed"
-                        variants={answerVariants}
-                        className="px-6 overflow-hidden"
-                      >
-                        <p className="text-gray-600 text-sm">{faq.answer}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Image (hidden on small screens) 
-          <div className="hidden md:flex justify-center items-center min-h-screen">
-            <img
-              src={FAQ}
-              alt="FAQ Illustration"
-              className="max-h-[50vh] w-auto object-contain rounded-lg"
-            />
-          </div>
-        </div>
-      </motion.section> */}
+      </section>
     </>
   );
 };

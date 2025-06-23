@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
-import HeroSection from '../components/DevelopmentPageComponent/HeroSection';
-import ServicesSection from '../components/DevelopmentPageComponent/ServicesSection';
-import TechnologiesSection from '../components/DevelopmentPageComponent/TechnologiesSection';
-import ProcessSection from '../components/DevelopmentPageComponent/ProcessSection';
-import WhyChooseUsSection from '../components/DevelopmentPageComponent/WhyChooseUsSection';
-import ProjectsSection from '../components/DevelopmentPageComponent/ProjectsSection';
+import React, { useState, useEffect, useRef } from "react";
+import HeroSection from "../components/DevelopmentPageComponent/HeroSection";
+import ServicesSection from "../components/DevelopmentPageComponent/ServicesSection";
+import TechnologiesSection from "../components/DevelopmentPageComponent/TechnologiesSection";
+import ProcessSection from "../components/DevelopmentPageComponent/ProcessSection";
+import WhyChooseUsSection from "../components/DevelopmentPageComponent/WhyChooseUsSection";
+import ProjectsSection from "../components/DevelopmentPageComponent/ProjectsSection";
 import TestimonialSection from "../components/LandingPage/Testimonials";
-import CallToActionSection from '../components/DevelopmentPageComponent/CallToActionSection';
-import ConsultationForm from '../components/LandingPage/ConsultationForm';
+import CallToActionSection from "../components/DevelopmentPageComponent/CallToActionSection";
+import ConsultationForm from "../components/LandingPage/ConsultationForm";
 
 const DevelopmentPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+    const heroRef = useRef(null);
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [helpMessage, setHelpMessage] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [helpMessage, setHelpMessage] = useState("");
 
   const isFormValid = name && email && companyName && helpMessage;
 
@@ -24,19 +25,19 @@ const DevelopmentPage = () => {
     setIsModalOpen(false);
   };
 
+ useEffect(() => {
+    if (isModalOpen && heroRef.current) {
+      heroRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [isModalOpen]);
+
   return (
     <div>
-      <HeroSection openConsultation={() => setIsModalOpen(true)} />
-      <ServicesSection />
-      <TechnologiesSection />
-      <ProcessSection />
-      <WhyChooseUsSection />
-      <ProjectsSection />
-      <TestimonialSection />
-      <CallToActionSection />
-
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]">
+      <HeroSection
+       ref={heroRef}
+        openConsultation={() => setIsModalOpen(true)}
+        isModalOpen={isModalOpen}
+        modalContent={
           <ConsultationForm
             name={name}
             email={email}
@@ -50,8 +51,15 @@ const DevelopmentPage = () => {
             setCompanyName={setCompanyName}
             setHelpMessage={setHelpMessage}
           />
-        </div>
-      )}
+        }
+      />
+      <ServicesSection />
+      <TechnologiesSection />
+      <ProcessSection />
+      <WhyChooseUsSection />
+      <ProjectsSection />
+      <TestimonialSection />
+      <CallToActionSection />
     </div>
   );
 };

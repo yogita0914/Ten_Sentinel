@@ -53,12 +53,12 @@ const features = [
   },
 ];
 
-const Why_TenSentinal = () => {
+const Why_TenSentinel = () => {
   return (
     <section className="bg-gray-50">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
-          Why <span className="text-teal-600">Ten Sentinal?</span>
+          Why <span className="text-teal-600">Ten Sentinel?</span>
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center items-stretch">
@@ -79,4 +79,4 @@ const Why_TenSentinal = () => {
   );
 };
 
-export default Why_TenSentinal;
+export default Why_TenSentinel;

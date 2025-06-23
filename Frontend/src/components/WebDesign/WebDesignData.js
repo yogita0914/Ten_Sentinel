@@ -4,6 +4,12 @@ import phoneIcon from '../../assets/WebDesignPage/importanceIcons/phone.png';
 import boltIcon from '../../assets/WebDesignPage/importanceIcons/bolt.png';
 import trophyIcon from '../../assets/WebDesignPage/importanceIcons/trophy.png';
 import searchIcon from '../../assets/WebDesignPage/importanceIcons/search.png';
+import Analysis from "../../assets/WebDesignPage/analysis.svg";
+import Code from "../../assets/WebDesignPage/code.svg";
+import Pallete from "../../assets/WebDesignPage/pallete.svg";
+import Pencil from "../../assets/WebDesignPage/pencil.svg";
+import Rocket from "../../assets/WebDesignPage/rocket.svg";
+import Sync from "../../assets/WebDesignPage/sync.svg";
 
 export const importanceListItems = [
   {
@@ -40,32 +46,32 @@ export const importanceListItems = [
 
 export const deliverListItems = [
   {
-    icon: "/deliverListItems/analysis.svg",
+    icon: Analysis,
     title: "STEP 1: Discovery & Strategy",
     text: "Understand your brand, goals, and audience to craft a tailored design roadmap.",
   },
   {
-    icon: "/deliverListItems/pencil.svg",
+    icon: Pencil,
     title: "STEP 2: Wireframing & UX Planning",
     text: "Map intuitive user journeys and structure with low-fidelity wireframes.",
   },
   {
-    icon: "/deliverListItems/pallete.svg",
+    icon: Pallete,
     title: "STEP 3: Visual Design & Branding",
     text: "Create stunning, on-brand interfaces that captivate users (mobile-first!).",
   },
   {
-    icon: "/deliverListItems/code.svg",
+    icon: Code,
     title: "STEP 4: Development & Testing",
     text: "Transform designs into fast, responsive code—tested across devices/browsers.",
   },
   {
-    icon: "/deliverListItems/rocket.svg",
+    icon: Rocket,
     title: "STEP 5: Launch & Optimization",
     text: "Deploy with SEO best practices, analytics, and performance tuning.",
   },
   {
-    icon: "/deliverListItems/sync.svg",
+    icon: Sync,
     title: "STEP 6: Post-Launch Support",
     text: "Continuous updates, A/B testing, and scalability enhancements.",
   },

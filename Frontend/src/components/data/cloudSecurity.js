@@ -13,7 +13,7 @@ export const hero = {
 export const intro = {
   title: "Why Cloud Security Matters for Entrepreneurs & Startups",
   image:
-    "https://img.freepik.com/premium-vector/cloud-computing-concept-data-center-cloud-storage-server-shield-isolated-vector-illustration_18660-5013.jpg?ga=GA1.1.1858429720.1745583539&semt=ais_hybrid&w=740",
+    `${IntroImage}`,
   text: `In today’s fast-moving digital ecosystem, startups and early-stage businesses are leveraging cloud platforms like AWS, Azure, and GCP to accelerate development, reduce costs, and reach markets faster than ever. These platforms provide the agility and scalability that innovation demands — but with great flexibility comes great responsibility. As your cloud environment expands, so does your exposure to threats: misconfigurations, unauthorized access, data leaks, and service disruptions can occur in seconds if security is overlooked. For startups, a single breach can damage your brand reputation, disrupt operations, and erode customer trust — often before you’ve had a chance to scale.`,
 };
 
@@ -58,20 +58,21 @@ export const cloudServices = [
     description:
       "TEN Sentinel for AWS provides advanced identity protection, VPC traffic monitoring, S3 encryption, and real-time compliance alerts. It integrates seamlessly with native AWS tools like CloudTrail and GuardDuty, giving you full control and visibility over your infrastructure while minimizing risks from misconfigurations and external threats.",
     icon: "🟧",
-    slug: "aws-sentinel"
+    url: "/aws-sentinel"
   },
   {
     name: "Azure Guardian",
     description:
       "TEN Sentinel for Azure offers complete protection across hybrid cloud deployments, including continuous security assessments, automated remediation, and identity threat detection using Azure AD and Defender. It’s designed to enforce secure DevOps pipelines, govern role-based access, and maintain industry compliance effortlessly.",
     icon: "🔷",
-     slug: "AzureGuardian" 
+     url: "/azure-guardian" 
   },
   {
     name: "GCP Fortify",
     description:
       "With TEN Sentinel for GCP, safeguard your compute engine, storage buckets, and Kubernetes clusters using AI-powered threat detection, firewall policies, and IAM audit logging. This solution emphasizes API security, secure CI/CD workflows, and visibility across services through integration with Google’s Security Command Center.",
     icon: "🟨",
+    url: "/gcp"
   },
 ];
 

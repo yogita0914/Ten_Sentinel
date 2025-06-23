@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VideoImage from "../../assets/InternTrainee/videoImg.jpg";
 
-const VedioFile = () => {
+const VideoFile = () => {
   return (
     <div className="w-full">
       {/* Video Section */}
@@ -33,13 +34,9 @@ const VedioFile = () => {
       <div
         className="relative bg-cover bg-center min-h-[320px] md:min-h-[400px] px-4 sm:px-8 flex flex-col items-center justify-center text-center"
         style={{
-          backgroundImage:
-            "url('https://t4.ftcdn.net/jpg/03/58/10/87/360_F_358108785_rNJtmort9m65M3pft5swd7lnKJcTCB8u.jpg')",
+          backgroundImage: `url(${VideoImage})`,
         }}
       >
-        {/* Overlay */}
-        {/* <div className="absolute inset-0 bg-black bg-opacity-60"></div> */}
-
         <div className="relative z-10 space-y-4 max-w-5xl px-4">
           <h1 className="text-white text-lg lg:text-3xl md:text-2xl  font-semibold">
             This is a Job-Oriented Program wherein you would be either promoted
@@ -55,4 +52,4 @@ const VedioFile = () => {
   );
 };
 
-export default VedioFile;
+export default VideoFile;

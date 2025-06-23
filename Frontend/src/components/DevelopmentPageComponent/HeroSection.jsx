@@ -1,14 +1,20 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import heroBg from "../../assets/Development/development-hero-bg.png";
-import { buttonVariants } from './motion';
+import { buttonVariants } from "./motion";
 
-const HeroSection = ({ openConsultation }) => {
+const HeroSection = React.forwardRef(({ openConsultation, isModalOpen, modalContent }, ref) => {
   return (
     <section
       className="relative w-full min-h-screen pt-24 sm:pt-28 z-30 bg-cover bg-center bg-no-repeat bg-fixed flex items-center justify-center"
       style={{ backgroundImage: `url(${heroBg})` }}
+      ref={ref}
     >
+      {isModalOpen && (
+        <div className="absolute inset-0 bg-black/10 z-50 flex items-center justify-center p-4">
+          {modalContent}
+        </div>
+      )}
       <div className="absolute inset-0 backdrop-blur-xs bg-opacity-50 z-10" />
 
       <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8">
@@ -30,7 +36,8 @@ const HeroSection = ({ openConsultation }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            We build high-performance, scalable applications with cutting-edge technologies and clean code architecture.
+            We build high-performance, scalable applications with cutting-edge
+            technologies and clean code architecture.
           </motion.p>
 
           <motion.div
@@ -39,8 +46,6 @@ const HeroSection = ({ openConsultation }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-           
-
             <motion.button
               onClick={openConsultation}
               className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-full font-semibold text-base sm:text-lg border border-white/30 shadow-lg relative overflow-hidden group w-full sm:w-auto"
@@ -56,11 +61,10 @@ const HeroSection = ({ openConsultation }) => {
               />
             </motion.button>
           </motion.div>
-
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default HeroSection;

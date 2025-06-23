@@ -7,9 +7,9 @@ const GetInTouchForm = () => {
       <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Left illustration */}
         <div className="w-full lg:w-1/2 flex justify-center">
-          <img 
-            src={GetInTouch} 
-            alt="FAQ Illustration" 
+          <img
+            src={GetInTouch}
+            alt="FAQ Illustration"
             className="hidden min-[769px]:block w-full h-[450px] object-cover rounded-lg"
           />
         </div>
@@ -18,7 +18,9 @@ const GetInTouchForm = () => {
         <div className="w-full lg:w-1/2 bg-white shadow-xl rounded-xl p-8">
           <h2 className="text-3xl font-semibold text-center mb-6">
             Get In Touch <br />
-            <span className="text-blue-600 font-bold">By filling this form ↓</span>
+            <span className="text-blue-600 font-bold">
+              By filling this form ↓
+            </span>
           </h2>
 
           {/* Form */}
@@ -35,7 +37,7 @@ const GetInTouchForm = () => {
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
               />
               <input
-                type="tel"
+                type="number"
                 placeholder="Phone Number"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
               />
@@ -72,14 +74,12 @@ const GetInTouchForm = () => {
             ></textarea>
 
             {/* Submit button */}
-         <button
-  type="submit"
-  className="w-28 mx-auto block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition text-sm"
->
-  SUBMIT FORM
-</button>
-
-
+            <button
+              type="submit"
+              className="w-30 mx-auto block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition text-sm cursor-pointer"
+            >
+              SUBMIT FORM
+            </button>
           </form>
         </div>
       </div>

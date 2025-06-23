@@ -1,11 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
-import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import GetInTouchImage from "../../assets/GetInTouch.png";
+import React, { useState } from "react";
+import { ChevronDown, GraduationCap  } from "lucide-react";
+import { motion } from "framer-motion";
 import CS2 from "../../assets/Cyber attack analysis images/CS2.jpg";
 import HeroSection from "../cloud-security/HeroSection";
 import FAQ from "../../assets/FAQ.png";
-console.log(CS2);
+import GetInTouch_Section from "../Marketing/GetInTouch_Section";
+import ET3 from "../../assets/employee training images/ET3.webp";
+import ET7 from "../../assets/employee training images/ET7.png";
+import ET8 from "../../assets/employee training images/ET8.png";
+import ET11 from "../../assets/employee training images/ET11.png";
+import ET13 from "../../assets/employee training images/ET13.png";
+import ET14 from "../../assets/employee training images/ET14.png";
+import ET16 from "../../assets/employee training images/ET16.jpeg";
+import ET21 from "../../assets/employee training images/ET21.jpg";
+import ET26 from "../../assets/employee training images/ET26.jpeg";
+import ET28 from "../../assets/employee training images/ET28.png";
+import ET30 from "../../assets/employee training images/ET30.png";
+import ET32 from "../../assets/employee training images/ET32.png";
 
 const containerTextVariant = {
   hidden: { opacity: 0 },
@@ -48,16 +59,6 @@ const floatingAnimation = {
   },
 };
 
-const faqAnswerVariant = {
-  closed: { opacity: 0, height: 0, y: -10, transition: { duration: 0.3 } },
-  open: {
-    opacity: 1,
-    height: "auto",
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
 const EmployeeTraining = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -65,16 +66,7 @@ const EmployeeTraining = () => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const answerVariants = {
-    collapsed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
-    expanded: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
-  };
 
-  // Optional: fade/slide variant for entire FAQ container
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
   const initialFaqs = [
     {
       question: "What is employee awareness training?",
@@ -133,85 +125,6 @@ const EmployeeTraining = () => {
         "Interactive modules, quizzes, gamified learning, and progress tracking tools keep employees engaged.",
     },
   ];
-  const GetInTouchForm = () => {
-    return (
-      <section className="bg-gray-50 mb-10" id="contact">
-        <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
-          {/* Left illustration */}
-          <div className="w-full lg:w-1/2 flex justify-center">
-            <img
-              src={GetInTouchImage}
-              alt="FAQ Illustration"
-              className="hidden min-[769px]:block w-full h-[450px] object-cover rounded-lg"
-            />
-          </div>
-
-          {/* Right form */}
-          <div className="w-full lg:w-1/2 bg-white shadow-xl rounded-xl p-8">
-            <h2 className="text-3xl font-semibold text-center mb-6">
-              Get In Touch <br />
-              <span className="text-blue-600 font-bold">
-                By filling this form ↓
-              </span>
-            </h2>
-
-            {/* Form */}
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  { type: "text", placeholder: "Name" },
-                  { type: "email", placeholder: "Company Email" },
-                  { type: "tel", placeholder: "Phone Number" },
-                  { type: "text", placeholder: "Company Name" },
-                ].map(({ type, placeholder }) => (
-                  <input
-                    key={placeholder}
-                    type={type}
-                    placeholder={placeholder}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
-                  />
-                ))}
-              </div>
-
-              {/* Call time selection */}
-              <div>
-                <label className="block font-medium text-gray-700 mb-2">
-                  When do we call you? <span className="text-red-500">*</span>
-                </label>
-                <div className="flex gap-3 flex-wrap">
-                  {["9-12 PM", "12-3 PM", "3-6 PM"].map((time) => (
-                    <button
-                      type="button"
-                      key={time}
-                      className="border border-blue-500 text-blue-600 px-4 py-2 rounded-full hover:bg-blue-500 hover:text-white transition"
-                    >
-                      {time}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Message box */}
-              <textarea
-                rows="4"
-                placeholder="Please outline the queries or issues you need help with!"
-                className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
-              />
-
-              {/* Submit button */}
-              <button
-                type="submit"
-                className="w-36 mx-auto block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-              >
-                SUBMIT FORM
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    );
-  };
-
   return (
     <motion.div
       initial="hidden"
@@ -223,7 +136,7 @@ const EmployeeTraining = () => {
         subtitle="Grow. Escalate. Learn"
         title="Employee Awareness & Training"
         backgroundImage={CS2}
-        Icon={ShieldCheck}
+        Icon={GraduationCap }
       />
 
       {/* Text Section with synchronized fade/slide */}
@@ -249,7 +162,7 @@ const EmployeeTraining = () => {
             variants={textLineVariant}
           >
             <img
-              src="./employee training images/ET32.png"
+              src={ET32}
               alt="Training Session"
               className="rounded-lg shadow-lg w-full max-w-3xl object-cover mx-auto"
             />
@@ -262,7 +175,7 @@ const EmployeeTraining = () => {
               variants={textLineVariant}
             >
               <img
-                src="/employee training images/ET32.png"
+                src={ET32}
                 alt="Training Session"
                 className="rounded-lg shadow-lg w-full h-full max-w-3xl object-cover"
               />
@@ -336,9 +249,9 @@ const EmployeeTraining = () => {
                   <img
                     src={
                       [
-                        "/employee training images/ET30.png",
-                        "/employee training images/ET3.webp",
-                        "/employee training images/ET28.png",
+                        ET30,
+                        ET3,
+                        ET28,
                       ][index]
                     }
                     alt={
@@ -413,7 +326,7 @@ const EmployeeTraining = () => {
             >
               <div className="overflow-hidden md:rounded-l-xl md:rounded-r-xl bg-gray-100 w-full max-w-2xl">
                 <img
-                  src="/employee training images/ET26.jpeg"
+                  src={ET26}
                   alt="Benefits of Training"
                   className="w-full h-auto object-contain"
                 />
@@ -471,12 +384,12 @@ const EmployeeTraining = () => {
                 <img
                   src={
                     [
-                      "/employee training images/ET7.png",
-                      "/employee training images/ET8.png",
-                      "/employee training images/ET11.png",
-                      "/employee training images/ET13.png",
-                      "/employee training images/ET14.png",
-                      "/employee training images/ET16.jpeg",
+                      ET7,
+                      ET8,
+                      ET11,
+                      ET13,
+                      ET14,
+                      ET16,
                     ][index]
                   }
                   alt={label}
@@ -492,72 +405,60 @@ const EmployeeTraining = () => {
       </motion.section>
 
       {/* Contact form */}
-      <GetInTouchForm />
-
+      <section>
+        <GetInTouch_Section/>
+      </section>
       {/* FAQ Section */}
-      <motion.section
-        className="bg-white py-8 px-4 sm:px-8 "
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={sectionVariants}
-      >
-        <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
-          Frequently Asked Questions (FAQs)
-        </h2>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          {/* Accordion */}
-          <div className="space-y-4">
-            {initialFaqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div
-                  key={index}
-                  className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
-                >
-                  <button
-                    onClick={() => toggle(index)}
-                    className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+      <section className="bg-white py-8 px-0 sm:px-12 lg:px-6 m-5 lg:m-10">
+            <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
+              Frequently Asked Questions (FAQs)
+            </h2>
+      
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
+              {/* FAQ Accordion */}
+              <div className="space-y-4">
+                {initialFaqs.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
                   >
-                    {faq.question}
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
+                    <button
+                      onClick={() => toggle(index)}
+                      className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                      aria-expanded={openIndex === index}
+                      aria-controls={`faq-answer-${index}`}
+                      id={`faq-question-${index}`}
                     >
-                      <ChevronDown className="w-5 h-5" />
-                    </motion.div>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="content"
-                        initial="collapsed"
-                        animate="expanded"
-                        exit="collapsed"
-                        variants={answerVariants}
-                        className="px-6 overflow-hidden"
-                      >
-                        <p className="text-gray-600 text-sm">{faq.answer}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Image (hidden on small screens) */}
-          <div className="hidden md:flex justify-center items-center min-h-screen">
-            <img
-              src={FAQ}
-              alt="FAQ Illustration"
-              className="max-h-[80vh] w-auto object-contain rounded-lg"
-            />
-          </div>
-        </div>
-      </motion.section>
+                      {faq.question}
+                      <ChevronDown
+                        className={`w-5 h-5 min-w-[20px] min-h-[20px] transform transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                          }`}
+                      />
+                    </button>
+      
+                    <div
+                      id={`faq-answer-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${index}`}
+                      className={`px-6 overflow-hidden transition-[max-height,padding] duration-500 ease-in-out ${openIndex === index ? "max-h-96 py-4" : "max-h-0 py-0"
+                        }`}
+                    >
+                      <p className="text-gray-600 text-sm">{faq.answer}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+      
+              {/* Image - hidden on small screens */}
+              <div className="hidden md:flex justify-center items-center">
+                <img
+                  src={FAQ}
+                  alt="FAQ Illustration"
+                  className="w-full h-[350px] object-cover rounded-lg"
+                />
+              </div>
+            </div>
+          </section>
     </motion.div>
   );
 };

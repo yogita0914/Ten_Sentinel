@@ -76,7 +76,7 @@ export const VAPTContactForm = () => {
                 <div className="flex justify-center">
                   <button
                     type="submit"
-                    className="w-62 text-sm md:text-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-300"
+                    className="w-35 text-sm md:text-sm bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3 px-6 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-indigo-800 transition-all duration-300"
                   >
                     Submit Form
                   </button>

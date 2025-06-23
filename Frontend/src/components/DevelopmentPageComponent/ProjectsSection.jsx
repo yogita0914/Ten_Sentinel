@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import SectionHeader from './SectionHeader';
 import { staggerContainer } from './motion';
+import Project1 from "../../assets/Development/project1.avif";
+import Project2 from "../../assets/Development/project2.avif";
 
-const project1 = 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80';
-const project2 = 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80';
+const project1 = Project1
+const project2 = Project2
 
 const ProjectsSection = () => (
   <section className="py-16 md:py-24 bg-gray-50">

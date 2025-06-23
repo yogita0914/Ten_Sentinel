@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ChevronRight, ChevronDown, ShieldCheck } from "lucide-react";
+import { ChevronRight, ChevronDown, Activity  } from "lucide-react";
 import image from "../../assets/Cyber attack analysis images/ET41.webp"; // Adjust the path as necessary
 import GetInTouch from "../../components/CyberAttackAnalysis/GetInTouch";
 import CS1 from "../../assets/Cyber attack analysis images/CS1.jpg"; // Background image
@@ -50,7 +50,7 @@ const CyberAttackAnalysisPage = () => {
         subtitle="Protect whatever's yours!"
         title="Cyber Attack Analysis"
         backgroundImage={CS1}
-        Icon={ShieldCheck}
+        Icon={Activity }
       />
 
       {/* Introduction Section */}
@@ -507,69 +507,57 @@ const FaqAccordion_marketing = () => {
   };
 
   return (
-    <motion.section
-      className="bg-white py-8 px-4 sm:px-8 "
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={sectionVariants}
-    >
+    <section className="bg-white py-8 px-0 sm:px-12 lg:px-6 m-5 lg:m-10">
       <h2 className="text-xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
         Frequently Asked Questions (FAQs)
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* Accordion */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start m-10">
+        {/* FAQ Accordion */}
         <div className="space-y-4">
-          {initialFaqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div
-                key={index}
-                className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
+          {initialFaqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md"
+            >
+              <button
+                onClick={() => toggle(index)}
+                className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
               >
-                <button
-                  onClick={() => toggle(index)}
-                  className="flex justify-between items-center w-full px-6 py-4 bg-gray-50 text-gray-800 font-medium text-left focus:outline-none"
-                >
-                  {faq.question}
-                  <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </button>
+                {faq.question}
+                <ChevronDown
+                  className={`w-5 h-5 min-w-[20px] min-h-[20px] transform transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                    }`}
+                />
+              </button>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial="collapsed"
-                      animate="expanded"
-                      exit="collapsed"
-                      variants={answerVariants}
-                      className="px-6 overflow-hidden"
-                    >
-                      <p className="text-gray-600 text-sm">{faq.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div
+                id={`faq-answer-${index}`}
+                role="region"
+                aria-labelledby={`faq-question-${index}`}
+                className={`px-6 overflow-hidden transition-[max-height,padding] duration-500 ease-in-out ${openIndex === index ? "max-h-96 py-4" : "max-h-0 py-0"
+                  }`}
+              >
+                <p className="text-gray-600 text-sm">{faq.answer}</p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* Image (hidden on small screens) */}
-        <div className="hidden md:flex justify-center items-center min-h-screen">
+        {/* Image - hidden on small screens */}
+        <div className="hidden md:flex justify-center items-center">
           <img
             src={FAQ}
             alt="FAQ Illustration"
-            className="max-h-[80vh] w-auto object-contain rounded-lg"
+            className="w-full h-[350px] object-cover rounded-lg"
           />
         </div>
       </div>
-    </motion.section>
+    </section>
+
   );
 };
 

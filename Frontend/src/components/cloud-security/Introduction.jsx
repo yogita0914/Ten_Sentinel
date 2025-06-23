@@ -85,7 +85,7 @@ const Introduction = () => {
           <motion.div variants={itemVariants} className="mb-8">
             <button
               onClick={toggleReadMore}
-              className="text-blue-600 font-medium focus:outline-none"
+              className="text-blue-400 focus:outline-none cursor-pointer hover:text-blue-500"
             >
               {showFullText ? "Read Less" : "Read More.."}
             </button>

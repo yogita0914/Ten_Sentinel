@@ -31,7 +31,7 @@ export const ServicesSection = () => (
     </motion.div>
 
     <motion.div
-      className="flex flex-col gap-8 md:flex-row md:gap-10"
+      className="flex flex-col gap-8 md:flex-row md:gap-15"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -48,7 +48,7 @@ export const ServicesSection = () => (
       >
         <img
           src={ServicesSVG}
-          className="w-full max-w-96 self-center md:w-2/5 lg:max-w-full"
+          className="self-center"
           alt="Web Design Services Illustration"
         />
       </motion.div>

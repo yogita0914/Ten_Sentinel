@@ -6,7 +6,6 @@ import { FiMapPin } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { Linkedin, Mail } from "lucide-react";
 
-
 const footerLinks = [
   {
     title: "SECURITY CONSULTATION",
@@ -19,7 +18,10 @@ const footerLinks = [
     title: "TRAININGS",
     links: [
       { label: "Cyber Security Intern Trainee", url: "/intern-trainee" },
-      { label: "Cyber Security Courses for Working Professionals", url: "/cyber-working-professional" },
+      {
+        label: "Cyber Security Courses for Working Professionals",
+        url: "/cyber-working-professional",
+      },
     ],
   },
   {
@@ -154,18 +156,19 @@ const Footer = () => {
 
             <div className="order-1 sm:order-2 flex justify-center flex-wrap gap-4 text-gray-500">
               {socialLinks.map((social, i) => (
-                <motion.a
+                <motion.div
                   key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-500 transition-colors duration-200"
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
-                  aria-label={social.name}
                 >
-                  <div className="text-xl">{social.icon}</div>
-                </motion.a>
+                  <Link
+                    to={social.href}
+                    className="hover:text-blue-500 transition-colors duration-200"
+                    aria-label={social.name}
+                  >
+                    <div className="text-xl">{social.icon}</div>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>

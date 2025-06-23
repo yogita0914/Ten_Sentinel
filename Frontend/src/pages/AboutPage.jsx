@@ -14,7 +14,7 @@ import clientsServedIconSrc from "../assets/aboutus.page.assets/fingerprint-soli
 import uptimeIconSrc from "../assets/aboutus.page.assets/arrow-up.svg";
 import teamExpertsIconSrc from "../assets/aboutus.page.assets/users-gear-solid.svg";
 import { motion } from "framer-motion";
-import { ShieldCheck, Users } from "lucide-react";
+import { Users } from "lucide-react";
 import HeroSection from "../components/cloud-security/HeroSection";
 
 const ContactPopup = ({ isOpen, onClose }) => {
@@ -250,7 +250,7 @@ const AboutPage = () => {
         subtitle="Your trusted partner in securing data"
         title=" About Us"
         backgroundImage={heroBackgroundImage}
-        Icon={ShieldCheck}
+        Icon={Users}
         showButton={false}
       />
 
@@ -369,7 +369,7 @@ const AboutPage = () => {
             <div className="mt-8 text-center md:block lg:mt-0 lg:text-left">
               <button
                 onClick={openContactPanel}
-                className="bg-blue-600 text-white font-semibold px-8 py-5 rounded-lg inline-block lg:ml-16 transform transition-all duration-200 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-lg"
+                className="bg-blue-600 text-white font-semibold px-8 py-5 rounded-lg inline-block lg:ml-16 transform transition-all duration-200 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-lg cursor-pointer hover:bg-blue-700"
               >
                 Consult Now!
               </button>

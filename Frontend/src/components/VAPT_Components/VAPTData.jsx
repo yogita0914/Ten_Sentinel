@@ -252,38 +252,4 @@ export const vaptContent = {
       text: "Our cybersecurity experts combine advanced tools with manual testing to uncover vulnerabilities often missed by automation. This ensures a deeper, more accurate assessment of your security posture.",
     },
   ],
-
-  faqsData: [
-    {
-      question: "What is VAPT and why does my organization need it?",
-      response:
-        "VAPT stands for Vulnerability Assessment and Penetration Testing. It’s a systematic process used to identify, evaluate, and mitigate security vulnerabilities in your IT infrastructure, applications, and networks. Organizations need VAPT to proactively defend against cyberattacks, comply with industry regulations, and ensure the safety of sensitive data.",
-    },
-    {
-      question: "How often should VAPT be performed?",
-      response:
-        "The frequency of VAPT depends on the nature of your business, compliance requirements, and the rate of infrastructure changes. As a best practice, organizations should conduct VAPT annually or after any significant system updates, infrastructure changes, or application deployments to ensure consistent security.",
-    },
-    {
-      question: "Will VAPT disrupt my business operations?",
-      response:
-        "No, our VAPT process is designed to be non-intrusive. While Penetration Testing involves simulating real-world attacks, we coordinate closely with your team to avoid downtime and minimize impact. Testing can also be scheduled during off-peak hours to ensure business continuity.",
-    },
-    {
-      question:
-        "What is the difference between Vulnerability Assessment and Penetration Testing?",
-      response:
-        "A Vulnerability Assessment identifies and reports known security flaws, while Penetration Testing goes a step further by actively exploiting those flaws to understand the depth of potential damage. Both are essential—one highlights what’s weak, and the other tests how those weaknesses can be used against you.",
-    },
-    {
-      question: "What do I receive after the VAPT is complete?",
-      response:
-        "Upon completion, you'll receive a comprehensive report detailing identified vulnerabilities, categorized by severity (Critical, High, Medium, Low). The report includes technical findings, risk assessments, and tailored remediation guidance. If all issues are resolved, we also provide a Safe-to-Host certificate.",
-    },
-    {
-      question: "Who performs the VAPT audits?",
-      response:
-        "Our VAPT audits are carried out by certified cybersecurity experts with extensive experience in manual and automated testing. Our team uses advanced tools along with deep manual analysis to ensure even the most complex vulnerabilities are discovered and properly addressed.",
-    },
-  ],
 };
