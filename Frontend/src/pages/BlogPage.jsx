@@ -1,7 +1,7 @@
 import React from "react";
 import blogData from "../assets/blogData";
 import BlogCard from "../components/BlogComponents/BlogCard";
-import BlogBackground1 from "../assets/BlogPage_Images/BlogBackground2.jpg";
+import BlogBackground from "../assets/BlogPage_Images/blogBackground2.jpg";
 import { MessageSquare } from "lucide-react";
 import HeroSection from "../components/cloud-security/HeroSection";
 
@@ -11,7 +11,7 @@ const BlogPage = () => {
       <HeroSection
         subtitle="Discover insights, stories and updates from our team!"
         title="Explore Our Latest Blogs"
-        backgroundImage={BlogBackground1}
+        backgroundImage={BlogBackground}
         Icon={MessageSquare}
         showButton={false}
       />

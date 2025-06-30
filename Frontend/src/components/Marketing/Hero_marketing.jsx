@@ -1,6 +1,6 @@
 import React from "react";
 import security_bg from "../../assets/security_bg.jpg"; // Adjust the path as necessary
-import Marketing from "../../assets/marketing.jpg"; // Adjust the path as necessary
+import Marketing from "../../assets/Marketing.jpg"; // Adjust the path as necessary
 import { TrendingUp } from "lucide-react";
 import HeroSection from "../cloud-security/HeroSection";
 
