@@ -6,7 +6,7 @@ import Tools from '../components/azureguardian/Tools';
 import WhatWeProvide from '../components/azureguardian/WhatWeProvide';
 import InteractiveCircleDiagram from '../components/azureguardian/InteractiveCircleDiagram';
 import NeedOfSecuring from '../components/azureguardian/NeedOfSecuring';
-import PenTestTypes from '../components/azureguardian/PenTestTypes';
+import PenTestTypes from '../components/azureguardian/PentestTypes';
 import GetInTouch_Section from "../components/Marketing/GetInTouch_Section";
 import FAQ from '../components/azureguardian/FAQ';
 

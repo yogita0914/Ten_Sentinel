@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "../swiper.css";
 import { ChevronDown,Cloud } from "lucide-react";
 import NeedOfSecuring from "../components/GCP/NeedOfSecuring";
-import PenTestTypes from "../components/GCP/PenTestTypes";
+import PenTestTypes from "../components/GCP/PentestTypes";
 import hero from "../assets/GCP/hero.avif";
 import image1 from "../assets/GCP/image1.avif";
 import HeroSection from "../components/cloud-security/HeroSection";
